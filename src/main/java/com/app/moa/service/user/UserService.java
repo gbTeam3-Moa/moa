@@ -1,5 +1,7 @@
 package com.app.moa.service.user;
 
+import com.app.moa.domain.user.UserVO;
+
 import java.util.Optional;
 
 public interface UserService {
