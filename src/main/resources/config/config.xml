@@ -4,4 +4,9 @@
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+
+    <typeAliases>
+        <typeAlias type="com.app.threetier.domain.user.UserVO" alias="userVO"/>
+        <typeAlias type="com.app.threetier.domain.user.UserDTO" alias="userDTO"/>
+    </typeAliases>
 </configuration>
