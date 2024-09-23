@@ -1,17 +1,20 @@
 package com.app.moa.domain.qapost;
 
+
 import lombok.*;
 import org.springframework.stereotype.Component;
 
-import java.io.Serializable;
-
 @Component
 @Getter
+@Setter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
-@AllArgsConstructor
-public class QaPostVO implements Serializable {
+public class QaPostDTO {
     private Long id;
-    private Long PostId;
+    private Long postId;
+
+    public QaPostVO toVO(){
+        return new QaPostVO(id, postId);
+    }
 }
