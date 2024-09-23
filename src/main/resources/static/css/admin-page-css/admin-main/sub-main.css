@@ -122,6 +122,7 @@
 .Divider_divider.Divider_horizontal.Divider_lightBG {
     background-color: #f2f4f6;
     opacity: 1;
+    width: 1300px;
 }
 .Divider_divider.Divider_horizontal {
     margin: 16px 0;
