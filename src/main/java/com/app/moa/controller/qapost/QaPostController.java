@@ -32,15 +32,15 @@ public class QaPostController {
         qaPostService.write(qaPostDTO.toVO());
     }
 
-        @GetMapping("list")
-        public void getList (Pagination pagination, String order, Model model){
-            if (order == null) {
-                order = "recent";
-            }
-            pagination.setTotal(qaPostService.getTotal());
-            pagination.progress();
-            model.addAttribute("posts", qaPostService.getList(pagination, order));
-        }
+//        @GetMapping("list")
+//        public void getList (Pagination pagination, String order, Model model){
+//            if (order == null) {
+//                order = "recent";
+//            }
+//            pagination.setTotal(qaPostService.getTotal());
+//            pagination.progress();
+//            model.addAttribute("posts", qaPostService.getList(pagination, order));
+//        }
 
 }
 

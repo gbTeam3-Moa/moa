@@ -15,8 +15,5 @@ public class ThesisPostDTO {
     private String researchField;
     private String researchRequirement;
 
-    public ThesisPostVO toVO(){
-
-    }
 
 }
