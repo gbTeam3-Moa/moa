@@ -9,6 +9,7 @@
         <typeAlias type="com.app.moa.domain.post.PostDTO" alias="postDTO"/>
         <typeAlias type="com.app.moa.domain.qapost.QaPostVO" alias="qaPostVO"/>
         <typeAlias type="com.app.moa.domain.qapost.QaPostVO" alias="qaPostDTO"/>
+        <typeAlias type="com.app.moa.domain.user.UserVO" alias="userVO"/>
+        <typeAlias type="com.app.moa.domain.user.UserDTO" alias="userDTO"/>
     </typeAliases>
-
 </configuration>
