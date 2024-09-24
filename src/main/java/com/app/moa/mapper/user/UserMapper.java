@@ -1,5 +1,6 @@
 package com.app.moa.mapper.user;
 
+import com.app.moa.domain.user.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Optional;
