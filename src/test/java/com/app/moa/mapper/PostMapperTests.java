@@ -18,9 +18,9 @@ public class PostMapperTests {
     @Test
     public void testInsert() {
         PostDTO postDTO = new PostDTO();
-        postDTO.setPostTitle("title"); // 제목 설정
-        postDTO.setPostContent("content"); // 내용 설정
-        postDTO.setPostType(1); // 게시글 타입 설정 (예: 1)
+        postDTO.setPostTitle("title2"); // 제목 설정
+        postDTO.setPostContent("content2"); // 내용 설정
+        postDTO.setPostType(3); // 게시글 타입 설정 (예: 1)
         postDTO.setUserId(1L); // 사용자 ID 설정 (예: 1)
         postDTO.setPostView(0); // 조회수 초기화
 

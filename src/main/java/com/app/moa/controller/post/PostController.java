@@ -2,6 +2,7 @@ package com.app.moa.controller.post;
 
 
 import com.app.moa.domain.post.PostDTO;
+import com.app.moa.domain.user.UserVO;
 import com.app.moa.service.post.PostService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
