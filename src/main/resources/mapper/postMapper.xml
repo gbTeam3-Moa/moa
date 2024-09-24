@@ -27,4 +27,24 @@
         ON U.ID = P2.USER_ID AND P2.R >= #{pagination.startRow}
         ]]>
     </select>
+
+    <select id="selectById" resultType="postDTO">
+        SELECT ID, POST_TITLE, POST_CONTENT, POST_TYPE, USER_ID, POST_VIEW, CREATED_DATE, UPDATED_DATE
+        FROM TBL_POST
+        WHERE ID = #{id}
+    </select>
+
+    <update id="updateById">
+        UPDATE TBL_POST
+        SET POST_TITLE = #{postTitle},
+            POST_CONTENT = #{postContent},
+            POST_TYPE = #{postType},
+            UPDATED_DATE = SYSDATE
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM TBL_POST
+        WHERE ID = #{id}
+    </delete>
 </mapper>
