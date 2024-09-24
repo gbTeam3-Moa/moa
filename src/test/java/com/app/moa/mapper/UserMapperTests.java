@@ -30,7 +30,7 @@ public class UserMapperTests {
     @Test
     public void testSelectByUserEmailAndUserPassword(){
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserEmail("washington@gmail.com");
+        userDTO.setUserEmail("smTest1@gmail.com");
         userDTO.setUserPassword("cowboy");
 
         Optional<UserVO> foundUser =
