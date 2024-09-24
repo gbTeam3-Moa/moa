@@ -33,12 +33,19 @@ public class PostController {
 
         postService.write(postDTO.toVO());
     }
-    @GetMapping(value = {"read", "update"})
-    public void goToReadForm(Model model, HttpSession session){
-
+    @GetMapping(value = {"read"})
+    public void goToReadForm(Long id, Model model, HttpSession session){
+        postService.increaseViewCountPost(id);
         PostVO postVO = (PostVO) session.getAttribute("post");
         model.addAttribute("post", postVO);
     }
+
+    @GetMapping(value = { "update"})
+    public void goToUpdateForm(Model model, HttpSession session){
+        PostVO postVO = (PostVO) session.getAttribute("post");
+        model.addAttribute("post", postVO);
+    }
+
     @PostMapping("update")
     public RedirectView update(PostDTO postDTO){
         log.info(postDTO.toString());
@@ -52,4 +59,9 @@ public class PostController {
         return new RedirectView("/post/list");  // 삭제 후 게시글 목록 페이지로 리다이렉트 후 확인할 수 있게
     }
 
+    @GetMapping("delete")
+    public RedirectView delete(Long id){
+        postService.deletePost(id);
+        return new RedirectView("/post/login");
+    }
 }

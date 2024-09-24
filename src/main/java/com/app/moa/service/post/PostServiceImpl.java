@@ -15,7 +15,6 @@ public class PostServiceImpl implements PostService {
     public void write(PostVO postVO) {
         postDAO.save(postVO);
     }
-
     @Override
     public PostDTO findById(Long id) {
         return postDAO.findById(id);
@@ -29,6 +28,10 @@ public class PostServiceImpl implements PostService {
     @Override
     public void deletePost(Long id) {
         postDAO.delete(id);
+    }
+    @Override
+    public void increaseViewCountPost(Long id){
+        postDAO.increaseViewCount(id);
     }
 
 }

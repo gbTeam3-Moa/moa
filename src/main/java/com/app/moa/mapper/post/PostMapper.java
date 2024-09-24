@@ -12,14 +12,17 @@ public interface PostMapper {
     public void insert(PostVO postVO);
 
     // ID로 게시글 조회
-   public PostDTO selectById(Long id);
+    public PostDTO selectById(Long id);
 
     // ID로 게시글 수정
-   public void updateById(PostDTO postDTO);
+    public void updateById(PostDTO postDTO);
 
     // ID로 게시글 삭제
     public void deleteById(Long id);
 
     // 전체 게시글 조회 (기존 메소드)
     public List<PostDTO> selectAll();
+
+    //    조회수 증가
+    public void increaseViewCountById(Long id);
 }

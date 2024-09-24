@@ -34,4 +34,5 @@ public class UserDAO {
 
     //    회원 정보 삭제
     public void delete(Long id) { userMapper.delete(id); }
+
 }
