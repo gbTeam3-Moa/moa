@@ -2,20 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.moa.mapper.projectpost.ProjectPostMapper">
 
-    <!-- 프로젝트 포스트 삽입 -->
     <insert id="insert">
         INSERT INTO TBL_PROJECT_POST(ID, PROJECT_FIELD, PROJECT_REQUIREMENT)
         VALUES (SEQ_PROJECT_POST.NEXTVAL, #{projectField}, #{projectRequirement})
     </insert>
 
-    <!-- ID로 프로젝트 포스트 조회 -->
     <select id="selectById" resultType="projectPostDTO">
         SELECT ID, PROJECT_FIELD, PROJECT_REQUIREMENT
         FROM TBL_PROJECT_POST
         WHERE ID = #{id}
     </select>
 
-    <!-- ID로 프로젝트 포스트 수정 -->
     <update id="updateById">
         UPDATE TBL_PROJECT_POST
         SET PROJECT_FIELD = #{projectField},
@@ -23,7 +20,6 @@
         WHERE ID = #{id}
     </update>
 
-    <!-- ID로 프로젝트 포스트 삭제 -->
     <delete id="deleteById">
         DELETE FROM TBL_PROJECT_POST
         WHERE ID = #{id}

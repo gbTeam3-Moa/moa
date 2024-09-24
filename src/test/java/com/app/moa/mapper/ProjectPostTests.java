@@ -17,11 +17,10 @@ public class ProjectPostTests {
     @Test
     public void testInsert() {
         ProjectPostDTO projectPostDTO = new ProjectPostDTO();
-        projectPostDTO.setProjectField("Software Development");
-        projectPostDTO.setProjectRequirement("Need Java Developer");
+        projectPostDTO.setProjectField("프로젝트 필드");
+        projectPostDTO.setProjectRequirement("springBoot");
 
         projectPostMapper.insert(projectPostDTO.toVO());
-
         log.info("프로젝트 포스트가 삽입됨! " + projectPostDTO);
     }
 
@@ -37,8 +36,8 @@ public class ProjectPostTests {
     public void testUpdate() {
         ProjectPostDTO projectPostDTO = new ProjectPostDTO();
         projectPostDTO.setId(1L);  // 수정할 포스트의 ID
-        projectPostDTO.setProjectField("Updated Field");
-        projectPostDTO.setProjectRequirement("Updated Requirement");
+        projectPostDTO.setProjectField("수정된 필드");
+        projectPostDTO.setProjectRequirement("수정된 요구사항");
 
         projectPostMapper.updateById(projectPostDTO);
 
@@ -48,7 +47,7 @@ public class ProjectPostTests {
 
     @Test
     public void testDeleteById() {
-        Long id = 1L;  // 삭제할 포스트의 ID
+        Long id = 1L;  // 삭제할 포스트의 ID 널기
         projectPostMapper.deleteById(id);
 
         log.info("프로젝트 포스트가 삭제됨! ID: " + id);
