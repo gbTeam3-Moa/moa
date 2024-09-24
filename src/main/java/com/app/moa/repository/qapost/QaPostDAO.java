@@ -1,31 +1,37 @@
 package com.app.moa.repository.qapost;
 
-import com.app.moa.domain.post.Pagination;
+
+import com.app.moa.domain.projectpost.ProjectPostDTO;
+import com.app.moa.domain.projectpost.ProjectPostVO;
 import com.app.moa.domain.qapost.QaPostDTO;
 import com.app.moa.domain.qapost.QaPostVO;
+import com.app.moa.mapper.projectpost.ProjectPostMapper;
 import com.app.moa.mapper.qapost.QaPostMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
 public class QaPostDAO {
     private final QaPostMapper qaPostMapper;
 
-    //    게시글 작성
-    public void save(QaPostVO qaPostVO) {
-        qaPostMapper.insert(qaPostVO);
+    // 프로젝트 포스트 저장
+    public void save(Long id) {
+        qaPostMapper.insert(id);
     }
-    //    게시글 전체 조회
-    public List<QaPostDTO> findAll(Pagination pagination, String order){
 
-        return qaPostMapper.selectAll(pagination, order);
+    // ID로 프로젝트 포스트 조회
+    public QaPostDTO findById(Long id) {
+        return qaPostMapper.selectById(id);
     }
-    //    게시글 전체 개수 조회
-    public int getTotal(){
-        return qaPostMapper.selectTotal();
+
+    // ID로 프로젝트 포스트 수정
+    public void update(QaPostDTO qaPostDTO) {
+        qaPostMapper.updateById(qaPostDTO);
+    }
+
+    // ID로 프로젝트 포스트 삭제
+    public void delete(Long id) {
+        qaPostMapper.deleteById(id);
     }
 }
