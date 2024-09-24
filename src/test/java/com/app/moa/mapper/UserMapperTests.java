@@ -19,10 +19,10 @@ public class UserMapperTests {
     @Test
     public void testInsert(){
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserEmail("sm@gmail.com");
-        userDTO.setUserPassword("12345");
-        userDTO.setUserId("smTest1");
-        userDTO.setUserType(1);
+        userDTO.setUserEmail("hds@gmail.com");
+        userDTO.setUserPassword("123456");
+        userDTO.setUserId("hdsTest1");
+        userDTO.setUserType(0);
 
         userMapper.insert(userDTO.toVO());
     }
