@@ -33,12 +33,19 @@ public class PostController {
 
         postService.write(postDTO.toVO());
     }
-    @GetMapping(value = {"read", "update"})
-    public void goToReadForm(Model model, HttpSession session){
-
+    @GetMapping(value = {"read"})
+    public void goToReadForm(Long id, Model model, HttpSession session){
+        postService.increaseViewCountPost(id);
         PostVO postVO = (PostVO) session.getAttribute("post");
         model.addAttribute("post", postVO);
     }
+
+    @GetMapping(value = { "update"})
+    public void goToUpdateForm(Model model, HttpSession session){
+        PostVO postVO = (PostVO) session.getAttribute("post");
+        model.addAttribute("post", postVO);
+    }
+
     @PostMapping("update")
     public RedirectView update(PostDTO postDTO){
         log.info(postDTO.toString());

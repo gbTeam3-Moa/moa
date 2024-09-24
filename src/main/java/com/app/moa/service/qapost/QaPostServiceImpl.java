@@ -1,35 +1,33 @@
 package com.app.moa.service.qapost;
 
-import com.app.moa.domain.post.Pagination;
 import com.app.moa.domain.qapost.QaPostDTO;
 import com.app.moa.domain.qapost.QaPostVO;
 import com.app.moa.repository.qapost.QaPostDAO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Primary
-@Transactional(rollbackFor = Exception.class)
 public class QaPostServiceImpl implements QaPostService {
+
     private final QaPostDAO qaPostDAO;
 
     @Override
-    public void write(QaPostVO qaPostVO) {
-        qaPostDAO.save(qaPostVO);
+    public void write(QaPostVO qaPostVO) {qaPostDAO.save(qaPostVO.getId());
     }
 
     @Override
-    public List<QaPostDTO> getList(Pagination pagination, String order) {
-        return qaPostDAO.findAll(pagination, order);
+    public QaPostDTO findById(Long id) {
+        return qaPostDAO.findById(id);
     }
 
     @Override
-    public int getTotal() {
-        return qaPostDAO.getTotal();
+    public void updatePost(QaPostDTO projectPostDTO) {
+        qaPostDAO.update(projectPostDTO);
+    }
+
+    @Override
+    public void deletePost(Long id) {
+        qaPostDAO.delete(id);
     }
 }

@@ -3,32 +3,24 @@
 <mapper namespace="com.app.moa.mapper.qapost.QaPostMapper">
     <insert id="insert">
         INSERT INTO TBL_QA_POST(ID)
-        VALUES (SEQ_POST.CURRENTVAL)
+        VALUES (#{id})
     </insert>
 
-    <select id="selectAll" resultType="qaPostDTO">
-        SELECT P2.ID, POST_TITLE, POST_CONTENT, POST_TYPE, USER_ID, POST_VIEW, CREATED_DATE, UPDATED_DATE
-        FROM TBL_POST P JOIN
-        (
-        SELECT ROWNUM R, ID
-        FROM
-        (
+    <select id="selectById" resultType="qaPostDTO">
         SELECT ID
         FROM TBL_QA_POST
-        ORDER BY
-        <choose>
-            <when test="order == 'recent'.toString()">ID</when>
-            <otherwise>POST_VIEW</otherwise>
-        </choose>
-        DESC
-        ) P1
-        <![CDATA[
-            WHERE ROWNUM <= #{pagination.endRow}) P2
-        ON P.ID = P2.POST_ID AND P2.R >= #{pagination.startRow}
-        ]]>
+        WHERE ID = #{id}
     </select>
 
-    <select id="selectTotal">
-        SELECT COUNT(*) FROM TBL_QA_POST
-    </select>
+    <update id="updateById">
+        UPDATE TBL_QA_POST
+        SET PROJECT_FIELD = #{projectField},
+            PROJECT_REQUIREMENT = #{projectRequirement}
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM TBL_QA_POST
+        WHERE ID = #{id}
+    </delete>
 </mapper>

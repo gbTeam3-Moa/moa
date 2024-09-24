@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.moa.mapper.post.PostMapper">
     <insert id="insert">
-        INSERT INTO TBL_POST(ID, POST_TITLE, POST_CONTENT, POST_TYPE, USER_ID, POST_VIEW, CREATED_DATE, UPDATED_DATE)
-        VALUES (SEQ_POST.NEXTVAL, #{postTitle}, #{postContent}, #{postType}, #{userId}, 0, SYSDATE, SYSDATE)
+        INSERT INTO TBL_POST(ID, POST_TITLE, POST_CONTENT, POST_TYPE, USER_ID, POST_VIEW)
+        VALUES (SEQ_POST.NEXTVAL, #{postTitle}, #{postContent},#{postType},#{userId},#{postView})
     </insert>
 
     <select id="selectAll" resultType="postDTO">
