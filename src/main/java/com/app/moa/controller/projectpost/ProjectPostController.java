@@ -22,7 +22,7 @@ public class ProjectPostController {
     private final ProjectPostService projectPostService;
 
     // 조회 기능 - 테이블 형태로 데이터를 출력해야하고 제목 부분에는 TBL_POST의 POST_TITLE, 내용에는 POST_CONTENT
-//    그리고 그 밑에는 TBL_PROJECT_POST의 PROJECT_FIELD와 PROJECT_REQUIREMENT를 가져오려 함
+    // 그리고 그 밑에는 TBL_PROJECT_POST의 PROJECT_FIELD와 PROJECT_REQUIREMENT를 가져오려 함
     @GetMapping("/read/{id}")
     public String getProjectPostById(@PathVariable Long id, Model model) {
         // TBL_POST에서 POST_TITLE, POST_CONTENT 가져오기
