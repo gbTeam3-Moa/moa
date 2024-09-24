@@ -30,26 +30,8 @@ public class UserVO {
     private String updatedDate;
 
     public UserDTO toDTO(){
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(id);
-        userDTO.setUserEmail(userEmail);
-        userDTO.setUserPassword(userPassword);
-        userDTO.setUserType(userType);
-        userDTO.setUserName(userName);
-        userDTO.setUserGender(userGender);
-        userDTO.setUserBirthday(userBirthday);
-        userDTO.setUserArea(userArea);
-        userDTO.setUserDetailedArea(userDetailedArea);
-        userDTO.setUserAddress(userAddress);
-        userDTO.setUserIntroduction(userIntroduction);
-        userDTO.setUserHomepageAddress(userHomepageAddress);
-        userDTO.setUserCellPhone(userCellPhone);
-        userDTO.setUserPhone(userPhone);
-        userDTO.setUserFax(userFax);
-        userDTO.setUserMajor(userMajor);
-        userDTO.setCreatedDate(createdDate);
-        userDTO.setUpdatedDate(updatedDate);
-        return userDTO;
+        return new UserDTO(id, userId, userEmail, userPassword, userType, userName, userGender, userBirthday, userArea,
+                userDetailedArea, userAddress, userIntroduction, userHomepageAddress, userCellPhone, userPhone, userFax, userMajor, createdDate, updatedDate);
     }
 
 }
