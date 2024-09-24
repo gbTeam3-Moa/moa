@@ -1,6 +1,8 @@
 package com.app.moa.mapper.qapost;
 
 import com.app.moa.domain.post.Pagination;
+import com.app.moa.domain.projectpost.ProjectPostDTO;
+import com.app.moa.domain.projectpost.ProjectPostVO;
 import com.app.moa.domain.qapost.QaPostDTO;
 import com.app.moa.domain.qapost.QaPostVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -10,12 +12,15 @@ import java.util.List;
 
 @Mapper
 public interface QaPostMapper {
-    //    게시글 작성
-    public void insert(QaPostVO qaPostVO);
+    // 프로젝트 포스트 삽입
+    void insert(Long id);
 
-    //    게시글 전체 조회
-    public List<QaPostDTO> selectAll(@Param("pagination") Pagination pagination, @Param("order") String order);
+    // ID로 프로젝트 포스트 조회
+    QaPostDTO selectById(Long id);
 
-    //    게시글 전체 개수 조회
-    public int selectTotal();
+    // ID로 프로젝트 포스트 수정
+    void updateById(QaPostDTO qaPostDTO);
+
+    // ID로 프로젝트 포스트 삭제
+    void deleteById(Long id);
 }

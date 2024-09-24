@@ -59,9 +59,4 @@ public class PostController {
         return new RedirectView("/post/list");  // 삭제 후 게시글 목록 페이지로 리다이렉트 후 확인할 수 있게
     }
 
-    @GetMapping("delete")
-    public RedirectView delete(Long id){
-        postService.deletePost(id);
-        return new RedirectView("/post/login");
-    }
 }
