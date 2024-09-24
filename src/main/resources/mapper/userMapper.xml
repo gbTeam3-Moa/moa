@@ -7,7 +7,7 @@
     </insert>
 
     <select id="selectByUserEmailAndUserPassword" resultType="userVO">
-        SELECT ID, USER_EMAIL, USER_NAME FROM TBL_USER
+        SELECT ID, USER_EMAIL, USER_ID FROM TBL_USER
         WHERE USER_EMAIL = #{userEmail} AND USER_PASSWORD = #{userPassword}
     </select>
 

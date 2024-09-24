@@ -2,7 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Moa 회원가입</title>
         <link rel="stylesheet" href="/css/join/join.css" />
     </head>
@@ -147,7 +149,7 @@
                                 <p id="check-message"></p>
                             </div>
                             <div class="box-border flex flex-col gap-4">
-                                <form th:action="@{/member/join}" method="post" th:object="${userDTO}" id="sign_up" class="flex flex-col gap-6">
+                                <form th:action="@{/user/join}" method="post" th:object="${userDTO}" id="sign_up" class="flex flex-col gap-6">
                                     <div
                                         class="box-border relative flex flex-col gap-2"
                                     >
