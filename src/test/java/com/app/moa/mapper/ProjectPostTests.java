@@ -81,7 +81,7 @@ public class ProjectPostTests {
 
     @Test
     public void testDeleteById() {
-        Long id = 1L;  
+        Long id = 1L;
         projectPostMapper.deleteById(id);
         log.info("프로젝트 포스트가 삭제되었습니다. ID: " + id);
     }
