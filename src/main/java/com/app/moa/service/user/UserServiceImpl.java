@@ -1,5 +1,7 @@
 package com.app.moa.service.user;
 
+import com.app.moa.domain.user.UserVO;
+import com.app.moa.repository.user.UserDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -11,7 +13,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Primary
 @Transactional(rollbackFor = Exception.class)
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
 
     @Override

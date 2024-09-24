@@ -4,10 +4,11 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter @ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Getter @Setter
+@ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserVO {
+public class UserDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private String userId;
@@ -29,9 +30,8 @@ public class UserVO {
     private String createdDate;
     private String updatedDate;
 
-    public UserDTO toDTO(){
-        return new UserDTO(id, userId, userEmail, userPassword, userType, userName, userGender, userBirthday, userArea,
+    public UserVO toVO(){
+        return new UserVO(id, userId, userEmail, userPassword, userType, userName, userGender, userBirthday, userArea,
                 userDetailedArea, userAddress, userIntroduction, userHomepageAddress, userCellPhone, userPhone, userFax, userMajor, createdDate, updatedDate);
     }
-
 }
