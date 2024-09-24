@@ -44,5 +44,15 @@ public class PostController {
         postService.updatePost(postDTO.toVO());
         return new RedirectView("/post/read/" + postDTO.getId());
     }
+    @GetMapping("delete")
+    public RedirectView delete(Long id){
+        postService.deletePost(id);
+        return new RedirectView("/post/login");
+    }
+    @GetMapping("increaseViewCount")
+    public RedirectView increaseViewCount(Long id){
+        postService.increaseViewCountPost(id);
+        return new RedirectView("/post/login");
+    }
 
 }

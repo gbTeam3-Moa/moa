@@ -27,4 +27,6 @@ public class PostDAO {
     public void delete(Long id) {
         postMapper.deleteById(id);
     }
+
+    public void increaseViewCount(Long id){postMapper.increaseViewCountById(id);}
 }

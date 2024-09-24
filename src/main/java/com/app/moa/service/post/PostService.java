@@ -8,5 +8,5 @@ public interface PostService {
     public PostDTO findById(Long id);
     public void updatePost(PostVO PostVO);
     public void deletePost(Long id);
-
+    public void increaseViewCountPost(Long id);
 }

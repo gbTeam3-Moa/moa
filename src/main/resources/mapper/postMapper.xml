@@ -47,4 +47,5 @@
         DELETE FROM TBL_POST
         WHERE ID = #{id}
     </delete>
+
 </mapper>
