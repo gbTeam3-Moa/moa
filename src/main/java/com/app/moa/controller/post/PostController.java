@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -43,6 +44,12 @@ public class PostController {
         log.info(postDTO.toString());
         postService.updatePost(postDTO.toVO());
         return new RedirectView("/post/read/" + postDTO.getId());
+    }
+    @PostMapping("delete/{id}")
+    public RedirectView delete(@PathVariable Long id){
+        postService.deletePost(id);
+        log.info("게시글이 삭제되었습니다. ID: " + id);
+        return new RedirectView("/post/list");  // 삭제 후 게시글 목록 페이지로 리다이렉트 후 확인할 수 있게
     }
 
 }

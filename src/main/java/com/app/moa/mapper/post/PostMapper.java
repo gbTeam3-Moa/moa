@@ -11,8 +11,6 @@ public interface PostMapper {
     //    게시글 작성
     public void insert(PostVO postVO);
 
-    public void delete(Long id);
-
     // ID로 게시글 조회
    public PostDTO selectById(Long id);
 
