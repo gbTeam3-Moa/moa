@@ -28,3 +28,9 @@ reportSubmitBtn.onclick = function () {
     alert("게시글 신고가 완료되었습니다.");
     modal.style.display = "none"; // 신고하기 버튼 클릭 후 모달 닫기
 };
+
+// "post-write-button" 버튼에 클릭 이벤트 리스너 추가
+document.getElementById("post-write-button").addEventListener("click", (e) => {
+    // 클릭 시 게시글 작성 페이지로 이동
+    location.href = `/q&a_write.html/write?id=${qaPostDTO.id}`;
+});
