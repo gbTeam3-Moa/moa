@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -32,27 +33,29 @@ public class PostController {
 
         postService.write(postDTO.toVO());
     }
-    @GetMapping(value = {"read", "update"})
-    public void goToReadForm(Model model, HttpSession session){
-
+    @GetMapping(value = {"read"})
+    public void goToReadForm(Long id, Model model, HttpSession session){
+        postService.increaseViewCountPost(id);
         PostVO postVO = (PostVO) session.getAttribute("post");
         model.addAttribute("post", postVO);
     }
+
+    @GetMapping(value = { "update"})
+    public void goToUpdateForm(Model model, HttpSession session){
+        PostVO postVO = (PostVO) session.getAttribute("post");
+        model.addAttribute("post", postVO);
+    }
+
     @PostMapping("update")
     public RedirectView update(PostDTO postDTO){
         log.info(postDTO.toString());
         postService.updatePost(postDTO.toVO());
         return new RedirectView("/post/read/" + postDTO.getId());
     }
+
     @GetMapping("delete")
     public RedirectView delete(Long id){
         postService.deletePost(id);
         return new RedirectView("/post/login");
     }
-    @GetMapping("increaseViewCount")
-    public RedirectView increaseViewCount(Long id){
-        postService.increaseViewCountPost(id);
-        return new RedirectView("/post/login");
-    }
-
 }

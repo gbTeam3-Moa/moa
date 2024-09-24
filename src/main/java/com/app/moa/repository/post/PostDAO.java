@@ -24,9 +24,9 @@ public class PostDAO {
         postMapper.updateById(postDTO);
     }
 
-    public void delete(Long id) {
-        postMapper.deleteById(id);
-    }
+    public void delete(Long id) {postMapper.deleteById(id);}
 
     public void increaseViewCount(Long id){postMapper.increaseViewCountById(id);}
+
+
 }

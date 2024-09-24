@@ -29,9 +29,8 @@ public class PostServiceImpl implements PostService {
     public void deletePost(Long id) {
         postDAO.delete(id);
     }
-
     @Override
-    public void increaseViewCountPost (Long id) {
+    public void increaseViewCountPost(Long id){
         postDAO.increaseViewCount(id);
     }
 

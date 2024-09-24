@@ -23,6 +23,6 @@ public interface PostMapper {
     // 전체 게시글 조회 (기존 메소드)
     public List<PostDTO> selectAll();
 
-    // 조회수 증가
+    //    조회수 증가
     public void increaseViewCountById(Long id);
 }
