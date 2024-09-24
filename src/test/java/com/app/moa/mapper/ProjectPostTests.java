@@ -56,7 +56,7 @@ public class ProjectPostTests {
 
     @Test
     public void testSelectById() {
-        Long id = 1L;  // 조회할 프로젝트 포스트 ID
+        Long id = 1L;
         ProjectPostDTO projectPostDTO = projectPostMapper.selectById(id);
 
         log.info("조회된 프로젝트 포스트: " + projectPostDTO);
@@ -65,7 +65,7 @@ public class ProjectPostTests {
     @Test
     public void testUpdate() {
         ProjectPostDTO projectPostDTO = new ProjectPostDTO();
-        projectPostDTO.setId(1L);  // 수정할 포스트의 ID
+        projectPostDTO.setId(1L);
         projectPostDTO.setStudentMajor("수정된 전공");
         projectPostDTO.setProjectField("수정된 프로젝트 필드");
         projectPostDTO.setProjectProfit("수정된 수익");
@@ -81,7 +81,7 @@ public class ProjectPostTests {
 
     @Test
     public void testDeleteById() {
-        Long id = 1L;  // 삭제할 포스트의 ID
+        Long id = 1L;  
         projectPostMapper.deleteById(id);
         log.info("프로젝트 포스트가 삭제되었습니다. ID: " + id);
     }
