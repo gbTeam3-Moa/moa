@@ -17,8 +17,7 @@ public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
 
     @Override
-    public void join(UserVO userVO) { userDAO.save(userVO);
-    }
+    public void join(UserVO userVO) { userDAO.save(userVO);}
 
     @Override
     public Optional<UserVO> login(UserVO userVO) {

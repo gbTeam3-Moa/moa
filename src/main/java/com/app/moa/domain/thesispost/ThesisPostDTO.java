@@ -10,9 +10,13 @@ import org.springframework.stereotype.Component;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class ThesisPostVO {
+public class ThesisPostDTO {
     private Long id;
     private String researchField;
     private String researchRequirement;
+
+    public ThesisPostVO toVO(){
+
+    }
 
 }
