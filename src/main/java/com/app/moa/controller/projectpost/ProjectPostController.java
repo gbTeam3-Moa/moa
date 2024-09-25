@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/post/project/*")
+@RequestMapping("/project/*")
 @Slf4j
 public class ProjectPostController {
 

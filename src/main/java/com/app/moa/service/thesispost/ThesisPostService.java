@@ -8,7 +8,7 @@ import com.app.moa.domain.thesispost.ThesisPostVO;
 import java.util.List;
 
 public interface ThesisPostService {
-    public void write(ThesisPostVO thesisPostVO);
+    public void write(ThesisPostDTO thesisPostDTO);
     public List<ThesisPostDTO> getList(Pagination pagination);
     public int getTotal();
 }

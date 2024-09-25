@@ -2,21 +2,24 @@ package com.app.moa.mapper;
 
 import com.app.moa.domain.thesispost.ThesisPostDTO;
 import com.app.moa.mapper.thesispost.ThesisPostMapper;
+import com.app.moa.service.thesispost.ThesisPostService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 
 @SpringBootTest
 @Slf4j
 public class ThesisPostMapperTests {
 
     @Autowired
-    private ThesisPostMapper thesisPostMapper;
+    private  ThesisPostMapper thesisPostMapper;
     private  ThesisPostDTO thesisPostDTO;
 
     @Test
     public void Inserttest() {
+        // DTO 생성 및 값 설정
         ThesisPostDTO thesisPostDTO = new ThesisPostDTO();
         thesisPostDTO.setUserId(62L);
         thesisPostDTO.setPostTitle("제목입니다");
@@ -27,7 +30,10 @@ public class ThesisPostMapperTests {
         thesisPostDTO.setResearchPeriod("6개월");
         thesisPostDTO.setResearchDeadline("2024-12-31");
         thesisPostDTO.setResearchStartDate("2024-06-01");
+        thesisPostDTO.setResearchSchedule("스케쥴");
         thesisPostDTO.setResearchRequirement("자바 개발자");
-    }
 
-}
+        thesisPostMapper.insert(thesisPostDTO.toVO());
+
+
+}}

@@ -31,8 +31,10 @@ public class ThesisPostDTO {
     private String createdDate;
     private String updatedDate;
 
+    public PostVO toPostVO(){
+        return new PostVO(id,postTitle,postContent,postType,userId,postView,createdDate,updatedDate);
+    }
    public ThesisPostVO toVO(){return new ThesisPostVO(id,professorMajor,researchField,researchProfit,researchPeriod,researchDeadline,researchStartDate,researchSchedule,researchRequirement);}
-    public PostVO toPostVO(){return new PostVO(id,postTitle,postContent,postType,userId,postView,createdDate,updatedDate);}
 }
 
 
