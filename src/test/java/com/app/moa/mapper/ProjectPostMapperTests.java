@@ -1,9 +1,7 @@
 package com.app.moa.mapper;
 
-import com.app.moa.domain.post.PostDTO;
 import com.app.moa.domain.projectpost.ProjectPostDTO;
 import com.app.moa.mapper.projectpost.ProjectPostMapper;
-import com.app.moa.service.post.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
