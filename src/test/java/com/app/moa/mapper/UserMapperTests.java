@@ -36,8 +36,26 @@ public class UserMapperTests {
 
         Optional<UserVO> foundUser =
                 userMapper.selectByUserEmailAndUserPassword(userDTO.toVO());
-        foundUser.map(UserVO::toString).ifPresentOrElse((user)->log.info(user.toString()), ()->log.info("no no no"));
+        foundUser.map(UserVO::toString).ifPresent(log::info);
     }
+
+    @Test
+    public void testSelectById() {
+        Long id = 1L;
+
+        Optional<UserVO> foundUser = userMapper.selectById(id);
+        foundUser.map(UserVO::toString).ifPresent(log::info);
+    }
+
+    @Test
+    public void testSelectByUserEmail() {
+        String userEmail = "sm@gmail.com";
+
+        Optional<UserVO> foundUser = userMapper.selectByUserEmail(userEmail);
+        foundUser.map(UserVO::toString).ifPresent(log::info);
+    }
+
+
 
     @Test
     public void testDelete() {

@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Moa 로그인</title>
-        <link rel="stylesheet" href="../../static/css/login/login.css" />
+        <link rel="stylesheet" href="/css/login/login.css" />
     </head>
 
     <!-- 폰트번호 -->
@@ -179,7 +179,7 @@
                             <div
                                 class="box-border flex w-full flex-column items-center justify-center"
                             >
-                                <form class="w-full">
+                                <form th:action="@{/user/login/}" method="post" th:object="${userDTO}" class="w-full">
                                     <div
                                         class="box-border flex flex-column gap-6 pb-6"
                                     >

@@ -12,8 +12,11 @@ public interface UserMapper {
     //    로그인
     public Optional<UserVO> selectByUserEmailAndUserPassword(UserVO userVO);
 
-    //    회원 정보 조회
+    //    id로 회원 정보 조회
     public Optional<UserVO> selectById(Long id);
+
+    //    Email로 회원 정보 조회
+    public Optional<UserVO> selectByUserEmail(String userEmail);
 
     //    회원 정보 수정
     public void update(UserVO userVO);
