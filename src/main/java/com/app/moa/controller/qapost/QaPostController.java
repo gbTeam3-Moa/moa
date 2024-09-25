@@ -37,9 +37,9 @@ public class QaPostController {
             if (order == null) {
                 order = "recent";
             }
-            pagination.setTotal(qaPostService.getTotal());
-            pagination.progress();
-            model.addAttribute("posts", qaPostService.getList(pagination, order));
+//            pagination.setTotal(qaPostService.getTotal());
+//            pagination.progress();
+//            model.addAttribute("posts", qaPostService.getList(pagination, order));
         }
 
 }
