@@ -13,5 +13,7 @@
         <typeAlias type="com.app.moa.domain.user.UserDTO" alias="userDTO"/>
         <typeAlias type="com.app.moa.domain.projectpost.ProjectPostVO" alias="projectpostVO"/>
         <typeAlias type="com.app.moa.domain.projectpost.ProjectPostDTO" alias="projectpostDTO"/>
+        <typeAlias type="com.app.moa.domain.thesispost.ThesisPostVO" alias="thesispostVO"/>
+        <typeAlias type="com.app.moa.domain.thesispost.ThesisPostDTO" alias="thesispostDTO"/>
     </typeAliases>
 </configuration>

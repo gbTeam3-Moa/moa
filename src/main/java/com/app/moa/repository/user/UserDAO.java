@@ -21,7 +21,6 @@ public class UserDAO {
     public Optional<UserVO> findByUserEmailAndUserPassword(UserVO userVO){
         return userMapper.selectByUserEmailAndUserPassword(userVO);
     }
-
     //    회원 정보 조회
     public Optional<UserVO> findById(Long id){
         return userMapper.selectById(id);
