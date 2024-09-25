@@ -17,10 +17,12 @@ public class QaPostMapperTests {
     @Test
     public void testwrite() {
         QaPostDTO qaPostDTO = new QaPostDTO();
+
         qaPostDTO.setPostTitle("제목");
         qaPostDTO.setPostContent("내용");
         qaPostDTO.setPostType(1);
         qaPostDTO.setUserId(1L);
         qaPostService.write(qaPostDTO);
+
     }
 }

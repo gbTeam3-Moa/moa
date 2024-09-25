@@ -30,12 +30,13 @@ public class UserMapperTests {
     @Test
     public void testSelectByUserEmailAndUserPassword(){
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserEmail("smTest1@gmail.com");
-        userDTO.setUserPassword("cowboy");
+        userDTO.setUserId("sm@gmail.com");
+        userDTO.setUserEmail("sm@gmail.com");
+        userDTO.setUserPassword("12345");
 
         Optional<UserVO> foundUser =
                 userMapper.selectByUserEmailAndUserPassword(userDTO.toVO());
-        foundUser.map(UserVO::toString).ifPresent(log::info);
+        foundUser.map(UserVO::toString).ifPresentOrElse((user)->log.info(user.toString()), ()->log.info("no no no"));
     }
 
     @Test

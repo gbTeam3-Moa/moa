@@ -11,14 +11,26 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class ProjectPostVO {
     private Long id;
+    private String studentMajor;
     private String projectField;
+    private String projectProfit;
+    private String projectPeriod;
+    private String projectDeadline;
+    private String projectStartDate;
+    private String projectSchedule;
     private String projectRequirement;
 
     public ProjectPostDTO toDTO() {
-        ProjectPostDTO projectPostDTO = new ProjectPostDTO();
-        projectPostDTO.setId(id);
-        projectPostDTO.setProjectField(projectField);
-        projectPostDTO.setProjectRequirement(projectRequirement);
-        return projectPostDTO;
+       ProjectPostDTO projectPostDTO = new ProjectPostDTO();
+       projectPostDTO.setId(id);
+       projectPostDTO.setStudentMajor(studentMajor);
+       projectPostDTO.setProjectField(projectField);
+       projectPostDTO.setProjectProfit(projectProfit);
+       projectPostDTO.setProjectPeriod(projectPeriod);
+       projectPostDTO.setProjectDeadline(projectDeadline);
+       projectPostDTO.setProjectStartDate(projectStartDate);
+       projectPostDTO.setProjectSchedule(projectSchedule);
+       projectPostDTO.setProjectRequirement(projectRequirement);
+       return projectPostDTO;
     }
 }

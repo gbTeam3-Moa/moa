@@ -9,7 +9,6 @@ import java.util.Optional;
 public interface UserMapper {
     //    회원가입
     public void insert(UserVO userVO);
-
     //    로그인
     public Optional<UserVO> selectByUserEmailAndUserPassword(UserVO userVO);
 

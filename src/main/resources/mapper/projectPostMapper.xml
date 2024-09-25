@@ -3,19 +3,25 @@
 <mapper namespace="com.app.moa.mapper.projectpost.ProjectPostMapper">
 
     <insert id="insert">
-        INSERT INTO TBL_PROJECT_POST(ID, PROJECT_FIELD, PROJECT_REQUIREMENT)
-        VALUES (SEQ_PROJECT_POST.NEXTVAL, #{projectField}, #{projectRequirement})
+        INSERT INTO TBL_PROJECT_POST(ID, STUDENT_MAJOR, PROJECT_FIELD, PROJECT_PROFIT, PROJECT_PERIOD, PROJECT_DEADLINE, PROJECT_START_DATE, PROJECT_SCHEDULE, PROJECT_REQUIREMENT)
+        VALUES (#{id}, #{studentMajor}, #{projectField}, #{projectProfit}, #{projectPeriod}, #{projectDeadline}, #{projectStartDate}, #{projectSchedule}, #{projectRequirement})
     </insert>
 
     <select id="selectById" resultType="projectPostDTO">
-        SELECT ID, PROJECT_FIELD, PROJECT_REQUIREMENT
+        SELECT ID, STUDENT_MAJOR, PROJECT_FIELD, PROJECT_PROFIT, PROJECT_PERIOD, PROJECT_DEADLINE, PROJECT_START_DATE, PROJECT_SCHEDULE, PROJECT_REQUIREMENT
         FROM TBL_PROJECT_POST
         WHERE ID = #{id}
     </select>
 
     <update id="updateById">
         UPDATE TBL_PROJECT_POST
-        SET PROJECT_FIELD = #{projectField},
+        SET STUDENT_MAJOR = #{studentMajor},
+            PROJECT_FIELD = #{projectField},
+            PROJECT_PROFIT = #{projectProfit},
+            PROJECT_PERIOD = #{projectPeriod},
+            PROJECT_DEADLINE = #{projectDeadline},
+            PROJECT_START_DATE = #{projectStartDate},
+            PROJECT_SCHEDULE = #{projectSchedule},
             PROJECT_REQUIREMENT = #{projectRequirement}
         WHERE ID = #{id}
     </update>
