@@ -18,6 +18,6 @@ public class QaPostMapperTests {
         QaPostDTO qaPostDTO = new QaPostDTO();
         qaPostDTO.setPostId(1L);
 
-        qaPostMapper.insert(qaPostDTO.toVO());
+        qaPostMapper.insert(qaPostDTO.getId());
     }
 }
