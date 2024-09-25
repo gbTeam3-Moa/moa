@@ -22,24 +22,24 @@ public class QaPostController {
     private final HttpSession session;
     private final QaPostDTO qaPostDTO;
 
-    @GetMapping("write")
-    public void goToWriteForm(QaPostDTO qaPostDTO){;}
-
-    @PostMapping("write")
-    public void write(QaPostDTO qaPostDTO) {
-        qaPostDTO.setPostId(((PostVO) session.getAttribute("post")).getId());
-
-        qaPostService.write(qaPostDTO.toVO());
-    }
-
-        @GetMapping("list")
-        public void getList (Pagination pagination, String order, Model model){
-            if (order == null) {
-                order = "recent";
-            }
-//            pagination.setTotal(qaPostService.getTotal());
-//            pagination.progress();
-//            model.addAttribute("posts", qaPostService.getList(pagination, order));
-        }
+//    @GetMapping("write")
+//    public void goToWriteForm(QaPostDTO qaPostDTO){;}
+//
+//    @PostMapping("write")
+//    public void write(QaPostDTO qaPostDTO) {
+//        qaPostDTO.setPostId(((PostVO) session.getAttribute("post")).getId());
+//
+//        qaPostService.write(qaPostDTO.toVO());
+//    }
+//
+//        @GetMapping("list")
+//        public void getList (Pagination pagination, String order, Model model){
+//            if (order == null) {
+//                order = "recent";
+//            }
+////            pagination.setTotal(qaPostService.getTotal());
+////            pagination.progress();
+////            model.addAttribute("posts", qaPostService.getList(pagination, order));
+//        }
 
 }

@@ -5,7 +5,7 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter
+@Getter @Setter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
