@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
-@RequestMapping("/join/*")
+@RequestMapping("/user/*")
 @RequiredArgsConstructor
 @Slf4j
 public class UserController {
@@ -26,7 +26,7 @@ public class UserController {
     public RedirectView join(UserDTO userDTO){
         log.info("{}", userDTO);
         userService.join(userDTO.toVO());
-        return new RedirectView( "/login/login");
+        return new RedirectView( "/user/login");
     }
 
     @GetMapping("login")
