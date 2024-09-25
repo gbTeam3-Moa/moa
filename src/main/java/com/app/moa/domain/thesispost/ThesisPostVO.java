@@ -20,7 +20,6 @@ public class ThesisPostVO {
     private String researchStartDate; //예상 시작일
     private String researchSchedule; // 논문 예정 사항
     private String researchRequirement; //모집 요건
-    private Long postId;
 
     public ThesisPostDTO toDTO() {
         ThesisPostDTO thesisPostDTO = new ThesisPostDTO();
@@ -33,7 +32,6 @@ public class ThesisPostVO {
         thesisPostDTO.setResearchStartDate(researchStartDate);
         thesisPostDTO.setResearchSchedule(researchSchedule);
         thesisPostDTO.setResearchRequirement(researchRequirement);
-        thesisPostDTO.setPostId(postId);
         return thesisPostDTO;
     }
 }

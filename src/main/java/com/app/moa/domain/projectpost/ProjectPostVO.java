@@ -19,7 +19,6 @@ public class ProjectPostVO {
     private String projectStartDate;
     private String projectSchedule;
     private String projectRequirement;
-    private Long postId;
 
     public ProjectPostDTO toDTO() {
        ProjectPostDTO projectPostDTO = new ProjectPostDTO();
@@ -32,7 +31,6 @@ public class ProjectPostVO {
        projectPostDTO.setProjectStartDate(projectStartDate);
        projectPostDTO.setProjectSchedule(projectSchedule);
        projectPostDTO.setProjectRequirement(projectRequirement);
-       projectPostDTO.setPostId(postId);
        return projectPostDTO;
     }
 }
