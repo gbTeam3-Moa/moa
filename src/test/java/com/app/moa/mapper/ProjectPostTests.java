@@ -30,11 +30,11 @@ public class ProjectPostTests {
 
         Long postId = postDTO.getId();
 
-//        log.info("TBL_POST에 삽입된 ID: " + postId);
-//        if (postId == null) {
-//            log.info("ID 없음");
-//            return;
-//        }
+        log.info("TBL_POST에 삽입된 ID: " + postId);
+        if (postId == null) {
+            log.info("ID 없음");
+            return;
+        }
 
         ProjectPostDTO projectPostDTO = new ProjectPostDTO();
         projectPostDTO.setId(postId);
