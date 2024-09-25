@@ -15,10 +15,7 @@ import org.springframework.stereotype.Repository;
 public class QaPostDAO {
     private final QaPostMapper qaPostMapper;
 
-    // 프로젝트 포스트 저장
-    public void save(Long id) {
-        qaPostMapper.insert(id);
-    }
+    public void save(QaPostVO qaPostVO) {qaPostMapper.insert(qaPostVO);}
 
     // ID로 프로젝트 포스트 조회
     public QaPostDTO findById(Long id) {
