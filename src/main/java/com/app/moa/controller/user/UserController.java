@@ -24,6 +24,7 @@ public class UserController {
 
     @PostMapping("join")
     public RedirectView join(UserDTO userDTO){
+        log.info("{}", userDTO);
         userService.join(userDTO.toVO());
         return new RedirectView( "/login/login");
     }
@@ -43,7 +44,7 @@ public class UserController {
                             log.info("로그인 실패");
                         });
 
-        return new RedirectView( "/post/list");
+        return new RedirectView( "/templates/main/main-login/main-login.html");
     }
 
     //    회원 정보 조회 및 수정

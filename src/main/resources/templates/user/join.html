@@ -45,6 +45,7 @@
                                                 type="checkbox"
                                                 name="remember1"
                                                 id="professor-save-checkbox"
+                                                value="2"
                                             />
                                             <div
                                                 id="professor-checkboxDiv"
@@ -82,6 +83,7 @@
                                                 type="checkbox"
                                                 name="remember1"
                                                 id="academic-save-checkbox"
+                                                value="1"
                                             />
                                             <div
                                                 id="academic-checkboxDiv"
@@ -118,6 +120,7 @@
                                                 type="checkbox"
                                                 name="remember1"
                                                 id="user-save-checkbox"
+                                                value="0"
                                             />
                                             <div
                                                 id="user-checkboxDiv"
@@ -149,7 +152,7 @@
                                 <p id="check-message"></p>
                             </div>
                             <div class="box-border flex flex-col gap-4">
-                                <form th:action="@{/user/join}" method="post" th:object="${userDTO}" id="sign_up" class="flex flex-col gap-6">
+                                <form th:action="@{/join/join}" method="post" th:object="${userDTO}" id="sign_up" class="flex flex-col gap-6">
                                     <div
                                         class="box-border relative flex flex-col gap-2"
                                     >
@@ -469,7 +472,6 @@
                                     <p id="agreement-Message"></p>
                                     <button
                                         class="box-border flex cursor-pointer items-center justify-center border rounded-xl h-[50px] px-[15px] text-base leading-[26px] gap-x-1.5 text-w-white bg-primary-500 border-primary-500 hover:border-primary-700 hover:bg-primary-700 mt-2 w-full"
-                                        type="button"
                                     >
                                         <!-- type-원래 button 대신에 submit임 -->
                                         회원가입
@@ -548,5 +550,11 @@
             </div>
         </div>
     </body>
+    <script>
+        const professorCheckbox = document.getElementById("professor-save-checkbox");
+        const academicCheckbox = document.getElementById("academic-save-checkbox");
+        const userCheckbox = document.getElementById("user-save-checkbox");
+
+    </script>
     <script src="/js/join/join.js"></script>
 </html>
