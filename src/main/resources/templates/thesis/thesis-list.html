@@ -559,5 +559,10 @@
             </div>
         </div>
     </body>
-    <script src="../../static/js/information/information-list.js"></script>
+    <script src="/js/thesis/thesis-list-event.js"></script>
+    <script th:inline="javascript">
+        const posts = [[${posts}]];
+        const pagination = [[${pagination}]];
+    </script>
+    <script src="/js/thesis/thesis-list.js"></script>
 </html>

@@ -1,67 +1,103 @@
-const dropDownList = document.querySelector(".select-drop-down");
-const dropDownButtonWrap = document.querySelector("span.text-unit.active");
-const dropDownButton = document.querySelector("i.select-icon");
-const searchBoxLeftBox = document.querySelector(
-    ".ui-select.moa-select.theme-moa.text-search-type"
-);
-const searchBoxInput = document.querySelector(".search-text");
-const selectBox = document.querySelector("select.moa-select.search-type");
-const selectedValue = document.querySelector("p.select-name");
-const postCount = document.querySelector(".post-count");
-const arrangeTypes = document.querySelectorAll("li.arrange-type a");
+// 더보기 참고
+// let page = document.querySelector(".page-link.active").innerText;
+// let text = ``;
+// posts.forEach((post) => {
+//     page++;
+// });
 
-HTMLCollection.prototype.forEach = Array.prototype.forEach;
+const showList = () => {
+    let text = ``;
+    posts.forEach((post) => {
+        text += `
+        <div class="post-list">
+            <div class="post-all">
+                <div class="post-view-wrap">
+                    <div class="post-view"></div>
+                    <div class="post-view-count">
+                        1
+                    </div>
+                </div>
+                <div class="post-top">
+                    <div class="post-title">
+                        ${post.postTitle}
+                    </div>
+                    <div class="post-top-right">
+                        <div
+                            class="post-writer-school-major"
+                        >
+                            한국예술대학교 작곡과
+                        </div>
+                        <div
+                            class="post-writer-name"
+                        >
+                            마에스트로장
+                        </div>
+                        <div
+                            class="post-created-date"
+                        >
+                            2024/12/10
+                        </div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    한국대 작곡과 2학년 수업 자료
+                    1년치 공유합니다. 같이 보면서
+                    공부하실 분들은 여기로 와주세요
+                    -> 오픈채팅방 링크
+                </div>
+            </div>
+        </div>
+        `;
+    });
 
-postCount.innerText = "10,340";
+    listdiv.innerHTML = text;
+}
 
-searchBoxLeftBox.addEventListener("mouseenter", (e) => {
-    searchBoxInput.classList.add("active");
-});
-searchBoxLeftBox.addEventListener("mouseleave", (e) => {
-    searchBoxInput.classList.remove("active");
-});
-dropDownButtonWrap.addEventListener("mouseenter", (e) => {
-    searchBoxInput.classList.add("active");
-});
-dropDownButtonWrap.addEventListener("mouseleave", (e) => {
-    searchBoxInput.classList.remove("active");
-});
-
-searchBoxLeftBox.addEventListener("click", (e) => {
-    if (dropDownButton.classList[1] === "active") {
-        dropDownButton.classList.remove("active");
-        dropDownList.classList.remove("open");
-    } else {
-        dropDownButton.classList.add("active");
-        dropDownList.classList.add("open");
+const showPaging = () => {
+    let text = ``;
+    if(pagination.prev) {
+        text += `
+        <li
+            class="page-item"
+            id="page-prev-button"
+        >
+            <a href="/thesis/thesis-list?page=${pagination.startPage - 1}" class="page-link">이전</a>
+        </li>
+        `
     }
-});
-
-dropDownList.children.forEach((li) => {
-    li.addEventListener("click", (e) => {
-        selectBox.children.forEach((option) => {
-            if (li.dataset.selectValue === option.value) {
-                selectedValue.innerText = option.innerText.trim();
+        for(let i=pagination.startPage; i<=pagination.endPage; i++){
+            if(pagination.page === i){
+                text += `
+                <li class="page-item">
+                    <a class="page-link active"
+                        >${i}</a
+                    >
+                </li>
+                `;
+            }else{
+                text += `
+                <li class="page-item">
+                    <a href="/thesis/thesis-list?page=${i}" class="page-link"
+                        >${i}</a
+                    >
+                </li>
+                `;
             }
-        });
-        dropDownList.children.forEach((child) => {
-            child.classList.remove("current");
-        });
-        li.classList.add("current");
-    });
-});
 
-searchBoxInput.addEventListener("click", (e) => {
-    if (dropDownButton.classList[1] === "active") {
-        dropDownButton.classList.remove("active");
-        dropDownList.classList.remove("open");
-    }
-});
+        }
+        if(pagination.next){
+            text +=
+            `
+            <li
+                class="page-item"
+                id="page-next-button"
+            >
+                <a href="/thesis/thesis-list?page=${pagination.endPage + 1}" class="page-link">다음</a>
+            </li>
+            `;
+        }
+        pagingdiv.innerHTML = text;
+}
 
-arrangeTypes.forEach((arrangeType) => {
-    arrangeType.addEventListener("click", (e) => {
-        arrangeTypes.forEach((type) => {
-            type.parentElement.classList.toggle("selected");
-        });
-    });
-});
+showList();
+showPaging();
