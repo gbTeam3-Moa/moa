@@ -20,10 +20,7 @@ public class ThesisPostServiceImpl implements ThesisPostService {
     @Override
     public void write(ThesisPostVO thesisPostVO) {
         PostVO postVO = thesisPostDTO.toPostVO();
-
-
     }
-
     @Override
     public List<ThesisPostDTO> getList(Pagination pagination) {
         return thesisPostDAO.findAll(pagination);

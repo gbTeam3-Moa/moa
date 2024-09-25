@@ -18,8 +18,10 @@ public class QaPostDTO {
     private int postType;
     private Long userId;
     private int postView;
+    private String userMajor;
     private String createdDate;
     private String updatedDate;
+
 
     public PostVO toPostVO(){
         return new PostVO(id, postTitle, postContent, postType, userId, postView, createdDate, updatedDate);

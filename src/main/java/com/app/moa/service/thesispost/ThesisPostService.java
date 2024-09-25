@@ -11,4 +11,5 @@ public interface ThesisPostService {
     public void write(ThesisPostVO thesisPostVO);
     public List<ThesisPostDTO> getList(Pagination pagination);
     public int getTotal();
+
 }
