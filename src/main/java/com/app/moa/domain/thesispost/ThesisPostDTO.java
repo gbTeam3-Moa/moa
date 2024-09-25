@@ -22,5 +22,5 @@ public class ThesisPostDTO {
     private String researchSchedule; // 논문 예정 사항
     private String researchRequirement; //모집 요건
 
-    public ThesisPostVO toVO(){return new ThesisPostVO(id,professorMajor,researchField,researchProfit,researchPeriod,researchDeadline,researchStartDate,researchSchedule,researchRequirement);}
+  public ThesisPostVO toVO(){return new ThesisPostVO(id,professorMajor,researchField,researchProfit,researchPeriod,researchDeadline,researchStartDate,researchSchedule,researchRequirement);}
 }

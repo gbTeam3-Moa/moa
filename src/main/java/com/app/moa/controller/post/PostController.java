@@ -58,5 +58,4 @@ public class PostController {
         log.info("게시글이 삭제되었습니다. ID: " + id);
         return new RedirectView("/post/list");  // 삭제 후 게시글 목록 페이지로 리다이렉트 후 확인할 수 있게
     }
-
 }
