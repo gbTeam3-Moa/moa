@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.moa.mapper.report.ReportMapper">
+    <insert id="report">
+        INSERT INTO TBL_REPORT(ID, POST_ID, USER_ID, REPORT_REASON,REPORT_STATUS)
+        VALUES (SEQ_REPORT.NEXTVAL, #{postId}, #{userId},#{reportReason},#{reportStatus})
+    </insert>
+    <select id="selectAll" resultType="postDTO">
+        SELECT P2.ID, USER_ID, USER_EMAIL, USER_PASSWORD, USER_TYPE, USER_NAME, USER_GENDER, USER_BIRTHDAY, USER_AREA, USER_DETAILED_AREA, USER_ADDRESS, USER_INTRODUCTION, USER_HOMEPAGE_ADDRESS, USER_CELL_PHONE, USER_PHONE, USER_FAX, USER_MAJOR, CREATED_DATE, UPDATED_DATE
+        FROM TBL_USER U JOIN
+        (
+        SELECT ROWNUM R, ID, POST_TITLE, POST_CONTENT, POST_TYPE, USER_ID, POST_VIEW, CREATED_DATE, UPDATED_DATE
+        FROM
+        (
+        SELECT ID, POST_TITLE, POST_CONTENT, POST_TYPE, USER_ID, POST_VIEW, CREATED_DATE,UPDATED_DATE
+        FROM TBL_POST
+        ORDER BY
+        <choose>
+            <when test="order == 'recent'.toString()">ID</when>
+            <otherwise>POST_VIEW</otherwise>
+        </choose>
+        DESC
+        ) P1
+        <![CDATA[
+WHERE ROWNUM <= #{pagination.endRow}) P2
+ON U.ID = P2.USER_ID AND P2.R >= #{pagination.startRow}
+        ]]>
+    </select>
+
+    <select id="selectAll" resultType="reportDTO">
+        SELECT P2.REPORT_ID, U.ID, U.USER_ID, P2.CREATED_DATE, P2.POST_TITLE, P2.POST_VIEW, P2.REPLY_COUNT, P2.REPORT_REASON, P2.REPORT_STATUS
+        FROM TBL_USER U
+        JOIN (
+        SELECT P.USER_ID, P.CREATED_DATE, P.POST_TITLE, P.POST_VIEW, COUNT(RE.ID) AS REPLY_COUNT, RP.ID AS REPORT_ID, RP.REPORT_REASON, RP.REPORT_STATUS, ROWNUM AS R
+        FROM TBL_POST P
+        LEFT JOIN TBL_REPLY RE ON P.ID = RE.POST_ID   -- 댓글 수와 게시물 간 JOIN
+        LEFT JOIN TBL_REPORT RP ON P.ID = RP.POST_ID  -- 신고 정보와 게시물 간 JOIN
+        GROUP BY P.USER_ID, P.CREATED_DATE, P.POST_TITLE, P.POST_VIEW, RP.ID, RP.REPORT_REASON, RP.REPORT_STATUS
+        ORDER BY
+        RP.ID DESC,   -- 신고된 게시물 순서로 정렬 (가장 최근 신고가 맨 위로)
+        <choose>
+            <when test="order == 'recent'.toString()">P.CREATED_DATE</when>
+            <otherwise>P.POST_VIEW</otherwise>
+        </choose> DESC
+        ) P2 ON U.ID = P2.USER_ID
+        WHERE P2.R >= #{pagination.startRow}
+        AND P2.R <= #{pagination.endRow}
+    </select>
+
+
+    <!--    USER-->
+    <!--    JOIN-->
+    <!--    ROWNUM-->
+    <!--    POST-->
+    <!--    JOIN-->
+    <!--    COUNT REPLY-->
+    <!--    JOIN-->
+    <!--    REPORT-->
+    <!--    R.ID,REPORT_STATUS,REPORT_REASON-->
+    <!--    COUNT(RE.ID)-->
+
+
+
+</mapper>
