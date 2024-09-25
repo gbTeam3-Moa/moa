@@ -16,6 +16,8 @@ import java.util.Optional;
 public class ThesisPostServiceTests {
     @Autowired
     private ThesisPostService thesisPostService;
+    @Autowired
+    private ThesisPostDTO thesisPostDTO;
 
 
     @Test
@@ -34,20 +36,6 @@ public class ThesisPostServiceTests {
         thesisPostDTO.setResearchRequirement("자바 개발자");
 
         thesisPostService.write(thesisPostDTO);
-    }
-
-    @Test
-    public void testSelectById() {
-        Long id = 66L; // Use the ID you want to test with
-
-        Optional<ThesisPostVO> foundThesisPost = thesisPostService.getById(id);
-
-        if (foundThesisPost.isPresent()) {
-            ThesisPostVO thesisPostVO = foundThesisPost.get();
-            log.info("Found thesis post: {}", thesisPostVO);
-        } else {
-            log.warn("ID 없음: {}", id);
-        }
     }
 
     @Test

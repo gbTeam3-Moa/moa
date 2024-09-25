@@ -42,7 +42,7 @@
     </select>
 
     <select id="selectById" resultType="thesisPostDTO">
-        SELECT ID
+        SELECT ID,PROFESSOR_MAJOR,RESEARCH_FIELD,RESEARCH_PROFIT,RESEARCH_PERIOD,RE
         FROM TBL_THESIS_POST
         WHERE ID = #{id}
     </select>
