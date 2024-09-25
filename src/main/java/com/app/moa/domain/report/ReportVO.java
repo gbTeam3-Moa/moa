@@ -18,14 +18,4 @@ public class ReportVO {
     private String reportReason;
     private Long reportStatus;
 
-
-    public ReportDTO toDTO(){
-        ReportDTO reportDTO = new ReportDTO();
-        reportDTO.setId(id);
-        reportDTO.setPostId(postId);
-        reportDTO.setUserId(userId);
-        reportDTO.setReportReason(reportReason);
-        reportDTO.setReportStatus(reportStatus);
-        return reportDTO;
-    }
 }

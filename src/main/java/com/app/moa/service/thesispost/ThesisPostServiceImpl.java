@@ -20,8 +20,6 @@ public class ThesisPostServiceImpl implements ThesisPostService {
     @Override
     public void write(ThesisPostVO thesisPostVO) {
         PostVO postVO = thesisPostDTO.toPostVO();
-
-
     }
 
     @Override

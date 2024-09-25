@@ -2,12 +2,13 @@ package com.app.moa.repository.report;
 
 
 import com.app.moa.domain.post.Pagination;
-import com.app.moa.domain.post.PostDTO;
+
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
+import com.app.moa.domain.thesispost.ThesisPostDTO;
 import com.app.moa.mapper.report.ReportMapper;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Arg;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,8 +25,8 @@ public class ReportDAO {
     }
 
     //  신고 내역 조회
-    public List<ReportDTO> selectAll(Pagination pagination, String order){
-        return ReportMapper.selectAll(pagination, order);
+    public List<ReportDTO> findAll(Pagination pagination) {
+        return reportMapper.selectAll(pagination);
     }
 
 //    //  게시물 작성
