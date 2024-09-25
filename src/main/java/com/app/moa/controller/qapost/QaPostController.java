@@ -27,9 +27,9 @@ public class QaPostController {
 
     @PostMapping("write")
     public void write(QaPostDTO qaPostDTO) {
-        qaPostDTO.setPostId(((PostVO) session.getAttribute("post")).getId());
+        qaPostDTO.setId(((PostVO) session.getAttribute("post")).getId());
 
-        qaPostService.write(qaPostDTO.toVO());
+        qaPostService.write(qaPostDTO);
     }
 
         @GetMapping("list")

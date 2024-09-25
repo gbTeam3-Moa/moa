@@ -7,15 +7,28 @@
     </insert>
 
     <select id="selectByUserEmailAndUserPassword" resultType="userVO">
-        SELECT ID, USER_EMAIL, USER_ID FROM TBL_USER
+        SELECT ID, USER_EMAIL, USER_ID
+        FROM TBL_USER
         WHERE (USER_ID = #{userId} OR USER_EMAIL = #{userEmail}) AND USER_PASSWORD = #{userPassword}
     </select>
 
     <select id="selectById" resultType="userVO">
-        SELECT ID, USER_EMAIL, USER_PASSWORD, USER_ID
+        SELECT ID, USER_EMAIL, USER_ID
         FROM TBL_USER
         WHERE ID = #{id}
     </select>
+
+    <select id="selectByUserEmail" resultType="userVO">
+        SELECT ID, USER_EMAIL, USER_ID
+        FROM TBL_USER
+        WHERE USER_EMAIL = #{userEmail}
+    </select>
+
+    <update id="updatePassword">
+        UPDATE TBL_USER
+        SET USER_PASSWORD = #{userPassword}
+        WHERE USER_EMAIL = #{userEmail}
+    </update>
 
     <update id="update">
         UPDATE TBL_USER
