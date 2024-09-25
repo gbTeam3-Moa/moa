@@ -19,18 +19,20 @@ public class ProjectPostVO {
     private String projectStartDate;
     private String projectSchedule;
     private String projectRequirement;
+    private Long postId;
 
     public ProjectPostDTO toDTO() {
-        ProjectPostDTO projectPostDTO = new ProjectPostDTO();
-        projectPostDTO.setId(id);
-        projectPostDTO.setStudentMajor(studentMajor);
-        projectPostDTO.setProjectField(projectField);
-        projectPostDTO.setProjectProfit(projectProfit);
-        projectPostDTO.setProjectPeriod(projectPeriod);
-        projectPostDTO.setProjectDeadline(projectDeadline);
-        projectPostDTO.setProjectStartDate(projectStartDate);
-        projectPostDTO.setProjectSchedule(projectSchedule);
-        projectPostDTO.setProjectRequirement(projectRequirement);
-        return projectPostDTO;
+       ProjectPostDTO projectPostDTO = new ProjectPostDTO();
+       projectPostDTO.setId(id);
+       projectPostDTO.setStudentMajor(studentMajor);
+       projectPostDTO.setProjectField(projectField);
+       projectPostDTO.setProjectProfit(projectProfit);
+       projectPostDTO.setProjectPeriod(projectPeriod);
+       projectPostDTO.setProjectDeadline(projectDeadline);
+       projectPostDTO.setProjectStartDate(projectStartDate);
+       projectPostDTO.setProjectSchedule(projectSchedule);
+       projectPostDTO.setProjectRequirement(projectRequirement);
+       projectPostDTO.setPostId(postId);
+       return projectPostDTO;
     }
 }

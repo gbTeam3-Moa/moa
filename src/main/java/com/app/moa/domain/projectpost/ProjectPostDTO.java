@@ -19,8 +19,9 @@ public class ProjectPostDTO {
     private String projectStartDate;
     private String projectSchedule;
     private String projectRequirement;
+    private Long postId;
 
     public ProjectPostVO toVO() {
-        return new ProjectPostVO(id, studentMajor, projectField, projectProfit, projectPeriod, projectDeadline, projectStartDate, projectSchedule, projectRequirement);
+        return new ProjectPostVO(id, studentMajor, projectField, projectProfit, projectPeriod, projectDeadline, projectStartDate, projectSchedule, projectRequirement, postId);
     }
 }

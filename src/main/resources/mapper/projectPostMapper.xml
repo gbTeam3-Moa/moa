@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.moa.mapper.projectpost.ProjectPostMapper">
 
-    <insert id="insert" >
+    <insert id="insert">
         INSERT INTO TBL_PROJECT_POST(ID, STUDENT_MAJOR, PROJECT_FIELD, PROJECT_PROFIT, PROJECT_PERIOD, PROJECT_DEADLINE, PROJECT_START_DATE, PROJECT_SCHEDULE, PROJECT_REQUIREMENT)
-        VALUES (SEQ_PROJECT_POST.NEXTVAL, #{studentMajor}, #{projectField}, #{projectProfit}, #{projectPeriod}, #{projectDeadline}, #{projectStartDate}, #{projectSchedule}, #{projectRequirement})
+        VALUES (#{id}, #{studentMajor}, #{projectField}, #{projectProfit}, #{projectPeriod}, #{projectDeadline}, #{projectStartDate}, #{projectSchedule}, #{projectRequirement})
     </insert>
 
     <select id="selectById" resultType="projectPostDTO">
