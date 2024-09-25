@@ -1,6 +1,7 @@
 package com.app.moa.domain.qapost;
 
 
+import com.app.moa.domain.post.PostVO;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -12,9 +13,19 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class QaPostDTO {
     private Long id;
-    private Long postId;
+    private String postTitle;
+    private String postContent;
+    private int postType;
+    private Long userId;
+    private int postView;
+    private String createdDate;
+    private String updatedDate;
 
-    public QaPostVO toVO(){
-        return new QaPostVO(id, postId);
+    public PostVO toPostVO(){
+        return new PostVO(id, postTitle, postContent, postType, userId, postView, createdDate, updatedDate);
+    }
+
+    public QaPostVO toVO() {
+        return new QaPostVO(id);
     }
 }
