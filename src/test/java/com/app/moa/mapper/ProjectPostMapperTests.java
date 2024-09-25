@@ -7,37 +7,18 @@ import com.app.moa.service.post.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Slf4j
-public class ProjectPostTests {
+public class ProjectPostMapperTests {
 
     @Autowired
     private ProjectPostMapper projectPostMapper;
-
-    @Autowired
-    private PostService postService;
-
     @Test
     public void testInsert() {
-        PostDTO postDTO = new PostDTO();
-        postDTO.setPostTitle("프로젝트 제목");
-        postDTO.setPostContent("프로젝트 내용");
-        postDTO.setPostType(3);
-        postDTO.setUserId(1L);
-        postService.write(postDTO.toVO());
-
-        Long postId = postDTO.getId();
-
-        log.info("TBL_POST에 삽입된 ID: " + postId);
-        if (postId == null) {
-            log.info("ID 없음");
-            return;
-        }
-
         ProjectPostDTO projectPostDTO = new ProjectPostDTO();
-        projectPostDTO.setId(postId);
         projectPostDTO.setStudentMajor("컴퓨터 공학");
         projectPostDTO.setProjectField("소프트웨어 개발");
         projectPostDTO.setProjectProfit("수익 없음");
