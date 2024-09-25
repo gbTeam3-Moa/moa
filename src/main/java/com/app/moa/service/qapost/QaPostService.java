@@ -9,7 +9,7 @@ import com.app.moa.domain.qapost.QaPostVO;
 import java.util.List;
 
 public interface QaPostService {
-    public void write(QaPostVO qaPostVO);
+    public void write(QaPostDTO qaPostDTO);
     public QaPostDTO findById(Long id);
     public void updatePost(QaPostDTO qaPostDTO);
     public void deletePost(Long id);
