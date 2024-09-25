@@ -32,13 +32,18 @@ public class ThesisPostController {
         model.addAttribute("pagination", pagination);
         model.addAttribute("posts", thesisPostService.getList(pagination));
     }
-//    리스트 ID로 조회
+//    글 수정
+
+//    글 삭제
+
+//    글 Id로 조회 얘도 눌렀을 때 로그인으로 튕겨내기
 
     // 글 작성 페이지 이동
     @GetMapping("thesis-write1")
     public void getToWriteForm1(ThesisPostDTO thesisPostDTO) {
         ;
     }
+
     // 글 작성 처리
     @PostMapping("thesis-write1")
     public RedirectView thesisWrite1(ThesisPostDTO thesisPostDTO) {
@@ -48,7 +53,6 @@ public class ThesisPostController {
         if (userVO == null) {
             return new RedirectView("/user/login");
         }
-
         thesisPostDTO.setUserId(userVO.getId());
 
         thesisPostService.write(thesisPostDTO);

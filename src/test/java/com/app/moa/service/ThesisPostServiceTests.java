@@ -1,11 +1,15 @@
 package com.app.moa.service;
 
 import com.app.moa.domain.thesispost.ThesisPostDTO;
+import com.app.moa.domain.thesispost.ThesisPostVO;
 import com.app.moa.service.thesispost.ThesisPostService;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Optional;
 
 @SpringBootTest
 @Slf4j
@@ -30,5 +34,44 @@ public class ThesisPostServiceTests {
         thesisPostDTO.setResearchRequirement("자바 개발자");
 
         thesisPostService.write(thesisPostDTO);
+    }
+
+    @Test
+    public void testSelectById() {
+        Long id = 66L; // Use the ID you want to test with
+
+        Optional<ThesisPostVO> foundThesisPost = thesisPostService.getById(id);
+
+        if (foundThesisPost.isPresent()) {
+            ThesisPostVO thesisPostVO = foundThesisPost.get();
+            log.info("Found thesis post: {}", thesisPostVO);
+        } else {
+            log.warn("ID 없음: {}", id);
+        }
+    }
+
+    @Test
+    public void testDelete() {
+        Long id = 1L;
+        thesisPostService.delete(id);
+        log.info("Deleted post with ID: {}", id);
+    }
+
+    @Test
+    public void testUpdate() {
+        ThesisPostDTO thesisPostDTO = new ThesisPostDTO();
+        thesisPostDTO.setPostTitle("제목3333");
+        thesisPostDTO.setPostContent("내용3333");
+        thesisPostDTO.setUserId(43L);
+        thesisPostDTO.setProfessorMajor("전공2");
+        thesisPostDTO.setResearchField("분야2");
+        thesisPostDTO.setResearchProfit("없음1");
+        thesisPostDTO.setResearchPeriod("8개월");
+        thesisPostDTO.setResearchDeadline("2024-12-31");
+        thesisPostDTO.setResearchStartDate("2024-06-01");
+        thesisPostDTO.setResearchSchedule("스케쥴");
+        thesisPostDTO.setResearchRequirement("자바 개발자");
+
+        thesisPostService.update(thesisPostDTO.toVO());
     }
 }

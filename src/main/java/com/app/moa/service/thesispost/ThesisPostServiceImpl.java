@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -42,5 +43,26 @@ public class ThesisPostServiceImpl implements ThesisPostService {
     @Override
     public int getTotal() {
         return thesisPostDAO.findCount();
+    }
+
+    @Override
+    public Optional<ThesisPostVO> getById(Long id) {
+        return thesisPostDAO.findById(id);
+    }
+
+    @Override
+    public void update(ThesisPostVO thesisPostVO) {
+        thesisPostMapper.update(thesisPostVO);
+    }
+
+    @Override
+    public void delete(Long id) {
+        thesisPostDAO.delete(id);
+
+    }
+
+    @Override
+    public void increaseViewCount(Long id) {
+        thesisPostMapper.increaseViewCountById(id);
     }
 }

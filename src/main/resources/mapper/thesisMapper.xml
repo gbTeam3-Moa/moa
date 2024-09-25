@@ -41,4 +41,31 @@
         SELECT COUNT(*) FROM TBL_THESIS_POST
     </select>
 
+    <select id="selectById" resultType="thesisPostDTO">
+        SELECT ID
+        FROM TBL_THESIS_POST
+        WHERE ID = #{id}
+    </select>
+
+    <update id="update">
+        UPDATE TBL_THESIS_POST
+        SET
+        PROFESSOR_MAJOR = #{professorMajor},
+        RESEARCH_FIELD = #{researchField},
+        RESEARCH_PROFIT = #{researchProfit},
+        RESEARCH_PERIOD = #{researchPeriod},
+        RESEARCH_DEADLINE = #{researchDeadline},
+        RESEARCH_START_DATE = #{researchStartDate},
+        RESEARCH_SCHEDULE = #{researchSchedule},
+        RESEARCH_REQUIREMENT = #{researchRequirement},
+        UPDATED_DATE = SYSDATE
+        WHERE ID = #{id}
+    </update>
+
+
+    <delete id="delete">
+        DELETE FROM TBL_THESIS_POST
+        WHERE ID = #{id}
+    </delete>
+
 </mapper>
