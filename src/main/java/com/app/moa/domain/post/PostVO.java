@@ -20,16 +20,4 @@ public class PostVO {
     private String createdDate;
     private String updatedDate;
 
-    public PostDTO toDTO(){
-        PostDTO postDTO = new PostDTO();
-        postDTO.setId(id);
-        postDTO.setPostTitle(postTitle);
-        postDTO.setPostContent(postContent);
-        postDTO.setPostType(postType);
-        postDTO.setUserId(userId);
-        postDTO.setPostView(postView);
-        postDTO.setCreatedDate(createdDate);
-        postDTO.setUpdatedDate(updatedDate);
-        return postDTO;
-    }
 }
