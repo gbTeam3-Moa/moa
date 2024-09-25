@@ -2,6 +2,7 @@ package com.app.moa.mapper;
 
 import com.app.moa.domain.qapost.QaPostDTO;
 import com.app.moa.mapper.qapost.QaPostMapper;
+import com.app.moa.service.qapost.QaPostService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 @Slf4j
 public class QaPostMapperTests {
     @Autowired
-    private QaPostMapper qaPostMapper;
+    private QaPostService qaPostService;
 
     @Test
-    public void testInsert(){
+    public void testwrite() {
         QaPostDTO qaPostDTO = new QaPostDTO();
-        qaPostDTO.setPostId(1L);
 
-//        qaPostMapper.insert(qaPostDTO.toVO());
+        qaPostDTO.setPostTitle("제목");
+        qaPostDTO.setPostContent("내용");
+        qaPostDTO.setPostType(1);
+        qaPostDTO.setUserId(1L);
+        qaPostService.write(qaPostDTO);
+
     }
 }

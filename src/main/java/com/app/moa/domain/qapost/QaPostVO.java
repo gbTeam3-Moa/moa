@@ -14,11 +14,4 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class QaPostVO implements Serializable {
     private Long id;
-    private Long PostId;
-
-    public QaPostDTO toDTO() {
-        QaPostDTO qaPostDTO = new QaPostDTO();
-        qaPostDTO.setId(id);
-        return qaPostDTO;
-    }
 }
