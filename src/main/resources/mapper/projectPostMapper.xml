@@ -3,8 +3,8 @@
 <mapper namespace="com.app.moa.mapper.project_post.ProjectPostMapper">
 
     <insert id="insert">
-        INSERT INTO TBL_PROJECT_POST(ID, STUDENT_MAJOR, PROJECT_FIELD, PROJECT_PROFIT, PROJECT_PERIOD, PROJECT_DEADLINE, PROJECT_START_DATE, PROJECT_SCHEDULE, PROJECT_REQUIREMENT)
-        VALUES (#{id}, #{studentMajor}, #{projectField}, #{projectProfit}, #{projectPeriod}, #{projectDeadline}, #{projectStartDate}, #{projectSchedule}, #{projectRequirement})
+        INSERT INTO TBL_THESIS_POST(ID, PROFESSOR_MAJOR, RESEARCH_FIELD, RESEARCH_PROFIT, RESEARCH_PERIOD, RESEARCH_DEADLINE, RESEARCH_START_DATE, RESEARCH_SCHEDULE, RESEARCH_REQUIREMENT)
+        VALUES (#{id}, #{professorMajor}, #{researchField}, #{researchProfit}, #{researchPeriod}, #{researchDeadline}, #{researchStartDate}, #{researchSchedule}, #{researchRequirement})
     </insert>
 
     <select id="selectById" resultType="projectPostDTO">
