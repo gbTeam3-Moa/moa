@@ -114,43 +114,6 @@ attachInputs.forEach((attachInput) => {
     });
 });
 
-// 게시글 저장버튼에 입력된 정보 저장 기능 추가
-// saveButton.addEventListener("click", (e) => {});
-
-// 기본 양식 텍스트
-// inquiryData 객체를 생성하여 초기 데이터를 설정합니다.
-// const inquiryData1 = {
-//     content: `<아래는 예시 양식입니다!>\n\n프로젝트 개요 : \n현재 준비 상황 : \n필요 요소 : \n개발환경/언어/방식 : \n주요 기능 List/주요 화면 List/메뉴 구성/요구 사항 등 : \n산출물 : \n참고 서비스/사이트 : \n기타 참고 사항/유의 사항 :`,
-// };
-// const inquiryData2 = {
-//     content: `<아래는 예시 양식입니다!>
-
-// 프로젝트 개요 : 삼성 반도체 건설 안전 관리 회사 웹사이트 제작이 필요합니다.
-// 현재 준비 상황 : 문구, 이미지 등 컨텐츠 자료는 전달드릴 예정입니다.
-// 필요 요소 : 삼성 반도체 건설 안전 관리 회사 웹사이트 기획 및 디자인
-// 개발환경/언어/방식 : 반응형 웹으로 개발이 필요합니다.
-// 주요 기능 List/주요 화면 List/메뉴 구성/요구 사항 등 : 회사 소개, 제품 소개, 채용, 계열사 소개 등의 소개 웹입니다.
-// 산출물 : 기획 : 기능, 화면 등 기획/설계 문서 일체
-// 참고 서비스/사이트 : https://www.naver.com
-// 기타 참고 사항/유의 사항 : 유사한 프로젝트 경험이 있는 업체를 찾고 있으며 디자인에 역량이 있는 업체를 선호합니다.`,
-// };
-
-// name 속성이 'textarea'인 요소를 선택합니다.
-
-// const fixTextArea1 = document.querySelector("#content-textarea1");
-// window.addEventListener("load", function () {
-//     if (fixTextArea1) {
-//         fixTextArea1.value = inquiryData1.content;
-//     }
-// });
-
-// const fixTextArea2 = document.querySelector("#content-textarea2");
-// window.addEventListener("load", function () {
-//     if (fixTextArea2) {
-//         fixTextArea2.value = inquiryData2.content;
-//     }
-// });
-
 textareas.forEach((textarea) => {
     let value = textarea.value;
     let focusCheck = false;
@@ -197,3 +160,208 @@ textareas.forEach((textarea) => {
         }
     });
 });
+
+const thesisWrite2 = () => {
+    let text = ``;
+
+    text += ` <div class="container">
+                    <form>
+                        <div class="post-write-form-section">
+                            <div class="form-section-header">
+                                <p class="form-section-title subtitle-1">
+                                    논문 공고 작성 <2>
+                                </p>
+                            </div>
+                            <div class="form-input-section">
+                                <div class="form-part">
+                                    <label class="form-title font-body-1-bold"
+                                        >프로젝트 예정 사항
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="mb8"></div>
+                                    <div class="form-content">
+                                        <div>
+                                            <div class="content-textarea">
+                                                <div class="textarea-border">
+                                                    <textarea
+                                                        class="moa-textarea font-body-2 text6"
+                                                        name="textarea"
+                                                        id="content-textarea1"
+                                                        maxlength="5000"
+                                                        rows="15"
+                                                        style="
+                                                            width: 100%;
+                                                            min-width: 100%;
+                                                            max-width: 100%;
+                                                        "
+                                                    >
+<아래는 예시 양식입니다!!>
+
+진행 분류 : 신규 프로젝트를 진행하려 합니다.
+기획 상태 : 아이디어만 있는 상태
+프로젝트 경험 : 양자물리학 프로젝트 진행 경험 있음
+협업 예정 인력 : 지원자 본인 제외 교수 1명과 파트너 4명
+                                                    </textarea>
+                                                </div>
+                                                <span
+                                                    class="word-length word-length1"
+                                                ></span>
+                                                <span
+                                                    class="help-text help-text1"
+                                                ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-part">
+                                    <label class="form-title font-body-1-bold"
+                                        >모집 요건
+                                    </label>
+                                    <div class="mb8"></div>
+                                    <div class="form-content">
+                                        <div>
+                                            <div class="content-textarea">
+                                                <div class="textarea-border">
+                                                    <textarea
+                                                        class="moa-textarea font-body-2 text6"
+                                                        name="textarea"
+                                                        id="title-textarea"
+                                                        maxlength="260"
+                                                        rows="4"
+                                                        style="
+                                                            width: 100%;
+                                                            min-width: 100%;
+                                                            max-width: 100%;
+                                                            min-height: 30px;
+                                                        "
+                                                    >
+모집 요건을 입력해 주세요. ex) 
+주 3회 한국대학교 출근 후 협업 가능자, 관련 분야 전공자</textarea
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="divide-wrap"></div>
+                                <div class="form-part">
+                                    <label class="form-title font-body-1-bold"
+                                        >프로젝트 내용
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="mb8"></div>
+                                    <div class="form-content">
+                                        <div>
+                                            <div class="content-textarea">
+                                                <div class="textarea-border">
+                                                    <textarea
+                                                        class="moa-textarea font-body-2 text6"
+                                                        name="textarea"
+                                                        id="content-textarea2"
+                                                        maxlength="5000"
+                                                        rows="15"
+                                                        style="
+                                                            width: 100%;
+                                                            min-width: 100%;
+                                                            max-width: 100%;
+                                                        "
+                                                    >
+<아래는 예시 양식입니다!!>
+                                                    
+프로젝트 개요 : 최근 양자물리학과 관련하여 새롭게 등장한 OOO 이론에 관한 연구를 진행하려고 합니다.
+현재 준비 상황 : 회의를 통해 연구에 필요한 기획을 완료하였고, 설비도 갖춘 상태입니다.
+필요 요소 : 연구를 통해 OOO 이론을 뒷받침 할 근거가 될 수 있는 결과 도출
+환경/진행방식 : 주 5일 / 9시 ~ 16시 / 한국대학교 연구실
+요구 사항 : 일단 함꼐 연구를 진행하게되면 성실하게 참여해주셨으면 합니다.
+산출물 :
+    기획 : 세부 기획 사항은 첨부파일로 올려두었습니다.
+    연구 결과 : 프로젝트 참여 인원들과 함께 한글파일로 작성 해주셔야 합니다.
+참고 서비스/사이트 : https://www.thesisKorea.com/oootheory/14213
+기타 참고 사항/유의 사항 : 연구 방해 및 연구 내용 유출 시 법적으로 대응할 예정입니다.
+                                                    </textarea>
+                                                </div>
+                                                <span
+                                                    class="word-length word-length2"
+                                                ></span>
+                                                <span
+                                                    class="help-text help-text2"
+                                                ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="attach-wrap">
+                                        <div class="attach-button-file-wrap">
+                                            <div class="attach-button">
+                                                <label>
+                                                    <img
+                                                        src="https://www.wishket.com/static/renewal/img/project/submit/btn_icon_add_s.svg"
+                                                        alt="attach_img"
+                                                    />
+                                                    <div
+                                                        class="font-body-2-medium text-moa"
+                                                    >
+                                                        파일첨부
+                                                    </div>
+                                                    <input
+                                                        type="file"
+                                                        class="attach-input"
+                                                    />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="attach-button-file-wrap">
+                                            <div class="attach-button">
+                                                <label>
+                                                    <img
+                                                        src="https://www.wishket.com/static/renewal/img/project/submit/btn_icon_add_s.svg"
+                                                        alt="attach_img"
+                                                    />
+                                                    <div
+                                                        class="font-body-2-medium text-moa"
+                                                    >
+                                                        파일첨부
+                                                    </div>
+                                                    <input
+                                                        type="file"
+                                                        class="attach-input"
+                                                    />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="attach-button-file-wrap">
+                                            <div class="attach-button">
+                                                <label>
+                                                    <img
+                                                        src="https://www.wishket.com/static/renewal/img/project/submit/btn_icon_add_s.svg"
+                                                        alt="attach_img"
+                                                    />
+                                                    <div
+                                                        class="font-body-2-medium text-moa"
+                                                    >
+                                                        파일첨부
+                                                    </div>
+                                                    <input
+                                                        type="file"
+                                                        class="attach-input"
+                                                    />
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="complete-save-button-divider">
+                                <div class="complete-button">작성완료</div>
+                                <div class="save-button">저장</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+`;
+
+    writediv,innerHTML = text;
+
+}
+
+

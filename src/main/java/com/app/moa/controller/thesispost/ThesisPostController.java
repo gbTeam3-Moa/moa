@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -32,11 +31,6 @@ public class ThesisPostController {
         model.addAttribute("pagination", pagination);
         model.addAttribute("posts", thesisPostService.getList(pagination));
     }
-//    글 수정
-
-//    글 삭제
-
-//    글 Id로 조회 얘도 눌렀을 때 로그인으로 튕겨내기
 
     // 글 작성 페이지 이동
     @GetMapping("thesis-write1")
@@ -44,7 +38,7 @@ public class ThesisPostController {
         ;
     }
 
-    // 글 작성 처리
+    // 글 작성 처리1
     @PostMapping("thesis-write1")
     public RedirectView thesisWrite1(ThesisPostDTO thesisPostDTO) {
         UserVO userVO = (UserVO) session.getAttribute("loginUser");
@@ -59,12 +53,17 @@ public class ThesisPostController {
 
         return new RedirectView("/thesis/thesis-write2");
     }
-
+    // 글 작성 처리2
     @PostMapping("thesis-write2")
     public RedirectView thesisWrite2(ThesisPostDTO thesisPostDTO) {
-
         thesisPostService.write(thesisPostDTO);
 
         return new RedirectView("/thesis/list");
     }
 }
+
+//    글 수정
+
+//    글 삭제
+
+//    글 Id로 조회 얘도 눌렀을 때 로그인으로 튕겨내기
