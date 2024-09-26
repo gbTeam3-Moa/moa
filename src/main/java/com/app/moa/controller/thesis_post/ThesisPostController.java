@@ -1,10 +1,9 @@
-package com.app.moa.controller.thesispost;
+package com.app.moa.controller.thesis_post;
 
+import com.app.moa.domain.member.MemberVO;
 import com.app.moa.domain.post.Pagination;
-import com.app.moa.domain.thesispost.ThesisPostDTO;
-import com.app.moa.domain.user.UserVO;
-import com.app.moa.service.thesispost.ThesisPostService;
-import jakarta.servlet.http.HttpServletRequest;
+import com.app.moa.domain.thesis_post.ThesisPostDTO;
+import com.app.moa.service.thesis_post.ThesisPostService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,38 +31,50 @@ public class ThesisPostController {
         model.addAttribute("posts", thesisPostService.getList(pagination));
     }
 
-    // 글 작성 페이지 이동
+    // 글 작성 페이지 이동1
     @GetMapping("thesis-write1")
-    public void getToWriteForm1(ThesisPostDTO thesisPostDTO) {
-        ;
+    public String getToWriteForm1(ThesisPostDTO thesisPostDTO) {
+        return "thesis/thesis-write1";
     }
 
     // 글 작성 처리1
     @PostMapping("thesis-write1")
     public RedirectView thesisWrite1(ThesisPostDTO thesisPostDTO) {
-        UserVO userVO = (UserVO) session.getAttribute("loginUser");
+        MemberVO memberVO = (MemberVO) session.getAttribute("loginMember");
 
-    // 로그인 안되어 있으면 로그인 페이지로 이동
-        if (userVO == null) {
-            return new RedirectView("/user/login");
+        // 로그인 안되어 있으면 로그인으로 보내기
+        if (memberVO == null) {
+            return new RedirectView("/member/login");
         }
-        thesisPostDTO.setUserId(userVO.getId());
+        thesisPostDTO.setMemberId(memberVO.getId());
 
-        thesisPostService.write(thesisPostDTO);
-
+        // 1단계 데이터 임시 저장 후 2단계 페이지로 이동
+        session.setAttribute("thesisPost", thesisPostDTO);
         return new RedirectView("/thesis/thesis-write2");
     }
+
+    // 글 작성 페이지 이동2
+    @GetMapping("thesis-write2")
+    public String getToWriteForm2(ThesisPostDTO thesisPostDTO) {
+        return "thesis/thesis-write2";
+    }
+
     // 글 작성 처리2
     @PostMapping("thesis-write2")
     public RedirectView thesisWrite2(ThesisPostDTO thesisPostDTO) {
-        thesisPostService.write(thesisPostDTO);
+        // 세션에 저장된 1단계 데이터 불러오고
+        ThesisPostDTO thesisPost1Data = (ThesisPostDTO) session.getAttribute("thesisPost");
 
-        return new RedirectView("/thesis/list");
+        // 2단계 데이터와 합쳐서 저장
+        thesisPost1Data.setResearchSchedule(thesisPostDTO.getResearchSchedule());
+        thesisPost1Data.setResearchRequirement(thesisPostDTO.getResearchRequirement());
+
+        // 진짜 저장
+        thesisPostService.write(thesisPost1Data);
+
+        // 저장 후 세션에서 1단계 데이터 제거
+        session.removeAttribute("thesisPost");
+
+        return new RedirectView("/thesis/thesis-list");
     }
 }
-
-//    글 수정
-
-//    글 삭제
-
-//    글 Id로 조회 얘도 눌렀을 때 로그인으로 튕겨내기

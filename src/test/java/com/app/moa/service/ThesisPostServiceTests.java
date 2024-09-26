@@ -1,8 +1,8 @@
 package com.app.moa.service;
 
-import com.app.moa.domain.thesispost.ThesisPostDTO;
-import com.app.moa.domain.thesispost.ThesisPostVO;
-import com.app.moa.service.thesispost.ThesisPostService;
+import com.app.moa.domain.thesis_post.ThesisPostDTO;
+import com.app.moa.domain.thesis_post.ThesisPostVO;
+import com.app.moa.service.thesis_post.ThesisPostService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,9 +23,9 @@ public class ThesisPostServiceTests {
     @Test
     public void testAttach() {
         ThesisPostDTO thesisPostDTO = new ThesisPostDTO();
-        thesisPostDTO.setPostTitle("제목2222");
-        thesisPostDTO.setPostContent("내용22222");
-        thesisPostDTO.setUserId(43L);
+        thesisPostDTO.setPostTitle("제목임");
+        thesisPostDTO.setPostContent("내용임");
+        thesisPostDTO.setMemberId(43L);
         thesisPostDTO.setProfessorMajor("전공1");
         thesisPostDTO.setResearchField("분야");
         thesisPostDTO.setResearchProfit("없음");
@@ -50,7 +50,7 @@ public class ThesisPostServiceTests {
         ThesisPostDTO thesisPostDTO = new ThesisPostDTO();
         thesisPostDTO.setPostTitle("제목3333");
         thesisPostDTO.setPostContent("내용3333");
-        thesisPostDTO.setUserId(43L);
+        thesisPostDTO.setMemberId(43L);
         thesisPostDTO.setProfessorMajor("전공2");
         thesisPostDTO.setResearchField("분야2");
         thesisPostDTO.setResearchProfit("없음1");

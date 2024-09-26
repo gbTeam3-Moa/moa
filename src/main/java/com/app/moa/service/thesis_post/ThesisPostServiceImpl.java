@@ -1,13 +1,14 @@
-package com.app.moa.service.thesispost;
+package com.app.moa.service.thesis_post;
 
 import com.app.moa.domain.post.Pagination;
 import com.app.moa.domain.post.PostVO;
-import com.app.moa.domain.thesispost.ThesisPostDTO;
-import com.app.moa.domain.thesispost.ThesisPostVO;
+import com.app.moa.domain.thesis_post.ThesisPostDTO;
+import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.mapper.post.PostMapper;
-import com.app.moa.mapper.thesispost.ThesisPostMapper;
+import com.app.moa.mapper.thesis_post.ThesisPostMapper;
 import com.app.moa.repository.post.PostDAO;
-import com.app.moa.repository.thesispost.ThesisPostDAO;
+import com.app.moa.repository.thesis_post.ThesisPostDAO;
+import com.app.moa.service.thesis_post.ThesisPostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
