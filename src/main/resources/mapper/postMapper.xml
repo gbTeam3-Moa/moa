@@ -5,7 +5,7 @@
         <selectKey keyProperty="id" order="BEFORE" resultType="long">
             SELECT SEQ_POST.NEXTVAL FROM DUAL
         </selectKey>
-        INSERT INTO TBL_POST(ID, POST_TITLE, POST_CONTENT, POST_TYPE, USER_ID, POST_VIEW)
-        VALUES (#{id}, #{postTitle}, #{postContent},#{postType},#{userId},#{postView})
+        INSERT INTO TBL_POST(ID, POST_TITLE, POST_CONTENT, POST_TYPE, MEMBER_ID, POST_VIEW)
+        VALUES (#{id}, #{postTitle}, #{postContent},#{postType},#{memberId},#{postView})
     </insert>
 </mapper>

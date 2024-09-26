@@ -31,6 +31,10 @@ public class QaPostServiceImpl implements QaPostService {
         qaPostDTO.setId(postVO.getId());
         qaPostDAO.save(qaPostDTO.toVO());
     }
+    @Override
+    public QaPostDTO selectById(Long id) {
+        return qaPostDAO.findById(id);
+    }
 
     @Override
     public List<QaPostDTO> getList(Pagination pagination) {
@@ -43,8 +47,8 @@ public class QaPostServiceImpl implements QaPostService {
     }
 
     @Override
-    public void updatePost(QaPostDTO projectPostDTO) {
-        qaPostDAO.update(projectPostDTO);
+    public void updatePost(QaPostDTO qaPostDTO) {
+        qaPostDAO.update(qaPostDTO);
     }
 
     @Override

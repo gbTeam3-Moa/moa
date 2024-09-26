@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface QaPostService {
     public void write(QaPostDTO qaPostDTO);
+    public  QaPostDTO selectById(Long id);
     public List<QaPostDTO> getList(Pagination pagination);
     public int getTotal();
     public void updatePost(QaPostDTO qaPostDTO);

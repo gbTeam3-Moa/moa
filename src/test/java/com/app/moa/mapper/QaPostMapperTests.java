@@ -27,8 +27,16 @@ public class QaPostMapperTests {
         qaPostDTO.setPostTitle("제목");
         qaPostDTO.setPostContent("내용1");
         qaPostDTO.setPostType(1);
-        qaPostDTO.setUserId(1L);
+        qaPostDTO.setMemberId(1L);
         qaPostMapper.insert(qaPostDTO.toVO());
+    }
+
+    @Test
+    public void testSelectById() {
+        Long id = 64L;
+        QaPostDTO qaPostDTO = qaPostMapper.selectById(id);
+
+        log.info("조회된 q&a post: " + qaPostDTO);
     }
     @Test
     public void testSelectAll(){
@@ -40,4 +48,23 @@ public class QaPostMapperTests {
         log.info("{}", posts.size());
         posts.stream().map(QaPostDTO::toString).forEach(log::info);
     }
+
+
+    @Test
+    public void testUpdate() {
+        QaPostDTO qaPostDTO = new QaPostDTO();
+        qaPostDTO.setId(64L);
+        qaPostDTO.setPostTitle("제목수정");
+        qaPostDTO.setPostContent("내용수정");
+        qaPostDTO.setPostType(0);
+        qaPostMapper.updateById(qaPostDTO);
+        log.info("q&a post가 수정되었습니다: " + qaPostDTO);
+    }
+    @Test
+    public void testDeleteById() {
+        Long id = 62L;
+        qaPostMapper.deleteById(id);
+        log.info("프로젝트 포스트가 삭제되었습니다. ID: " + id);
+    }
+
 }

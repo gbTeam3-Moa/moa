@@ -712,5 +712,10 @@
             </div>
         </div>
     </body>
-    <script src="../../static/js/qa/qa-list.js"></script>
+    <script src="../../static/js/qa/qa-list-event.js"></script>
+    <script th:inline="javascript">
+        const posts = [[${posts}]];
+        const pagination = [[${pagination}]];
+    </script>
+    <script src="/js/thesis/thesis-list.js"></script>
 </html>
