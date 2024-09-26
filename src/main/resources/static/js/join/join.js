@@ -202,7 +202,7 @@ retogglePassword.addEventListener("click", function (e) {
 /*****************************이메일,아이디, 비밀번호 검사**************************/
 
 const form = document.querySelector("form");
-const signButton = document.querySelector("button[type=button]");
+const signButton = document.querySelector("button#sign-button");
 
 const emailCheck = form["email"];
 const idCheck = form["id"];
@@ -321,9 +321,9 @@ repwCheck.addEventListener("input", function () {
 /******************************************************* */
 let enterPressed = false; // 엔터 키가 눌렸는지 추적하는 용
 
-const emailinputField = document.querySelector("input[name=userEmail]");
-const idinputField = document.querySelector("input[name=userId]");
-const pwinputField = document.querySelector("input[name=userPassword]");
+const emailinputField = document.querySelector("input[name=memberEmail]");
+const idinputField = document.querySelector("input[name=memberId]");
+const pwinputField = document.querySelector("input[name=memberPassword]");
 const repwinputField = document.querySelector("input[name=repasswordinput]");
 
 // 이메일 입력 필드에 포커스가 들어올 때
