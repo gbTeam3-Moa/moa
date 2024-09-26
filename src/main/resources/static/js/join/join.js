@@ -79,6 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 "absolute left-[3.2px] top-[5.45px] h-[2px] origin-top-left rotate-45 rounded bg-white transition-[width] duration-100 ease-linear w-[5.65px]";
             div2.className =
                 "absolute left-[4.5px] top-[8.95px] h-[2px] origin-top-left -rotate-45 rounded bg-white transition-[width] duration-100 ease-linear w-[8.3px] delay-100";
+            // 체크박스 검사
+            checkMessage.style.display = "none"; // 메시지 숨기기
+        } else {
+            checkMessage.style.display = "block";
+            checkMessage.textContent = "신분확인을 위해 한가지 체크해 주세요.";
+            checkMessage.style.color = "red";
         }
     }
 
@@ -202,7 +208,7 @@ retogglePassword.addEventListener("click", function (e) {
 /*****************************이메일,아이디, 비밀번호 검사**************************/
 
 const form = document.querySelector("form");
-const signButton = document.querySelector("button[type=button]");
+const signButton = document.querySelector("button#sign-button");
 
 const emailCheck = form["email"];
 const idCheck = form["id"];
@@ -321,10 +327,14 @@ repwCheck.addEventListener("input", function () {
 /******************************************************* */
 let enterPressed = false; // 엔터 키가 눌렸는지 추적하는 용
 
-const emailinputField = document.querySelector("input[name=userEmail]");
-const idinputField = document.querySelector("input[name=userId]");
-const pwinputField = document.querySelector("input[name=userPassword]");
+const emailinputField = document.querySelector("input[name=memberEmail]");
+const idinputField = document.querySelector("input[name=memberId]");
+const pwinputField = document.querySelector("input[name=memberPassword]");
 const repwinputField = document.querySelector("input[name=repasswordinput]");
+let isEmailValid = false;
+let isIdValid = false;
+let isPwValid = false;
+let isRePwValid = false;
 
 // 이메일 입력 필드에 포커스가 들어올 때
 emailinputField.addEventListener("focus", () => {
@@ -492,23 +502,6 @@ emailinputField.addEventListener("keydown", (e) => {
             emailMessage.textContent = "이메일을 입력해 주세요";
             emailMessage.style.color = "red";
         }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
-        }
 
         if (idinputField.value) {
             idplaceholder.style.color = "rgb(189, 189, 189)";
@@ -518,23 +511,6 @@ emailinputField.addEventListener("keydown", (e) => {
             idplaceholder.style.color = "red";
             idMessage.textContent = "아이디를 입력해 주세요";
             idMessage.style.color = "red";
-        }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
         }
 
         if (pwinputField.value) {
@@ -546,23 +522,6 @@ emailinputField.addEventListener("keydown", (e) => {
             pwMessage.textContent = "비밀번호를 입력해 주세요";
             pwMessage.style.color = "red";
         }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
-        }
 
         if (repwinputField.value) {
             repwplaceholder.style.color = "rgb(189, 189, 189)";
@@ -573,22 +532,19 @@ emailinputField.addEventListener("keydown", (e) => {
             repwMessage.textContent = "비밀번호를 재 입력해 주세요";
             repwMessage.style.color = "red";
         }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
 
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
+        // 체크박스 검사
+        if (
+            !professorCheckbox.checked &&
+            !academicCheckbox.checked &&
+            !userCheckbox.checked
+        ) {
+            checkMessage.style.display = "block";
+            checkMessage.textContent =
+                "신분확인을 위해 한가지 체크해 주세요.";
+            checkMessage.style.color = "red";
+        } else {
+            checkMessage.style.display = "none"; // 메시지 숨기기
         }
     }
 });
@@ -607,23 +563,6 @@ idinputField.addEventListener("keydown", (e) => {
             idMessage.textContent = "아이디를 입력해 주세요";
             idMessage.style.color = "red";
         }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
-        }
 
         if (emailinputField.value) {
             emailplaceholder.style.color = "rgb(189, 189, 189)";
@@ -633,23 +572,6 @@ idinputField.addEventListener("keydown", (e) => {
             emailplaceholder.style.color = "red";
             emailMessage.textContent = "이메일를 입력해 주세요";
             emailMessage.style.color = "red";
-        }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
         }
 
         if (pwinputField.value) {
@@ -661,23 +583,6 @@ idinputField.addEventListener("keydown", (e) => {
             pwMessage.textContent = "비밀번호를 입력해 주세요";
             pwMessage.style.color = "red";
         }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
-        }
 
         if (repwinputField.value) {
             repwplaceholder.style.color = "rgb(189, 189, 189)";
@@ -688,22 +593,19 @@ idinputField.addEventListener("keydown", (e) => {
             repwMessage.textContent = "비밀번호를 재 입력해 주세요";
             repwMessage.style.color = "red";
         }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
 
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
+        // 체크박스 검사
+        if (
+            !professorCheckbox.checked &&
+            !academicCheckbox.checked &&
+            !userCheckbox.checked
+        ) {
+            checkMessage.style.display = "block";
+            checkMessage.textContent =
+                "신분확인을 위해 한가지 체크해 주세요.";
+            checkMessage.style.color = "red";
+        } else {
+            checkMessage.style.display = "none"; // 메시지 숨기기
         }
     }
 });
@@ -722,23 +624,6 @@ pwinputField.addEventListener("keydown", (e) => {
             pwMessage.textContent = "비밀번호를 입력해 주세요";
             pwMessage.style.color = "red";
         }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
-        }
 
         if (emailinputField.value) {
             emailplaceholder.style.color = "rgb(189, 189, 189)";
@@ -748,23 +633,6 @@ pwinputField.addEventListener("keydown", (e) => {
             emailplaceholder.style.color = "red";
             emailMessage.textContent = "이메일을 입력해 주세요";
             emailMessage.style.color = "red";
-        }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
         }
 
         if (idinputField.value) {
@@ -776,23 +644,6 @@ pwinputField.addEventListener("keydown", (e) => {
             idMessage.textContent = "아이디를 입력해 주세요";
             idMessage.style.color = "red";
         }
-        if (e.key === "Enter") {
-            enterPressed = true; // 엔터 키가 눌렸음을 기록
-
-            // 체크박스 검사
-            if (
-                !professorCheckbox.checked &&
-                !academicCheckbox.checked &&
-                !userCheckbox.checked
-            ) {
-                checkMessage.style.display = "block";
-                checkMessage.textContent =
-                    "신분확인을 위해 한가지 체크해 주세요.";
-                checkMessage.style.color = "red";
-            } else {
-                checkMessage.style.display = "none"; // 메시지 숨기기
-            }
-        }
 
         if (repwinputField.value) {
             repwplaceholder.style.color = "rgb(189, 189, 189)";
@@ -802,6 +653,20 @@ pwinputField.addEventListener("keydown", (e) => {
             repwplaceholder.style.color = "red";
             repwMessage.textContent = "비밀번호를 재 입력해 주세요";
             repwMessage.style.color = "red";
+        }
+
+        // 체크박스 검사
+        if (
+            !professorCheckbox.checked &&
+            !academicCheckbox.checked &&
+            !userCheckbox.checked
+        ) {
+            checkMessage.style.display = "block";
+            checkMessage.textContent =
+                "신분확인을 위해 한가지 체크해 주세요.";
+            checkMessage.style.color = "red";
+        } else {
+            checkMessage.style.display = "none"; // 메시지 숨기기
         }
     }
 });
@@ -821,18 +686,6 @@ repwinputField.addEventListener("keydown", (e) => {
             repwMessage.style.color = "red";
         }
 
-        if (
-            !professorCheckbox.checked &&
-            !academicCheckbox.checked &&
-            !userCheckbox.checked
-        ) {
-            checkMessage.style.display = "block";
-            checkMessage.textContent = "신분확인을 위해 한가지 체크해 주세요.";
-            checkMessage.style.color = "red";
-        } else {
-            checkMessage.style.display = "none"; // 메시지 숨기기
-        }
-
         if (emailinputField.value) {
             emailplaceholder.style.color = "rgb(189, 189, 189)";
         } else {
@@ -841,17 +694,6 @@ repwinputField.addEventListener("keydown", (e) => {
             emailplaceholder.style.color = "red";
             emailMessage.textContent = "이메일을 입력해 주세요";
             emailMessage.style.color = "red";
-        }
-        if (
-            !professorCheckbox.checked &&
-            !academicCheckbox.checked &&
-            !userCheckbox.checked
-        ) {
-            checkMessage.style.display = "block";
-            checkMessage.textContent = "신분확인을 위해 한가지 체크해 주세요.";
-            checkMessage.style.color = "red";
-        } else {
-            checkMessage.style.display = "none"; // 메시지 숨기기
         }
 
         if (idinputField.value) {
@@ -863,17 +705,6 @@ repwinputField.addEventListener("keydown", (e) => {
             idMessage.textContent = "아이디를 입력해 주세요";
             idMessage.style.color = "red";
         }
-        if (
-            !professorCheckbox.checked &&
-            !academicCheckbox.checked &&
-            !userCheckbox.checked
-        ) {
-            checkMessage.style.display = "block";
-            checkMessage.textContent = "신분확인을 위해 한가지 체크해 주세요.";
-            checkMessage.style.color = "red";
-        } else {
-            checkMessage.style.display = "none"; // 메시지 숨기기
-        }
 
         if (pwinputField.value) {
             pwplaceholder.style.color = "rgb(189, 189, 189)";
@@ -884,6 +715,7 @@ repwinputField.addEventListener("keydown", (e) => {
             pwMessage.textContent = "비밀번호를 입력해 주세요";
             pwMessage.style.color = "red";
         }
+
         if (
             !professorCheckbox.checked &&
             !academicCheckbox.checked &&
