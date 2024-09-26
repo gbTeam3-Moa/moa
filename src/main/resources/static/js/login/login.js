@@ -159,12 +159,12 @@ idCheck.addEventListener("input", function () {
 /******************************************************* */
 let enterPressed = false; // 엔터 키가 눌렸는지 추적하는 용
 
-const idinputField = document.querySelector("input[name=emailOrId]");
+const idinputField = document.querySelector("input[name=memberId]");
 const idfloatingPlaceholder = document.querySelector("#floating-placeholder");
 const idoriginalPlaceholderColor2 =
     idfloatingPlaceholder.style.color || "rgb(51, 145, 186)";
 
-const pwinputField = document.querySelector("input[name=password]");
+const pwinputField = document.querySelector("input[name=memberPassword]");
 const pwfloatingPlaceholder = document.querySelector(
     "#floating-password-placeholder"
 );

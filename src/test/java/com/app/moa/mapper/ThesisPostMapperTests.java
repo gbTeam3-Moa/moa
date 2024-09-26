@@ -1,7 +1,7 @@
 package com.app.moa.mapper;
 
-import com.app.moa.domain.thesispost.ThesisPostDTO;
-import com.app.moa.mapper.thesispost.ThesisPostMapper;
+import com.app.moa.domain.thesis_post.ThesisPostDTO;
+import com.app.moa.mapper.thesis_post.ThesisPostMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
