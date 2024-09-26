@@ -139,3 +139,138 @@ textareas.forEach((textarea) => {
         }
     });
 });
+const thesisWrite1 = () => {
+    let text = ``;
+
+    text += `
+        <div class="post-write-form">
+            <form>
+                <div class="post-write-form-section">
+                    <div class="form-section-header">
+                        <p class="form-section-title subtitle-1">
+                            논문 공고 작성
+                        </p>
+                    </div>
+                    <div class="form-input-section">
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold">
+                                학교 및 전공
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div class="content-textarea">
+                                    <div class="textarea-border">
+                                        <textarea class="moa-textarea font-body-2 text6" name="school-major" id="school-major-textarea"
+                                            maxlength="70" rows="1" style="width: 100%; min-height: 30px;" placeholder="현재 소속된 학교와 교수님 본인의 전공을 입력해주세요. ex) 모아대학교, 천체물리학"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold">
+                                프로젝트 분야
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div class="content-textarea">
+                                    <div class="textarea-border">
+                                        <textarea class="moa-textarea font-body-2 text6" name="project-field" id="project-field-textarea"
+                                            maxlength="70" rows="1" style="width: 100%; min-height: 30px;" placeholder="진행할 프로젝트 분야를 입력해 주세요. ex) IT / 네트워크"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold">
+                                프로젝트 제목
+                                <span class="required">*</span>
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div class="content-textarea">
+                                    <div class="textarea-border">
+                                        <textarea class="moa-textarea font-body-2 text6" name="project-title" id="title-textarea"
+                                            maxlength="206" rows="3" style="width: 100%; min-height: 30px;" placeholder="프로젝트 제목을 입력해주세요. ex) 삼성 반도체 건설 안전 관리 회사 웹사이트 구축"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold">
+                                예상 금액
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div class="content-textarea">
+                                    <div class="textarea-border">
+                                        <textarea class="moa-textarea font-body-2 text6" name="estimated-price" id="price-textarea"
+                                            maxlength="70" rows="1" style="width: 100%; min-height: 30px;" placeholder="예상금액을 입력해주세요. ex) 5,000,000원"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold">
+                                예상 기간
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div class="content-textarea">
+                                    <div class="textarea-border">
+                                        <textarea class="moa-textarea font-body-2 text6" name="estimated-duration" id="duration-textarea"
+                                            maxlength="70" rows="1" style="width: 100%; min-height: 30px;" placeholder="예상기간을 입력해 주세요. ex) 30일"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold">
+                                모집 마감일
+                                <span class="required">*</span>
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div class="content-textarea">
+                                    <div class="textarea-border">
+                                        <textarea class="moa-textarea font-body-2 text6" name="deadline" id="deadline-textarea"
+                                            maxlength="70" rows="1" style="width: 100%; min-height: 30px;" placeholder="모집 마감일을 입력해주세요. ex) 2024년 11월 11일"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold">
+                                예상 시작일
+                                <span class="required">*</span>
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div class="content-textarea">
+                                    <div class="textarea-border">
+                                        <textarea class="moa-textarea font-body-2 text6" name="start-date" id="start-date-textarea"
+                                            maxlength="70" rows="1" style="width: 100%; min-height: 30px;" placeholder="예상 시작일을 입력해주세요. ex) 2024년 06월 01일"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="complete-save-button-divider">
+                        <div class="complete-button">작성완료</div>
+                        <div class="save-button">저장</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    `;
+
+
+    writediv.innerHTML = text;
+}
+

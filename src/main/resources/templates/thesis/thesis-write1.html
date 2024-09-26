@@ -246,4 +246,7 @@
     </body>
     <script src="../../static/js/thesis/thesis-write1.js"></script>
     <!-- <script src="project-write1.js"></script> -->
+    <script th:inline="javascript">
+        const posts = [[${writes}]];
+    </script>
 </html>
