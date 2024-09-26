@@ -20,7 +20,7 @@ public class ReportDAO {
         reportMapper.report(reportVO);
     }
 
-    //  신고 내역 조회
+    //  신고 내역 목록
     public List<ReportDTO> findAll(Pagination pagination) {
         return reportMapper.selectAll(pagination);
     }
@@ -29,6 +29,14 @@ public class ReportDAO {
     public int findCount(){
         return reportMapper.selectCount();
     }
+
+    //  신고 내역 조회
+        public ReportDTO findById(Long id) {
+        return reportMapper.selectById(id);
+    }
+
+
+
 
 
 //    //  게시물 작성
