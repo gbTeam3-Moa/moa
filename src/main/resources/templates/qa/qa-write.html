@@ -6,7 +6,7 @@
         <title>Q&A 게시판- 질문 작성 페이지</title>
         <link
             rel="stylesheet"
-            href="../../static/css/information/information-write.css"
+            href="/css/information/information-write.css"
         />
         <link
                 rel="shortcut icon"
@@ -27,6 +27,7 @@
                             </div>
                             <div class="divider"></div>
                             <div class="form-input-section">
+                                <form th:action="@{templates/qa/qa-list}" method="post" id="go-list" class="write-complete">
                                 <div class="form-part">
                                     <label class="form-title font-body-1-bold"
                                         >학교 및 학과
@@ -108,8 +109,8 @@
                                                             max-width: 100%;
                                                         "
                                                     >
-질문 내용을 입력해주세요.</textarea
-                                                    >
+                                                    질문 내용을 입력해주세요.</textarea>
+
                                                 </div>
                                                 <span
                                                     class="word-length"
@@ -119,6 +120,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                             <div class="complete-save-button-divider">
                                 <div class="complete-button">작성완료</div>
@@ -131,5 +133,6 @@
         </div>
         <div id="footer-space" style="width: 100px; height: 100px"></div>
     </body>
-    <script src="../../static/js/information/information-write.js"></script>
+    <script src="/js/information/information-write.js"></script>
+    <script src="/js/qa/qa-write.js"></script>
 </html>
