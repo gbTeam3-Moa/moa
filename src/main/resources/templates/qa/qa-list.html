@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../../static/css/qa/qa-list.css" />
+        <link rel="stylesheet" href="/css/qa/qa-list.css" />
         <link
                 rel="shortcut icon"
                 href="https://www.wishket.com/static/favicon.ico"
@@ -712,5 +712,10 @@
             </div>
         </div>
     </body>
-    <script src="../../static/js/qa/qa-list.js"></script>
+    <script src="/js/qa/qa-list-event.js">
+    <script th:inline="javascript">
+        const posts = [[${posts}]];
+        const pagination = [[${pagination}]];
+    </script>
+    <script src="/js/qa/qa-list.js"></script>
 </html>

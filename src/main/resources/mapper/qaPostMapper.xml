@@ -7,15 +7,43 @@
     </insert>
 
     <select id="selectById" resultType="qaPostDTO">
-        SELECT ID
-        FROM TBL_QA_POST
+        SELECT ID, POST_TITLE, POST_CONTENT, POST_TYPE, MEMBER_ID
+        FROM TBL_POST
         WHERE ID = #{id}
     </select>
 
+    <select id="selectAll" resultType="qaPostDTO">
+        SELECT QP2.ID, MEMBER_ID, MEMBER_MAJOR, QP2.UPDATED_DATE
+        FROM
+            (
+            SELECT ROWNUM R, QP1.ID, MEMBER_ID, MEMBER_MAJOR, QP1.UPDATED_DATE
+            FROM
+                (
+                SELECT M.ID, QP.MEMBER_ID, MEMBER_MAJOR, QP.UPDATED_DATE
+                FROM TBL_MEMBER M JOIN (
+                    SELECT QP0.ID, POST_TITLE, POST_CONTENT, MEMBER_ID, POST_VIEW, UPDATED_DATE
+                    FROM TBL_POST P JOIN TBL_QA_POST QP0
+                    ON P.ID = QP0.ID
+                ) QP
+                ON M.ID = QP.MEMBER_ID
+                ORDER BY QP.ID DESC
+                ) QP1
+                    <![CDATA[
+                    WHERE ROWNUM <= #{endRow}
+                    ) QP2
+                    WHERE ROWNUM >= #{startRow}
+                    ]]>
+    </select>
+
+    <select id="selectCount">
+        SELECT COUNT(*) FROM TBL_QA_POST
+    </select>
+
     <update id="updateById">
-        UPDATE TBL_QA_POST
-        SET PROJECT_FIELD = #{projectField},
-            PROJECT_REQUIREMENT = #{projectRequirement}
+        UPDATE TBL_POST
+        SET POST_TITLE = #{postTitle},
+            POST_CONTENT = #{postContent},
+            POST_TYPE = #{postType}
         WHERE ID = #{id}
     </update>
 
