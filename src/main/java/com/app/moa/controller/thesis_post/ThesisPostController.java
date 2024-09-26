@@ -71,18 +71,18 @@ public class ThesisPostController {
     // 글 작성 처리2
     @PostMapping("thesis-write2")
     public RedirectView thesisWrite2(ThesisPostDTO thesisPostDTO) {
-        // 세션에 저장된 1단계 데이터 불러오고
-        ThesisPostDTO thesisPost1Data = (ThesisPostDTO) session.getAttribute("thesisPost");
-
-        // 2단계 데이터와 합쳐서 저장
-        thesisPost1Data.setResearchSchedule(thesisPostDTO.getResearchSchedule());
-        thesisPost1Data.setResearchRequirement(thesisPostDTO.getResearchRequirement());
-
-        // 진짜 저장
-        thesisPostService.write(thesisPost1Data);
-
-        // 저장 후 세션에서 1단계 데이터 제거
-        session.removeAttribute("thesisPost");
+//        // 세션에 저장된 1단계 데이터 불러오고
+//        ThesisPostDTO thesisPost1Data = (ThesisPostDTO) session.getAttribute("thesisPost");
+//
+//        // 2단계 데이터와 합쳐서 저장
+//        thesisPost1Data.setResearchSchedule(thesisPostDTO.getResearchSchedule());
+//        thesisPost1Data.setResearchRequirement(thesisPostDTO.getResearchRequirement());
+//
+//        // 진짜 저장
+//        thesisPostService.write(thesisPost1Data);
+//
+//        // 저장 후 세션에서 1단계 데이터 제거
+//        session.removeAttribute("thesisPost");
 
         return new RedirectView("/thesis/thesis-list");
     }
