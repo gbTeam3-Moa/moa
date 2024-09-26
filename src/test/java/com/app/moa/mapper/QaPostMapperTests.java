@@ -1,10 +1,9 @@
 package com.app.moa.mapper;
 
 import com.app.moa.domain.post.Pagination;
-import com.app.moa.domain.projectpost.ProjectPostDTO;
-import com.app.moa.domain.qapost.QaPostDTO;
-import com.app.moa.mapper.qapost.QaPostMapper;
-import com.app.moa.service.qapost.QaPostService;
+import com.app.moa.domain.qa_post.QaPostDTO;
+import com.app.moa.mapper.qa_post.QaPostMapper;
+import com.app.moa.service.qa_post.QaPostService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

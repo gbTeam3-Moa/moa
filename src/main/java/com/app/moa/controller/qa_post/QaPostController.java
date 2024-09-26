@@ -1,11 +1,10 @@
-package com.app.moa.controller.qapost;
+package com.app.moa.controller.qa_post;
 
+import com.app.moa.domain.member.MemberVO;
 import com.app.moa.domain.post.PostVO;
-import com.app.moa.domain.qapost.QaPostDTO;
+import com.app.moa.domain.qa_post.QaPostDTO;
 import com.app.moa.domain.post.Pagination;
-import com.app.moa.service.qapost.QaPostService;
-import com.app.moa.service.thesispost.ThesisPostService;
-import jakarta.servlet.http.HttpSession;
+import com.app.moa.service.qa_post.QaPostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.nio.file.Files;
 
 @Controller
 @RequestMapping("/qa/*")

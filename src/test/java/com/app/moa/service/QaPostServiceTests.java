@@ -1,9 +1,9 @@
 package com.app.moa.service;
 
 import com.app.moa.domain.post.Pagination;
-import com.app.moa.domain.qapost.QaPostDTO;
+import com.app.moa.domain.qa_post.QaPostDTO;
 import com.app.moa.mapper.post.PostMapper;
-import com.app.moa.service.qapost.QaPostService;
+import com.app.moa.service.qa_post.QaPostService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class QaPostServiceTests {
         qaPostDTO.setPostTitle("제목");
         qaPostDTO.setPostContent("내용1");
         qaPostDTO.setPostType(1);
-        qaPostDTO.setUserId(1L);
+        qaPostDTO.setMemberId(1L);
 
         qaPostService.write(qaPostDTO);
     }
