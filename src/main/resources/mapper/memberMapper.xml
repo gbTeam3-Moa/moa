@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.moa.mapper.member.MemberMapper">
+    <insert id="insert">
+        INSERT INTO TBL_MEMBER (ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NICKNAME, MEMBER_TYPE)
+        VALUES (SEQ_MEMBER.NEXTVAL, #{memberEmail}, #{memberPassword}, #{memberNickName}, #{memberType})
+    </insert>
+
+    <select id="selectByMemberEmailAndMemberPassword" resultType="memberVO">
+        SELECT ID, MEMBER_EMAIL, MEMBER_NICKNAME
+        FROM TBL_MEMBER
+        WHERE (MEMBER_NICKNAME = #{memberId} OR MEMBER_EMAIL = #{memberEmail}) AND MEMBER_PASSWORD = #{memberPassword}
+    </select>
+
+    <select id="selectById" resultType="memberVO">
+        SELECT ID, MEMBER_EMAIL, MEMBER_NICKNAME
+        FROM TBL_MEMBER
+        WHERE ID = #{id}
+    </select>
+
+    <select id="selectByMemberEmail" resultType="memberVO">
+        SELECT ID, MEMBER_EMAIL, MEMBER_NICKNAME
+        FROM TBL_MEMBER
+        WHERE MEMBER_EMAIL = #{memberEmail}
+    </select>
+
+    <update id="updatePassword">
+        UPDATE TBL_MEMBER
+        SET MEMBER_PASSWORD = #{memberPassword}
+        WHERE MEMBER_EMAIL = #{memberEmail}
+    </update>
+
+    <update id="update">
+        UPDATE TBL_MEMBER
+        SET MEMBER_EMAIL = #{memberEmail}, MEMBER_NAME = #{memberName}
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM TBL_MEMBER
+        WHERE ID = #{id}
+    </delete>
+</mapper>

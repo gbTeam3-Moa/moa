@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.moa.mapper.projectpost.ProjectPostMapper">
+<mapper namespace="com.app.moa.mapper.project_post.ProjectPostMapper">
 
     <insert id="insert">
         INSERT INTO TBL_THESIS_POST(ID, PROFESSOR_MAJOR, RESEARCH_FIELD, RESEARCH_PROFIT, RESEARCH_PERIOD, RESEARCH_DEADLINE, RESEARCH_START_DATE, RESEARCH_SCHEDULE, RESEARCH_REQUIREMENT)
