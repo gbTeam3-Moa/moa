@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/thesis/*")
 @RequiredArgsConstructor
@@ -22,13 +24,20 @@ public class ThesisPostController {
     private final ThesisPostService thesisPostService;
     private final HttpSession session;
 
-    // 리스트 조회
     @GetMapping("thesis-list")
-    public void getList(Pagination pagination, Model model) {
+    public String getList(Pagination pagination, Model model) {
         pagination.setTotal(thesisPostService.getTotal());
         pagination.progress();
+        List<ThesisPostDTO> posts = thesisPostService.getList(pagination);
+
+        if (posts.isEmpty()) {
+            log.info("No posts found.");
+        }
+
         model.addAttribute("pagination", pagination);
-        model.addAttribute("posts", thesisPostService.getList(pagination));
+        model.addAttribute("posts", posts);
+
+        return "thesis/thesis-list";
     }
 
     // 글 작성 페이지 이동1
