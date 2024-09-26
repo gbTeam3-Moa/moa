@@ -37,8 +37,15 @@ public class QaPostController {
     public void goToWriteForm(QaPostDTO qapostDTO){;}
 
     @PostMapping("qa-write")
-    public void write(QaPostDTO qaPostDTO){
-        qaPostDTO.setMemberId(((MemberVO) session.getAttribute("member")).getId());
-        qaPostService.write(qaPostDTO.toVO());
+    public RedirectView goToListForm(Pagination pagination, Model model){
+        pagination.setTotal(qaPostService.getTotal());
+        pagination.progress();
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("posts", qaPostService.getList(pagination));
+        return new RedirectView("/qa/qa-list");
     }
+
+    @GetMapping("qa-inquiry")
+    public void goTOReadForm(QaPostDTO qapostDTO){;}
+
 }
