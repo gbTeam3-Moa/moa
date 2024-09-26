@@ -321,9 +321,9 @@ repwCheck.addEventListener("input", function () {
 /******************************************************* */
 let enterPressed = false; // 엔터 키가 눌렸는지 추적하는 용
 
-const emailinputField = document.querySelector("input[name=emailInput]");
-const idinputField = document.querySelector("input[name=idinput]");
-const pwinputField = document.querySelector("input[name=passwordinput]");
+const emailinputField = document.querySelector("input[name=userEmail]");
+const idinputField = document.querySelector("input[name=userId]");
+const pwinputField = document.querySelector("input[name=userPassword]");
 const repwinputField = document.querySelector("input[name=repasswordinput]");
 
 // 이메일 입력 필드에 포커스가 들어올 때

@@ -6,13 +6,13 @@
     </settings>
     <typeAliases>
         <typeAlias type="com.app.moa.domain.post.PostVO" alias="postVO"/>
-        <typeAlias type="com.app.moa.domain.qapost.QaPostVO" alias="qaPostVO"/>
-        <typeAlias type="com.app.moa.domain.qapost.QaPostVO" alias="qaPostDTO"/>
-        <typeAlias type="com.app.moa.domain.user.UserVO" alias="userVO"/>
-        <typeAlias type="com.app.moa.domain.user.UserDTO" alias="userDTO"/>
-        <typeAlias type="com.app.moa.domain.projectpost.ProjectPostVO" alias="projectPostVO"/>
-        <typeAlias type="com.app.moa.domain.projectpost.ProjectPostDTO" alias="projectPostDTO"/>
-        <typeAlias type="com.app.moa.domain.thesispost.ThesisPostVO" alias="thesisPostVO"/>
-        <typeAlias type="com.app.moa.domain.thesispost.ThesisPostDTO" alias="thesisPostDTO"/>
+        <typeAlias type="com.app.moa.domain.qa_post.QaPostVO" alias="qaPostVO"/>
+        <typeAlias type="com.app.moa.domain.qa_post.QaPostVO" alias="qaPostDTO"/>
+        <typeAlias type="com.app.moa.domain.member.MemberVO" alias="memberVO"/>
+        <typeAlias type="com.app.moa.domain.member.MemberDTO" alias="memberDTO"/>
+        <typeAlias type="com.app.moa.domain.project_post.ProjectPostVO" alias="projectPostVO"/>
+        <typeAlias type="com.app.moa.domain.project_post.ProjectPostDTO" alias="projectPostDTO"/>
+        <typeAlias type="com.app.moa.domain.thesis_post.ThesisPostVO" alias="thesisPostVO"/>
+        <typeAlias type="com.app.moa.domain.thesis_post.ThesisPostDTO" alias="thesisPostDTO"/>
     </typeAliases>
 </configuration>
