@@ -1,13 +1,11 @@
 
 package com.app.moa.mapper;
 
-
-import com.app.moa.domain.projectpost.ProjectPostDTO;
-import com.app.moa.mapper.projectpost.ProjectPostMapper;
+import com.app.moa.domain.project_post.ProjectPostDTO;
+import com.app.moa.mapper.project_post.ProjectPostMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
