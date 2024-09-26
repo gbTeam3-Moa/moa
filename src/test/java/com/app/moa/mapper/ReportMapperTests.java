@@ -15,8 +15,8 @@ import java.util.List;
 public class ReportMapperTests {
     @Autowired
     private ReportMapper reportMapper;
-    @Autowired
-    private ReportDTO reportDTO;
+//    @Autowired
+//    private ReportDTO reportDTO;
 
     @Test
     public void testReport() {
@@ -32,20 +32,7 @@ public class ReportMapperTests {
     }
 
     @Test
-    public void testSelectAll() {
-        Pagination pagination = new Pagination();
-        pagination.setPage(1);
-        pagination.setTotal(reportMapper.selectCount());
-        pagination.progress();
-        List<ReportDTO> reports = reportMapper.selectAll(pagination);
-        log.info("{}", reports.size());
-//        log.info("{}", reportMapper);
-//        log.info("{}", reportDTO);
-        reports.stream().map(ReportDTO::toString).forEach(log::info);
-    }
-
-    @Test
-    public void testselectAllPV() {
+    public void testSelectAll() {      //목록 순서
         Pagination pagination = new Pagination();
         pagination.setPage(1);
         pagination.setTotal(reportMapper.selectCount());
