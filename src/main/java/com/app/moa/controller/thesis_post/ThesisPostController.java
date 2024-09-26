@@ -40,13 +40,13 @@ public class ThesisPostController {
     // 글 작성 처리1
     @PostMapping("thesis-write1")
     public RedirectView thesisWrite1(ThesisPostDTO thesisPostDTO) {
-        MemberVO memberVO = (MemberVO) session.getAttribute("loginMember");
-
-        // 로그인 안되어 있으면 로그인으로 보내기
-        if (memberVO == null) {
-            return new RedirectView("/member/login");
-        }
-        thesisPostDTO.setMemberId(memberVO.getId());
+//        MemberVO memberVO = (MemberVO) session.getAttribute("loginMember");
+//
+//        // 로그인 안되어 있으면 로그인으로 보내기
+//        if (memberVO == null) {
+//            return new RedirectView("/member/login");
+//        }
+//        thesisPostDTO.setMemberId(memberVO.getId());
 
         // 1단계 데이터 임시 저장 후 2단계 페이지로 이동
         session.setAttribute("thesisPost", thesisPostDTO);
