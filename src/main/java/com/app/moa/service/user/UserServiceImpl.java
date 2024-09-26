@@ -1,7 +1,7 @@
 package com.app.moa.service.user;
 
 import com.app.moa.domain.user.UserVO;
-import com.app.moa.repository.user.UserDAO;
+import com.app.moa.repository.member.UserDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

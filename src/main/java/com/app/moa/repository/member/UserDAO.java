@@ -1,4 +1,4 @@
-package com.app.moa.repository.user;
+package com.app.moa.repository.member;
 
 import com.app.moa.domain.user.UserVO;
 import com.app.moa.mapper.user.UserMapper;

@@ -1,6 +1,6 @@
 package com.app.moa.mapper.report;
 
-import com.app.moa.domain.post.Pagination;
+import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -18,4 +18,6 @@ public interface ReportMapper {
 
     //    전체 개수
     public int selectCount();
+
+
 }

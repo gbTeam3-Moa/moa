@@ -14,7 +14,7 @@ import java.util.Date;
 public class ReportVO {
     private Long id;
     private Long postId;
-    private Long userId;
+    private Long memberId;
     private String reportReason;
     private Long reportStatus;
 

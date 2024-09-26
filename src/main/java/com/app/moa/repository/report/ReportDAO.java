@@ -1,21 +1,17 @@
 package com.app.moa.repository.report;
 
 
-import com.app.moa.domain.post.Pagination;
-
+import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
-import com.app.moa.domain.thesispost.ThesisPostDTO;
 import com.app.moa.mapper.report.ReportMapper;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-
 public class ReportDAO {
     private final ReportMapper reportMapper;
 
@@ -28,6 +24,12 @@ public class ReportDAO {
     public List<ReportDTO> findAll(Pagination pagination) {
         return reportMapper.selectAll(pagination);
     }
+
+    //    전체 개수
+    public int findCount(){
+        return reportMapper.selectCount();
+    }
+
 
 //    //  게시물 작성
 //    public PostDTO findById(Long id) {

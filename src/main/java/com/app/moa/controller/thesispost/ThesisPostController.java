@@ -2,7 +2,7 @@ package com.app.moa.controller.thesispost;
 
 import com.app.moa.domain.post.Pagination;
 import com.app.moa.service.thesispost.ThesisPostService;
-import lombok.Getter;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
