@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.moa.mapper.qapost.QaPostMapper">
+<mapper namespace="com.app.moa.mapper.qa_post.QaPostMapper">
     <insert id="insert">
         INSERT INTO TBL_QA_POST(ID)
         VALUES (#{id})
