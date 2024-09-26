@@ -31,7 +31,7 @@ public class ThesisPostController {
         List<ThesisPostDTO> posts = thesisPostService.getList(pagination);
 
         if (posts.isEmpty()) {
-            log.info("No posts found.");
+            log.info("포스트 없음");
         }
 
         model.addAttribute("pagination", pagination);
