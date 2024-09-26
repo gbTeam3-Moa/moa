@@ -3,6 +3,7 @@ package com.app.moa.controller.thesis_post;
 import com.app.moa.domain.member.MemberVO;
 import com.app.moa.domain.post.Pagination;
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
+import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.service.thesis_post.ThesisPostService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -12,9 +13,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/thesis/*")
@@ -85,5 +88,12 @@ public class ThesisPostController {
 //        session.removeAttribute("thesisPost");
 
         return new RedirectView("/thesis/thesis-list");
+    }
+
+    @GetMapping("/thesis/thesis-inquiry")
+    public String getThesisInquiry(@RequestParam("postId") Long postId, Model model) {
+        Optional<ThesisPostVO> post = thesisPostService.getById(postId);
+        model.addAttribute("post", post);
+        return "thesis/thesis-inquiry";
     }
 }
