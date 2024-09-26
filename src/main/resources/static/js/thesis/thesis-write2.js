@@ -114,43 +114,6 @@ attachInputs.forEach((attachInput) => {
     });
 });
 
-// 게시글 저장버튼에 입력된 정보 저장 기능 추가
-// saveButton.addEventListener("click", (e) => {});
-
-// 기본 양식 텍스트
-// inquiryData 객체를 생성하여 초기 데이터를 설정합니다.
-// const inquiryData1 = {
-//     content: `<아래는 예시 양식입니다!>\n\n프로젝트 개요 : \n현재 준비 상황 : \n필요 요소 : \n개발환경/언어/방식 : \n주요 기능 List/주요 화면 List/메뉴 구성/요구 사항 등 : \n산출물 : \n참고 서비스/사이트 : \n기타 참고 사항/유의 사항 :`,
-// };
-// const inquiryData2 = {
-//     content: `<아래는 예시 양식입니다!>
-
-// 프로젝트 개요 : 삼성 반도체 건설 안전 관리 회사 웹사이트 제작이 필요합니다.
-// 현재 준비 상황 : 문구, 이미지 등 컨텐츠 자료는 전달드릴 예정입니다.
-// 필요 요소 : 삼성 반도체 건설 안전 관리 회사 웹사이트 기획 및 디자인
-// 개발환경/언어/방식 : 반응형 웹으로 개발이 필요합니다.
-// 주요 기능 List/주요 화면 List/메뉴 구성/요구 사항 등 : 회사 소개, 제품 소개, 채용, 계열사 소개 등의 소개 웹입니다.
-// 산출물 : 기획 : 기능, 화면 등 기획/설계 문서 일체
-// 참고 서비스/사이트 : https://www.naver.com
-// 기타 참고 사항/유의 사항 : 유사한 프로젝트 경험이 있는 업체를 찾고 있으며 디자인에 역량이 있는 업체를 선호합니다.`,
-// };
-
-// name 속성이 'textarea'인 요소를 선택합니다.
-
-// const fixTextArea1 = document.querySelector("#content-textarea1");
-// window.addEventListener("load", function () {
-//     if (fixTextArea1) {
-//         fixTextArea1.value = inquiryData1.content;
-//     }
-// });
-
-// const fixTextArea2 = document.querySelector("#content-textarea2");
-// window.addEventListener("load", function () {
-//     if (fixTextArea2) {
-//         fixTextArea2.value = inquiryData2.content;
-//     }
-// });
-
 textareas.forEach((textarea) => {
     let value = textarea.value;
     let focusCheck = false;
@@ -197,3 +160,8 @@ textareas.forEach((textarea) => {
         }
     });
 });
+
+
+
+
+
