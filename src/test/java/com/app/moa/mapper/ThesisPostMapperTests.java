@@ -22,11 +22,19 @@ public class ThesisPostMapperTests {
 
 
     @Test
-    public void testSelectById() {
-        Long id = 103L;
-        Optional<ThesisPostVO> thesisPostDTO = thesisPostMapper.selectById(id);
+    public void Inserttest() {
+        ThesisPostDTO thesisPostDTO = new ThesisPostDTO();
 
-        log.info("조회된 포스트: " + thesisPostDTO);
+        thesisPostDTO.setMemberId(62L);
+        thesisPostDTO.setPostTitle("신고입니다");
+        thesisPostDTO.setPostContent("신고해주세요1");
+        thesisPostDTO.setProfessorMajor("가짜전공입니다1");
+        thesisPostDTO.setResearchField("분야1");
+        thesisPostDTO.setResearchProfit("없음1");
+        thesisPostDTO.setResearchPeriod("6개월일껄?");
+        thesisPostDTO.setResearchDeadline("2024-11-11");
+        thesisPostDTO.setResearchStartDate("2024-08-08");
+        thesisPostDTO.setResearchRequirement("자바 개발자");
     }
 
 }

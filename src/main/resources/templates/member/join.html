@@ -125,7 +125,7 @@
                                 <p id="check-message"></p>
                             </div>
                             <div class="box-border flex flex-col gap-4">
-                                <form th:action="@{/templates/member/join}" method="post" id="sign_up" class="flex flex-col gap-6">
+                                <form th:action="@{/member/join}" method="post" id="sign_up" class="flex flex-col gap-6">
                                     <input
                                             class="absolute h-0 w-0 opacity-0"
                                             type="checkbox"
@@ -466,8 +466,9 @@
                                     <p id="agreement-Message"></p>
                                     <button
                                         class="box-border flex cursor-pointer items-center justify-center border rounded-xl h-[50px] px-[15px] text-base leading-[26px] gap-x-1.5 text-w-white bg-primary-500 border-primary-500 hover:border-primary-700 hover:bg-primary-700 mt-2 w-full"
+                                        id="sign-button"
+                                        type="button"
                                     >
-                                        <!-- type-원래 button 대신에 submit임 -->
                                         회원가입
                                     </button>
                                 </form>
