@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.nio.file.Files;
 
@@ -36,8 +37,8 @@ public class QaPostController {
     public void goToWriteForm(QaPostDTO qapostDTO){;}
 
     @PostMapping("qa-write")
-    public void write(QaPostDTO qapostDTO){
-        qapostDTO.setMemberId(((MemberVO) session.getAttribute("member")).getId());
-        qaPostService.write(qapostDTO);
+    public void write(QaPostDTO qaPostDTO){
+        qaPostDTO.setMemberId(((MemberVO) session.getAttribute("member")).getId());
+        qaPostService.write(qaPostDTO.toVO());
     }
 }
