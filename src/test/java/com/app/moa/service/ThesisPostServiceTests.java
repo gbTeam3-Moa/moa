@@ -40,7 +40,7 @@ public class ThesisPostServiceTests {
 
     @Test
     public void testDelete() {
-        Long id = 1L;
+        Long id = 66L;
         thesisPostService.delete(id);
         log.info("Deleted post with ID: {}", id);
     }

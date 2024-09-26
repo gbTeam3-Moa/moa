@@ -42,10 +42,29 @@
     </select>
 
     <select id="selectById" resultType="thesisPostDTO">
-        SELECT ID,PROFESSOR_MAJOR,RESEARCH_FIELD,RESEARCH_PROFIT,RESEARCH_PERIOD,RE
-        FROM TBL_THESIS_POST
-        WHERE ID = #{id}
+        SELECT
+            TP.ID,
+            TP.PROFESSOR_MAJOR,
+            TP.RESEARCH_FIELD,
+            TP.RESEARCH_PROFIT,
+            TP.RESEARCH_PERIOD,
+            TP.RESEARCH_DEADLINE,
+            TP.RESEARCH_START_DATE,
+            TP.RESEARCH_SCHEDULE,
+            TP.RESEARCH_REQUIREMENT,
+            P.POST_TITLE,
+            P.POST_CONTENT,
+            P.POST_TYPE,
+            P.USER_ID,
+            P.POST_VIEW,
+            P.CREATED_DATE,
+            P.UPDATED_DATE
+        FROM TBL_THESIS_POST TP JOIN TBL_POST P
+            ON TP.ID = P.ID
+        WHERE
+            TP.ID = #{id}
     </select>
+
 
     <update id="update">
         UPDATE TBL_THESIS_POST
