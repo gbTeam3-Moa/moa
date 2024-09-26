@@ -24,7 +24,7 @@ public class ReportMapperTests {
 
         reportDTO.setPostId(3L); // 게시글 번호 (예: 1L)
         reportDTO.setMemberId(1L); // 유저 번호 (예: 1L)
-        reportDTO.setReportReason("잘못된 정보"); // 신고 사유
+        reportDTO.setReportReason("성적인 게시물"); // 신고 사유
         reportDTO.setReportStatus(1L); // 신고사항 처리상태 (예: 1L)
 
         // DAO 또는 Mapper를 통해 데이터베이스에 삽입
