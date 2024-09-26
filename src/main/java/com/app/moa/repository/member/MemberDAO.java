@@ -2,6 +2,7 @@ package com.app.moa.repository.member;
 
 import com.app.moa.domain.member.MemberVO;
 import com.app.moa.mapper.member.MemberMapper;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,7 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 public class MemberDAO {
+
     private final MemberMapper memberMapper;
 
     //    회원가입
