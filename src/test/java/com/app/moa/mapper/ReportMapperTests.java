@@ -40,7 +40,7 @@ public class ReportMapperTests {
         List<ReportDTO> reports = reportMapper.selectAll(pagination);
         log.info("{}", reports.size());
 //        log.info("{}", reportMapper);
-        log.info("{}", reportDTO);
+//        log.info("{}", reportDTO);
         reports.stream().map(ReportDTO::toString).forEach(log::info);
     }
     //    @Test

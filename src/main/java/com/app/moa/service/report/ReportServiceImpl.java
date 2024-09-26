@@ -22,8 +22,8 @@ public class ReportServiceImpl implements ReportService {
     public void report(ReportVO reportVO) {
         reportDAO.save(reportVO);
     }
-    
-//  신고된 게시물 조회
+
+    //  신고된 게시물 조회
     @Override
     public List<ReportDTO> getList(Pagination pagination) {
         return reportDAO.findAll(pagination);

@@ -1,7 +1,7 @@
 package com.app.moa.domain.report;
 
 //import com.app.moa.domain.post.PostVO;
-//import com.app.moa.domain.user.UserVO;
+//import com.app.moa.domain.member.MemberVO;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -26,5 +26,5 @@ public class ReportDTO {
     private String memberNickname;
 
     public ReportVO toVO(){return new ReportVO(id, postId, memberId, reportReason, reportStatus);}
-//    public ReportVO toReportVO(){return new ReportVO(id, userId, postId, createdDate, postTitle,postView, reportReason, reportStatus);}
+//    public ReportVO toReportVO(){return new ReportVO(id, memberId, postId, createdDate, postTitle,postView, reportReason, reportStatus);}
 }
