@@ -22,8 +22,8 @@ public class ReportMapperTests {
     public void testReport() {
         ReportDTO reportDTO = new ReportDTO();
 
-        reportDTO.setPostId(66L); // 게시글 번호 (예: 1L)
-        reportDTO.setMemberId(43L); // 멤버 번호 (예: 1L)
+        reportDTO.setPostId(122L); // 게시글 번호 (예: 1L)
+        reportDTO.setMemberId(21L); // 멤버 번호 (예: 1L)
         reportDTO.setReportReason("신고할래 게시물"); // 신고 사유
         reportDTO.setReportStatus(2L); // 신고사항 처리상태 (예: 1L)
 

@@ -23,9 +23,9 @@ public class ThesisPostServiceTests {
     @Test
     public void testAttach() {
         ThesisPostDTO thesisPostDTO = new ThesisPostDTO();
-        thesisPostDTO.setPostTitle("제목임");
-        thesisPostDTO.setPostContent("내용임");
-        thesisPostDTO.setMemberId(43L);
+        thesisPostDTO.setPostTitle("신고한다");
+        thesisPostDTO.setPostContent("기다려라");
+        thesisPostDTO.setMemberId(21L);
         thesisPostDTO.setProfessorMajor("전공1");
         thesisPostDTO.setResearchField("분야");
         thesisPostDTO.setResearchProfit("없음");
