@@ -1,7 +1,7 @@
 // "post-write-button" 버튼에 클릭 이벤트 리스너 추가
 document.getElementById("post-write-button").addEventListener("click", (e) => {
     // 클릭 시 게시글 작성 페이지로 이동
-    location.href = `/q&a_write.html/write?id=${qaPostDTO.id}`;
+    location.href = `/qa/qa-write`;
 });
 
 // 게시글 목록을 표시하는 함수

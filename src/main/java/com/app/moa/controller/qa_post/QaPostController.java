@@ -5,6 +5,7 @@ import com.app.moa.domain.post.PostVO;
 import com.app.moa.domain.qa_post.QaPostDTO;
 import com.app.moa.domain.post.Pagination;
 import com.app.moa.service.qa_post.QaPostService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,7 @@ import java.nio.file.Files;
 @Slf4j
 public class QaPostController {
     private final QaPostService qaPostService;
+    private final HttpSession session;
 
     @GetMapping("qa-list")
     public void getList(Pagination pagination, Model model) {
@@ -30,13 +32,12 @@ public class QaPostController {
         model.addAttribute("posts", qaPostService.getList(pagination));
     }
 
-    @GetMapping("write")
+    @GetMapping("qa-write")
     public void goToWriteForm(QaPostDTO qapostDTO){;}
 
-    @PostMapping("write")
+    @PostMapping("qa-write")
     public void write(QaPostDTO qapostDTO){
         qapostDTO.setMemberId(((MemberVO) session.getAttribute("member")).getId());
-
-        qaPostService.write(qapostDTO.toVO());
+        qaPostService.write(qapostDTO);
     }
 }
