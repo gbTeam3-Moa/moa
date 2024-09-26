@@ -13,8 +13,11 @@ public interface ReportMapper {
     //    신고하기
     public void report(ReportVO reportVO);
 
-    //    신고된 게시글 조회
+    //    신고된 게시글 조회(작성일 순)
     public List<ReportDTO> selectAll(Pagination pagination);
+
+    //    신고된 게시글 조회(조회수 순)
+    public List<ReportDTO> selectAllPV(Pagination pagination);
 
     //    전체 개수
     public int selectCount();

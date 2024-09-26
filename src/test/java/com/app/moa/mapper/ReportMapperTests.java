@@ -22,10 +22,10 @@ public class ReportMapperTests {
     public void testReport() {
         ReportDTO reportDTO = new ReportDTO();
 
-        reportDTO.setPostId(3L); // 게시글 번호 (예: 1L)
-        reportDTO.setMemberId(1L); // 유저 번호 (예: 1L)
-        reportDTO.setReportReason("성적인 게시물"); // 신고 사유
-        reportDTO.setReportStatus(1L); // 신고사항 처리상태 (예: 1L)
+        reportDTO.setPostId(66L); // 게시글 번호 (예: 1L)
+        reportDTO.setMemberId(43L); // 멤버 번호 (예: 1L)
+        reportDTO.setReportReason("신고할래 게시물"); // 신고 사유
+        reportDTO.setReportStatus(2L); // 신고사항 처리상태 (예: 1L)
 
         // DAO 또는 Mapper를 통해 데이터베이스에 삽입
         reportMapper.report(reportDTO.toVO());
@@ -43,6 +43,22 @@ public class ReportMapperTests {
 //        log.info("{}", reportDTO);
         reports.stream().map(ReportDTO::toString).forEach(log::info);
     }
+
+    @Test
+    public void testselectAllPV() {
+        Pagination pagination = new Pagination();
+        pagination.setPage(1);
+        pagination.setTotal(reportMapper.selectCount());
+        pagination.progress();
+        List<ReportDTO> reports = reportMapper.selectAll(pagination);
+        log.info("{}", reports.size());
+//        log.info("{}", reportMapper);
+//        log.info("{}", reportDTO);
+        reports.stream().map(ReportDTO::toString).forEach(log::info);
+    }
+
+
+
     //    @Test
 //    public void testSelectAll() {
 //        ReportDTO reportDTO = new ReportDTO();
