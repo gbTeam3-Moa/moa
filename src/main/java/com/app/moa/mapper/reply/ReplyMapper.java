@@ -4,7 +4,6 @@ import com.app.moa.domain.reply.Pagination;
 import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.domain.reply.ReplyVO;
 
-import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,7 +19,10 @@ public interface ReplyMapper {
 //    댓글 전체 조회(마이페이지)
     public List<ReplyDTO> selectAll(Pagination pagination);
 
-//    해당 게시물 댓글 조회(신고된게시물, 게시글 조회)
+//    댓글 전체 조회(게시글 댓글)
+    public List<ReplyDTO> selectAllByPostId(Long postId);
+
+//    해당 게시물 댓글 조회(신고된게시물)
     public Optional<ReplyVO> selectById(long id);
 
 //    댓글 수정

@@ -10,8 +10,9 @@ import java.util.Optional;
 public interface ReplyService {
 
     public void write(ReplyDTO replyDTO);
-    public List<ReplyDTO> getList(Pagination pagination);
+//    public List<ReplyDTO> getList(Pagination pagination);
 //    public Optional<ReplyVO> getById(Long id);
+    public List<ReplyDTO> getListByPostId(Long postId);
     public void update(ReplyVO replyVO);
     public void delete(Long id);
 }

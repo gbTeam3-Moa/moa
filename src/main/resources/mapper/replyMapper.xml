@@ -6,16 +6,10 @@
             VALUES (SEQ_REPLY.NEXTVAL, #{postId}, #{memberId}, #{replyContent},#{groupId}, #{replyDepth})
     </insert>
 
-<!--    <select id ="selectAll" resultType="replyDTO">-->
-<!--        SELECT-->
-
-
-<!--    </select>-->
-
     <select id ="selectAllByPostId" resultType="replyDTO">
-        SELECT 
-
-
+        SELECT RE.MEMBER_ID,RE.POST_ID, M.MEMBER_NICKNAME, REPLY_CONTENT, RE.CREATED_DATE, RE.GROUP_ID
+        FROM TBL_REPLY RE JOIN TBL_MEMBER M ON RE.MEMBER_ID = M.ID
+        ORDER BY RE.ID DESC;
     </select>
 
     <update id="update">

@@ -22,19 +22,24 @@ public class ReplyServiceImpl implements ReplyService {
     private final ReplyDAO replyDAO;
     private final ReplyVO replyVO;
 
-
-
     //    댓글 작성
     @Override
     public void write(ReplyDTO replyDTO) {
         replyMapper.insert(replyVO);
     }
 
-//    댓글 전체 조회
+//    댓글 전체 조회(게시글 댓글, 신고 게시글 댓글)
     @Override
-    public List<ReplyDTO> getList(Pagination pagination) {
-        return replyDAO.findAll(pagination);
+    public List<ReplyDTO> getListByPostId(Long postId) {
+        return replyDAO.findAllByPostId(postId);
     }
+
+    ////    댓글 전체 조회 (마이페이지)
+//    @Override
+//    public List<ReplyDTO> getList(Pagination pagination) {
+//        return replyDAO.findAll(pagination);
+//    }
+
 //
 ////    댓글 조회
 //@Override

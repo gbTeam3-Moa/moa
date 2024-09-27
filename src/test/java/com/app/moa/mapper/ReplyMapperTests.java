@@ -2,6 +2,7 @@ package com.app.moa.mapper;
 
 import com.app.moa.domain.reply.Pagination;
 import com.app.moa.domain.reply.ReplyDTO;
+import com.app.moa.domain.reply.ReplyVO;
 import com.app.moa.mapper.reply.ReplyMapper;
 import com.app.moa.repository.reply.ReplyDAO;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,8 @@ public class ReplyMapperTests {
     @Autowired
     private ReplyMapper replyMapper;
     private ReplyDAO replyDAO;
+    @Autowired
+    private ReplyVO replyVO;
 
 
     @Test
@@ -42,6 +45,16 @@ public class ReplyMapperTests {
 //        replyDTO.setPostId(1L);
 
 //======================================================================
+
+    @Test
+    public void testSelectAllByPostId() {
+        ReplyDTO replyDTO = new ReplyDTO();
+        replyDTO.setMemberId(21L);
+        replyDTO.setPostId(1L);
+        replyDTO.setGroupId(1L);
+        List<ReplyDTO> replys = replyMapper.selectAllByPostId(replyVO.getPostId());
+        replys.stream().map(ReplyDTO::toString).forEach(log::info);
+    }
 
     @Test
     public void testUpdate(){
