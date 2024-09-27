@@ -22,7 +22,7 @@ const showList = () => {
                     <div class="post-view-wrap">
                         <div class="post-view"></div>
                         <div class="post-view-count">
-                            ${post.postView || 0} 
+                            ${post.postView} 
                         </div>
                     </div>
                     <div class="post-top">
@@ -57,7 +57,7 @@ const showList = () => {
 
 
 const showPaging = () => {
-    console.log('showPaging 호출됨');
+    // console.log('showPaging 들어옴!');
     let text = ``;
 
     if (pagination.page && pagination.page > 1) {

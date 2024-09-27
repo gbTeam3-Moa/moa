@@ -34,3 +34,7 @@ const formSubmit = document.querySelector(".btn-wishket");
 formSubmit.addEventListener("click", () => {
     alert("작성이 완료되었습니다");
 });
+
+const showPost = () =>{
+
+}

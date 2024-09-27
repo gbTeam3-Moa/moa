@@ -78,7 +78,8 @@
             RESEARCH_DEADLINE = #{researchDeadline},
             RESEARCH_START_DATE = #{researchStartDate},
             RESEARCH_SCHEDULE = #{researchSchedule},
-            RESEARCH_REQUIREMENT = #{researchRequirement}
+            RESEARCH_REQUIREMENT = #{researchRequirement},
+            UPDATED_DATE = SYSDATE
         WHERE ID = #{id}
     </update>
 
