@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +24,7 @@ public class ReportServiceImpl implements ReportService {
         reportDAO.save(reportVO);
     }
 
-    //  신고된 게시물 조회
+//  신고된 게시물 목록 조회
     @Override
     public List<ReportDTO> getList(Pagination pagination) {
         return reportDAO.findAll(pagination);
@@ -33,4 +34,26 @@ public class ReportServiceImpl implements ReportService {
     public int getTotal() {
         return reportDAO.findCount();
     }
+
+////    신고된 게시물 조회
+//    @Override
+//    public Optional<ReportVO> getById(Long id) {
+//        return reportDAO.findById(id);
+//    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,20 +7,20 @@
     </insert>
 
     <select id="selectAll" resultType="thesisPostDTO">
-        SELECT TP2.ID, TP2.POST_TITLE, TP2.POST_CONTENT, TP2.MEMBER_ID, TP2.CREATED_DATE, TP2.UPDATED_DATE,
-               TP2.MEMBER_NICKNAME,
+        SELECT TP2.ID, TP2.POST_TITLE, TP2.POST_CONTENT, TP2.MEMBER_ID, TP2.UPDATED_DATE,
+               TP2.MEMBER_NICKNAME, TP2.POST_VIEW,
                PROFESSOR_MAJOR, RESEARCH_FIELD, RESEARCH_PROFIT, RESEARCH_PERIOD, RESEARCH_DEADLINE,
                RESEARCH_START_DATE, RESEARCH_SCHEDULE, RESEARCH_REQUIREMENT
         FROM
             (
-                SELECT ROWNUM R, TP1.ID, TP1.POST_TITLE, TP1.POST_CONTENT, TP1.MEMBER_ID, TP1.CREATED_DATE, TP1.UPDATED_DATE,
-                       TP1.MEMBER_NICKNAME,
+                SELECT ROWNUM R, TP1.ID, TP1.POST_TITLE, TP1.POST_CONTENT, TP1.MEMBER_ID, TP1.UPDATED_DATE,
+                       TP1.MEMBER_NICKNAME, TP1.POST_VIEW,
                        PROFESSOR_MAJOR, RESEARCH_FIELD, RESEARCH_PROFIT, RESEARCH_PERIOD, RESEARCH_DEADLINE,
                        RESEARCH_START_DATE, RESEARCH_SCHEDULE, RESEARCH_REQUIREMENT
                 FROM
                     (
-                        SELECT TP.ID, P.POST_TITLE, P.POST_CONTENT, P.MEMBER_ID, P.CREATED_DATE, P.UPDATED_DATE,
-                               M.MEMBER_NICKNAME,
+                        SELECT TP.ID, P.POST_TITLE, P.POST_CONTENT, P.MEMBER_ID,P.UPDATED_DATE,
+                               M.MEMBER_NICKNAME, P.POST_VIEW,
                                PROFESSOR_MAJOR, RESEARCH_FIELD, RESEARCH_PROFIT, RESEARCH_PERIOD, RESEARCH_DEADLINE,
                                RESEARCH_START_DATE, RESEARCH_SCHEDULE, RESEARCH_REQUIREMENT
                         FROM TBL_MEMBER M
@@ -78,7 +78,8 @@
             RESEARCH_DEADLINE = #{researchDeadline},
             RESEARCH_START_DATE = #{researchStartDate},
             RESEARCH_SCHEDULE = #{researchSchedule},
-            RESEARCH_REQUIREMENT = #{researchRequirement}
+            RESEARCH_REQUIREMENT = #{researchRequirement},
+            UPDATED_DATE = SYSDATE
         WHERE ID = #{id}
     </update>
 
