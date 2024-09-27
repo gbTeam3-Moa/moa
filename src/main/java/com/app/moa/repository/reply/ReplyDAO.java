@@ -2,6 +2,7 @@ package com.app.moa.repository.reply;
 
 
 import com.app.moa.domain.post.Pagination;
+import com.app.moa.domain.post.PostVO;
 import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.domain.reply.ReplyVO;
 import com.app.moa.domain.thesis_post.ThesisPostVO;
@@ -27,6 +28,13 @@ public class ReplyDAO {
 
 //    해당 게시물 댓글 조회(신고된게시물, 게시글 조회)
     public Optional<ReplyVO> findById(long id) {return replyMapper.selectById(id);}
+
+//    댓글 수정
+    public void update(ReplyVO replyVO) {
+    replyMapper.updateById(replyVO);
+}
+
+//    댓글 삭제
 
 
 }

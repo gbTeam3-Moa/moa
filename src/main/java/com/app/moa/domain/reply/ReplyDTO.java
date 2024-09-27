@@ -20,7 +20,7 @@ public class ReplyDTO {
     private String createdDate;
     private String updatedDate;
     private Long groupId;
-    private String replyDepth;
+    private Long replyDepth;
 
     public ReplyVO toVO(){return new ReplyVO(id, postId, memberId, replyContent, createdDate, updatedDate, groupId, replyDepth);}
 }

@@ -25,11 +25,20 @@ public class ReplyMapperTests {
         replyDTO.setPostId(1L); // 게시글 번호 (예: 1L)
         replyDTO.setMemberId(21L); // 멤버 번호 (예: 1L)
         replyDTO.setReplyContent("당신 게시물 신고합니다"); // 댓글 내용
-        replyDTO.setCreatedDate("2024-12-31"); // 댓글 작성 시간
-
+        replyDTO.setGroupId(1L);
+        replyDTO.setReplyDepth(0L);
+        log.info(replyDTO.toString());
         // DAO 또는 Mapper를 통해 데이터베이스에 삽입
         replyMapper.insert(replyDTO.toVO());
     }
+
+//    @Test
+//    public void testInsert(){
+//    ReplyDTO replyDTO = new ReplyDTO();
+//        replyDTO.setReplyContent("대댓글 테스트1");
+//        replyDTO.setReplyGroupId(5L);
+//        replyDTO.setMemberId(3L);
+//        replyDTO.setPostId(1L);
 
 //    @Test
 //    public void testSelectAll() {      //목록 순서
