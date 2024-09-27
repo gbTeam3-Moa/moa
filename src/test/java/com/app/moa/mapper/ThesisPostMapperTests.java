@@ -1,5 +1,7 @@
 package com.app.moa.mapper;
 
+import com.app.moa.domain.post.Pagination;
+import com.app.moa.domain.qa_post.QaPostDTO;
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.mapper.thesis_post.ThesisPostMapper;
@@ -8,7 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
 import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @SpringBootTest
@@ -35,6 +41,25 @@ public class ThesisPostMapperTests {
         thesisPostDTO.setResearchDeadline("2024-11-11");
         thesisPostDTO.setResearchStartDate("2024-08-08");
         thesisPostDTO.setResearchRequirement("자바 개발자");
+    }
+    @Test
+    public void testSelectById() {
+       thesisPostDTO.setId(146L);
+
+       Optional<ThesisPostVO> foundThesis = thesisPostMapper.selectById(thesisPostDTO.getId());
+
+        log.info(foundThesis.toString());
+    }
+
+    @Test
+    public void testSelectAll(){
+        Pagination pagination = new Pagination();
+        pagination.setPage(1);
+        pagination.setTotal(thesisPostMapper.selectCount());
+        pagination.progress();
+        List<ThesisPostDTO> posts = thesisPostMapper.selectAll(pagination);
+        log.info("{}", posts.size());
+        posts.stream().map(ThesisPostDTO::toString).forEach(log::info);
     }
 
 }
