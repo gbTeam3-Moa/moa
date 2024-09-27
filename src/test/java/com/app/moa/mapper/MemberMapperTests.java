@@ -30,7 +30,7 @@ public class MemberMapperTests {
     @Test
     public void testSelectByMemberEmailAndMemberPassword(){
         MemberDTO memberDTO = new MemberDTO();
-        memberDTO.setMemberNickName("sm@gmail.com");
+        memberDTO.setMemberNickname("sm@gmail.com");
         memberDTO.setMemberEmail("sm@gmail.com");
         memberDTO.setMemberPassword("12345");
 

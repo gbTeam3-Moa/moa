@@ -3,13 +3,13 @@
 <mapper namespace="com.app.moa.mapper.member.MemberMapper">
     <insert id="insert">
         INSERT INTO TBL_MEMBER (ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NICKNAME, MEMBER_TYPE)
-        VALUES (SEQ_MEMBER.NEXTVAL, #{memberEmail}, #{memberPassword}, #{memberNickName}, #{memberType})
+        VALUES (SEQ_MEMBER.NEXTVAL, #{memberEmail}, #{memberPassword}, #{memberNickname}, #{memberType})
     </insert>
 
     <select id="selectByMemberEmailAndMemberPassword" resultType="memberVO">
         SELECT ID, MEMBER_EMAIL, MEMBER_NICKNAME
         FROM TBL_MEMBER
-        WHERE (MEMBER_NICKNAME = #{memberId} OR MEMBER_EMAIL = #{memberEmail}) AND MEMBER_PASSWORD = #{memberPassword}
+        WHERE (MEMBER_NICKNAME = #{memberNickname} OR MEMBER_EMAIL = #{memberEmail}) AND MEMBER_PASSWORD = #{memberPassword}
     </select>
 
     <select id="selectById" resultType="memberVO">
