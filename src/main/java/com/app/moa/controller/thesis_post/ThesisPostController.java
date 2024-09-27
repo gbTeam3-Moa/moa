@@ -40,20 +40,8 @@ public class ThesisPostController {
             log.info("포스트 없음");
         }
 
-        // 필요한 정보만 추출하여 model에 담음
-        List<Map<String, Object>> simplePosts = posts.stream().map(post -> {
-            Map<String, Object> postMap = new HashMap<>();
-            postMap.put("postTitle", post.getPostTitle());
-            postMap.put("postContent", post.getPostContent());
-            postMap.put("professorMajor", post.getProfessorMajor());
-            postMap.put("postView", post.getPostView());
-            postMap.put("updatedDate",post.getUpdatedDate());
-            postMap.put("memberName",post.getMemberId());
-            return postMap;
-        }).collect(Collectors.toList());
-
         model.addAttribute("pagination", pagination);
-        model.addAttribute("posts", simplePosts);
+        model.addAttribute("posts", posts);
 
         return "thesis/thesis-list";
     }
