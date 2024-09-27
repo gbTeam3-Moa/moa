@@ -33,7 +33,7 @@ public class MemberController {
 
     @PostMapping("login")
     public RedirectView login(MemberDTO memberDTO){
-        memberDTO.setMemberEmail(memberDTO.getMemberNickName());
+        memberDTO.setMemberEmail(memberDTO.getMemberNickname());
         log.info("{}", memberDTO);
         memberService.login(memberDTO.toVO())
                 .ifPresentOrElse(
