@@ -24,8 +24,8 @@ public class ThesisPostDAO {
 //    전체 조회
     public List<ThesisPostDTO> findAll(Pagination pagination) {
         return thesisPostMapper.selectAll(pagination);
-
     }
+
 //    전체 개수
     public int findCount(){
         return thesisPostMapper.selectCount();

@@ -1,4 +1,5 @@
 
+
 package com.app.moa.mapper;
 
 import com.app.moa.domain.project_post.ProjectPostDTO;
@@ -29,9 +30,6 @@ public class ProjectPostMapperTests {
         projectPostMapper.insert(projectPostDTO.toVO());
         log.info("프로젝트 포스트가 추가 되었습니다: " + projectPostDTO);
     }
-
-
-
 
     @Test
     public void testSelectById() {
