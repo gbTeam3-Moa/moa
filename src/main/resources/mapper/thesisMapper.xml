@@ -28,12 +28,10 @@
                                  JOIN TBL_THESIS_POST TP ON P.ID = TP.ID
                         ORDER BY TP.ID DESC
                     ) TP1
-            <![CDATA[
-                WHERE ROWNUM <= #{endRow}
-            ]]>
-        ) TP2
-    <![CDATA[
-        WHERE R >= #{startRow}
+        <![CDATA[
+                WHERE ROWNUM<= #{endRow}
+            ) TP2
+        WHERE ROWNUM >= #{startRow}
         ]]>
     </select>
 

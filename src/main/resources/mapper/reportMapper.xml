@@ -18,7 +18,7 @@
                                    LEFT JOIN TBL_REPLY RE ON P.ID = RE.POST_ID
                           GROUP BY RP.ID, M.MEMBER_NICKNAME, P.CREATED_DATE, P.POST_TITLE, P.POST_VIEW, RP.REPORT_REASON, RP.REPORT_STATUS
                           ORDER BY RP.ID DESC
-                      )RP1
+                      ) RP1
         <![CDATA[
                  WHERE ROWNUM <= #{endRow}
              ) RP2
@@ -30,15 +30,16 @@
         SELECT COUNT(*) FROM TBL_REPORT
     </select>
 
-    <!--    USER-->
-    <!--    JOIN-->
-    <!--    ROWNUM-->
-    <!--    POST-->
-    <!--    JOIN-->
-    <!--    COUNT REPLY-->
-    <!--    JOIN-->
-    <!--    REPORT-->
-    <!--    R.ID,REPORT_STATUS,REPORT_REASON-->
-    <!--    COUNT(RE.ID) -->
+    <select id="selectById" resultType="reportDTO">
+        SELECT
+            RP.ID,
+            P.POST_TITLE,
+            P.POST_CONTENT
+        FROM TBL_REPORT RP JOIN TBL_POST P ON RP.ID = P.ID
+        LEFT JOIN TBL_ATTACHMENT AT ON P.ID = AT.POST_ID
+        WHERE
+            RP.ID = #{id}
+    </select>
+<!-- 첨부파일은 나중에 배우고 -->
 
 </mapper>

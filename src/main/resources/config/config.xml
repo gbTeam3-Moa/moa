@@ -16,5 +16,7 @@
         <typeAlias type="com.app.moa.domain.thesis_post.ThesisPostDTO" alias="thesisPostDTO"/>
         <typeAlias type="com.app.moa.domain.report.ReportVO" alias="reportVO"/>
         <typeAlias type="com.app.moa.domain.report.ReportDTO" alias="reportDTO"/>
+        <typeAlias type="com.app.moa.domain.reply.ReplyVO" alias="replyVO"/>
+        <typeAlias type="com.app.moa.domain.reply.ReplyDTO" alias="replyDTO"/>
     </typeAliases>
 </configuration>
