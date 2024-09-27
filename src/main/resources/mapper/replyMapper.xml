@@ -7,15 +7,8 @@
     </insert>
 
     <select id="selectAllByPostId" resultType="replyDTO">
-        SELECT RE.MEMBER_ID, RE.POST_ID, M.MEMBER_NICKNAME, RE.REPLY_CONTENT, RE.CREATED_DATE, RE.GROUP_ID
+        SELECT RE.ID, RE.MEMBER_ID,RE.POST_ID, M.MEMBER_NICKNAME, REPLY_CONTENT, RE.CREATED_DATE, RE.GROUP_ID
         FROM TBL_REPLY RE JOIN TBL_MEMBER M ON RE.MEMBER_ID = M.ID
-        WHERE RE.POST_ID = #{postId}
-        <if test="memberId != null">
-            AND RE.MEMBER_ID = #{memberId}
-        </if>
-        <if test="groupId != null">
-            AND RE.GROUP_ID = #{groupId}
-        </if>
         ORDER BY RE.ID DESC
     </select>
 
