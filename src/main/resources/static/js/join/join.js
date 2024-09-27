@@ -346,7 +346,7 @@ emailinputField.addEventListener("focus", (e) => {
     emailinputField.style.color =
         emailMessage.style.color === "red" ? "red" : "rgb(97, 97, 97)";
     emailplaceholder.style.color =
-        enterPressed && idinputField.value === "" ? "red" : "rgb(51, 145, 186)";
+        enterPressed && isEmailValid === "" ? "red" : "rgb(51, 145, 186)";
     emailplaceholder.style.top = "-5px";
     emailplaceholder.style.fontSize = "12px";
     emailplaceholder.style.transform = "translateY(0)";
@@ -362,7 +362,7 @@ idinputField.addEventListener("focus", () => {
     idinputField.style.color =
         idMessage.style.color === "red" ? "red" : "rgb(97, 97, 97)";
     idplaceholder.style.color =
-        enterPressed && idinputField.value === "" ? "red" : "rgb(51, 145, 186)";
+        enterPressed && isIdValid === "" ? "red" : "rgb(51, 145, 186)";
     idplaceholder.style.top = "-5px";
     idplaceholder.style.fontSize = "12px";
     idplaceholder.style.transform = "translateY(0)";
@@ -503,6 +503,15 @@ emailinputField.addEventListener("keydown", (e) => {
     } else {
         signButton.type = "button";
     }
+    if (emailRegexp.test(isEmailValid)) {
+        emailplaceholder.style.color = "rgb(51, 145, 186)";
+    } else {
+        emailinputBoxLabel.style.borderColor = "red";
+        emailinputField.style.color = "red";
+        emailplaceholder.style.color = "red";
+        emailMessage.textContent = "이메일을 입력해 주세요";
+        emailMessage.style.color = "red";
+    }
     if (e.key === "Enter") {
         if (emailRegexp.test(e.target.value)) {
             emailplaceholder.style.color = "rgb(51, 145, 186)";
@@ -586,7 +595,7 @@ idinputField.addEventListener("keydown", (e) => {
             emailinputBoxLabel.style.borderColor = "red";
             emailinputField.style.color = "red";
             emailplaceholder.style.color = "red";
-            emailMessage.textContent = "이메일를 입력해 주세요";
+            emailMessage.textContent = "이메일을 입력해 주세요";
             emailMessage.style.color = "red";
         }
 
@@ -618,7 +627,7 @@ idinputField.addEventListener("keydown", (e) => {
         ) {
             checkMessage.style.display = "block";
             checkMessage.textContent =
-                "신분확인을 위해 한가지 체크해 주세요.";
+                "신분확인을 위해 한 가지 체크해 주세요.";
             checkMessage.style.color = "red";
         } else {
             checkMessage.style.display = "none"; // 메시지 숨기기
