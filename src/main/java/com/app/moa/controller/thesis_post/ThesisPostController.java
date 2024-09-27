@@ -31,7 +31,7 @@ public class ThesisPostController {
     private final HttpSession session;
 
     @GetMapping("thesis-list")
-    public String getList(Pagination pagination, Model model) {
+    public String getList(Pagination pagination, Model model,@RequestParam(defaultValue = "recent") String view) {
 
         pagination.setTotal(thesisPostService.getTotal());
         pagination.progress();
@@ -40,6 +40,14 @@ public class ThesisPostController {
         if (posts.isEmpty()) {
             log.info("포스트 없음");
         }
+
+//        if ("popular".equals(view)) {
+//            // postView 기준으로 정렬
+//            posts = thesisPostService.getListByPopular(pagination);
+//        } else {
+//            // 최신순으로 정렬
+//            posts = thesisPostService.getList(pagination);
+//        }
 
         model.addAttribute("pagination", pagination);
         model.addAttribute("posts", posts);
@@ -98,4 +106,10 @@ public class ThesisPostController {
         model.addAttribute("post", post);
         return "thesis/thesis-inquiry";
     }
+    // 글 조회
+
+    //글 수정
+
+    // 글 삭제
+
 }
