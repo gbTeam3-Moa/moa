@@ -52,7 +52,7 @@ public class QaPostMapperTests {
     @Test
     public void testUpdate() {
         QaPostDTO qaPostDTO = new QaPostDTO();
-        qaPostDTO.setId(64L);
+        qaPostDTO.setId(142L);
         qaPostDTO.setPostTitle("제목수정");
         qaPostDTO.setPostContent("내용수정");
         qaPostDTO.setPostType(0);

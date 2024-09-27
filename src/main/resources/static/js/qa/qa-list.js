@@ -1,10 +1,12 @@
 // "post-write-button" 버튼에 클릭 이벤트 리스너 추가
-document.getElementById("post-write-button").addEventListener("click", (e) => {
+const click = document.getElementById("post-write-button").addEventListener("click", (e) => {
     // 클릭 시 게시글 작성 페이지로 이동
     location.href = `/qa/qa-write`;
 });
 
 // 게시글 목록을 표시하는 함수
+const listdiv = document.getElementById('listdiv').innerHTML;
+const pagingdiv = document.getElementById('pagingdiv').innerHTML;
 const showList = () => {
     let text = ``; // HTML 내용을 저장할 변수 초기화
     posts.forEach((post) => {
@@ -19,14 +21,32 @@ const showList = () => {
                 </div>
                 <div class="post-top">
                     <div class="post-title">
-                        ${post.postTitle} <!-- 게시글 제목 -->
+                    <a class="go-qa-inquiry" href="/qa/qa-inquiry">
+                        <div class="post-title">
+                        <div
+                            class="QA-font-style"
+                            >
+                             Q.
+                           </div>
+                           <div
+                          class="QA-title-font"
+                           >
+                           ${post.postTitle} <!-- 게시글 제목 -->
+                            </div>
+                            </div>
+                            </a>
+                            <div
+                                class="status-mark new-mark"
+                            >
+                                NEW
+                            </div>   
                     </div>
                     <div class="post-top-right">
                         <div class="post-writer-school-major">
-                            ${member.memberMajor} <!-- 작성자 학과 -->
+                            ${post.memberMajor} <!-- 작성자 학과 -->
                         </div>
                         <div class="post-writer-name">
-                            ${member.memberNickname} <!-- 작성자 이름 -->
+                            ${post.memberName} <!-- 작성자 이름 -->
                         </div>
                         <div class="post-created-date">
                             ${post.createdDate} <!-- 게시글 작성 날짜 -->
@@ -34,14 +54,18 @@ const showList = () => {
                     </div>
                 </div>
                 <div class="post-content">
-                    ${post.postContent}<!-- 게시글 내용 -->
+                <div class="QA-font-style">
+                    A.
+                </div>
+                   <div class="QA-title-font">
+                       ${post.postContent}<!-- 게시글 내용 -->
+                   </div>
                 </div>
             </div>
         </div>
         `;
     });
 
-    // 게시글 목록을 HTML 요소에 삽입
     listdiv.innerHTML = text;
 }
 
@@ -87,3 +111,5 @@ const showPaging = () => {
 // 게시글 목록과 페이지 네비게이션 표시 함수 호출
 showList();
 showPaging();
+
+console.log(posts)

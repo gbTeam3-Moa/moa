@@ -1,8 +1,6 @@
 
 package com.app.moa.controller.qa_post;
 
-import com.app.moa.domain.member.MemberVO;
-import com.app.moa.domain.post.PostVO;
 import com.app.moa.domain.qa_post.QaPostDTO;
 import com.app.moa.domain.post.Pagination;
 import com.app.moa.service.qa_post.QaPostService;
@@ -17,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.nio.file.Files;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/qa/*")
@@ -27,11 +29,31 @@ public class QaPostController {
     private final HttpSession session;
 
     @GetMapping("qa-list")
-    public void getList(Pagination pagination, Model model) {
+    public String getList(Pagination pagination, Model model) {
         pagination.setTotal(qaPostService.getTotal());
         pagination.progress();
+        List<QaPostDTO> posts = qaPostService.getList(pagination);
+
+        if (posts.isEmpty()) {
+            log.info("포스트 없음");
+        }
+
+        // 필요한 정보만 추출하여 model에 담음
+        List<Map<String, Object>> simplePosts = posts.stream().map(post -> {
+            Map<String, Object> postMap = new HashMap<>();
+            postMap.put("postTitle", post.getPostTitle());
+            postMap.put("postContent", post.getPostContent());
+            postMap.put("professorMajor", post.getMemberMajor());
+            postMap.put("postView", post.getPostView());
+            postMap.put("updatedDate",post.getUpdatedDate());
+            postMap.put("memberName",post.getMemberId());
+            return postMap;
+        }).collect(Collectors.toList());
+
         model.addAttribute("pagination", pagination);
-        model.addAttribute("posts", qaPostService.getList(pagination));
+        model.addAttribute("posts", simplePosts);
+
+        return "qa/qa-list";
     }
 
     @GetMapping("qa-write")
