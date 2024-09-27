@@ -18,7 +18,7 @@
                                    LEFT JOIN TBL_REPLY RE ON P.ID = RE.POST_ID
                           GROUP BY RP.ID, M.MEMBER_NICKNAME, P.CREATED_DATE, P.POST_TITLE, P.POST_VIEW, RP.REPORT_REASON, RP.REPORT_STATUS
                           ORDER BY RP.ID DESC
-                      )RP1
+                      ) RP1
         <![CDATA[
                  WHERE ROWNUM <= #{endRow}
              ) RP2

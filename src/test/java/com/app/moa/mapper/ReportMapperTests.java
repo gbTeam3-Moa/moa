@@ -36,13 +36,13 @@ public class ReportMapperTests {
     @Test
     public void testSelectAll() {      //목록 순서
         Pagination pagination = new Pagination();
-        pagination.setPage(2);
+        pagination.setPage(1);
         pagination.setTotal(reportMapper.selectCount());
         pagination.progress();
         List<ReportDTO> reports = reportMapper.selectAll(pagination);
         log.info("{}", reports.size());
 //        log.info("{}", reportMapper);
-        log.info("{}", reportDTO);
+//        log.info("{}", reportDTO);
         reports.stream().map(ReportDTO::toString).forEach(log::info);
 
     }
