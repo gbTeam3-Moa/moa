@@ -26,8 +26,8 @@ public class ReplyMapperTests {
     public void testInsert() {
         ReplyDTO replyDTO = new ReplyDTO();
 
-        replyDTO.setPostId(1L); // 게시글 번호 (예: 1L)
-        replyDTO.setMemberId(21L); // 멤버 번호 (예: 1L)
+        replyDTO.setPostId(145L); // 게시글 번호 (예: 1L)
+        replyDTO.setMemberId(1L); // 멤버 번호 (예: 1L)
         replyDTO.setReplyContent("당신 게시물 신고합니다2"); // 댓글 내용
         replyDTO.setGroupId(1L);
         replyDTO.setReplyDepth(0);
@@ -49,13 +49,17 @@ public class ReplyMapperTests {
     @Test
     public void testSelectAllByPostId() {
         ReplyDTO replyDTO = new ReplyDTO();
+
+        replyDTO.setId(2L);
         replyDTO.setMemberId(21L);
         replyDTO.setPostId(1L);
         replyDTO.setGroupId(1L);
-        List<ReplyDTO> replys = replyMapper.selectAllByPostId(replyVO.getPostId());
+        List<ReplyDTO> replys = replyMapper.selectAllByPostId(replyDTO.getPostId());
         replys.stream().map(ReplyDTO::toString).forEach(log::info);
-    }
 
+    }
+//    List<ReplyDTO> replys = replyMapper.selectAllByPostId(replyDTO.getPostId());
+//        replys.stream().map(ReplyDTO::toString).forEach(log::info);
     @Test
     public void testUpdate(){
         ReplyDTO replyDTO = new ReplyDTO();
