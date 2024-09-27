@@ -12,5 +12,5 @@ public interface ReportService {
     public void report(ReportVO reportVO);
     public List<ReportDTO> getList(Pagination pagination);
     public int getTotal();
-    public Optional<ReportDTO> getById(Long id);
+//    public Optional<ReportDTO> getById(Long id);
 }

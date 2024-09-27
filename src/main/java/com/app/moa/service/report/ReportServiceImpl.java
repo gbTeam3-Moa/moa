@@ -25,7 +25,7 @@ public class ReportServiceImpl implements ReportService {
         reportDAO.save(reportVO);
     }
 
-    //  신고된 게시물 목록 조회
+//  신고된 게시물 목록 조회
     @Override
     public List<ReportDTO> getList(Pagination pagination) {
         return reportDAO.findAll(pagination);
@@ -36,11 +36,11 @@ public class ReportServiceImpl implements ReportService {
         return reportDAO.findCount();
     }
 
-//    신고된 게시물 조회
-    @Override
-    public Optional<ReportVO> getById(Long id) {
-        return reportDAO.findById(id);
-    }
+////    신고된 게시물 조회
+//    @Override
+//    public Optional<ReportVO> getById(Long id) {
+//        return reportDAO.findById(id);
+//    }
 }
 
 

@@ -31,10 +31,10 @@ public class ReportDAO {
         return reportMapper.selectCount();
     }
 
-    //  신고 내역 조회
-    public ReportVO findById(Long id) {
-        return reportMapper.selectById(id);
-    }
+//    //  신고 내역 조회
+//    public ReportVO findById(Long id) {
+//        return reportMapper.selectById(id);
+//    }
 
 
 

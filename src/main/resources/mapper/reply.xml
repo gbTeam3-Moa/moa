@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.moa.mapper.reply.ReplyMapper">
+    <insert id="insert">
+            INSERT INTO TBL_REPLY(ID,POST_ID, REPLY_CONTENT, CREATED_DATE, GROUP_ID, REPLY_DEPTH)
+            VALUES (#{id},#{POST_ID}, #{REPLY_CONTENT}, #{CREATED_DATE},#{GROUP_ID}, #{REPLY_DEPTH})
+    </insert>
+
+</mapper>
