@@ -3,8 +3,8 @@ package com.app.moa.mapper.report;
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
-import com.app.moa.domain.thesis_post.ThesisPostVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.util.List;
@@ -20,10 +20,7 @@ public interface ReportMapper {
     public List<ReportDTO> selectAll(Pagination pagination);
 
     //    신고된 게시글 ID로 조회
-    public Optional<ReportVO> selectById(Long id){
-        return reportMapper.selectById(id);
-    }
-
+    public Optional<ReportVO> selectById(Long id);
     //    전체 개수
     public int selectCount();
 

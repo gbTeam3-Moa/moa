@@ -27,7 +27,7 @@
                                RESEARCH_FIELD, RESEARCH_PROFIT, RESEARCH_PERIOD, RESEARCH_DEADLINE, RESEARCH_START_DATE, RESEARCH_SCHEDULE,
                                RESEARCH_REQUIREMENT
                         FROM TBL_MEMBER M JOIN TBL_THESIS_POST TP
-                                             ON U.ID = TP.MEMBER_ID
+                                             ON M.ID = TP.MEMBER_ID
                         ORDER BY TP.ID DESC
                     ) TP1
         <![CDATA[

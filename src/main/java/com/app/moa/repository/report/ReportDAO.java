@@ -1,6 +1,7 @@
 package com.app.moa.repository.report;
 
 
+import com.app.moa.domain.post.PostVO;
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
@@ -31,7 +32,7 @@ public class ReportDAO {
     }
 
     //  신고 내역 조회
-        public ReportDTO findById(Long id) {
+    public ReportVO findById(Long id) {
         return reportMapper.selectById(id);
     }
 
