@@ -7,7 +7,7 @@
     </insert>
 
     <select id="selectById" resultType="qaPostDTO">
-        SELECT ID, POST_TITLE, POST_CONTENT, POST_TYPE, MEMBER_NICKNAME
+        SELECT ID, POST_TITLE, POST_CONTENT, POST_TYPE, MEMBER_ID
         FROM TBL_POST
         WHERE ID = #{id}
     </select>
