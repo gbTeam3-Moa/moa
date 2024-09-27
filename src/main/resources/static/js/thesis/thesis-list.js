@@ -44,7 +44,7 @@ const showList = () => {
                         </div>
                     </div>
                     <div class="post-content">
-                        ${post.postContent || '내용 없음'} =
+                        ${post.postContent || '내용 없음'}
                     </div>
                 </div>
             </div>
@@ -57,50 +57,44 @@ const showList = () => {
 
 
 const showPaging = () => {
+    console.log('showPaging 호출됨');
     let text = ``;
-    if(pagination.prev) {
-        text += `
-        <li
-            class="page-item"
-            id="page-prev-button"
-        >
-            <a href="/thesis/thesis-list?page=${pagination.startPage - 1}" class="page-link">이전</a>
-        </li>
-        `
-    }
-        for(let i=pagination.startPage; i<=pagination.endPage; i++){
-            if(pagination.page === i){
-                text += `
-                <li class="page-item">
-                    <a class="page-link active"
-                        >${i}</a
-                    >
-                </li>
-                `;
-            }else{
-                text += `
-                <li class="page-item">
-                    <a href="/thesis/thesis-list?page=${i}" class="page-link"
-                        >${i}</a
-                    >
-                </li>
-                `;
-            }
 
+    if (pagination.page && pagination.page > 1) {
+        text += `
+        <li class="page-item" id="page-prev-button">
+            <a href="/thesis/thesis-list?page=${pagination.page - 1}" class="page-link">이전</a>
+        </li>`;
+    }
+
+    if (pagination.pageCount && pagination.pageCount > 0) {
+        for (let i = 1; i <= pagination.pageCount; i++) {
+            if (pagination.page === i) {
+                text += `
+                <li class="page-item">
+                    <a class="page-link active">${i}</a>
+                </li>`;
+            } else {
+                text += `
+                <li class="page-item">
+                    <a href="/thesis/thesis-list?page=${i}" class="page-link">${i}</a>
+                </li>`;
+            }
         }
-        if(pagination.next){
-            text +=
-            `
-            <li
-                class="page-item"
-                id="page-next-button"
-            >
-                <a href="/thesis/thesis-list?page=${pagination.endPage + 1}" class="page-link">다음</a>
-            </li>
-            `;
-        }
+    }
+
+    if (pagination.page && pagination.page < pagination.pageCount) {
+        text += `
+        <li class="page-item" id="page-next-button">
+            <a href="/thesis/thesis-list?page=${pagination.page + 1}" class="page-link">다음</a>
+        </li>`;
+    }
+
+    console.log('Paging HTML:', text);
+
     pagingdiv.innerHTML = text;
-}
+};
 
 showList();
 showPaging();
+console.log('Pagination Data:', pagination);

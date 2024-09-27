@@ -518,39 +518,40 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="pagination-wrap">
-                                        <ul class="pagination theme-moa" id="pagingdiv">
-                                            <li
+
+                                </div>
+                                <div class="pagination-wrap">
+                                    <ul id="pagingdiv" class="pagination theme-moa">
+                                        <li
                                                 class="page-item"
                                                 id="page-prev-button"
+                                        >
+                                            <a class="page-link">이전</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link active"
+                                            >1</a
                                             >
-                                                <a class="page-link">이전</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link active"
-                                                    >1</a
-                                                >
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link">2</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link">3</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link">4</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link">5</a>
-                                            </li>
-                                            <li
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link">2</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link">3</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link">4</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link">5</a>
+                                        </li>
+                                        <li
                                                 class="page-item"
                                                 id="page-next-button"
-                                            >
-                                                <a class="page-link">다음</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                        >
+                                            <a class="page-link">다음</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -561,8 +562,8 @@
     </body>
     <script src="/js/thesis/thesis-list-event.js"></script>
     <script th:inline="javascript">
-        const posts = /*[[${posts}]]*/ [];  // 데이터가 없으면 빈 배열로 처리
-        const pagination = /*[[${pagination}]]*/ {};  // 페이지 정보 없으면 빈 객체
+        const posts = [[${posts}]];
+        const pagination = [[${pagination}]];
     </script>
     <script src="/js/thesis/thesis-list.js"></script>
 </html>
