@@ -3,8 +3,6 @@ package com.app.moa.service.reply;
 
 import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.domain.reply.ReplyVO;
-import com.app.moa.domain.reply.Pagination;
-import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.mapper.reply.ReplyMapper;
 import com.app.moa.repository.reply.ReplyDAO;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +22,8 @@ public class ReplyServiceImpl implements ReplyService {
     private final ReplyVO replyVO;
 
 
-//    댓글 작성
+
+    //    댓글 작성
     @Override
     public void write(ReplyDTO replyDTO) {
         replyMapper.insert(replyVO);
@@ -42,6 +41,16 @@ public class ReplyServiceImpl implements ReplyService {
 //    return replyDAO.findById(id);
 //}
 
+//    댓글 수정
+    @Override
+    public void update(ReplyVO replyVO) {
+        replyMapper.update(replyVO);
+    }
+//  댓글 삭제
+    @Override
+    public void delete(Long id) {
+        replyMapper.deleteById(id);
 
+    }
 
 }

@@ -6,4 +6,18 @@
             VALUES (SEQ_REPLY.NEXTVAL, #{postId}, #{memberId}, #{replyContent},#{groupId}, #{replyDepth})
     </insert>
 
+    <select id ="select" resultType="replyDTO">
+
+    </select>
+
+    <update id="update">
+        UPDATE TBL_REPLY
+        SET REPLY_CONTENT = #{replyContent}, UPDATED_DATE = CURRENT_TIMESTAMP
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM TBL_REPLY
+        WHERE ID = #{id}
+    </delete>
 </mapper>

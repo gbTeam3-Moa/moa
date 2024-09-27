@@ -12,6 +12,6 @@ public interface ReplyService {
     public void write(ReplyDTO replyDTO);
 //    public List<ReplyDTO> getList(Pagination pagination);
 //    public Optional<ReplyVO> getById(Long id);
-//    public void update(ReplyVO replyVOVO);
-//    public void delete(Long id);
+    public void update(ReplyVO replyVOVO);
+    public void delete(Long id);
 }

@@ -18,5 +18,5 @@ public class ReplyVO {
     private String createdDate;
     private String updatedDate;
     private Long groupId;
-    private Long replyDepth;
+    private int replyDepth;
 }

@@ -6,6 +6,7 @@ import com.app.moa.domain.reply.ReplyVO;
 
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +22,14 @@ public interface ReplyMapper {
 
 //    해당 게시물 댓글 조회(신고된게시물, 게시글 조회)
     public Optional<ReplyVO> selectById(long id);
+
+//    댓글 수정
+    public void update(ReplyVO replyVO);
+
+//    댓글 삭제
+    public void deleteById(Long id);
+
+
 
 
 
