@@ -10,6 +10,7 @@ const checkMessage = document.getElementById("check-message");
 const professorCheckbox = document.getElementById("professor-save-checkbox");
 const academicCheckbox = document.getElementById("academic-save-checkbox");
 const userCheckbox = document.getElementById("user-save-checkbox");
+let isCheckboxValid = false;
 
 checkbox.addEventListener("change", function () {
     if (checkbox.checked) {
@@ -81,10 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 "absolute left-[4.5px] top-[8.95px] h-[2px] origin-top-left -rotate-45 rounded bg-white transition-[width] duration-100 ease-linear w-[8.3px] delay-100";
             // 체크박스 검사
             checkMessage.style.display = "none"; // 메시지 숨기기
+            isCheckboxValid = true;
         } else {
             checkMessage.style.display = "block";
             checkMessage.textContent = "신분확인을 위해 한가지 체크해 주세요.";
             checkMessage.style.color = "red";
+            isCheckboxValid= false;
         }
     }
 
@@ -296,7 +299,7 @@ emailCheck.addEventListener("input", function () {
     // 입력을 시작하면 border 색상을 원래 색상으로 변경
     emailinputBoxLabel.style.borderColor = "rgb(59, 163, 199)";
     emailMessage.textContent = "";
-    emailplaceholder.style.color = "rgb(59, 163, 199)";
+    emailplaceholder.style.color = "rgb(59, 163, 199)"
 });
 
 // 아이디 입력 이벤트 핸들러
@@ -331,16 +334,19 @@ const emailinputField = document.querySelector("input[name=memberEmail]");
 const idinputField = document.querySelector("input[name=memberId]");
 const pwinputField = document.querySelector("input[name=memberPassword]");
 const repwinputField = document.querySelector("input[name=repasswordinput]");
+const regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 let isEmailValid = false;
 let isIdValid = false;
 let isPwValid = false;
 let isRePwValid = false;
 
 // 이메일 입력 필드에 포커스가 들어올 때
-emailinputField.addEventListener("focus", () => {
+emailinputField.addEventListener("focus", (e) => {
     // Enter 키가 눌린 상태라면 빨간색, 아니면 원본 색상 유지
+    isEmailValid =
+        e.target.value === regEmail ? true : false;
     emailinputField.style.color =
-        emailMessage.style.color === "red" ? "red" : "rgb(97, 97, 97)";
+        isEmailValid ? "red" : "rgb(97, 97, 97)";
     emailplaceholder.style.color =
         enterPressed && idinputField.value === "" ? "red" : "rgb(51, 145, 186)";
     emailplaceholder.style.top = "-5px";
@@ -493,7 +499,7 @@ emailinputField.addEventListener("keydown", (e) => {
     emailinputField.style.color = "rgb(97, 97, 97)";
     emailMessage.style.color = "rgb(97, 97, 97)";
     if (e.key === "Enter") {
-        if (emailinputField.value) {
+        if (emailinputField.value === regEmail) {
             emailplaceholder.style.color = "rgb(51, 145, 186)";
         } else {
             emailinputBoxLabel.style.borderColor = "red";
