@@ -1,7 +1,7 @@
 package com.app.moa.repository.reply;
 
 
-import com.app.moa.domain.post.PostVO;
+
 import com.app.moa.domain.reply.Pagination;
 import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.domain.reply.ReplyVO;
@@ -26,21 +26,21 @@ public class ReplyDAO {
 //        return replyMapper.selectAll(pagination);
 //    }
 
-//    댓글 전체 조회(게시글 댓글)
+    //    댓글 전체 조회(게시글 댓글)
     public List<ReplyDTO> findAllByPostId(long postId) {
         return replyMapper.selectAllByPostId(postId);
     }
 
 
-//    해당 게시물 댓글 조회(신고된게시물
+    //    해당 게시물 댓글 조회(신고된게시물
     public Optional<ReplyVO> findById(long id) {return replyMapper.selectById(id);}
 
-//    댓글 수정
+    //    댓글 수정
     public void update(ReplyVO replyVO) {
-    replyMapper.update(replyVO);
-}
+        replyMapper.update(replyVO);
+    }
 
-//    댓글 삭제
+    //    댓글 삭제
     public void delete(Long id) {replyMapper.delete(id);}
 
 }

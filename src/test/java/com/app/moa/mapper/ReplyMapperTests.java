@@ -1,6 +1,7 @@
 package com.app.moa.mapper;
 
-import com.app.moa.domain.reply.Pagination;
+
+
 import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.domain.reply.ReplyVO;
 import com.app.moa.mapper.reply.ReplyMapper;
@@ -18,8 +19,8 @@ public class ReplyMapperTests {
     @Autowired
     private ReplyMapper replyMapper;
     private ReplyDAO replyDAO;
-    @Autowired
     private ReplyVO replyVO;
+    private ReplyDTO replyDTO;
 
 
     @Test

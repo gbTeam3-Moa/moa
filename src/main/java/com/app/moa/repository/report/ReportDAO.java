@@ -1,6 +1,7 @@
 package com.app.moa.repository.report;
 
 
+import com.app.moa.domain.post.PostVO;
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -30,10 +32,10 @@ public class ReportDAO {
         return reportMapper.selectCount();
     }
 
-//    //  신고 내역 조회
-//    public ReportVO findById(Long id) {
-//        return reportMapper.selectById(id);
-//    }
+    //  신고 내역 조회
+    public Optional<ReportVO> findById(Long id) {
+        return reportMapper.selectById(id);
+    }
 
 
 
