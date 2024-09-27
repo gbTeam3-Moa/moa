@@ -6,7 +6,7 @@
         <title>게시글 목록 - 논문 게시판</title>
         <link
             rel="stylesheet"
-            href="../../static/css/information/information-list.css"
+            href="/css/information/information-list.css"
         />
         <link
             rel="shortcut icon"
@@ -131,7 +131,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="post-lists">
+                                <div id="listdiv" class="post-lists">
                                     <div class="post-list">
                                         <div class="post-all">
                                             <div class="post-view-wrap">
@@ -518,39 +518,40 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="pagination-wrap">
-                                        <ul class="pagination theme-moa">
-                                            <li
+
+                                </div>
+                                <div class="pagination-wrap">
+                                    <ul id="pagingdiv" class="pagination theme-moa">
+                                        <li
                                                 class="page-item"
                                                 id="page-prev-button"
+                                        >
+                                            <a class="page-link">이전</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link active"
+                                            >1</a
                                             >
-                                                <a class="page-link">이전</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link active"
-                                                    >1</a
-                                                >
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link">2</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link">3</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link">4</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link">5</a>
-                                            </li>
-                                            <li
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link">2</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link">3</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link">4</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link">5</a>
+                                        </li>
+                                        <li
                                                 class="page-item"
                                                 id="page-next-button"
-                                            >
-                                                <a class="page-link">다음</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                        >
+                                            <a class="page-link">다음</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,7 @@
 package com.app.moa.domain.thesis_post;
 
 
+import com.app.moa.domain.member.MemberVO;
 import com.app.moa.domain.post.PostVO;
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,9 @@ public class ThesisPostDTO {
     private int postView;
     private String createdDate;
     private String updatedDate;
+
+    private String memberNickName;
+
 
    public ThesisPostVO toVO(){return new ThesisPostVO(id,professorMajor,researchField,researchProfit,researchPeriod,researchDeadline,researchStartDate,researchSchedule,researchRequirement);}
     public PostVO toPostVO(){return new PostVO(id,postTitle,postContent,postType,memberId,postView,createdDate,updatedDate);}
