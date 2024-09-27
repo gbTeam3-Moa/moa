@@ -32,7 +32,7 @@ public class QaPostMapperTests {
 
     @Test
     public void testSelectById() {
-        Long id = 142L;
+        Long id = 168L;
         QaPostDTO qaPostDTO = qaPostMapper.selectById(id);
 
         log.info("조회된 q&a post: " + qaPostDTO);

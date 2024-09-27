@@ -5,8 +5,8 @@ const click = document.getElementById("post-write-button").addEventListener("cli
 });
 
 // 게시글 목록을 표시하는 함수
-const listdiv = document.getElementById('listdiv').innerHTML;
-const pagingdiv = document.getElementById('pagingdiv').innerHTML;
+const listdiv = document.getElementById('listdiv');
+const pagingdiv = document.getElementById('pagingdiv');
 const showList = () => {
     let text = ``; // HTML 내용을 저장할 변수 초기화
     posts.forEach((post) => {
@@ -46,10 +46,10 @@ const showList = () => {
                             ${post.memberMajor} <!-- 작성자 학과 -->
                         </div>
                         <div class="post-writer-name">
-                            ${post.memberName} <!-- 작성자 이름 -->
+                            ${post.memberNickname} <!-- 작성자 이름 -->
                         </div>
                         <div class="post-created-date">
-                            ${post.createdDate} <!-- 게시글 작성 날짜 -->
+                            ${post.updatedDate} <!-- 게시글 작성 날짜 -->
                         </div>
                     </div>
                 </div>

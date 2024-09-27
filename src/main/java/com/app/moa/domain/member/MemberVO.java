@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class MemberVO {
     @EqualsAndHashCode.Include
     private Long id;
-    private String memberNickName;
+    private String memberNickname;
     private String memberEmail;
     private String memberPassword;
     private int memberType;
@@ -30,7 +30,7 @@ public class MemberVO {
     private String updatedDate;
 
     public MemberDTO toDTO(){
-        return new MemberDTO(id, memberNickName, memberEmail, memberPassword, memberType, memberName, memberGender, memberBirthday, memberArea,
+        return new MemberDTO(id, memberNickname, memberEmail, memberPassword, memberType, memberName, memberGender, memberBirthday, memberArea,
                 memberDetailedArea, memberAddress, memberIntroduction, memberHomepageAddress, memberCellPhone, memberPhone, memberFax, memberMajor, createdDate, updatedDate);
     }
 

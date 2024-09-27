@@ -19,8 +19,10 @@ public class QaPostDTO {
     private Long memberId;
     private int postView;
     private String memberMajor;
+    private String memberNickname;
     private String createdDate;
     private String updatedDate;
+
 
 
     public PostVO toPostVO(){
