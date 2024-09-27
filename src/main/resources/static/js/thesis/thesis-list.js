@@ -98,4 +98,4 @@ const showPaging = () => {
 showList();
 showPaging();
 console.log('Pagination Data:', pagination);
-console.log('Posts Data:', posts); 
+console.log('Posts Data:', posts);
