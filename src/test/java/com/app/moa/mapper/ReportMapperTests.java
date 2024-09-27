@@ -26,7 +26,7 @@ public class ReportMapperTests {
 
         reportDTO.setPostId(122L); // 게시글 번호 (예: 1L)
         reportDTO.setMemberId(21L); // 멤버 번호 (예: 1L)
-        reportDTO.setReportReason("부적합한 내용"); // 신고 사유
+        reportDTO.setReportReason("부적합한 내용4"); // 신고 사유
         reportDTO.setReportStatus(2L); // 신고사항 처리상태 (예: 1L)
 
         // DAO 또는 Mapper를 통해 데이터베이스에 삽입
@@ -36,14 +36,15 @@ public class ReportMapperTests {
     @Test
     public void testSelectAll() {      //목록 순서
         Pagination pagination = new Pagination();
-        pagination.setPage(1);
+        pagination.setPage(2);
         pagination.setTotal(reportMapper.selectCount());
         pagination.progress();
         List<ReportDTO> reports = reportMapper.selectAll(pagination);
         log.info("{}", reports.size());
-        log.info("{}", reportMapper);
-//        log.info("{}", reportDTO);
+//        log.info("{}", reportMapper);
+        log.info("{}", reportDTO);
         reports.stream().map(ReportDTO::toString).forEach(log::info);
+
     }
 
 

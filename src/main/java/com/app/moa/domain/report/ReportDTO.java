@@ -19,15 +19,12 @@ public class ReportDTO {
     private Long memberId;
     private String reportReason;
     private Long reportStatus;
+
     private String postTitle;
     private int postView;
     private String createdDate;
     private int replyCount;
     private String memberNickname;
-    private String fileName;
-    private String filePath;
-    private String fileType;
-    private String fileSize;
 
 
     public ReportVO toVO(){return new ReportVO(id, postId, memberId, reportReason, reportStatus);}
