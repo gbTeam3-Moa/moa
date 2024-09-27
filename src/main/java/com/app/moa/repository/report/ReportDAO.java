@@ -1,7 +1,6 @@
 package com.app.moa.repository.report;
 
 
-import com.app.moa.domain.post.PostVO;
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;

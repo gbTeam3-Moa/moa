@@ -1,6 +1,7 @@
 package com.app.moa.service.reply;
 
 
+import com.app.moa.domain.reply.Pagination;
 import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.domain.reply.ReplyVO;
 import com.app.moa.mapper.reply.ReplyMapper;
@@ -29,11 +30,11 @@ public class ReplyServiceImpl implements ReplyService {
         replyMapper.insert(replyVO);
     }
 
-////    댓글 전체 조회
-//    @Override
-//    public List<ReplyDTO> getList(Pagination pagination) {
-//        return replyDAO.findAll(pagination);
-//    }
+//    댓글 전체 조회
+    @Override
+    public List<ReplyDTO> getList(Pagination pagination) {
+        return replyDAO.findAll(pagination);
+    }
 //
 ////    댓글 조회
 //@Override
@@ -49,7 +50,7 @@ public class ReplyServiceImpl implements ReplyService {
 //  댓글 삭제
     @Override
     public void delete(Long id) {
-        replyMapper.deleteById(id);
+        replyMapper.delete(id);
 
     }
 

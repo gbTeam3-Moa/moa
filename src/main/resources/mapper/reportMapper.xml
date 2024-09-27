@@ -30,7 +30,7 @@
         SELECT COUNT(*) FROM TBL_REPORT
     </select>
 
-    <select id="selectById" resultType="thesisPostDTO">
+    <select id="selectById" resultType="reportDTO">
         SELECT
             RP.ID,
             P.POST_TITLE,

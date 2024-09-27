@@ -6,7 +6,15 @@
             VALUES (SEQ_REPLY.NEXTVAL, #{postId}, #{memberId}, #{replyContent},#{groupId}, #{replyDepth})
     </insert>
 
-    <select id ="select" resultType="replyDTO">
+<!--    <select id ="selectAll" resultType="replyDTO">-->
+<!--        SELECT-->
+
+
+<!--    </select>-->
+
+    <select id ="selectAllByPostId" resultType="replyDTO">
+        SELECT 
+
 
     </select>
 

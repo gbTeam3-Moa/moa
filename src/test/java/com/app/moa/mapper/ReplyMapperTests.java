@@ -47,7 +47,7 @@ public class ReplyMapperTests {
     public void testUpdate(){
         ReplyDTO replyDTO = new ReplyDTO();
         replyDTO.setId(1L);
-        replyDTO.setReplyContent("수정된 댓글");
+        replyDTO.setReplyContent("수정된 댓글12");
         replyMapper.update(replyDTO.toVO());
     }
 
@@ -55,7 +55,7 @@ public class ReplyMapperTests {
     public void testDelete(){
         Long id = 1L;
         log.info(replyMapper.toString());
-        replyMapper.deleteById(id);
+        replyMapper.delete(id);
     }
 
 

@@ -1,6 +1,6 @@
 package com.app.moa.mapper.reply;
 
-import com.app.moa.domain.post.Pagination;
+import com.app.moa.domain.reply.Pagination;
 import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.domain.reply.ReplyVO;
 
@@ -27,7 +27,7 @@ public interface ReplyMapper {
     public void update(ReplyVO replyVO);
 
 //    댓글 삭제
-    public void deleteById(Long id);
+    public void delete(Long id);
 
 
 

@@ -1,14 +1,11 @@
 package com.app.moa.repository.reply;
 
 
-import com.app.moa.domain.post.Pagination;
-import com.app.moa.domain.post.PostVO;
+import com.app.moa.domain.reply.Pagination;
 import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.domain.reply.ReplyVO;
-import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.mapper.reply.ReplyMapper;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -37,6 +34,6 @@ public class ReplyDAO {
 }
 
 //    댓글 삭제
-    public void delete(Long id) {replyMapper.deleteById(id);}
+    public void delete(Long id) {replyMapper.delete(id);}
 
 }
