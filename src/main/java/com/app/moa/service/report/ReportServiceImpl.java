@@ -3,7 +3,6 @@ package com.app.moa.service.report;
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
-import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.mapper.report.ReportMapper;
 import com.app.moa.repository.report.ReportDAO;
 import lombok.RequiredArgsConstructor;
