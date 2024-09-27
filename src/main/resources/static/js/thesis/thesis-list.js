@@ -4,54 +4,57 @@
 // posts.forEach((post) => {
 //     page++;
 // });
+const listdiv = document.getElementById("listdiv");
+const pagingdiv = document.getElementById("pagingdiv");
+const postCountElement = document.querySelector(".post-count");
 
 const showList = () => {
     let text = ``;
-    posts.forEach((post) => {
-        text += `
-        <div class="post-list">
-            <div class="post-all">
-                <div class="post-view-wrap">
-                    <div class="post-view"></div>
-                    <div class="post-view-count">
-                        1
-                    </div>
-                </div>
-                <div class="post-top">
-                    <div class="post-title">
-                        ${post.postTitle}
-                    </div>
-                    <div class="post-top-right">
-                        <div
-                            class="post-writer-school-major"
-                        >
-                            한국예술대학교 작곡과
-                        </div>
-                        <div
-                            class="post-writer-name"
-                        >
-                            마에스트로장
-                        </div>
-                        <div
-                            class="post-created-date"
-                        >
-                            2024/12/10
+
+    // posts 데이터가 없을 때 처리 로직
+    if (!posts || posts.length === 0) {
+        text = `<div class="no-posts">게시글이 없습니다.</div>`;
+    } else {
+        posts.forEach((post) => {
+            text += `
+            <div class="post-list">
+                <div class="post-all">
+                    <div class="post-view-wrap">
+                        <div class="post-view"></div>
+                        <div class="post-view-count">
+                            ${post.postView || 0} 
                         </div>
                     </div>
-                </div>
-                <div class="post-content">
-                    한국대 작곡과 2학년 수업 자료
-                    1년치 공유합니다. 같이 보면서
-                    공부하실 분들은 여기로 와주세요
-                    -> 오픈채팅방 링크
+                    <div class="post-top">
+                        <div class="post-title-wrap">
+                            <a href="/list-inquiry?id=${post.id}" class="post-title">
+                                ${post.postTitle || '제목 없음'}
+                            </a>
+                        </div>
+                        <div class="post-top-right">
+                            <div class="post-writer-school-major">
+                                ${post.professorMajor || '학과 정보 없음'} 
+                            </div>
+                            <div class="post-writer-name">
+                                ${post.memberName || '작성자 없음'}
+                            </div>
+                            <div class="post-created-date">
+                                ${post.updatedDate || '날짜 정보 없음'} 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        ${post.postContent || '내용 없음'} =
+                    </div>
                 </div>
             </div>
-        </div>
-        `;
-    });
-
+            `;
+        });
+    }
+    postCountElement.innerText = posts.length;
     listdiv.innerHTML = text;
-}
+};
+
 
 const showPaging = () => {
     let text = ``;
@@ -96,7 +99,7 @@ const showPaging = () => {
             </li>
             `;
         }
-        pagingdiv.innerHTML = text;
+    pagingdiv.innerHTML = text;
 }
 
 showList();

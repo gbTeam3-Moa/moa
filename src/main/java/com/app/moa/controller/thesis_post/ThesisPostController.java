@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/thesis/*")
@@ -37,11 +40,24 @@ public class ThesisPostController {
             log.info("포스트 없음");
         }
 
+        // 필요한 정보만 추출하여 model에 담음
+        List<Map<String, Object>> simplePosts = posts.stream().map(post -> {
+            Map<String, Object> postMap = new HashMap<>();
+            postMap.put("postTitle", post.getPostTitle());
+            postMap.put("postContent", post.getPostContent());
+            postMap.put("professorMajor", post.getProfessorMajor());
+            postMap.put("postView", post.getPostView());
+            postMap.put("updatedDate",post.getUpdatedDate());
+            postMap.put("memberName",post.getMemberId());
+            return postMap;
+        }).collect(Collectors.toList());
+
         model.addAttribute("pagination", pagination);
-        model.addAttribute("posts", posts);
+        model.addAttribute("posts", simplePosts);
 
         return "thesis/thesis-list";
     }
+
 
     // 글 작성 페이지 이동1
     @GetMapping("thesis-write1")
@@ -61,7 +77,7 @@ public class ThesisPostController {
 //        thesisPostDTO.setMemberId(memberVO.getId());
 
         // 1단계 데이터 임시 저장 후 2단계 페이지로 이동
-        session.setAttribute("thesisPost", thesisPostDTO);
+//        session.setAttribute("thesisPost", thesisPostDTO);
         return new RedirectView("/thesis/thesis-write2");
     }
 
@@ -74,18 +90,15 @@ public class ThesisPostController {
     // 글 작성 처리2
     @PostMapping("thesis-write2")
     public RedirectView thesisWrite2(ThesisPostDTO thesisPostDTO) {
-//        // 세션에 저장된 1단계 데이터 불러오고
+        // 세션에 저장된 1단계 데이터 불러오고
 //        ThesisPostDTO thesisPost1Data = (ThesisPostDTO) session.getAttribute("thesisPost");
-//
-//        // 2단계 데이터와 합쳐서 저장
+
+        // 2단계 데이터와 합쳐서 저장
 //        thesisPost1Data.setResearchSchedule(thesisPostDTO.getResearchSchedule());
 //        thesisPost1Data.setResearchRequirement(thesisPostDTO.getResearchRequirement());
-//
-//        // 진짜 저장
+
+        // 진짜 저장
 //        thesisPostService.write(thesisPost1Data);
-//
-//        // 저장 후 세션에서 1단계 데이터 제거
-//        session.removeAttribute("thesisPost");
 
         return new RedirectView("/thesis/thesis-list");
     }

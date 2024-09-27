@@ -131,7 +131,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="post-lists">
+                                <div id="listdiv" class="post-lists">
                                     <div class="post-list">
                                         <div class="post-all">
                                             <div class="post-view-wrap">
@@ -519,7 +519,7 @@
                                         </div>
                                     </div>
                                     <div class="pagination-wrap">
-                                        <ul class="pagination theme-moa">
+                                        <ul class="pagination theme-moa" id="pagingdiv">
                                             <li
                                                 class="page-item"
                                                 id="page-prev-button"
@@ -561,8 +561,8 @@
     </body>
     <script src="/js/thesis/thesis-list-event.js"></script>
     <script th:inline="javascript">
-        const posts = [[${posts}]];
-        const pagination = [[${pagination}]];
+        const posts = /*[[${posts}]]*/ [];  // 데이터가 없으면 빈 배열로 처리
+        const pagination = /*[[${pagination}]]*/ {};  // 페이지 정보 없으면 빈 객체
     </script>
     <script src="/js/thesis/thesis-list.js"></script>
 </html>
