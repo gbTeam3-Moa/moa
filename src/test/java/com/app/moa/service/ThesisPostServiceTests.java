@@ -30,7 +30,7 @@ public class ThesisPostServiceTests {
         thesisPostDTO.setPostTitle("논문 제목2");
         thesisPostDTO.setPostContent("논문 내용2");
         thesisPostDTO.setMemberId(21L);
-        thesisPostDTO.setPostView(120);
+        thesisPostDTO.setPostView(100);
         thesisPostDTO.setProfessorMajor("수학과");
         thesisPostDTO.setResearchField("분야");
         thesisPostDTO.setResearchProfit("없음");

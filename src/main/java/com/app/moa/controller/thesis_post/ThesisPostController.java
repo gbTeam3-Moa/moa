@@ -32,6 +32,7 @@ public class ThesisPostController {
 
     @GetMapping("thesis-list")
     public String getList(Pagination pagination, Model model) {
+
         pagination.setTotal(thesisPostService.getTotal());
         pagination.progress();
         List<ThesisPostDTO> posts = thesisPostService.getList(pagination);

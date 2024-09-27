@@ -22,7 +22,7 @@ const showList = () => {
                     <div class="post-view-wrap">
                         <div class="post-view"></div>
                         <div class="post-view-count">
-                            ${post.postView} 
+                            ${post.postView || '조회수 없음'} 
                         </div>
                     </div>
                     <div class="post-top">
@@ -31,6 +31,9 @@ const showList = () => {
                                 ${post.postTitle || '제목 없음'}
                             </a>
                         </div>
+                        <div class="status-mark new-mark">
+                        NEW
+                       </div>
                         <div class="post-top-right">
                             <div class="post-writer-school-major">
                                 ${post.professorMajor || '학과 정보 없음'} 
