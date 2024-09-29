@@ -342,21 +342,35 @@ let isRePwValid = false;
 
 // 이메일 입력 필드에 포커스가 들어올 때
 emailinputField.addEventListener("focus", (e) => {
-    // Enter 키가 눌린 상태라면 빨간색, 아니면 원본 색상 유지
-    emailplaceholder.style.color =
-        isEmailValid ? "rgb(51, 145, 186)" : "red";
-    emailinputBoxLabel.style.borderColor =
-        isEmailValid ? "rgb(51, 145, 186)" : "red";
-    emailinputField.style.color =
-        isEmailValid ? "rgb(51, 145, 186)" : "red";
-    emailMessage.textContent =
-        isEmailValid ? "" : "이메일을 입력해 주세요";
-    emailMessage.style.color =
-        isEmailValid ? "rgb(51, 145, 186)" : "red";
-
     emailplaceholder.style.top = "-5px";
     emailplaceholder.style.fontSize = "12px";
     emailplaceholder.style.transform = "translateY(0)";
+
+    if(enterPressed) {
+        // Enter 키가 눌린 상태라면 빨간색, 아니면 원본 색상 유지
+        emailplaceholder.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailinputBoxLabel.style.borderColor =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailinputField.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailMessage.textContent =
+            isEmailValid ? "" : "이메일을 입력해 주세요";
+        emailMessage.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+    } else {
+        // Enter 키가 눌린 상태라면 빨간색, 아니면 원본 색상 유지
+        emailplaceholder.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailinputBoxLabel.style.borderColor =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailinputField.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailMessage.textContent =
+            isEmailValid ? "" : "이메일을 입력해 주세요";
+        emailMessage.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+    }
 });
 
 // 아이디 입력 필드에 포커스가 들어올 때
