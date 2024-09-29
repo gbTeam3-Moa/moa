@@ -62,21 +62,23 @@ public class ThesisPostController {
         return "thesis/thesis-write1";
     }
 
-    // 글 작성 처리1
     @PostMapping("thesis-write1")
     public RedirectView thesisWrite1(ThesisPostDTO thesisPostDTO) {
-//        MemberVO memberVO = (MemberVO) session.getAttribute("loginMember");
-//
-//        // 로그인 안되어 있으면 로그인으로 보내기
-//        if (memberVO == null) {
-//            return new RedirectView("/member/login");
-//        }
-//        thesisPostDTO.setMemberId(memberVO.getId());
+        thesisPostDTO.setMemberId(1L);
+        thesisPostDTO.setPostType(2);
+        log.info("Received ThesisPostDTO: {}", thesisPostDTO);
 
-        // 1단계 데이터 임시 저장 후 2단계 페이지로 이동
-//        session.setAttribute("thesisPost", thesisPostDTO);
+        if (thesisPostDTO.getPostTitle() == null || thesisPostDTO.getResearchStartDate() == null || thesisPostDTO.getResearchStartDate() == null) {
+            log.error("필수 데이터가 없습니다.");
+            return new RedirectView("/thesis/thesis-write1");
+        }
+
+        // 데이터가 문제없으면 세션에 저장
+        session.setAttribute("thesisPost", thesisPostDTO);
+
         return new RedirectView("/thesis/thesis-write2");
     }
+
 
     // 글 작성 페이지 이동2
     @GetMapping("thesis-write2")
@@ -84,21 +86,40 @@ public class ThesisPostController {
         return "thesis/thesis-write2";
     }
 
-    // 글 작성 처리2
     @PostMapping("thesis-write2")
     public RedirectView thesisWrite2(ThesisPostDTO thesisPostDTO) {
-        // 세션에 저장된 1단계 데이터 불러오고
-//        ThesisPostDTO thesisPost1Data = (ThesisPostDTO) session.getAttribute("thesisPost");
 
-        // 2단계 데이터와 합쳐서 저장
-//        thesisPost1Data.setResearchSchedule(thesisPostDTO.getResearchSchedule());
-//        thesisPost1Data.setResearchRequirement(thesisPostDTO.getResearchRequirement());
+        // 세션에서 thesisPost 객체를 가져옵니다.
+        ThesisPostDTO thesisPost1Data = (ThesisPostDTO) session.getAttribute("thesisPost");
 
-        // 진짜 저장
-//        thesisPostService.write(thesisPost1Data);
+        // 세션에서 thesisPost1Data가 null이 아닌지 확인합니다.
+        if (thesisPost1Data == null) {
+            log.error("세션에서 thesisPost 객체를 찾을 수 없습니다.");
+            return new RedirectView("/error-page");
+        }
+
+        // 전달받은 데이터 검증
+        log.info("Received ThesisPostDTO (2단계): {}", thesisPostDTO);
+
+        // 필수 입력 데이터인 postContent와 researchSchedule 검증
+        if (thesisPostDTO.getPostContent() == null || thesisPostDTO.getPostContent().trim().isEmpty() ||
+                thesisPostDTO.getResearchSchedule() == null || thesisPostDTO.getResearchSchedule().trim().isEmpty()) {
+            log.error("필수 데이터가 없습니다. 연구 일정 또는 프로젝트 내용이 누락되었습니다.");
+            return new RedirectView("/thesis/thesis-write2"); // 다시 작성 페이지로 리다이렉트
+        }
+
+        // 정상적으로 세션에서 데이터를 가져온 경우
+        thesisPost1Data.setResearchSchedule(thesisPostDTO.getResearchSchedule());
+        thesisPost1Data.setResearchRequirement(thesisPostDTO.getResearchRequirement());
+        thesisPost1Data.setPostContent(thesisPostDTO.getPostContent());
+
+        // 최종적으로 데이터베이스에 저장
+        thesisPostService.write(thesisPost1Data);
 
         return new RedirectView("/thesis/thesis-list");
     }
+
+
 
     @GetMapping("/thesis/thesis-inquiry")
     public String getThesisInquiry(@RequestParam("postId") Long postId, Model model) {
