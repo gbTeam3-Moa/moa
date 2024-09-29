@@ -5,10 +5,10 @@ const showList = () => {
     let text = ``;
 
     // posts 데이터가 없을 때 처리 로직
-    if (!posts || posts.length === 0) {
+    if (!reports || reports.length === 0) {
         text = `<div class="no-posts">게시글이 없습니다.</div>`;
     } else {
-        posts.forEach((post) => {
+        reports.forEach((report) => {
             text += `<div class="ServiceTable_row_wrapper">-->
                                         <div class="ServiceTable_row">
                                             <div class="ServiceTable_cell">

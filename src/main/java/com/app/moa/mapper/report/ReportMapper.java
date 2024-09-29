@@ -31,6 +31,10 @@ public interface ReportMapper {
 //  신고받은 게시글 수정
     public void update(ReportVO reportVO);
 
+//  신고받은 게시글 삭제
+    public void delete(Long id);
+
+
 
 
 }

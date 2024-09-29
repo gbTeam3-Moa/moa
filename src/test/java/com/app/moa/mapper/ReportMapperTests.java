@@ -64,6 +64,13 @@ public class ReportMapperTests {
         reportService.update(reportDTO.toVO());
     }
 
+//    게시글 삭제
+    @Test
+    public void testDelete() {
+        Long id = 82L;
+        reportService.delete(id);
+        log.info("Deleted post with ID: {}", id);
+    }
 
 
     //    @Test
