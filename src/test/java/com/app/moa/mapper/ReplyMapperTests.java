@@ -54,13 +54,13 @@ public class ReplyMapperTests {
         replyDTO.setId(2L);
         replyDTO.setMemberId(21L);
         replyDTO.setPostId(1L);
-        replyDTO.setGroupId(1L);
         List<ReplyDTO> replys = replyMapper.selectAllByPostId(replyDTO.getPostId());
-        replys.stream().map(ReplyDTO::toString).forEach(log::info);
+
 
     }
 //    List<ReplyDTO> replys = replyMapper.selectAllByPostId(replyDTO.getPostId());
 //        replys.stream().map(ReplyDTO::toString).forEach(log::info);
+
     @Test
     public void testUpdate(){
         ReplyDTO replyDTO = new ReplyDTO();

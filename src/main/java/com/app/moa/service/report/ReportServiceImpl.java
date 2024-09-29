@@ -35,6 +35,9 @@ public class ReportServiceImpl implements ReportService {
         return reportDAO.findCount();
     }
 
+    @Override
+    public void update (ReportVO reportVO) {reportMapper.update(reportVO);}
+
 ////    신고된 게시물 조회
 //    @Override
 //    public Optional<ReportVO> getById(Long id) {

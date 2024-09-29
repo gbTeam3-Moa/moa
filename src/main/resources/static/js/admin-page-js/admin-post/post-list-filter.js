@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const editModal = document.getElementById("editModal");
     const closeButton = document.querySelector(".close-button");
     const saveChangesBtn = document.getElementById("saveChanges");
+    const deleteBtn = document.getElementById("delete");
     let currentEditRow = null;
 
     // 임시 게시글 데이터
@@ -133,6 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // 실제로는 서버에 저장하는 코드가 여기 들어가야 합니다.
 
         alert("변경 사항이 저장되었습니다.");
+        closeModal();
+    });
+    deleteBtn.addEventListener("click", function () {
+        postData.content = document.getElementById("editPostContent").value;
+
+        // 실제로는 서버에 저장하는 코드가 여기 들어가야 합니다.
+
+        alert("게시글이 삭제되었습니다.");
         closeModal();
     });
 });

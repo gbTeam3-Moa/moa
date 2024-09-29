@@ -1,8 +1,11 @@
 package com.app.moa.mapper;
 
+
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.mapper.report.ReportMapper;
+import com.app.moa.service.report.ReportService;
+import com.app.moa.service.report.ReportServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,11 @@ public class ReportMapperTests {
     private ReportMapper reportMapper;
     @Autowired
     private ReportDTO reportDTO;
+    @Autowired
+    private ReportServiceImpl reportServiceImpl;
+    @Autowired
+    private ReportService reportService;
+
 //    @Autowired
 //    private ReportDTO reportDTO;
 
@@ -44,7 +52,16 @@ public class ReportMapperTests {
 //        log.info("{}", reportMapper);
 //        log.info("{}", reportDTO);
         reports.stream().map(ReportDTO::toString).forEach(log::info);
+    }
 
+//    게시글 수정(작업중)
+    @Test
+    public void testUpdate() {
+        ReportDTO reportDTO = new ReportDTO();
+        reportDTO.setPostId(145L);
+        reportDTO.setPostTitle("수정해볼게?");
+        reportDTO.setPostContent("수정해볼게 내용!");
+        reportService.update(reportDTO.toVO());
     }
 
 

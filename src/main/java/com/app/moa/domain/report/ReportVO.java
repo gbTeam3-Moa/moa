@@ -18,4 +18,5 @@ public class ReportVO {
     private String reportReason;
     private Long reportStatus;
 
+
 }

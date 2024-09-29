@@ -8,10 +8,10 @@
             rel="shortcut icon"
             href="https://www.wishket.com/static/renewal/img/global/gnb_wishket.svg"
         />
-        <link rel="stylesheet" href="../../../static/css/admin-page-css/admin-main/sub-main.css">
-        <link rel="stylesheet" href="../../../static/css/admin-page-css/admin-main/common-main.css">
-       <link rel="stylesheet" href="../../../static/css/admin-page-css/admin-report/admin-report-list.css">
-        <link rel="stylesheet" href="../../../static/css/admin-page-css/admin-service/main-service.css">
+        <link rel="stylesheet" href="/css/admin-page-css/admin-main/sub-main.css"/>
+        <link rel="stylesheet" href="/css/admin-page-css/admin-main/common-main.css"/>
+        <link rel="stylesheet" href="/css/admin-page-css/admin-report/admin-report-list.css"/>
+        <link rel="stylesheet" href="/css/admin-page-css/admin-service/main-service.css"/>
     </head>
     <body>
         <noscript>#</noscript>
@@ -549,33 +549,32 @@
                         </div>
 
         <!-- 모달창 -->
-        <div id="editModal" class="modal">
-         <div class="modal-content" style="max-height: 80vh; overflow-y: auto;">
-        <span class="close-button">&times;</span>
-        <h2>게시글 수정</h2>
-        <form id="editForm">
-            <label for="editPostTitle">게시글 제목:</label>
-            <input type="text" id="editPostTitle" name="editPostTitle" readonly />
+<!--        <div id="editModal" class="modal">-->
+<!--         <div class="modal-content" style="max-height: 80vh; overflow-y: auto;">-->
+<!--        <span class="close-button">&times;</span>-->
+<!--        <h2>게시글 수정</h2>-->
+<!--        <form id="editForm">-->
+<!--            <label for="editPostTitle">게시글 제목:</label>-->
+<!--            <input type="text" id="editPostTitle" name="editPostTitle" readonly />-->
 
-            <label for="editPostContent">게시글 내용:</label>
-            <textarea id="editPostContent" name="editPostContent" style="width: 100%; height: 200px;"></textarea>
+<!--            <label for="editPostContent">게시글 내용:</label>-->
+<!--            <textarea id="editPostContent" name="editPostContent" style="width: 100%; height: 200px;"></textarea>-->
 
-            <div id="imageContainer" style="margin-top: 20px;">
-                <!-- 첨부된 이미지가 여기에 표시됨 -->
-            </div>
+<!--            <div id="imageContainer" style="margin-top: 20px;">-->
+<!--                &lt;!&ndash; 첨부된 이미지가 여기에 표시됨 &ndash;&gt;-->
+<!--            </div>-->
 
-            <button type="button" id="saveChanges" style="margin-top: 20px;">저장</button>
-        </form>
+<!--            <button type="button" id="saveChanges" style="margin-top: 20px;">저장</button>-->
+<!--        </form>-->
 
-        <h3 style="margin-top: 30px;">댓글 목록</h3>
-        <ul id="commentList" style="list-style-type: none; padding: 0; min-height: 200px; overflow-y: auto;">
-            <!-- 댓글이 동적으로 추가될 부분 -->
-        </ul>
-    </div>
-    </div>
+<!--        <h3 style="margin-top: 30px;">댓글 목록</h3>-->
+<!--        <ul id="commentList" style="list-style-type: none; padding: 0; min-height: 200px; overflow-y: auto;">-->
+<!--            &lt;!&ndash; 댓글이 동적으로 추가될 부분 &ndash;&gt;-->
+<!--        </ul>-->
+<!--        </div>-->
+<!--        </div>-->
     </body>
-
-    <script src="../../../static/js/admin-page-js/admin-page/admin.js"></script>
-    <script src="../../../static/js/admin-page-js/admin-post/post-list-filter.js"></script>
-    <script src="../../../static/js/admin-page-js/admin-report/admin-report-list.js"></script>
+    <script src="/js/admin-page-js/admin-page/admin.js"></script>
+    <script src="/js/admin-page-js/admin-post/post-list-filter.js"></script>
+    <script src="/js/admin-page-js/admin-report/admin-report-list.js"></script>
 </html>
