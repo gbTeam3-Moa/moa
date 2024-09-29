@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>신고관리 - 조회</title>
+        <link
+            rel="shortcut icon"
+            href="https://www.wishket.com/static/renewal/img/global/gnb_wishket.svg"
+        />
+        <link rel="stylesheet" href="../../../static/css/admin-page-css/admin-main/sub-main.css">
+        <link rel="stylesheet" href="../../../static/css/admin-page-css/admin-main/common-main.css">
+       <link rel="stylesheet" href="../../../static/css/admin-page-css/admin-report/admin-report-list.css">
+        <link rel="stylesheet" href="../../../static/css/admin-page-css/admin-service/main-service.css">
+        <style>
+            #editPostContent{width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+        }
+        </style>
+    </head>
+    <body>
+        <noscript>#</noscript>
+        <div id="root">
+            <div id="AppLayot_Container" class="AppLayout_container">
+                <div class="AppGNBNavbar_container">
+                    <div class="AppGNBNavbar_flex">
+                        <div class="StudioLogo_container">
+                            <button
+                                class="StudioLogo_logo"
+                                type="button"
+                                aria-label="로고버튼"
+                            ></button>
+                            <div class="Admin_page_logo">관리자 페이지</div>
+                        </div>
+                        <!-- <div class="StudioStatus_stateBox">
+                            <span class="StudioStatus_state">작업 중</span>
+                        </div> -->
+                    </div>
+                    <div class="AppGNBNavbar_flex AppGNBNavbar_rightBox_1">
+                        <div class="ProjectInfo_container">
+                            <button
+                                class="ProjectInfo_infoButton"
+                                type="button"
+                                aria-controls="project-info-box"
+                                aria-expanded="true"
+                            >
+                                관리자 ID:
+                                <span class="ProjectInfo_emphasis">Yanawa</span>
+                            </button>
+                        </div>
+
+                        <div class="PreviewExitButtons_container">
+                            <button
+                                class="Button_button PreviewExitButtons_button"
+                                type="button"
+                            >
+                                <span
+                                    ><span class="Button_children"
+                                        >로그아웃</span
+                                    ></span
+                                >
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 메인컨텐츠 영역 -->
+                <div class="AppLayout_main_1">
+                    <div
+                        id="AppLayout_Contents"
+                        class="AppLayout_contents_mainContent"
+                        style="margin-left: 15.5%;"
+                    >
+                        <div class="Service_wrapper">
+                            <!-- body_header -->
+                            <div class="ServiceHeader_container">
+                                <h2 class="ServiceHeader_title"
+                                style="margin-left: 35%;">신고 관리</h2>
+                                <p class="ServiceHeader_description"
+                                style="margin-left: 34.5%;">
+                                    해당 신고를 조회합니다.
+                                </p>
+                            </div>
+                            <hr
+                                class="Divider_divider Divider_horizontal Divider_lightBG Divider_spacing3 Divider_caption2 FriendsList_divider"
+                            />
+                            <!-- body_layout -->
+                                
+                            
+                                <div class="modal-content" style="max-height: 80vh; overflow-y: auto; margin-top: 50px; margin-left: 27%;" >
+                               <span class="close-button">&times;</span>
+                               <h2>게시글 수정</h2>
+                               <form id="editForm">
+                                   <label for="editPostTitle">게시글 제목:</label>
+                                   <input type="text" id="editPostTitle" name="editPostTitle" />
+                       
+                                   <label for="editPostContent">게시글 내용:</label>
+                                   <textarea id="editPostContent" name="editPostContent" style="width: 100%; height: 200px;" ></textarea>
+                       
+                                   <div id="imageContainer" style="margin-top: 20px;">
+                                       <!-- 첨부된 이미지가 여기에 표시됨 -->
+                                   </div>
+                                   <div>
+                                   <button type="button" id="delete" style="margin-left: 310px;">삭제</button>
+                                   <button type="button" id="saveChanges">저장</button>
+                                    </div>    
+                               </form>
+                           </div>
+                           </div>
+                            </div>
+                        </div>
+    </body>
+
+    <script src="../../../static/js/admin-page-js/admin-page/admin.js"></script>
+    <script src="../../../static/js/admin-page-js/admin-post/post-list-filter.js"></script>
+    <script src="../../../static/js/admin-page-js/admin-report/admin-report-list.js"></script>
+</html>

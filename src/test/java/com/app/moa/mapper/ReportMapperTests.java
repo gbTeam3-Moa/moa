@@ -44,7 +44,6 @@ public class ReportMapperTests {
 //        log.info("{}", reportMapper);
 //        log.info("{}", reportDTO);
         reports.stream().map(ReportDTO::toString).forEach(log::info);
-
     }
 
 
