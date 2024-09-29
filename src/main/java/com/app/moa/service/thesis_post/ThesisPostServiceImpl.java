@@ -27,7 +27,6 @@ public class ThesisPostServiceImpl implements ThesisPostService {
 
     @Override
     public void write(ThesisPostDTO thesisPostDTO) {
-        // 1. PostVO 객체 생성
         PostVO postVO = thesisPostDTO.toPostVO();
 
         // 2. PostVO 객체 삽입 (게시물 정보 저장)

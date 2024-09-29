@@ -33,8 +33,20 @@ const formSubmit = document.querySelector(".btn-wishket");
 // 버튼 클릭시 이벤트 (추후수정)
 formSubmit.addEventListener("click", () => {
     alert("작성이 완료되었습니다");
-});
+})
 
-const showPost = () =>{
-
-}
+const post = {
+    postTitle: "${post.postTitle}",
+    professorMajor: "${post.professorMajor}",
+    researchField: "${post.researchField}",
+    researchProfit: "${post.researchProfit}",
+    researchPeriod: "${post.researchPeriod}",
+    researchDeadline: "${post.researchDeadline}",
+    researchStartDate: "${post.researchStartDate}",
+    researchSchedule: "${post.researchSchedule}",
+    researchRequirement: "${post.researchRequirement}",
+    postContent: "${post.postContent}",
+    memberNickName: "${post.memberNickName}",
+    createdDate: "${post.createdDate}",
+    updatedDate: "${post.updatedDate}"
+};

@@ -27,7 +27,7 @@ const showList = () => {
                     </div>
                     <div class="post-top">
                         <div class="post-title-wrap">
-                            <a href="/list-inquiry?id=${post.id}" class="post-title">
+                            <a href="/thesis/thesis-inquiry?postId=${post.id}" class="post-title">
                                 ${post.postTitle || '제목 없음'}
                             </a>
                         </div>
