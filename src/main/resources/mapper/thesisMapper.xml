@@ -71,6 +71,8 @@
     <update id="update">
         UPDATE TBL_THESIS_POST
         SET
+            POST_TITLE = #{postTitle},
+            POST_CONTENT = #{postContent},
             PROFESSOR_MAJOR = #{professorMajor},
             RESEARCH_FIELD = #{researchField},
             RESEARCH_PROFIT = #{researchProfit},
@@ -79,7 +81,6 @@
             RESEARCH_START_DATE = #{researchStartDate},
             RESEARCH_SCHEDULE = #{researchSchedule},
             RESEARCH_REQUIREMENT = #{researchRequirement},
-            UPDATED_DATE = SYSDATE
         WHERE ID = #{id}
     </update>
 
