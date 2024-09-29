@@ -29,10 +29,13 @@ public class ThesisPostServiceImpl implements ThesisPostService {
     public void write(ThesisPostDTO thesisPostDTO) {
         PostVO postVO = thesisPostDTO.toPostVO();
 
+        // 2. PostVO 객체 삽입 (게시물 정보 저장)
         postMapper.insert(postVO);
 
+        // 3. 삽입 후 생성된 postVO의 ID를 thesisPostDTO에 설정
         thesisPostDTO.setId(postVO.getId());
 
+        // 4. ThesisPostVO 객체로 변환 후 논문 관련 정보 삽입
         thesisPostMapper.insert(thesisPostDTO.toVO());
     }
 

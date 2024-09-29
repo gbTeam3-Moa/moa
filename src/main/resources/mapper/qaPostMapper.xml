@@ -29,10 +29,10 @@
                 ORDER BY QP.ID DESC
                 ) QP1
                     <![CDATA[
-                    WHERE ROWNUM <= #{endRow}
-                    ) QP2
-                    WHERE ROWNUM >= #{startRow}
-                    ]]>
+                WHERE ROWNUM <= #{endRow}
+            ) QP2
+        WHERE ROWNUM >= #{startRow}
+        ]]>
     </select>
 
     <select id="selectCount">

@@ -29,15 +29,16 @@ public class ThesisPostServiceTests {
         ThesisPostDTO thesisPostDTO = new ThesisPostDTO();
         thesisPostDTO.setPostTitle("논문 제목2");
         thesisPostDTO.setPostContent("논문 내용2");
-        thesisPostDTO.setMemberId(1L);
-        thesisPostDTO.setProfessorMajor("전기전자공학과");
+        thesisPostDTO.setMemberId(21L);
+        thesisPostDTO.setPostView(100);
+        thesisPostDTO.setProfessorMajor("수학과");
         thesisPostDTO.setResearchField("분야");
         thesisPostDTO.setResearchProfit("없음");
         thesisPostDTO.setResearchPeriod("6개월");
         thesisPostDTO.setResearchDeadline("2024-12-31");
         thesisPostDTO.setResearchStartDate("2024-06-01");
         thesisPostDTO.setResearchSchedule("스케쥴");
-        thesisPostDTO.setResearchRequirement("자바 개발자");
+        thesisPostDTO.setResearchRequirement("AI 개발자");
 
         thesisPostService.write(thesisPostDTO);
     }
