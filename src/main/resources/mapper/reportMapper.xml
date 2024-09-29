@@ -40,6 +40,20 @@
         WHERE
             RP.ID = #{id}
     </select>
+
+    <update id="update">
+        UPDATE TBL_POST P
+        SET
+            P.POST_TITLE = (SELECT #{postTitle} FROM TBL_REPORT RP WHERE RP.POST_ID = P.ID),
+            P.POST_CONTENT = (SELECT #{postContent} FROM TBL_REPORT RP WHERE RP.POST_ID = P.ID)
+        WHERE P.ID = #{id}
+    </update>
+
+
+    <delete id="delete">
+        DELETE FROM TBL_REPORT
+        WHERE ID = #{id}
+    </delete>
 <!-- 첨부파일은 나중에 배우고 -->
 
 </mapper>
