@@ -8,6 +8,7 @@ import com.app.moa.service.report.ReportService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.filters.RemoteIpFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,13 +49,22 @@ public class ReportController {
         return "admin-page-html/admin-report/admin-report-list";
     }
 //  신고된 게시글 조회
-    @PostMapping("report-inquiry")
-    public RedirectView reportInquiry(ReportDTO reportDTO) {
+//    @PostMapping("report-inquiry")
+//    public RedirectView reportInquiry(ReportDTO reportDTO) {
+//        reportDTO.setId(121L);
+//        reportDTO.setPostId(146L);
+//        log.info("Received ReportDTO: {}", reportDTO);
+//
+//        return new RedirectView("/report/report-inquiry");
+//    }
+
+    @GetMapping("report-inquiry")
+    public RemoteIpFilter.XForwardedRequest reportInquiry(ReportDTO reportDTO) {
         reportDTO.setId(121L);
         reportDTO.setPostId(146L);
         log.info("Received ReportDTO: {}", reportDTO);
 
-        return new RedirectView("/thesis/thesis-write2");
+        return new  ("/report/report-inquiry");
     }
 
 //    @GetMapping("Inquiry")

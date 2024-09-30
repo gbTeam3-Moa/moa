@@ -67,7 +67,7 @@ const showList = () => {
                                                 <button class="report-status"
                                                 id="report-status">
                                                 ${report.reportStatus || '상태 없음'}
-                                                <a href="/report/report"></a> 
+                                                <a href="/report/report-inquiry"></a> 
                                                 </button>
                                             </div>
                                     </div>
