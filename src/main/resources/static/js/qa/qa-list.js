@@ -1,13 +1,22 @@
 // "post-write-button" 버튼에 클릭 이벤트 리스너 추가
-document.getElementById("post-write-button").addEventListener("click", (e) => {
+const click = document.getElementById("post-write-button").addEventListener("click", (e) => {
     // 클릭 시 게시글 작성 페이지로 이동
     location.href = `/qa/qa-write`;
 });
 
 // 게시글 목록을 표시하는 함수
+const listdiv = document.getElementById('listdiv');
+const pagingUl = document.getElementById('pagingUl');
+const isnew = document.getElementById('newMark');
 const showList = () => {
     let text = ``; // HTML 내용을 저장할 변수 초기화
+    const currentTime = new Date(); // 현재 시간
     posts.forEach((post) => {
+        const postCreatedTime = new Date(post.updatedDate); // 게시물 생성 시간
+        const timeDifference = currentTime - postCreatedTime; // 시간 차이 (ms)
+
+        // 24시간 이내에 작성된 게시물인지 확인
+        const isNew = timeDifference < 86400000 ; // 86400000ms = 24시간, 3600000ms = 1시간(test용)
         text += `
         <div class="post-list">
             <div class="post-all">
@@ -18,30 +27,48 @@ const showList = () => {
                     </div>
                 </div>
                 <div class="post-top">
-                    <div class="post-title">
-                        ${post.postTitle} <!-- 게시글 제목 -->
+                   <div class="post-title">
+                    <a class="go-qa-inquiry" href="/qa/qa-inquiry?postId=${post.id}">
+                        <div class="post-title">
+                        <div
+                            class="QA-font-style"
+                            >
+                             Q.
+                           </div>
+                           <div
+                          class="QA-title-font"
+                           >
+                           ${post.postTitle} <!-- 게시글 제목 -->
+                            </div>
+                            </div>
+                            </a>
+                            ${isNew ? `<div class="status-mark new-mark">NEW</div>` : ''}  
                     </div>
                     <div class="post-top-right">
                         <div class="post-writer-school-major">
-                            ${member.memberMajor} <!-- 작성자 학과 -->
+                            ${post.memberMajor} <!-- 작성자 학과 -->
                         </div>
                         <div class="post-writer-name">
-                            ${member.memberNickname} <!-- 작성자 이름 -->
+                            ${post.memberNickname} <!-- 작성자 이름 -->
                         </div>
                         <div class="post-created-date">
-                            ${post.createdDate} <!-- 게시글 작성 날짜 -->
+                            ${post.updatedDate} <!-- 게시글 작성 날짜 -->
                         </div>
                     </div>
                 </div>
                 <div class="post-content">
-                    ${post.postContent}<!-- 게시글 내용 -->
+                <div class="QA-font-style">
+                    A.
+                </div>
+                   <div class="QA-title-font">
+                       ${post.postContent}<!-- 게시글 내용 -->
+                   </div>
                 </div>
             </div>
         </div>
         `;
     });
 
-    // 게시글 목록을 HTML 요소에 삽입
     listdiv.innerHTML = text;
 }
 
@@ -81,9 +108,22 @@ const showPaging = () => {
         `;
     }
     // 페이지 네비게이션을 HTML 요소에 삽입
-    pagingdiv.innerHTML = text;
+    console.log(text);
+    console.log(pagination.startPage);
+    console.log(pagination.endPage);
+    pagingUl.innerHTML = text;
 }
 
 // 게시글 목록과 페이지 네비게이션 표시 함수 호출
 showList();
 showPaging();
+document.getElementById("totalSpan").innerHTML = pagination.total;
+
+if(pagination.ordType == 1){
+    document.getElementsByClassName("arrange-type")[1].classList.remove("selected")
+    document.getElementsByClassName("arrange-type")[0].classList.add("selected")
+}else if (pagination.ordType == 2){
+    document.getElementsByClassName("arrange-type")[0].classList.remove("selected")
+    document.getElementsByClassName("arrange-type")[1].classList.add("selected")
+}
+

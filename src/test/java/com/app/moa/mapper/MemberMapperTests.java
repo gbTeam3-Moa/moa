@@ -21,8 +21,9 @@ public class MemberMapperTests {
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setMemberEmail("test123@gmail.com");
         memberDTO.setMemberPassword("1234567");
-        memberDTO.setMemberNickName("hdsTest12");
-        memberDTO.setMemberType(2);
+        memberDTO.setMemberNickname("zzz");
+        memberDTO.setMemberMajor("공학과");
+        memberDTO.setMemberType(1);
 
         memberMapper.insert(memberDTO.toVO());
     }

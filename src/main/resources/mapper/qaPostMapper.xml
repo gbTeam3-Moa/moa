@@ -6,20 +6,35 @@
         VALUES (#{id})
     </insert>
 
+
     <select id="selectById" resultType="qaPostDTO">
-        SELECT ID, POST_TITLE, POST_CONTENT, POST_TYPE, MEMBER_ID
-        FROM TBL_POST
-        WHERE ID = #{id}
+        SELECT
+            QP.ID,
+            P.POST_TITLE,
+            P.POST_CONTENT,
+            P.MEMBER_ID,
+            P.CREATED_DATE
+
+        FROM TBL_QA_POST QP
+                 JOIN TBL_POST P ON QP.ID = P.ID
+        WHERE QP.ID = #{id}
     </select>
 
     <select id="selectAll" resultType="qaPostDTO">
         SELECT QP2.ID, MEMBER_NICKNAME, MEMBER_MAJOR, QP2.POST_TITLE, QP2.POST_CONTENT, QP2.POST_VIEW, QP2.UPDATED_DATE
         FROM
             (
+<<<<<<< HEAD
             SELECT ROWNUM R, QP1.ID, MEMBER_NICKNAME, MEMBER_MAJOR, QP1.POST_TITLE, QP1.POST_CONTENT, QP1.POST_VIEW, QP1.UPDATED_DATE
             FROM
                 (
                 SELECT QP.ID, M.MEMBER_NICKNAME, MEMBER_MAJOR, QP.POST_TITLE, QP.POST_CONTENT, QP.POST_VIEW, QP.UPDATED_DATE
+=======
+            SELECT ROWNUM R, QP1.ID, MEMBER_NICKNAME, MEMBER_MAJOR, QP1.UPDATED_DATE, QP1.POST_TITLE, QP1.POST_CONTENT, QP1.POST_VIEW
+            FROM
+                (
+                SELECT QP.ID, M.MEMBER_NICKNAME, M.MEMBER_MAJOR, QP.UPDATED_DATE , QP.POST_TITLE, QP.POST_CONTENT, QP.POST_VIEW
+>>>>>>> ecffde351bbb5e33fbf84ef426344f0d12a0123b
                 FROM TBL_MEMBER M JOIN (
                     SELECT QP0.ID, POST_TITLE, POST_CONTENT, MEMBER_ID, POST_VIEW, UPDATED_DATE
                     FROM TBL_POST P JOIN TBL_QA_POST QP0
@@ -28,18 +43,27 @@
                 ON M.ID = QP.MEMBER_ID
                 ORDER BY QP.ID DESC
                 ) QP1
+<<<<<<< HEAD
+=======
+                    ) QP2
+>>>>>>> ecffde351bbb5e33fbf84ef426344f0d12a0123b
                     <![CDATA[
-                WHERE ROWNUM <= #{endRow}
-            ) QP2
-        WHERE ROWNUM >= #{startRow}
-        ]]>
+                    WHERE R >= #{startRow}
+                    AND R <= #{endRow}
+                    ]]>
+                <if test="ordType == 1">
+                    ORDER BY UPDATED_DATE DESC
+                </if>
+                <if test="ordType == 2">
+                    ORDER BY POST_VIEW DESC
+                </if>
     </select>
 
     <select id="selectCount">
         SELECT COUNT(*) FROM TBL_QA_POST
     </select>
 
-    <update id="updateById">
+    <update id="update">
         UPDATE TBL_POST
         SET POST_TITLE = #{postTitle},
             POST_CONTENT = #{postContent},
@@ -47,7 +71,7 @@
         WHERE ID = #{id}
     </update>
 
-    <delete id="deleteById">
+    <delete id="delete">
         DELETE FROM TBL_QA_POST
         WHERE ID = #{id}
     </delete>

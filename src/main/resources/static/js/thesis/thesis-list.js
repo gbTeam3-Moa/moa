@@ -39,7 +39,7 @@ const showList = () => {
                                 ${post.professorMajor || '학과 정보 없음'} 
                             </div>
                             <div class="post-writer-name">
-                                ${post.memberNickName}
+                                ${member.memberNickName}
                             </div>
                             <div class="post-created-date">
                                 ${post.updatedDate || '날짜 정보 없음'} 

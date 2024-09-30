@@ -63,7 +63,6 @@ public class MemberController {
         MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() +")로그인 실패");});
 //        session.setAttribute("memberId", memberVO.getId());
         session.setAttribute("member", memberVO);
-
         memberDTO.setMemberEmail(memberDTO.getMemberNickname());
         log.info("{}", memberDTO);
         memberService.login(memberDTO.toVO())

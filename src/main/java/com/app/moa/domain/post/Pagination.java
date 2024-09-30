@@ -16,6 +16,7 @@ public class Pagination {
     private int realEnd;
     private boolean prev, next;
     private int total;
+    private int ordType;
 
     public void progress() {
         this.page = page == null ? 1 : page;

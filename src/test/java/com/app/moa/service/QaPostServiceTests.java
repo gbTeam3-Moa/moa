@@ -21,10 +21,10 @@ public class QaPostServiceTests {
     public void testwrite() {
         QaPostDTO qaPostDTO = new QaPostDTO();
         qaPostDTO.setId(1L);
-        qaPostDTO.setPostTitle("제목");
-        qaPostDTO.setPostContent("내용1");
+        qaPostDTO.setPostTitle("제목ㅇㅇddd");
+        qaPostDTO.setPostContent("내용ㅇㅇddd");
         qaPostDTO.setPostType(1);
-        qaPostDTO.setMemberId(1L);
+        qaPostDTO.setMemberId(50L);
 
         qaPostService.write(qaPostDTO);
     }

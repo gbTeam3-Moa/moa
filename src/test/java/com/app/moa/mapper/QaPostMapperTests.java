@@ -30,13 +30,13 @@ public class QaPostMapperTests {
         qaPostMapper.insert(qaPostDTO.toVO());
     }
 
-    @Test
-    public void testSelectById() {
-        Long id = 142L;
-        QaPostDTO qaPostDTO = qaPostMapper.selectById(id);
-
-        log.info("조회된 q&a post: " + qaPostDTO);
-    }
+//    @Test
+//    public void testSelectById() {
+//        Long id = 168L;
+//        QaPostDTO qaPostDTO = qaPostMapper.selectById(id);
+//
+//        log.info("조회된 q&a post: " + qaPostDTO);
+//    }
     @Test
     public void testSelectAll(){
         Pagination pagination = new Pagination();
@@ -52,11 +52,11 @@ public class QaPostMapperTests {
     @Test
     public void testUpdate() {
         QaPostDTO qaPostDTO = new QaPostDTO();
-        qaPostDTO.setId(64L);
+        qaPostDTO.setId(142L);
         qaPostDTO.setPostTitle("제목수정");
         qaPostDTO.setPostContent("내용수정");
         qaPostDTO.setPostType(0);
-        qaPostMapper.updateById(qaPostDTO);
+        qaPostMapper.update(qaPostDTO);
         log.info("q&a post가 수정되었습니다: " + qaPostDTO);
     }
     @Test

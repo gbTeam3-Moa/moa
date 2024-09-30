@@ -467,6 +467,7 @@ body .title-inline {
 
 .pagination.theme-moa {
     display: flex;
+    justify-content: center;
 }
 
 .pagination.theme-moa li:first-child {

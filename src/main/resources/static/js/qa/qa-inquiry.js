@@ -24,3 +24,19 @@ buttons.forEach((button) => {
         }
     });
 });
+// --------------------------------------------------------------
+
+// 작성하기 버튼 가져오기
+const formSubmit = document.querySelector(".comment-complete-button");
+
+// 버튼 클릭시 이벤트 (추후수정)
+formSubmit.addEventListener("click", () => {
+    alert("작성이 완료되었습니다");
+})
+const post = {
+    postTitle: "${post.postTitle}",
+    postContent: "${post.postContent}",
+    memberNickName: "${post.memberNickName}",
+    createdDate: "${post.createdDate}",
+    updatedDate: "${post.updatedDate}"
+};
