@@ -18,6 +18,7 @@
     <div>
         <div class="container">
             <form action="/thesis/thesis-modification2" method="post">
+                <input type="hidden" name="id" th:value="${post.id}">
 
                 <div class="post-write-form-section">
                     <div class="form-section-header">
@@ -111,6 +112,7 @@
                                 </div>
                             </div>
 
+
                             <!-- 파일 첨부 -->
                             <div class="attach-wrap">
                                 <div class="attach-button-file-wrap">
@@ -120,13 +122,18 @@
                                                     src="https://www.wishket.com/static/renewal/img/project/submit/btn_icon_add_s.svg"
                                                     alt="attach_img"
                                             />
-                                            <div class="font-body-2-medium text-moa">파일첨부</div>
-                                            <input type="file" class="attach-input" />
+                                            <div
+                                                    class="font-body-2-medium text-moa"
+                                            >
+                                                파일첨부
+                                            </div>
+                                            <input
+                                                    type="file"
+                                                    class="attach-input"
+                                            />
                                         </label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="attach-wrap">
                                 <div class="attach-button-file-wrap">
                                     <div class="attach-button">
                                         <label>
@@ -134,13 +141,18 @@
                                                     src="https://www.wishket.com/static/renewal/img/project/submit/btn_icon_add_s.svg"
                                                     alt="attach_img"
                                             />
-                                            <div class="font-body-2-medium text-moa">파일첨부</div>
-                                            <input type="file" class="attach-input" />
+                                            <div
+                                                    class="font-body-2-medium text-moa"
+                                            >
+                                                파일첨부
+                                            </div>
+                                            <input
+                                                    type="file"
+                                                    class="attach-input"
+                                            />
                                         </label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="attach-wrap">
                                 <div class="attach-button-file-wrap">
                                     <div class="attach-button">
                                         <label>
@@ -148,12 +160,20 @@
                                                     src="https://www.wishket.com/static/renewal/img/project/submit/btn_icon_add_s.svg"
                                                     alt="attach_img"
                                             />
-                                            <div class="font-body-2-medium text-moa">파일첨부</div>
-                                            <input type="file" class="attach-input" />
+                                            <div
+                                                    class="font-body-2-medium text-moa"
+                                            >
+                                                파일첨부
+                                            </div>
+                                            <input
+                                                    type="file"
+                                                    class="attach-input"
+                                            />
                                         </label>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 

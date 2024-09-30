@@ -10,6 +10,7 @@ import com.app.moa.repository.post.PostDAO;
 import com.app.moa.repository.thesis_post.ThesisPostDAO;
 import com.app.moa.service.thesis_post.ThesisPostService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
+@Slf4j
 public class ThesisPostServiceImpl implements ThesisPostService {
     private final PostMapper postMapper;
     private final ThesisPostMapper thesisPostMapper;
@@ -55,9 +57,27 @@ public class ThesisPostServiceImpl implements ThesisPostService {
     }
 
     @Override
-    public void update(ThesisPostVO thesisPostVO) {
+    public void update(ThesisPostDTO thesisPostDTO) {
+        // 1. PostVO 객체 생성 및 설정
+        PostVO postVO = thesisPostDTO.toPostVO();
+
+        // 2. PostVO가 제대로 생성되었는지 로그 확인
+        log.info("Updating PostVO: {}", postVO);
+
+        // 3. 게시물(PostVO) 정보 먼저 업데이트
+        postMapper.updateById(postVO);
+
+        // 4. ThesisPostVO로 변환하고 ID 값 설정
+        thesisPostDTO.setId(postVO.getId());
+        ThesisPostVO thesisPostVO = thesisPostDTO.toVO();
+
+        // 5. ThesisPostVO가 제대로 생성되었는지 로그 확인
+        log.info("Updating ThesisPostVO: {}", thesisPostVO);
+
+        // 6. 논문 관련 정보 업데이트
         thesisPostMapper.update(thesisPostVO);
     }
+
 
     @Override
     public void delete(Long id) {

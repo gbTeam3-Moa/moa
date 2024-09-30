@@ -64,7 +64,9 @@ public class ThesisPostServiceTests {
         thesisPostDTO.setResearchStartDate("2024-06-01");
         thesisPostDTO.setResearchSchedule("스케쥴");
         thesisPostDTO.setResearchRequirement("자바 개발자");
-        thesisPostService.update(thesisPostDTO.toVO());
+        thesisPostService.update(thesisPostDTO);
+
+        log.info("{}",thesisPostDTO);
     }
 
     @Test
