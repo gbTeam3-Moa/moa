@@ -3,6 +3,7 @@ package com.app.moa.controller.report;
 
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
+import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import com.app.moa.service.report.ReportService;
 
 import lombok.RequiredArgsConstructor;
@@ -10,8 +11,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -24,6 +27,7 @@ public class ReportController {
     private final ReportService reportService;
     private final ReportDTO reportDTO;
 
+//    신고된 게시글 목록 조회
     @GetMapping("list")
     public String getList(Pagination pagination, Model model,@RequestParam(defaultValue = "recent") String view) {
 
@@ -43,6 +47,16 @@ public class ReportController {
 
         return "admin-page-html/admin-report/admin-report-list";
     }
+//  신고된 게시글 조회
+    @PostMapping("report-inquiry")
+    public RedirectView reportInquiry(ReportDTO reportDTO) {
+        reportDTO.setId(121L);
+        reportDTO.setPostId(146L);
+        log.info("Received ReportDTO: {}", reportDTO);
+
+        return new RedirectView("/thesis/thesis-write2");
+    }
+
 //    @GetMapping("Inquiry")
 //    public String () {
 //
