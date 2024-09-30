@@ -329,6 +329,16 @@ repwCheck.addEventListener("input", function () {
 
 /******************************************************* */
 let enterPressed = false; // 엔터 키가 눌렸는지 추적하는 용
+let emailEntered = false;
+let idEntered = false;
+let pwEntered = false;
+let rePwEntered = false;
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        enterPressed = true; // 엔터 키가 눌렸음을 기록
+    }
+});
 
 const emailinputField = document.querySelector("input[name=memberEmail]");
 const idinputField = document.querySelector("input[name=memberNickname]");
@@ -346,30 +356,24 @@ emailinputField.addEventListener("focus", (e) => {
     emailplaceholder.style.fontSize = "12px";
     emailplaceholder.style.transform = "translateY(0)";
 
-    if(enterPressed) {
+    if(emailEntered) {
         // Enter 키가 눌린 상태라면 빨간색, 아니면 원본 색상 유지
         emailplaceholder.style.color =
             isEmailValid ? "rgb(51, 145, 186)" : "red";
         emailinputBoxLabel.style.borderColor =
             isEmailValid ? "rgb(51, 145, 186)" : "red";
         emailinputField.style.color =
-            isEmailValid ? "rgb(51, 145, 186)" : "red";
+            isEmailValid ? "rgb(97, 97, 97)" : "red";
         emailMessage.textContent =
             isEmailValid ? "" : "이메일을 입력해 주세요";
         emailMessage.style.color =
             isEmailValid ? "rgb(51, 145, 186)" : "red";
     } else {
-        // Enter 키가 눌린 상태라면 빨간색, 아니면 원본 색상 유지
-        emailplaceholder.style.color =
-            isEmailValid ? "rgb(51, 145, 186)" : "red";
-        emailinputBoxLabel.style.borderColor =
-            isEmailValid ? "rgb(51, 145, 186)" : "red";
-        emailinputField.style.color =
-            isEmailValid ? "rgb(51, 145, 186)" : "red";
-        emailMessage.textContent =
-            isEmailValid ? "" : "이메일을 입력해 주세요";
-        emailMessage.style.color =
-            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailplaceholder.style.color = "rgb(51, 145, 186)";
+        emailinputBoxLabel.style.borderColor = "rgb(51, 145, 186)";
+        emailinputField.style.color = "rgb(97, 97, 97)";
+        emailMessage.textContent = "";
+        emailMessage.style.color = "rgb(51, 145, 186)";
     }
 });
 
@@ -424,23 +428,27 @@ repwinputField.addEventListener("focus", () => {
 
 // 이메일 입력 필드에서 포커스가 나갈 때
 emailinputField.addEventListener("blur", () => {
-    if (emailinputField.value) {
-        emailinputBoxLabel.style.borderColor = "rgb(189, 189, 189)";
-        emailplaceholder.style.color = "rgb(189, 189, 189)";
-        emailinputField.style.color = "rgb(97, 97, 97)";
-    } else if (emailMessage.style.color === "red") {
-        emailinputBoxLabel.style.borderColor = "red";
-        emailplaceholder.style.color = "red";
-        emailinputField.style.color = "red";
-        emailplaceholder.style.top = "6px";
-        emailplaceholder.style.fontSize = "16px";
-        emailplaceholder.style.transform = "translateY(0)";
+    emailplaceholder.style.top = "6px";
+    emailplaceholder.style.fontSize = "16px";
+    emailplaceholder.style.transform = "translateY(0)";
+
+    if (emailEntered) {
+        emailinputBoxLabel.style.borderColor =
+            isEmailValid ? "rgb(189, 189, 189)" : "red";
+        emailplaceholder.style.color =
+            isEmailValid ? "rgb(189, 189, 189)" : "red";
+        emailinputField.style.color =
+            isEmailValid ? "rgb(97, 97, 97)" : "red";
+        emailMessage.textContent =
+            isEmailValid ? "" : "이메일을 입력해 주세요";
+        emailMessage.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
     } else {
         emailinputBoxLabel.style.borderColor = "rgb(189, 189, 189)";
         emailplaceholder.style.color = "rgb(189, 189, 189)";
-        emailplaceholder.style.top = "6px";
-        emailplaceholder.style.fontSize = "16px";
-        emailplaceholder.style.transform = "translateY(0)";
+        emailinputField.style.color = "rgb(97, 97, 97)";
+        emailMessage.textContent = "";
+        emailMessage.style.color = "rgb(51, 145, 186)";
     }
 });
 
@@ -512,6 +520,7 @@ repwinputField.addEventListener("blur", () => {
 // 이메일 입력 필드에서 키 누를 때
 emailinputField.addEventListener("keydown", (e) => {
 
+    emailEntered = true;
     isEmailValid =
         emailRegexp.test(e.target.value) ? true : false;
 
