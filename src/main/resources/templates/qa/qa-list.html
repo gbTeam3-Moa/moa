@@ -106,8 +106,8 @@
                                 <div class="post-count-wrap">
                                     <div class="post-count-container">
                                         <p class="post-count-inner">
-                                            <span class="post-count"
-                                                >10,340</span
+                                            <span class="post-count" id="totalSpan"
+                                                ></span
                                             >
                                             개의 Q&A
                                         </p>
@@ -115,10 +115,10 @@
                                     <div class="arrange-type-wrap">
                                         <ul class="arrange-type-container">
                                             <li class="arrange-type selected">
-                                                <a href="#">• 최신순</a>
+                                                <a href="/qa/qa-list?ordType=1">• 최신순</a>
                                             </li>
                                             <li class="arrange-type">
-                                                <a href="#">• 인기순</a>
+                                                <a href="/qa/qa-list?ordType=2">• 인기순</a>
                                             </li>
                                             <div class="post-write-button-wrap">
                                                 <button
@@ -132,90 +132,10 @@
                                     </div>
                                 </div>
                                 <div id="listdiv" class="post-lists">
-                                    <div class="post-list">
-                                        <div class="post-all">
-                                            <div class="post-view-wrap">
-                                                <div class="post-view"></div>
-                                                <div class="post-view-count">
-                                                    ${post.postView} <!-- 게시글 조회수 -->
-                                                </div>
-                                            </div>
-                                            <div class="post-top">
-                                                <div class="post-title">
-                                                    <a class="go-qa-inquiry" href="/qa/qa-inquiry">
-                                                        <div class="post-title">
-                                                            <div
-                                                                    class="QA-font-style"
-                                                            >
-                                                                Q.
-                                                            </div>
-                                                            <div
-                                                                    class="QA-title-font"
-                                                            >
-                                                                ${post.postTitle} <!-- 게시글 제목 -->
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <div
-                                                            class="status-mark new-mark" id="newMark"
-                                                    >
-                                                        NEW
-                                                    </div>
-                                                </div>
-                                                <div class="post-top-right">
-                                                    <div class="post-writer-school-major">
-                                                        ${post.memberMajor} <!-- 작성자 학과 -->
-                                                    </div>
-                                                    <div class="post-writer-name">
-                                                        ${post.memberName} <!-- 작성자 이름 -->
-                                                    </div>
-                                                    <div class="post-created-date">
-                                                        ${post.createdDate} <!-- 게시글 작성 날짜 -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-content">
-                                                <div class="QA-font-style">
-                                                    A.
-                                                </div>
-                                                <div class="QA-title-font">
-                                                    ${post.postContent}<!-- 게시글 내용 -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="pagination-wrap" id="pagingdiv">
-                                    <ul class="pagination theme-moa">
-                                        <li
-                                                class="page-item"
-                                                id="page-prev-button"
-                                        >
-                                            <a class="page-link">이전</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link active"
-                                            >1</a
-                                            >
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link">2</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link">3</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link">4</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link">5</a>
-                                        </li>
-                                        <li
-                                                class="page-item"
-                                                id="page-next-button"
-                                        >
-                                            <a class="page-link">다음</a>
-                                        </li>
+                                <div class="pagination-wrap">
+                                    <ul class="pagination theme-moa" id="pagingUl">
+
                                     </ul>
                                 </div>
                             </div>

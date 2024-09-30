@@ -21,8 +21,8 @@ public class QaPostServiceTests {
     public void testwrite() {
         QaPostDTO qaPostDTO = new QaPostDTO();
         qaPostDTO.setId(1L);
-        qaPostDTO.setPostTitle("제목ㅇㅇdd");
-        qaPostDTO.setPostContent("내용ㅇㅇdd");
+        qaPostDTO.setPostTitle("제목ㅇㅇddd");
+        qaPostDTO.setPostContent("내용ㅇㅇddd");
         qaPostDTO.setPostType(1);
         qaPostDTO.setMemberId(50L);
 

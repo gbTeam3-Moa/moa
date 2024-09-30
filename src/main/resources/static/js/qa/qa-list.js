@@ -6,10 +6,17 @@ const click = document.getElementById("post-write-button").addEventListener("cli
 
 // 게시글 목록을 표시하는 함수
 const listdiv = document.getElementById('listdiv');
-const pagingdiv = document.getElementById('pagingdiv');
+const pagingUl = document.getElementById('pagingUl');
+const isnew = document.getElementById('newMark');
 const showList = () => {
     let text = ``; // HTML 내용을 저장할 변수 초기화
+    const currentTime = new Date(); // 현재 시간
     posts.forEach((post) => {
+        const postCreatedTime = new Date(post.updatedDate); // 게시물 생성 시간
+        const timeDifference = currentTime - postCreatedTime; // 시간 차이 (ms)
+
+        // 24시간 이내에 작성된 게시물인지 확인
+        const isNew = timeDifference < 86400000 ; // 86400000ms = 24시간, 3600000ms = 1시간(test용)
         text += `
         <div class="post-list">
             <div class="post-all">
@@ -20,7 +27,7 @@ const showList = () => {
                     </div>
                 </div>
                 <div class="post-top">
-                    <div class="post-title">
+                   <div class="post-title">
                     <a class="go-qa-inquiry" href="/qa/qa-inquiry">
                         <div class="post-title">
                         <div
@@ -35,11 +42,7 @@ const showList = () => {
                             </div>
                             </div>
                             </a>
-                            <div
-                                class="status-mark new-mark"
-                            >
-                                NEW
-                            </div>   
+                            ${isNew ? `<div class="status-mark new-mark">NEW</div>` : ''}  
                     </div>
                     <div class="post-top-right">
                         <div class="post-writer-school-major">
@@ -105,11 +108,22 @@ const showPaging = () => {
         `;
     }
     // 페이지 네비게이션을 HTML 요소에 삽입
-    pagingdiv.innerHTML = text;
+    console.log(text);
+    console.log(pagination.startPage);
+    console.log(pagination.endPage);
+    pagingUl.innerHTML = text;
 }
 
 // 게시글 목록과 페이지 네비게이션 표시 함수 호출
 showList();
 showPaging();
+document.getElementById("totalSpan").innerHTML = pagination.total;
 
-console.log(posts)
+if(pagination.ordType == 1){
+    document.getElementsByClassName("arrange-type")[1].classList.remove("selected")
+    document.getElementsByClassName("arrange-type")[0].classList.add("selected")
+}else if (pagination.ordType == 2){
+    document.getElementsByClassName("arrange-type")[0].classList.remove("selected")
+    document.getElementsByClassName("arrange-type")[1].classList.add("selected")
+}
+
