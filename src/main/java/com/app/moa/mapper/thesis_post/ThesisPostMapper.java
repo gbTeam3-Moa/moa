@@ -24,5 +24,6 @@ public interface ThesisPostMapper {
 //    게시글 삭제
     public void delete(Long id);
 //  조회수 증가
-    public void increaseViewCountById(Long id);
+
+    public void increasePostView(Long id);
 }

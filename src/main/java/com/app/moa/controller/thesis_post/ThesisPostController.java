@@ -138,6 +138,7 @@ public class ThesisPostController {
     // 글 수정 페이지 이동 1
     @GetMapping("/thesis-modification1")
     public String getToUpdateForm1(@RequestParam("postId") Long postId, Model model) {
+
         Optional<ThesisPostVO> post = thesisPostService.getById(postId);
         if (post.isPresent()) {
             model.addAttribute("post", post.get());
@@ -148,7 +149,9 @@ public class ThesisPostController {
     }
 
     @PostMapping("/thesis-modification1")
-    public RedirectView thesisModification1(ThesisPostDTO thesisPostDTO) {
+    public RedirectView thesisModification1(ThesisPostDTO thesisPostDTO, HttpSession session) {
+        thesisPostDTO.setMemberId(1L);
+        thesisPostDTO.setPostType(2);
         // postId가 null일 경우 처리
         if (thesisPostDTO.getId() == null) {
             log.error("postId가 null입니다.");
@@ -164,25 +167,27 @@ public class ThesisPostController {
         // 세션에 수정된 데이터 저장
         session.setAttribute("thesisPost", thesisPostDTO);
 
+        // 로그로 데이터 확인
+        log.info("Session에 저장된 데이터: {}", thesisPostDTO);
+
         return new RedirectView("/thesis/thesis-modification2?postId=" + thesisPostDTO.getId());
     }
 
-
-    // 글 수정 페이지 이동 2
     @GetMapping("/thesis-modification2")
     public String getToUpdateForm2(@RequestParam("postId") Long postId, Model model) {
-        Optional<ThesisPostVO> post = thesisPostService.getById(postId);
+        Optional<ThesisPostVO> post = thesisPostService.getById(postId);  // postId로 데이터를 조회
         if (post.isPresent()) {
-            model.addAttribute("post", post.get());
+            model.addAttribute("post", post.get());  // 조회한 데이터를 model에 담아서 화면에 전달
         } else {
             return "redirect:/thesis/thesis-list";
         }
-        return "thesis/thesis-modification2";
+        return "thesis/thesis-modification2";  // 해당 페이지로 이동
     }
 
+
     @PostMapping("/thesis-modification2")
-    public RedirectView thesisModification2(ThesisPostDTO thesisPostDTO) {
-        // 세션에서 수정된 thesisPost 데이터 가져오기
+    public RedirectView thesisModification2(ThesisPostDTO thesisPostDTO, HttpSession session) {
+        // 1단계에서 세션에 저장된 데이터를 가져옴
         ThesisPostDTO sessionPost = (ThesisPostDTO) session.getAttribute("thesisPost");
 
         if (sessionPost == null) {
@@ -190,26 +195,27 @@ public class ThesisPostController {
             return new RedirectView("/thesis/thesis-modification1?postId=" + thesisPostDTO.getId());
         }
 
-        // 수정하지 않은 필드들은 기존 값 유지
-        if (thesisPostDTO.getResearchSchedule() == null) {
-            thesisPostDTO.setResearchSchedule(sessionPost.getResearchSchedule());
-        }
-        if (thesisPostDTO.getResearchRequirement() == null) {
-            thesisPostDTO.setResearchRequirement(sessionPost.getResearchRequirement());
-        }
-        if (thesisPostDTO.getPostContent() == null) {
-            thesisPostDTO.setPostContent(sessionPost.getPostContent());
-        }
+        // 2단계에서 입력받은 데이터와 +
+        sessionPost.setPostContent(thesisPostDTO.getPostContent() != null ? thesisPostDTO.getPostContent() : sessionPost.getPostContent());
+        sessionPost.setResearchSchedule(thesisPostDTO.getResearchSchedule() != null ? thesisPostDTO.getResearchSchedule() : sessionPost.getResearchSchedule());
+        sessionPost.setResearchRequirement(thesisPostDTO.getResearchRequirement() != null ? thesisPostDTO.getResearchRequirement() : sessionPost.getResearchRequirement());
 
-        // 최종 데이터 업데이트
-        thesisPostService.update(thesisPostDTO.toVO());
+        // 최종적으로 데이터를 업데이트
+        thesisPostService.update(sessionPost);
 
-        // 세션 데이터 삭제
+        // 세션 데이터 날림
         session.removeAttribute("thesisPost");
 
-        return new RedirectView("/thesis/thesis-inquiry?postId=" + thesisPostDTO.getId());
+        return new RedirectView("/thesis/thesis-inquiry?postId=" + sessionPost.getId());
     }
 
+//  글 삭제
+    @GetMapping("/delete")
+    public RedirectView deletePost(@RequestParam("postId") Long postId) {
+        // postId에 해당하는 게시글 삭제
+        thesisPostService.delete(postId);
 
-    // 글 삭제
+        // 삭제 후 리스트 페이지로 리다이렉트
+        return new RedirectView("/thesis/thesis-list");
+    }
 }

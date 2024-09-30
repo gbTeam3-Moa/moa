@@ -40,4 +40,5 @@ public class ThesisPostDAO {
 //    게시글 삭제
     public void delete(long id) {thesisPostMapper.delete(id);}
 
+
 }

@@ -85,11 +85,8 @@
                                     </div>
                                 </div>
                                 <div class="report-container">
-                                    <div class="for-report" id="delete-btn">
-                                        <img
-                                                id="img-delete"
-                                                src="/images/delete.png"
-                                        />삭제하기
+                                    <div class="for-report" id="delete-btn" onclick="confirmDeletion()">
+                                        <img id="img-delete" src="/images/delete.png"/>삭제하기
                                     </div>
                                 </div>
                             </div>
@@ -780,8 +777,17 @@
 <script src="/js/admin-page-js/admin-report/report.js"></script>
 <script>
     function moveToModification() {
-        const postId = [[${post.id}]]; // 게시글 ID를 Thymeleaf로 가져옴
+        const postId = [[${post.id}]];
         window.location.href = `/thesis/thesis-modification1?postId=${postId}`; // thesis-modification1 페이지로 이동
+    }
+</script>
+<script>
+    function confirmDeletion() {
+        const confirmed = confirm("게시글을 삭제하시겠습니까?");
+        const postId = [[${post.id}]];
+        if (confirmed) {
+            window.location.href = `/thesis/delete?postId=${postId}`; // 삭제 요청 전송
+        }
     }
 </script>
 </html>
