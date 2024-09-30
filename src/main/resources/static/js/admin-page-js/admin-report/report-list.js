@@ -4,12 +4,12 @@ const pagingdiv = document.getElementById("pagingdiv");
 const showList = () => {
     let text = ``;
 
-    // posts 데이터가 없을 때 처리 로직
+    // reports 데이터가 없을 때 처리 로직
     if (!reports || reports.length === 0) {
-        text = `<div class="no-posts">게시글이 없습니다.</div>`;
+        text = `<div class="no-reports">게시글이 없습니다.</div>`;
     } else {
         reports.forEach((report) => {
-            text += `<div class="ServiceTable_row_wrapper">-->
+            text += `<div class="ServiceTable_row_wrapper">
                                         <div class="ServiceTable_row">
                                             <div class="ServiceTable_cell">
                                                 <input
@@ -19,52 +19,61 @@ const showList = () => {
                                             </div>
                                             <div
                                                 class="ServiceTable_cell post_ID"
+                                                id="report-num"
                                             >
                                                 <a href="/report/report?Id=${report.id}" class="report-id">
                                                  ${report.id || '번호 없음'}
                                             </div>
                                             <div
                                                 class="ServiceTable_cell user_name"
+                                                id="reporter"
                                             >
                                                 ${report.memberNickName || '신고자 없음'} 
                                             </div>
                                             <div
                                                 class="ServiceTable_cell Join_date"
+                                                id="create-date"
                                             >
                                                 ${report.createdDate || '날짜 정보 없음'} 
                                             </div>
                                             <div
                                                 class="ServiceTable_cell post_title"
+                                                id="post-title"  
                                             >
                                                 ${report.postTitle || '제목 없음'}
                                             </div>
                                             <div
                                                 class="ServiceTable_cell hit_ctn"
-                                            >
-                                               ${report.replyCount || '조회수 없음'}
-                                            </div>
-                                            <div
-                                                class="ServiceTable_cell reply_ctn"
-                                            >
-                                                56
-                                            </div>
+                                                id="post-view"
+                                             >
+                                                ${report.postView || '조회수 없음'}
+                                             </div>
+                                             <div
+                                                class="ServiceTable_cell hit_ctn"
+                                                id="count-reply"
+                                             >
+                                                ${report.replyCount || '댓글 없음'}
+                                             </div>
                                             <div
                                                 class="ServiceTable_cell post_kind"
-                                                
+                                                id="report-reason"
                                             >
                                                 ${report.reportReason || '사유 없음'}
                                             </div>
                                             <div
                                                 class="ServiceTable_cell editBtn"
+                                                id="report-status"
                                             >
-                                                <button class="report-status">
-                                                ${report.reportStatus || '상태 없음'}</button>
+                                                <button class="report-status"
+                                                id="report-status">
+                                                ${report.reportStatus || '상태 없음'}
+                                                <a href="/report/report"></a> 
+                                                </button>
                                             </div>
                                     </div>
             `;
         });
     }
-    postCountElement.innerText = posts.length;
     listdiv.innerHTML = text;
 };
 
@@ -110,4 +119,4 @@ const showPaging = () => {
 showList();
 showPaging();
 console.log('Pagination Data:', pagination);
-console.log('Posts Data:', posts);
+console.log('reports Data:', reports);

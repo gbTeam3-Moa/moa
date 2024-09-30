@@ -67,13 +67,12 @@
     line-height: 24px;
     color: #495057;
     font-size: 17px;
-    margin: 0 0 32px;
 }
 
 .ServiceTable_container {
     width: 100%;
     border: 1px solid #dee2e6;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     display: table;
     table-layout: auto;
     text-align: center;
@@ -110,13 +109,13 @@
     background: #007bff;
     width: 67px;
     height: 25px;
-    border-radius: 4px;
+    /*border-radius: 4px;*/
     color: white;
     cursor: pointer;
 }
 
 .editBtn button:hover {
-    opacity: 0.8;
+    /*opacity: 0.8;*/
 }
 
 /* 각 열의 너비를 퍼센트로 설정 */
@@ -135,12 +134,14 @@
     width: 190px; /* Name 열 너비 */
 }
 
-.headerCell:nth-child(4),
-.ServiceTable_cell:nth-child(4) {
+
+/*.headerCell:nth-child(4)  ,*/
+.ServiceTable_cell:nth-child(4)
+{
     width: 200px; /* Name 열 너비 */
 }
 
-.headerCell:nth-child(5),
+/*.headerCell:nth-child(5),*/
 .ServiceTable_cell:nth-child(5) {
     width: 330px; /* Email 열 너비 */
 }
@@ -230,4 +231,104 @@ ul {
 .post_title {
     overflow: hidden;
     white-space: nowrap;
+}
+
+/*.ServiceTable_cell .post_title{*/
+/*    padding-left: 100px;*/
+/*}*/
+
+
+/*#report-num{*/
+/*    padding-left: 51px;*/
+/*}*/
+
+.pl10{
+    padding-left:10px;
+}
+
+.pl50{
+    padding-left:50px;
+}
+
+.pl65{
+    padding-left:50px;
+}
+
+.pl103{
+    padding-left:103px;
+}
+
+.pl120{
+    padding-left:120px;
+}
+
+.pl130{
+    padding-left:130px;
+}
+
+.pl185{
+    padding-left:185px;
+}
+
+.width180{
+    width:180px;
+    display: table-cell;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle; /* 수직 가운데 정렬 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.width200{
+    width:200px;
+    display: table-cell;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle; /* 수직 가운데 정렬 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.width200{
+    width:200px;
+}
+
+
+#report-num{
+    padding-left: 45px;
+}
+
+#reporter{
+    padding-left: 55px;
+}
+
+#post-title{
+    padding-left: 55px;
+}
+
+#create-date{
+    padding-left: 65px;
+}
+
+#post-view{
+    padding-left: 55px;
+}
+
+#count-reply{
+    padding-left: 35px;
+}
+
+#report-reason{
+    /*padding-left: 55px;*/
+}
+
+#report-status{
+    /*padding-left: 55px;*/
 }

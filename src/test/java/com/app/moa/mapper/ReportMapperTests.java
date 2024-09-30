@@ -32,9 +32,9 @@ public class ReportMapperTests {
     public void testReport() {
         ReportDTO reportDTO = new ReportDTO();
 
-        reportDTO.setPostId(122L); // 게시글 번호 (예: 1L)
+        reportDTO.setPostId(146L); // 게시글 번호 (예: 1L)
         reportDTO.setMemberId(21L); // 멤버 번호 (예: 1L)
-        reportDTO.setReportReason("부적합한 내용4"); // 신고 사유
+        reportDTO.setReportReason("부적합한 내용5"); // 신고 사유
         reportDTO.setReportStatus(2L); // 신고사항 처리상태 (예: 1L)
 
         // DAO 또는 Mapper를 통해 데이터베이스에 삽입
