@@ -15,5 +15,5 @@ public interface ThesisPostService {
     public Optional<ThesisPostVO> getById(Long id);
     public void update(ThesisPostDTO thesisPostDTO);
     public void delete(Long id);
-    public void increaseViewCount(Long id);
+    public void increasePostView(Long id);
 }

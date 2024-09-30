@@ -6,9 +6,7 @@ import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.mapper.post.PostMapper;
 import com.app.moa.mapper.thesis_post.ThesisPostMapper;
-import com.app.moa.repository.post.PostDAO;
 import com.app.moa.repository.thesis_post.ThesisPostDAO;
-import com.app.moa.service.thesis_post.ThesisPostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -53,6 +51,7 @@ public class ThesisPostServiceImpl implements ThesisPostService {
 
     @Override
     public Optional<ThesisPostVO> getById(Long id) {
+        thesisPostMapper.increasePostView(id);
         return thesisPostDAO.findById(id);
     }
 
@@ -86,7 +85,10 @@ public class ThesisPostServiceImpl implements ThesisPostService {
     }
 
     @Override
-    public void increaseViewCount(Long id) {
-        thesisPostMapper.increaseViewCountById(id);
+    public void increasePostView(Long id) {
+        thesisPostMapper.increasePostView(id);
     }
+
+
+
 }

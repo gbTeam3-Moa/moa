@@ -55,6 +55,7 @@ const showList = () => {
         });
     }
     postCountElement.innerText = posts.length;
+
     listdiv.innerHTML = text;
 };
 

@@ -89,4 +89,10 @@
         WHERE ID = #{id}
     </delete>
 
+    <update id="increasePostView" parameterType="long">
+        UPDATE TBL_POST
+        SET POST_VIEW = POST_VIEW + 1
+        WHERE ID = #{id}
+    </update>
+
 </mapper>

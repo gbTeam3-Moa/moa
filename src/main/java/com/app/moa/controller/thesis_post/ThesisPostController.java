@@ -37,6 +37,10 @@ public class ThesisPostController {
         pagination.progress();
         List<ThesisPostDTO> posts = thesisPostService.getList(pagination);
 
+        if (posts.isEmpty()) {
+            log.info("포스트 없음");
+        }
+
 //        if ("popular".equals(view)) {
 //            // postView 기준으로 정렬
 //            posts = thesisPostService.getListByPopular(pagination);
