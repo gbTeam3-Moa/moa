@@ -44,11 +44,11 @@ public class ReportServiceImpl implements ReportService {
     public void delete (Long id) {
         reportDAO.delete(id);
     }
-////    신고된 게시물 조회
-//    @Override
-//    public Optional<ReportVO> getById(Long id) {
-//        return reportDAO.findById(id);
-//    }
+//   신고된 게시물 조회
+    @Override
+    public Optional<ReportVO> getById(Long id) {
+        return reportDAO.findById(id);
+    }
 }
 
 

@@ -64,11 +64,7 @@ const showList = () => {
                                                 class="ServiceTable_cell editBtn"
                                                 id="report-status"
                                             >
-                                                <button class="report-status"
-                                                id="report-status">
-                                                ${report.reportStatus || '상태 없음'}
-                                                <a href="/report/report-inquiry"></a> 
-                                                </button>
+                                                <a href="/report/inquiry?postId=${post.id}" class="post-title">view Report</a> 
                                             </div>
                                     </div>
             `;

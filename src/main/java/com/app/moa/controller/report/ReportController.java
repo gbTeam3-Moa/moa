@@ -3,7 +3,9 @@ package com.app.moa.controller.report;
 
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
+import com.app.moa.domain.report.ReportVO;
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
+import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.service.report.ReportService;
 
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/report/*")
@@ -48,24 +51,20 @@ public class ReportController {
 
         return "admin-page-html/admin-report/admin-report-list";
     }
-//  신고된 게시글 조회
-//    @PostMapping("report-inquiry")
-//    public RedirectView reportInquiry(ReportDTO reportDTO) {
-//        reportDTO.setId(121L);
-//        reportDTO.setPostId(146L);
-//        log.info("Received ReportDTO: {}", reportDTO);
-//
-//        return new RedirectView("/report/report-inquiry");
-//    }
 
-    @GetMapping("report-inquiry")
-    public RemoteIpFilter.XForwardedRequest reportInquiry(ReportDTO reportDTO) {
-        reportDTO.setId(121L);
-        reportDTO.setPostId(146L);
-        log.info("Received ReportDTO: {}", reportDTO);
-
-        return new  ("/report/report-inquiry");
+    //  신고된 게시글 조회
+    @GetMapping("inquiry")
+    public String getReportInquiry(@RequestParam("postId") Long postId, Model model) {
+        Optional<ReportVO> report = reportService.getById(postId);
+        if (report.isPresent()) {
+            model.addAttribute("report", report.get());
+        } else {
+            return "forward:admin-page-html/admin-report/admin-report-Inquiry";
+        }
+        log.info(String.valueOf(report.get()));
+        return "admin-page-html/admin-report/admin-report-Inquiry";
     }
+
 
 //    @GetMapping("Inquiry")
 //    public String () {

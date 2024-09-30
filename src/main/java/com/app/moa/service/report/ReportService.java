@@ -14,5 +14,5 @@ public interface ReportService {
     public int getTotal();
     public void update(ReportVO reportVO);
     public void delete(Long id);
-//    public Optional<ReportDTO> getById(Long id);
+    public Optional<ReportVO> getById(Long id);
 }
