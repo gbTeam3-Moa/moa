@@ -73,45 +73,4 @@ public class ReportMapperTests {
     }
 
 
-    //    @Test
-//    public void testSelectAll() {
-//        ReportDTO reportDTO = new ReportDTO();
-//
-//        reportDTO.setId(1L);
-//        reportDTO.setPostId(3L);
-//        reportDTO.setUserId(1L);
-//        reportDTO.setReportReason("잘못된 정보");
-//        reportDTO.setReportStatus(1L);
-//    }
-
-//    @Test
-//    public void testUpdate() {
-//        PostDTO postDTO = new PostDTO();
-//        postDTO.setId(1L);
-//        postDTO.setPostTitle("수정된 제목");
-//        postDTO.setPostContent("수정된 내용");
-//        postDTO.setPostType(3);
-//        postDTO.setUserId(1L);
-//        postDTO.setPostView(0);
-//
-//        postMapper.updateById(postDTO);
-//    }
-//    @Test
-//    public void testSelectById() {
-//        Long id = 1L;  // 테스트할 게시글 ID
-//
-//        PostDTO postDTO = postMapper.selectById(id);
-//
-//        log.info("조회된 게시글: " + postDTO);
-//    }
-//    @Test
-//    public void testDeleteById() {
-//        Long id = 4L;  // 삭제할 게시글 ID
-//
-//        postMapper.deleteById(id);
-//
-//        log.info("게시글이 삭제되었습니다. ID: " + id);
-//    }
-
-
 }

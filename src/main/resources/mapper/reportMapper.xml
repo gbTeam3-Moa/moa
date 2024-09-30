@@ -36,9 +36,6 @@
             P.POST_TITLE,
             P.POST_CONTENT
         FROM TBL_REPORT RP JOIN TBL_POST P ON RP.ID = P.ID
-        LEFT JOIN TBL_ATTACHMENT AT ON P.ID = AT.POST_ID
-        WHERE
-            RP.ID = #{id}
     </select>
 
     <update id="update">
@@ -54,6 +51,19 @@
         DELETE FROM TBL_REPORT
         WHERE ID = #{id}
     </delete>
-<!-- 첨부파일은 나중에 배우고 -->
 
 </mapper>
+
+
+        <!-- 첨부파일은 나중에 배우고-->
+
+
+
+        <!--    SELECT-->
+        <!--    RP.ID,-->
+        <!--    P.POST_TITLE,-->
+        <!--    P.POST_CONTENT-->
+        <!--    FROM TBL_REPORT RP JOIN TBL_POST P ON RP.ID = P.ID-->
+        <!--    JOIN TBL_ATTACHMENT AT ON P.ID = AT.POST_ID-->
+        <!--    WHERE-->
+        <!--    RP.ID = #{id}-->

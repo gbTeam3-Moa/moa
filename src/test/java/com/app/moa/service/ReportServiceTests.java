@@ -74,7 +74,7 @@ public class ReportServiceTests {
         reportService.getById(id);
 
         if (reportDTO != null) {
-            log.info("Selected post with ID: {}", reportDTO.getPostId());
+            log.info("Selected post with ID: {}", reportDTO.getId());
             log.info("Post Title: {}", reportDTO.getPostTitle());
             log.info("Post Content: {}", reportDTO.getPostContent());
         } else {
