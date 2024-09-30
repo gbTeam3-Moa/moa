@@ -1,4 +1,4 @@
-const textareas = document.querySelectorAll(".moa-textarea");
+cconst textareas = document.querySelectorAll(".moa-textarea");
 
 const postContent1 = document.querySelector("#content-textarea1");
 const wordLength1 = document.querySelector(".word-length1");
