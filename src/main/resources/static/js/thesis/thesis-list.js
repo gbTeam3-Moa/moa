@@ -55,6 +55,7 @@ const showList = () => {
         });
     }
     postCountElement.innerText = posts.length;
+
     listdiv.innerHTML = text;
 };
 
@@ -71,7 +72,7 @@ const showPaging = () => {
     }
 
     if (pagination.pageCount && pagination.pageCount > 0) {
-        for (let i = 1; i <= pagination.pageCount; i++) {
+        for (let i = 1; i <= pagination.realEnd; i++) {
             if (pagination.page === i) {
                 text += `
                 <li class="page-item">

@@ -71,8 +71,6 @@
     <update id="update">
         UPDATE TBL_THESIS_POST
         SET
-            POST_TITLE = #{postTitle},
-            POST_CONTENT = #{postContent},
             PROFESSOR_MAJOR = #{professorMajor},
             RESEARCH_FIELD = #{researchField},
             RESEARCH_PROFIT = #{researchProfit},
@@ -80,14 +78,21 @@
             RESEARCH_DEADLINE = #{researchDeadline},
             RESEARCH_START_DATE = #{researchStartDate},
             RESEARCH_SCHEDULE = #{researchSchedule},
-            RESEARCH_REQUIREMENT = #{researchRequirement},
+            RESEARCH_REQUIREMENT = #{researchRequirement}
         WHERE ID = #{id}
     </update>
+
 
 
     <delete id="delete">
         DELETE FROM TBL_THESIS_POST
         WHERE ID = #{id}
     </delete>
+
+    <update id="increasePostView" parameterType="long">
+        UPDATE TBL_POST
+        SET POST_VIEW = POST_VIEW + 1
+        WHERE ID = #{id}
+    </update>
 
 </mapper>
