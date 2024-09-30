@@ -12,14 +12,11 @@
             QP.ID,
             P.POST_TITLE,
             P.POST_CONTENT,
-            M.MEMBER_NICKNAME,
-            M.MEMBER_MAJOR,
-            QP.POST_VIEW,
-            QP.CREATED_DATE,
-            QP.UPDATED_DATE
+            P.MEMBER_ID,
+            P.CREATED_DATE
+
         FROM TBL_QA_POST QP
                  JOIN TBL_POST P ON QP.ID = P.ID
-                 JOIN TBL_MEMBER M ON QP.MEMBER_ID = M.ID
         WHERE QP.ID = #{id}
     </select>
 

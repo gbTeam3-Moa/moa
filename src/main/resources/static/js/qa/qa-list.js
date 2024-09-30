@@ -28,7 +28,7 @@ const showList = () => {
                 </div>
                 <div class="post-top">
                    <div class="post-title">
-                    <a class="go-qa-inquiry" href="/qa/qa-inquiry">
+                    <a class="go-qa-inquiry" href="/qa/qa-inquiry?postId=${post.id}">
                         <div class="post-title">
                         <div
                             class="QA-font-style"

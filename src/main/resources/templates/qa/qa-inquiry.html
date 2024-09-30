@@ -70,17 +70,19 @@
     <div class="comment-container">
         <!-- 댓글 섹션은 필요에 따라 수정 -->
         <!-- 예시 댓글 -->
+        <div class="replyComment">
         <div class="comment-inner">
             <div class="comment-writer">
                 <img src="https://cdn.wishket.com/profiles/2828_20191121_db85568715d9aacd.jpg" alt="" class="comment-writer-image" />
-                <a href="https://www.wishket.com/partners/p/Wishket/" class="comment-writer-username">Moa</a>
+                <a href="https://www.wishket.com/partners/p/Wishket/" class="comment-writer-username">[[${post.memberNickname}]]</a>
             </div>
             <p class="comment">
-                [모아] 클라이언트의 요청으로 모집 마감일이 09월 23일로 연장되었습니다.
+                [[${reply.replyContent}]]
             </p>
             <div class="comment-created-date">
-                2024.09.02. 오후 20:18
+                [[${post.createdDate}]]
             </div>
+        </div>
         </div>
         <!-- 댓글 작성 폼 -->
         <form class="comment-form" method="post">
@@ -88,7 +90,7 @@
                 <div class="comment-write-container">
                     <div class="comment-writer">
                         <img src="https://www.wishket.com/static/img/default_avatar_c.png" class="comment-writer-image" />
-                        <p class="comment-writer-username">홍박**</p>
+                        <p class="comment-writer-username">[[${post.memberId}]]</p>
                     </div>
                     <textarea name="comment-description" class="comment-write-textarea" placeholder="댓글을 2,000자 이내로 작성해주세요." rows="4"></textarea>
                     <div class="comment-complete-button-wrap">

@@ -3,7 +3,9 @@ package com.app.moa.controller.qa_post;
 import com.app.moa.domain.qa_post.QaPostDTO; // Q&A 게시글 DTO
 import com.app.moa.domain.post.Pagination; // 페이징 처리용 클래스
 import com.app.moa.domain.qa_post.QaPostVO;
+import com.app.moa.domain.reply.ReplyDTO;
 import com.app.moa.service.qa_post.QaPostService; // Q&A 게시글 서비스
+import com.app.moa.service.reply.ReplyService;
 import jakarta.servlet.http.HttpSession; // HTTP 세션
 import lombok.RequiredArgsConstructor; // 생성자 자동 생성
 import lombok.extern.slf4j.Slf4j; // 로깅
@@ -24,6 +26,7 @@ import java.util.Optional; // Optional
 @Slf4j // 로깅 기능 추가
 public class QaPostController {
     private final QaPostService qaPostService; // Q&A 게시글 서비스
+    private final ReplyService replyService;
     private final HttpSession session; // HTTP 세션
 
     @GetMapping("qa-list") // Q&A 게시글 목록 조회
@@ -61,7 +64,7 @@ public class QaPostController {
         }
 
         // 데이터베이스에 게시글 저장
-        qaPostService.write(qaPostDTO); // DTO를 VO로 변환하여 저장
+        qaPostService.write(qaPostDTO);
 
         return new RedirectView("/qa/qa-list"); // 게시글 목록으로 리다이렉트
     }
@@ -73,10 +76,13 @@ public class QaPostController {
         Optional<QaPostVO> post = qaPostService.getById(postId);
         if (post.isPresent()) {
             model.addAttribute("post", post.get());
+
+            // 댓글 목록 조회
+            List<ReplyDTO> replies = replyService.getListByPostId(postId);
+            model.addAttribute("replies", replies);
         } else {
             return "redirect:/qa/qa-list"; // 게시글이 없을 경우 목록으로 리다이렉트
         }
-
         log.info(String.valueOf(post.get()));
         return "qa/qa-inquiry"; // Q&A 조회 페이지로 이동
     }
