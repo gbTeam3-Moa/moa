@@ -22,15 +22,18 @@ const showList = () => {
                     <div class="post-view-wrap">
                         <div class="post-view"></div>
                         <div class="post-view-count">
-                            ${post.postView || 0} 
+                            ${post.postView || '조회수 없음'} 
                         </div>
                     </div>
                     <div class="post-top">
                         <div class="post-title-wrap">
-                            <a href="/list-inquiry?id=${post.id}" class="post-title">
+                            <a href="/thesis/thesis-inquiry?postId=${post.id}" class="post-title">
                                 ${post.postTitle || '제목 없음'}
                             </a>
                         </div>
+                        <div class="status-mark new-mark">
+                        NEW
+                       </div>
                         <div class="post-top-right">
                             <div class="post-writer-school-major">
                                 ${post.professorMajor || '학과 정보 없음'} 
@@ -52,12 +55,13 @@ const showList = () => {
         });
     }
     postCountElement.innerText = posts.length;
+
     listdiv.innerHTML = text;
 };
 
 
 const showPaging = () => {
-    console.log('showPaging 호출됨');
+    // console.log('showPaging 들어옴!');
     let text = ``;
 
     if (pagination.page && pagination.page > 1) {
@@ -68,7 +72,7 @@ const showPaging = () => {
     }
 
     if (pagination.pageCount && pagination.pageCount > 0) {
-        for (let i = 1; i <= pagination.pageCount; i++) {
+        for (let i = 1; i <= pagination.realEnd; i++) {
             if (pagination.page === i) {
                 text += `
                 <li class="page-item">

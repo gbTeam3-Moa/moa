@@ -1,830 +1,793 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>게시글 조회 - 논문 게시판</title>
-        <link
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글 조회 - 논문 게시판</title>
+    <link
             rel="stylesheet"
-            href="../../static/css/thesis/thesis-inquiry.css"
-        />
-        <link
+            href="/css/thesis/thesis-inquiry.css"
+    />
+    <link
             rel="stylesheet"
-            href="../../static/css/admin-page-css/admin-report/report.css"
-        />
-        <link
+            href="/css/admin-page-css/admin-report/report.css"
+    />
+    <link
             rel="shortcut icon"
             href="https://www.wishket.com/static/favicon.ico"
-        />
-    </head>
-    <body>
-        <div class="gala">
-            <div class="project-detail-view">
-                <div class="container">
-                    <section class="detail-section">
-                        <div class="project-section">
-                            <div class="project-content-layer mb24">
-                                <div class="project-content-title">
-                                    <div class="status-guide mb8">
-                                        <div
-                                            class="project-status-label recruiting-status"
-                                        >
-                                            <div style="display: flex">
-                                                <div
-                                                    class="status-mark recruiting-mark"
-                                                >
-                                                    모집 중
-                                                </div>
-                                                <div
-                                                    class="status-mark recruiting-mark-close"
-                                                >
-                                                    모집 마감
-                                                </div>
-                                                <div
-                                                    class="status-mark new-mark"
-                                                >
-                                                    NEW
-                                                </div>
-                                                <div
-                                                    class="status-mark project-type-mark with-img"
-                                                >
-                                                    <img
-                                                        src="https://www.wishket.com/static/renewal/img/project/search/task-based-icon.svg"
-                                                        class="project-type-mark-img"
-                                                    />외주
-                                                </div>
-                                            </div>
-                                            <div class="post-top-right">
-                                                <p
-                                                    class="post-writer-school-major"
-                                                >
-                                                    한국대학교 물리학과
-                                                </p>
-                                                <p class="post-writer-name">
-                                                    홍상필교수
-                                                </p>
-                                                <p class="post-created-date">
-                                                    등록일자 2024.08.26
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h1 class="subtitle-1-medium mb8 text900">
-                                        양자물리학 이론에 관한 고찰 및 연구
-                                    </h1>
-                                    <div class="report-container">
-                                        <span class="for-report" id="report-btn"
-                                            ><img
-                                                class="img-report"
-                                                src="../../static/images/report.png"
-                                            />신고하기</span
-                                        >
-                                    </div>
-                                </div>
-                                <div class="layer-divider mb24 mt36"></div>
-                                <div class="project-content-condition">
-                                    <div
-                                        class="project-important-condition task_based"
-                                    >
-                                        <div
-                                            class="project-condition-box project-budget"
-                                        >
-                                            <div
-                                                class="project-condition-data-wrapper"
-                                            >
-                                                <div
-                                                    class="condition-box-title"
-                                                >
-                                                    <img
-                                                        class="condition-box-icon"
-                                                        src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_features_1.png"
-                                                    />
-                                                    <p
-                                                        class="condition-box-name body-2 text500"
-                                                    >
-                                                        예상 금액
-                                                    </p>
-                                                </div>
-                                                <p
-                                                    class="project-condition-data body-1-medium text900"
-                                                >
-                                                    40,000,000원
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p
-                                                    class="project-condition-additional-info"
-                                                >
-                                                    <img
-                                                        src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_info_xs.png"
-                                                        class="condition-additional-info-img"
-                                                    />
-                                                    <span
-                                                        class="condition-additional-info-text body-3"
-                                                        >금액 변동 가능</span
-                                                    >
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="project-condition-box project-term"
-                                        >
-                                            <div
-                                                class="project-condition-data-wrapper"
-                                            >
-                                                <div
-                                                    class="condition-box-title"
-                                                >
-                                                    <img
-                                                        src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_features_2.png"
-                                                        class="condition-box-icon"
-                                                    />
-                                                    <p
-                                                        class="condition-box-name body-2 text500"
-                                                    >
-                                                        예상 기간
-                                                    </p>
-                                                </div>
-                                                <p
-                                                    class="project-condition-data body-1-medium text900"
-                                                >
-                                                    120일
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p
-                                                    class="project-condition-additional-info"
-                                                >
-                                                    <img
-                                                        class="condition-additional-info-img"
-                                                        src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_info_xs.png"
-                                                    />
-                                                    <span
-                                                        class="condition-additional-info-text body-3"
-                                                        >기간 조율 가능</span
-                                                    >
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="project-condition-box project-applicant"
-                                        >
-                                            <div
-                                                class="project-condition-data-wrapper"
-                                            >
-                                                <div
-                                                    class="condition-box-title"
-                                                >
-                                                    <img
-                                                        src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_features_3.png"
-                                                        class="condition-box-icon"
-                                                    />
-                                                    <p
-                                                        class="condition-box-name body-2 text500"
-                                                    >
-                                                        지원자 수
-                                                    </p>
-                                                </div>
-                                                <p
-                                                    class="project-condition-data body-1-medium text900"
-                                                >
-                                                    10명
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb32"></div>
-                                    <div
-                                        class="project-detail-condition task_based mb40"
-                                    >
-                                        <div
-                                            class="project-detail-condition-row"
-                                        >
-                                            <div class="condition-title">
-                                                <span
-                                                    class="condition-icon"
-                                                ></span>
-                                                <p
-                                                    class="condition-label body-2 text500"
-                                                >
-                                                    모집 마감일
-                                                </p>
-                                            </div>
-                                            <p
-                                                class="condition-data body-2 text900"
-                                            >
-                                                2024년 09월 17일
-                                                <img
-                                                    src="https://www.wishket.com/static/renewal/img/project/detail/icon_project_category_dot_14.png"
-                                                    class="class-splitter"
-                                                />
-                                                <span
-                                                    class="condition-accent body-3"
-                                                    >마감 2주 전</span
-                                                >
-                                            </p>
-                                        </div>
-                                        <div style="position: relative">
-                                            <div class="divide task-based">
-                                                <div
-                                                    class="project-detail-condition-row"
-                                                >
-                                                    <div
-                                                        class="condition-title"
-                                                    >
-                                                        <span
-                                                            class="condition-icon"
-                                                        ></span>
-                                                        <p
-                                                            class="condition-label body-2 text500"
-                                                        >
-                                                            예상 시작일
-                                                        </p>
-                                                    </div>
-                                                    <p
-                                                        class="condition-data body-2 text900"
-                                                    >
-                                                        인원 모집 이후, 즉시
-                                                        시작
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="project-detail-condition-row"
-                                            >
-                                                <div class="condition-title">
-                                                    <span
-                                                        class="condition-icon"
-                                                    ></span>
-                                                    <p
-                                                        class="condition-label body-2 text500"
-                                                    >
-                                                        진행 분류
-                                                    </p>
-                                                </div>
-                                                <p
-                                                    class="condition-data body-2 text900"
-                                                >
-                                                    신규 프로젝트를 진행하려
-                                                    합니다.
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="project-detail-condition-row"
-                                            >
-                                                <div class="condition-title">
-                                                    <span
-                                                        class="condition-icon"
-                                                    ></span>
-                                                    <p
-                                                        class="condition-label body-2 text500"
-                                                    >
-                                                        기획 상태
-                                                    </p>
-                                                </div>
-                                                <p
-                                                    class="condition-data body-2 text900"
-                                                >
-                                                    아이디어만 있는 상태
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="project-detail-condition-row"
-                                            >
-                                                <div class="condition-title">
-                                                    <span
-                                                        class="condition-icon"
-                                                    ></span>
-                                                    <p
-                                                        class="condition-label body-2 text500"
-                                                    >
-                                                        프로젝트 경험
-                                                    </p>
-                                                </div>
-                                                <p
-                                                    class="condition-data body-2 text900"
-                                                >
-                                                    양자물리학 프로젝트 진행
-                                                    경험 있음
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="project-detail-condition-row"
-                                            >
-                                                <div class="condition-title">
-                                                    <span
-                                                        class="condition-icon"
-                                                    ></span>
-                                                    <p
-                                                        class="condition-label body-2 text500"
-                                                    >
-                                                        협업 예정 인력
-                                                    </p>
-                                                </div>
-                                                <p
-                                                    class="condition-data body-2 text900"
-                                                >
-                                                    지원자 본인 제외 교수 1명과
-                                                    파트너 4명
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="layer-divider mt40mb32"></div>
-                                <div class="project-description">
-                                    <h2 class="subtitle-2-medium text900 mb16">
-                                        연구 내용
-                                    </h2>
-                                    <div
-                                        class="project-description-box body-2 mb8 text900"
-                                    >
-                                        프로젝트 개요 : <br />- 최근
-                                        양자물리학과 관련하여 새롭게 등장한 OOO
-                                        이론에 관한 연구를 진행하려고 합니다.
-                                        <br /><br />현재 준비 상황 : <br />-
-                                        회의를 통해 연구에 필요한 기획을
-                                        완료하였고, 설비도 갖춘 상태입니다.
-                                        <br /><br />필요 요소 : <br />- 연구를
-                                        통해 OOO 이론을 뒷받침 할 근거가 될 수
-                                        있는 결과 도출 <br /><br />환경/진행방식
-                                        : <br />- 주 5일 / 9시 ~ 16시 /
-                                        한국대학교 연구실 <br /><br />요구 사항
-                                        : <br />- 일단 함꼐 연구를 진행하게되면
-                                        성실하게 참여해주셨으면 합니다.
-                                        <br /><br />산출물 : <br />- 기획 : 세부
-                                        기획 사항은 첨부파일로 올려두었습니다.
-                                        <br />- 연구 결과 : 프로젝트 참여
-                                        인원들과 함께 한글파일로 작성 해주셔야
-                                        합니다. <br /><br />참고 서비스/사이트 :
-                                        <br />-
-                                        <a
-                                            href="https://www.thesisKorea.com/oootheory/14213"
-                                            target="_blank"
-                                            >https://www.thesisKorea.com/oootheory/14213</a
-                                        >
-                                        <br /><br />기타 참고 사항/유의 사항 :
-                                        <br />- 연구 방해 및 연구 내용 유출 시
-                                        법적으로 대응할 예정입니다.
-                                    </div>
-                                </div>
-                                <div class="layer-divider mt40mb32"></div>
-                                <div class="project-recruit-condition">
-                                    <h2
-                                        class="recruit-condition-title subtitle-2-medium text900 mb16"
-                                    >
-                                        모집 요건
-                                    </h2>
-                                    <div
-                                        class="recruit-condition-detail-box mb24"
-                                    >
-                                        <h3 class="body-2-bold text900 mb8">
-                                            지원자 필수 요건
-                                        </h3>
-                                        <div class="recruit-condition-row">
-                                            <img
-                                                src="https://www.wishket.com/static/renewal/img/project/detail/icon_check_w.png"
-                                                class="recruit-condition-icon"
-                                            />
-                                            <p
-                                                class="recruit-condition-data body-2 text900"
-                                            >
-                                                개인 또는 팀
-                                            </p>
-                                        </div>
-                                        <div class="recruit-condition-row">
-                                            <img
-                                                src="https://www.wishket.com/static/renewal/img/project/detail/icon_check_w.png"
-                                                class="recruit-condition-icon"
-                                            />
-                                            <p
-                                                class="recruit-condition-data body-2 text900"
-                                            >
-                                                개인사업자 가능
-                                            </p>
-                                        </div>
-                                        <div class="recruit-condition-row">
-                                            <img
-                                                src="https://www.wishket.com/static/renewal/img/project/detail/icon_check_w.png"
-                                                class="recruit-condition-icon"
-                                            />
-                                            <p
-                                                class="recruit-condition-data body-2 text900"
-                                            >
-                                                법인 사업자 가능
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="layer-divider mt40mb32"></div>
+    />
+</head>
+<body>
+<div class="gala">
+    <div class="project-detail-view">
+        <div class="container">
+            <section class="detail-section">
+                <div class="project-section">
+                    <div class="project-content-layer mb24">
+                        <div class="project-content-title">
+                            <div class="status-guide mb8">
                                 <div
-                                    class="project-meeting-condition"
-                                    style="position: relative"
+                                        class="project-status-label recruiting-status"
                                 >
-                                    <h2
-                                        class="meeting-condition-title subtitle-2-medium text900 mb16"
-                                    >
-                                        미팅
-                                    </h2>
-                                    <div class="meeting-condition-box">
-                                        <div class="meeting-condition-row mb8">
-                                            <p
-                                                class="meeting-condition-title body-2 text500"
-                                            >
-                                                사전 미팅 방식
-                                            </p>
-                                            <p
-                                                class="meeting-condition-data body-2 text900"
-                                            >
-                                                온라인 (카카오톡, 화상미팅 등)
-                                            </p>
+                                    <div style="display: flex">
+                                        <div
+                                                class="status-mark recruiting-mark"
+                                        >
+                                            모집 중
                                         </div>
-                                        <div class="meeting-condition-row mb8">
-                                            <p
-                                                class="meeting-condition-title body-2 text500"
-                                            >
-                                                클라이언트 위치
-                                            </p>
-                                            <p
-                                                class="meeting-condition-data body-2 text900"
-                                            >
-                                                서울특별시 강남구
-                                            </p>
+                                        <div
+                                                class="status-mark recruiting-mark-close"
+                                        >
+                                            모집 마감
                                         </div>
+                                        <div
+                                                class="status-mark new-mark"
+                                        >
+                                            NEW
+                                        </div>
+                                        <div
+                                                class="status-mark project-type-mark with-img"
+                                        >
+                                            <img
+                                                    src="https://www.wishket.com/static/renewal/img/project/search/task-based-icon.svg"
+                                                    class="project-type-mark-img"
+                                            />외주
+                                        </div>
+                                    </div>
+                                    <div class="post-top-right">
+                                        <p class="post-writer-school-major">
+                                            [[${post.professorMajor}]]
+                                        </p>
+                                        <p class="post-writer-name">
+                                            [[${post.memberNickName}]]
+                                        </p>
+                                        <p class="post-created-date">
+                                            등록일자 [[${post.createdDate}]]
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="project-comment-layer mb40">
-                                <p
-                                    class="comment-layer-title subtitle-2-medium text900"
-                                >
-                                    프로젝트 문의
-                                    <span
-                                        class="comment-layer-count subtitle-2-medium"
-                                        >0</span
-                                    >
-                                </p>
-                                <div
-                                    class="project-comment-group comment-data-box"
-                                >
-                                    <div class="empty-comment-box">
+                            <h1 class="subtitle-1-medium mb8 text900">
+                                [[${post.postTitle}]]
+                            </h1>
+                            <div class="report-wrap">
+                                <div class="report-container">
+                                    <div class="for-report" id="report-btn">
                                         <img
-                                            src="https://www.wishket.com/static/renewal/img/project/search/icon-empty-comment.svg"
-                                            class="empty-comment-img"
-                                        />
-                                        <p
-                                            class="body-2 text600 empty-comment-text"
+                                                id="img-report"
+                                                src="/images/report2.png"
+                                        />신고하기
+                                    </div>
+                                </div>
+                                <div class="report-container">
+                                    <div class="for-report" id="edit-btn" onclick="moveToModification()">
+                                        <img id="img-edit" src="/images/edit.png" />수정하기
+                                    </div>
+                                </div>
+                                <div class="report-container">
+                                    <div class="for-report" id="delete-btn" onclick="confirmDeletion()">
+                                        <img id="img-delete" src="/images/delete.png"/>삭제하기
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layer-divider mb24 mt36"></div>
+                        <div class="project-content-condition">
+                            <div
+                                    class="project-important-condition task_based"
+                            >
+                                <div
+                                        class="project-condition-box project-budget"
+                                >
+                                    <div
+                                            class="project-condition-data-wrapper"
+                                    >
+                                        <div
+                                                class="condition-box-title"
                                         >
-                                            프로젝트 문의가 없습니다.
-                                        </p>
+                                            <img
+                                                    class="condition-box-icon"
+                                                    src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_features_1.png"
+                                            />
+                                            <p
+                                                    class="condition-box-name body-2 text500"
+                                            >
+                                                예상 금액
+                                            </p>
+                                        </div>
                                         <p
-                                            class="body-2 text600 empty-comment-text"
+                                                class="project-condition-data body-1-medium text900"
                                         >
-                                            첫 번째 프로젝트 문의를
-                                            등록해주세요.
+                                            [[${post.researchProfit}]]
                                         </p>
                                     </div>
-                                    <form action="." class="comment-form">
-                                        <div class="comment-create-box-wrapper">
-                                            <div class="comment-create-box">
-                                                <div class="comment-writer">
-                                                    <img
-                                                        src="https://www.wishket.com/static/img/default_avatar_p.png"
-                                                        class="comment-writer-img"
-                                                    />
-                                                    <p
-                                                        class="comment-writer-username body-2-medium"
-                                                    >
-                                                        hmk4079
-                                                    </p>
-                                                </div>
-                                                <textarea
-                                                    name="comment_description"
-                                                    class="comment-create-textarea theme-wishket body-2"
-                                                    placeholder="프로젝트 문의를 2,000자 이내로 작성해주세요."
-                                                    rows="4"
-                                                ></textarea>
-                                                <div
-                                                    class="comment-create-guide"
+                                    <div>
+                                        <p
+                                                class="project-condition-additional-info"
+                                        >
+                                            <img
+                                                    src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_info_xs.png"
+                                                    class="condition-additional-info-img"
+                                            />
+                                            <span
+                                                    class="condition-additional-info-text body-3"
+                                            >금액 변동 가능</span
+                                            >
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                        class="project-condition-box project-term"
+                                >
+                                    <div
+                                            class="project-condition-data-wrapper"
+                                    >
+                                        <div
+                                                class="condition-box-title"
+                                        >
+                                            <img
+                                                    src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_features_2.png"
+                                                    class="condition-box-icon"
+                                            />
+                                            <p
+                                                    class="condition-box-name body-2 text500"
+                                            >
+                                                예상 기간
+                                            </p>
+                                        </div>
+                                        <p
+                                                class="project-condition-data body-1-medium text900"
+                                        >
+                                            [[${post.researchPeriod}]]
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p
+                                                class="project-condition-additional-info"
+                                        >
+                                            <img
+                                                    class="condition-additional-info-img"
+                                                    src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_info_xs.png"
+                                            />
+                                            <span
+                                                    class="condition-additional-info-text body-3"
+                                            >기간 조율 가능</span
+                                            >
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                        class="project-condition-box project-applicant"
+                                >
+                                    <div
+                                            class="project-condition-data-wrapper"
+                                    >
+                                        <div
+                                                class="condition-box-title"
+                                        >
+                                            <img
+                                                    src="https://www.wishket.com/static/mobile/img/project/detail/icon_project_features_3.png"
+                                                    class="condition-box-icon"
+                                            />
+                                            <p
+                                                    class="condition-box-name body-2 text500"
+                                            >
+                                                지원자 수
+                                            </p>
+                                        </div>
+                                        <p
+                                                class="project-condition-data body-1-medium text900"
+                                        >
+                                            10명
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb32"></div>
+                            <div
+                                    class="project-detail-condition task_based mb40"
+                            >
+                                <div
+                                        class="project-detail-condition-row"
+                                >
+                                    <div class="condition-title">
+                                                <span
+                                                        class="condition-icon"
+                                                ></span>
+                                        <p
+                                                class="condition-label body-2 text500"
+                                        >
+                                            모집 마감일
+                                        </p>
+                                    </div>
+                                    <p
+                                            class="condition-data body-2 text900"
+                                    >
+                                        [[${post.researchDeadline}]]
+                                        <img
+                                                src="https://www.wishket.com/static/renewal/img/project/detail/icon_project_category_dot_14.png"
+                                                class="class-splitter"
+                                        />
+                                        <span
+                                                class="condition-accent body-3"
+                                        >마감 2주 전</span
+                                        >
+                                    </p>
+                                </div>
+                                <div style="position: relative">
+                                    <div class="divide task-based">
+                                        <div
+                                                class="project-detail-condition-row"
+                                        >
+                                            <div
+                                                    class="condition-title"
+                                            >
+                                                        <span
+                                                                class="condition-icon"
+                                                        ></span>
+                                                <p
+                                                        class="condition-label body-2 text500"
                                                 >
-                                                    <p
-                                                        class="caption-1 text500 mb4"
-                                                    >
-                                                        · 작성한 내용은 수정 및
-                                                        삭제가 불가합니다.
-                                                    </p>
-                                                    <p
-                                                        class="caption-1 text500"
-                                                    >
-                                                        · 이메일, 전화번호 등을
-                                                        게시하여 직거래를 유도할
-                                                        경우 서비스 이용에
-                                                        제재를 받을 수 있습니다.
-                                                    </p>
-                                                </div>
-                                                <div
-                                                    class="comment-create-action"
+                                                    예상 시작일
+                                                </p>
+                                            </div>
+                                            <p
+                                                    class="condition-data body-2 text900"
+                                            >
+                                                [[${post.researchStartDate}]]
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div
+                                            class="project-detail-condition-row"
+                                    >
+                                        <div class="condition-title">
+                                                    <span
+                                                            class="condition-icon"
+                                                    ></span>
+                                            <p
+                                                    class="condition-label body-2 text500"
+                                            >
+                                                진행 분류
+                                            </p>
+                                        </div>
+                                        <p
+                                                class="condition-data body-2 text900"
+                                        >
+                                            신규 프로젝트를 진행하려
+                                            합니다.
+                                        </p>
+                                    </div>
+                                    <div
+                                            class="project-detail-condition-row"
+                                    >
+                                        <div class="condition-title">
+                                                    <span
+                                                            class="condition-icon"
+                                                    ></span>
+                                            <p
+                                                    class="condition-label body-2 text500"
+                                            >
+                                                기획 상태
+                                            </p>
+                                        </div>
+                                        <p
+                                                class="condition-data body-2 text900"
+                                        >
+                                            아이디어만 있는 상태
+                                        </p>
+                                    </div>
+                                    <div
+                                            class="project-detail-condition-row"
+                                    >
+                                        <div class="condition-title">
+                                                    <span
+                                                            class="condition-icon"
+                                                    ></span>
+                                            <p
+                                                    class="condition-label body-2 text500"
+                                            >
+                                                프로젝트 경험
+                                            </p>
+                                        </div>
+                                        <p
+                                                class="condition-data body-2 text900"
+                                        >
+                                            양자물리학 프로젝트 진행
+                                            경험 있음
+                                        </p>
+                                    </div>
+                                    <div
+                                            class="project-detail-condition-row"
+                                    >
+                                        <div class="condition-title">
+                                                    <span
+                                                            class="condition-icon"
+                                                    ></span>
+                                            <p
+                                                    class="condition-label body-2 text500"
+                                            >
+                                                협업 예정 인력
+                                            </p>
+                                        </div>
+                                        <p
+                                                class="condition-data body-2 text900"
+                                        >
+                                            지원자 본인 제외 교수 1명과
+                                            파트너 4명
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layer-divider mt40mb32"></div>
+                        <div class="project-description">
+                            <h2 class="subtitle-2-medium text900 mb16">
+                                연구 내용
+                            </h2>
+                            <div
+                                    class="project-description-box body-2 mb8 text900"
+                            >
+                                [[${post.postContent}]]
+                            </div>
+                        </div>
+                        <div class="layer-divider mt40mb32"></div>
+                        <div class="project-recruit-condition">
+                            <h2
+                                    class="recruit-condition-title subtitle-2-medium text900 mb16"
+                            >
+                                모집 요건
+                            </h2>
+                            <div
+                                    class="recruit-condition-detail-box mb24"
+                            >
+                                [[${post.researchRequirement}]]
+                            </div>
+                        </div>
+                        <div class="layer-divider mt40mb32"></div>
+                        <div
+                                class="project-meeting-condition"
+                                style="position: relative"
+                        >
+                            <h2
+                                    class="meeting-condition-title subtitle-2-medium text900 mb16"
+                            >
+                                미팅
+                            </h2>
+                            <div class="meeting-condition-box">
+                                <div class="meeting-condition-row mb8">
+                                    <p
+                                            class="meeting-condition-title body-2 text500"
+                                    >
+                                        사전 미팅 방식
+                                    </p>
+                                    <p
+                                            class="meeting-condition-data body-2 text900"
+                                    >
+                                        온라인 (카카오톡, 화상미팅 등)
+                                    </p>
+                                </div>
+                                <div class="meeting-condition-row mb8">
+                                    <p
+                                            class="meeting-condition-title body-2 text500"
+                                    >
+                                        클라이언트 위치
+                                    </p>
+                                    <p
+                                            class="meeting-condition-data body-2 text900"
+                                    >
+                                        서울특별시 강남구
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-comment-layer mb40">
+                        <p
+                                class="comment-layer-title subtitle-2-medium text900"
+                        >
+                            프로젝트 문의
+                            <span
+                                    class="comment-layer-count subtitle-2-medium"
+                            >0</span
+                            >
+                        </p>
+                        <div
+                                class="project-comment-group comment-data-box"
+                        >
+                            <div class="empty-comment-box">
+                                <img
+                                        src="https://www.wishket.com/static/renewal/img/project/search/icon-empty-comment.svg"
+                                        class="empty-comment-img"
+                                />
+                                <p
+                                        class="body-2 text600 empty-comment-text"
+                                >
+                                    프로젝트 문의가 없습니다.
+                                </p>
+                                <p
+                                        class="body-2 text600 empty-comment-text"
+                                >
+                                    첫 번째 프로젝트 문의를
+                                    등록해주세요.
+                                </p>
+                            </div>
+                            <form action="." class="comment-form">
+                                <div class="comment-create-box-wrapper">
+                                    <div class="comment-create-box">
+                                        <div class="comment-writer">
+                                            <img
+                                                    src="https://www.wishket.com/static/img/default_avatar_p.png"
+                                                    class="comment-writer-img"
+                                            />
+                                            <p
+                                                    class="comment-writer-username body-2-medium"
+                                            >
+                                                hmk4079
+                                            </p>
+                                        </div>
+                                        <textarea
+                                                name="comment_description"
+                                                class="comment-create-textarea theme-wishket body-2"
+                                                placeholder="프로젝트 문의를 2,000자 이내로 작성해주세요."
+                                                rows="4"
+                                        ></textarea>
+                                        <div
+                                                class="comment-create-guide"
+                                        >
+                                            <p
+                                                    class="caption-1 text500 mb4"
+                                            >
+                                                · 작성한 내용은 수정 및
+                                                삭제가 불가합니다.
+                                            </p>
+                                            <p
+                                                    class="caption-1 text500"
+                                            >
+                                                · 이메일, 전화번호 등을
+                                                게시하여 직거래를 유도할
+                                                경우 서비스 이용에
+                                                제재를 받을 수 있습니다.
+                                            </p>
+                                        </div>
+                                        <div
+                                                class="comment-create-action"
+                                        >
+                                            <div
+                                                    class="secret-comment-option"
+                                            >
+                                                <label
+                                                        class="checkbox-wishket"
                                                 >
-                                                    <div
-                                                        class="secret-comment-option"
-                                                    >
-                                                        <label
-                                                            class="checkbox-wishket"
-                                                        >
                                                             <span>
                                                                 <input
-                                                                    type="checkbox"
-                                                                    class="theme-wishket wishket-checkbox"
+                                                                        type="checkbox"
+                                                                        class="theme-wishket wishket-checkbox"
                                                                 />
                                                                 <div
-                                                                    class="box-check"
+                                                                        class="box-check"
                                                                 >
                                                                     <span>
                                                                         <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            viewBox="0 0 16 16"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 16 16"
                                                                         >
                                                                             <g
-                                                                                fill="none"
-                                                                                fill-rule="evenodd"
+                                                                                    fill="none"
+                                                                                    fill-rule="evenodd"
                                                                             >
                                                                                 <path
-                                                                                    class="checked-icon"
-                                                                                    stroke="#FFF"
-                                                                                    stroke-linecap="round"
-                                                                                    stroke-linejoin="round"
-                                                                                    stroke-width="1.6"
-                                                                                    d="M4 7.8L7 11l5-6"
+                                                                                        class="checked-icon"
+                                                                                        stroke="#FFF"
+                                                                                        stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="1.6"
+                                                                                        d="M4 7.8L7 11l5-6"
                                                                                 ></path>
                                                                             </g>
                                                                         </svg>
                                                                     </span>
                                                                 </div>
                                                                 <div
-                                                                    class="box-no-check"
+                                                                        class="box-no-check"
                                                                 >
                                                                     <span>
                                                                         <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            viewBox="0 0 16 16"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 16 16"
                                                                         >
                                                                             <g
-                                                                                fill="none"
-                                                                                fill-rule="evenodd"
+                                                                                    fill="none"
+                                                                                    fill-rule="evenodd"
                                                                             >
                                                                                 <path
-                                                                                    class="checked-icon"
-                                                                                    stroke="#FFF"
-                                                                                    stroke-linecap="round"
-                                                                                    stroke-linejoin="round"
-                                                                                    stroke-width="1.6"
-                                                                                    d="M4 7.8L7 11l5-6"
+                                                                                        class="checked-icon"
+                                                                                        stroke="#FFF"
+                                                                                        stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="1.6"
+                                                                                        d="M4 7.8L7 11l5-6"
                                                                                 ></path>
                                                                             </g>
                                                                         </svg>
                                                                     </span>
                                                                 </div>
                                                             </span>
-                                                            <span>비밀글</span>
-                                                        </label>
-                                                    </div>
-                                                    <button
-                                                        class="btn btn-wishket btn-4-16 btn-right"
-                                                        type="submit"
-                                                    >
-                                                        작성하기
-                                                    </button>
-                                                </div>
+                                                    <span>비밀글</span>
+                                                </label>
                                             </div>
+                                            <button
+                                                    class="btn btn-wishket btn-4-16 btn-right"
+                                                    type="submit"
+                                            >
+                                                작성하기
+                                            </button>
                                         </div>
-                                    </form>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-section-wrap">
+                    <div class="client-section">
+                        <div class="action-layer partners">
+                            <div>
+                                <button
+                                        class="btn-project btn-partner btn-11-24 btn-block mb8 mandatory-info-button active"
+                                >
+                                    보유기술 등록
+                                </button>
+                                <button
+                                        class="btn-project btn-partner btn-11-24 btn-block mb8"
+                                >
+                                    프로젝트 지원하기
+                                </button>
+                                <button
+                                        class="btn-project btn-no-partner btn-11-24 btn-block mb8"
+                                >
+                                    프로젝트 지원하기
+                                </button>
+                                <button
+                                        class="btn btn-white btn-block btn-8-16 interest-button interest-off ui-tooltip"
+                                        style="z-index: inherit"
+                                >
+                                    관심 프로젝트
+                                </button>
+                            </div>
+                            <div class="project-popularity-info">
+                                <div class="project-popularity-unit">
+                                    <img
+                                            src="https://www.wishket.com/static/mobile/img/project/detail/post_icon_view.png"
+                                            class="project-popularity-img"
+                                    />
+                                    <span
+                                            class="project-popularity-value"
+                                    >아주 높음</span
+                                    >
+                                </div>
+                                <div
+                                        class="project-popularity-unit interest-unit"
+                                >
+                                    <img
+                                            src="https://www.wishket.com/static/mobile/img/project/detail/post_icon_like_off.png"
+                                            class="project-popularity-img interest-img"
+                                    />
+                                    <span
+                                            class="project-popularity-value interest-count"
+                                    >5</span
+                                    >
                                 </div>
                             </div>
                         </div>
-                        <div class="client-section-wrap">
-                            <div class="client-section">
-                                <div class="action-layer partners">
-                                    <div>
-                                        <button
-                                            class="btn-project btn-partner btn-11-24 btn-block mb8 mandatory-info-button active"
+                        <div class="client-layer">
+                            <div class="client-account-info mb12">
+                                <img
+                                        src="https://www.wishket.com/static/img/default_avatar_c.png"
+                                        class="client-account-info-img"
+                                />
+                                <div>
+                                    <div
+                                            class="client-account-info-base mb8"
+                                    >
+                                        <p
+                                                class="client-account-info-base-username body-2-bold"
                                         >
-                                            보유기술 등록
-                                        </button>
-                                        <button
-                                            class="btn-project btn-partner btn-11-24 btn-block mb8"
+                                            Ho******
+                                        </p>
+                                        <span
+                                                class="client-account-info-base-label caption-1-medium user-type-label client-label"
                                         >
-                                            프로젝트 지원하기
-                                        </button>
-                                        <button
-                                            class="btn-project btn-no-partner btn-11-24 btn-block mb8"
-                                        >
-                                            프로젝트 지원하기
-                                        </button>
-                                        <button
-                                            class="btn btn-white btn-block btn-8-16 interest-button interest-off ui-tooltip"
-                                            style="z-index: inherit"
-                                        >
-                                            관심 프로젝트
-                                        </button>
-                                    </div>
-                                    <div class="project-popularity-info">
-                                        <div class="project-popularity-unit">
-                                            <img
-                                                src="https://www.wishket.com/static/mobile/img/project/detail/post_icon_view.png"
-                                                class="project-popularity-img"
-                                            />
-                                            <span
-                                                class="project-popularity-value"
-                                                >아주 높음</span
-                                            >
-                                        </div>
-                                        <div
-                                            class="project-popularity-unit interest-unit"
-                                        >
-                                            <img
-                                                src="https://www.wishket.com/static/mobile/img/project/detail/post_icon_like_off.png"
-                                                class="project-popularity-img interest-img"
-                                            />
-                                            <span
-                                                class="project-popularity-value interest-count"
-                                                >5</span
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="client-layer">
-                                    <div class="client-account-info mb12">
-                                        <img
-                                            src="https://www.wishket.com/static/img/default_avatar_c.png"
-                                            class="client-account-info-img"
-                                        />
-                                        <div>
-                                            <div
-                                                class="client-account-info-base mb8"
-                                            >
-                                                <p
-                                                    class="client-account-info-base-username body-2-bold"
-                                                >
-                                                    Ho******
-                                                </p>
-                                                <span
-                                                    class="client-account-info-base-label caption-1-medium user-type-label client-label"
-                                                >
                                                     교수
                                                 </span>
-                                            </div>
-                                            <div
-                                                class="client-account-info-badge"
-                                            >
-                                                <div class="client-badge-box">
-                                                    <img
-                                                        src="https://www.wishket.com/static/renewal/img/project/detail/icon_badge_verification.png"
-                                                    />
-                                                    <p
-                                                        class="client-badge-name body-3-medium text600"
-                                                    >
-                                                        교수 인증 완료
-                                                    </p>
-                                                </div>
-                                                <div style="clear: both"></div>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <p class="caption-1 text500 mb16">
-                                        양자물리학 기반으로 다양한 분야의 연구를
-                                        진행하는 교수님입니다.
-                                    </p>
-                                    <div class="layer-divider"></div>
-                                    <div class="client-rating-info">
-                                        <div class="client-rating-star-box">
-                                            <div class="client-rating-star">
-                                                <i
-                                                    class="rating-icon icon-ic-star-m-empty"
-                                                ></i>
-                                                <i
-                                                    class="rating-icon icon-ic-star-m-empty"
-                                                ></i>
-                                                <i
-                                                    class="rating-icon icon-ic-star-m-empty"
-                                                ></i>
-                                                <i
-                                                    class="rating-icon icon-ic-star-m-empty"
-                                                ></i>
-                                                <i
-                                                    class="rating-icon icon-ic-star-m-empty"
-                                                ></i>
-                                            </div>
-                                        </div>
-                                        <p
-                                            class="client-rating-point body-2-bold text900"
-                                        >
-                                            0.0
-                                            <span
-                                                class="client-rating-count caption-1-medium text400"
-                                                >(0)</span
-                                            >
-                                        </p>
-                                    </div>
-                                    <div class="layer-divider"></div>
-                                    <div class="client-project-info">
-                                        <div
-                                            class="client-project-info-row mb8"
-                                        >
+                                    <div
+                                            class="client-account-info-badge"
+                                    >
+                                        <div class="client-badge-box">
+                                            <img
+                                                    src="https://www.wishket.com/static/renewal/img/project/detail/icon_badge_verification.png"
+                                            />
                                             <p
-                                                class="client-project-info-title-bold body-2 text600"
+                                                    class="client-badge-name body-3-medium text600"
                                             >
-                                                프로젝트 등록
-                                            </p>
-                                            <p
-                                                class="client-project-info-data body-2-medium text900"
-                                            >
-                                                2건
+                                                교수 인증 완료
                                             </p>
                                         </div>
-                                        <div
-                                            class="client-project-info-row mb8"
-                                        >
-                                            <p
-                                                class="client-project-info-title-bold body-2 text600"
-                                            >
-                                                프로젝트 현황
-                                            </p>
-                                            <p
-                                                class="client-project-info-data body-2-medium text900"
-                                            >
-                                                1건
-                                            </p>
-                                        </div>
-                                        <div
-                                            class="client-project-info-sub mb12"
-                                        >
-                                            <div
-                                                class="client-project-info-sub-row mb8"
-                                            >
-                                                <p
-                                                    class="client-project-info-title body-3 text400"
-                                                >
-                                                    진행 중인 프로젝트
-                                                </p>
-                                                <p
-                                                    class="client-project-info-data body-3-medium text600"
-                                                >
-                                                    0건
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="client-project-info-sub-row"
-                                            >
-                                                <p
-                                                    class="client-project-info-title body-3 text400"
-                                                >
-                                                    완료한 프로젝트
-                                                </p>
-                                                <p
-                                                    class="client-project-info-data body-3-medium text600"
-                                                >
-                                                    1건
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="client-project-info-row mb8"
-                                        >
-                                            <p
-                                                class="client-project-info-title-bold body-2 text600"
-                                            >
-                                                프로젝트 계약률
-                                            </p>
-                                            <p
-                                                class="client-project-info-data body-2-medium text900"
-                                            >
-                                                100%
-                                            </p>
-                                        </div>
-                                        <div
-                                            class="client-project-info-row mb8"
-                                        >
-                                            <p
-                                                class="client-project-info-title-bold body-2 text600"
-                                            >
-                                                누적 완료 금액
-                                            </p>
-                                            <p
-                                                class="client-project-info-data body-2-medium text900"
-                                            >
-                                                4770 만원
-                                            </p>
-                                        </div>
+                                        <div style="clear: both"></div>
                                     </div>
                                 </div>
                             </div>
+                            <p class="caption-1 text500 mb16">
+                                양자물리학 기반으로 다양한 분야의 연구를
+                                진행하는 교수님입니다.
+                            </p>
+                            <div class="layer-divider"></div>
+                            <div class="client-rating-info">
+                                <div class="client-rating-star-box">
+                                    <div class="client-rating-star">
+                                        <i
+                                                class="rating-icon icon-ic-star-m-empty"
+                                        ></i>
+                                        <i
+                                                class="rating-icon icon-ic-star-m-empty"
+                                        ></i>
+                                        <i
+                                                class="rating-icon icon-ic-star-m-empty"
+                                        ></i>
+                                        <i
+                                                class="rating-icon icon-ic-star-m-empty"
+                                        ></i>
+                                        <i
+                                                class="rating-icon icon-ic-star-m-empty"
+                                        ></i>
+                                    </div>
+                                </div>
+                                <p
+                                        class="client-rating-point body-2-bold text900"
+                                >
+                                    0.0
+                                    <span
+                                            class="client-rating-count caption-1-medium text400"
+                                    >(0)</span
+                                    >
+                                </p>
+                            </div>
+                            <div class="layer-divider"></div>
+                            <div class="client-project-info">
+                                <div
+                                        class="client-project-info-row mb8"
+                                >
+                                    <p
+                                            class="client-project-info-title-bold body-2 text600"
+                                    >
+                                        프로젝트 등록
+                                    </p>
+                                    <p
+                                            class="client-project-info-data body-2-medium text900"
+                                    >
+                                        2건
+                                    </p>
+                                </div>
+                                <div
+                                        class="client-project-info-row mb8"
+                                >
+                                    <p
+                                            class="client-project-info-title-bold body-2 text600"
+                                    >
+                                        프로젝트 현황
+                                    </p>
+                                    <p
+                                            class="client-project-info-data body-2-medium text900"
+                                    >
+                                        1건
+                                    </p>
+                                </div>
+                                <div
+                                        class="client-project-info-sub mb12"
+                                >
+                                    <div
+                                            class="client-project-info-sub-row mb8"
+                                    >
+                                        <p
+                                                class="client-project-info-title body-3 text400"
+                                        >
+                                            진행 중인 프로젝트
+                                        </p>
+                                        <p
+                                                class="client-project-info-data body-3-medium text600"
+                                        >
+                                            0건
+                                        </p>
+                                    </div>
+                                    <div
+                                            class="client-project-info-sub-row"
+                                    >
+                                        <p
+                                                class="client-project-info-title body-3 text400"
+                                        >
+                                            완료한 프로젝트
+                                        </p>
+                                        <p
+                                                class="client-project-info-data body-3-medium text600"
+                                        >
+                                            1건
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                        class="client-project-info-row mb8"
+                                >
+                                    <p
+                                            class="client-project-info-title-bold body-2 text600"
+                                    >
+                                        프로젝트 계약률
+                                    </p>
+                                    <p
+                                            class="client-project-info-data body-2-medium text900"
+                                    >
+                                        100%
+                                    </p>
+                                </div>
+                                <div
+                                        class="client-project-info-row mb8"
+                                >
+                                    <p
+                                            class="client-project-info-title-bold body-2 text600"
+                                    >
+                                        누적 완료 금액
+                                    </p>
+                                    <p
+                                            class="client-project-info-data body-2-medium text900"
+                                    >
+                                        4770 만원
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </section>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
-        <div id="footer-space" style="width: 100px; height: 100px"></div>
-    </body>
-    <script src="../../static/js/thesis/thesis-inquiry.js"></script>
-    <script src="../../static/js/admin-page-js/admin-report/report.js"></script>
+    </div>
+</div>
+<div id="footer-space" style="width: 100px; height: 100px"></div>
+</body>
+<script src="/js/thesis/thesis-inquiry.js"></script>
+<script src="/js/admin-page-js/admin-report/report.js"></script>
+<script>
+    function moveToModification() {
+        const postId = [[${post.id}]];
+        window.location.href = `/thesis/thesis-modification1?postId=${postId}`; // thesis-modification1 페이지로 이동
+    }
+</script>
+<script>
+    function confirmDeletion() {
+        const confirmed = confirm("게시글을 삭제하시겠습니까?");
+        const postId = [[${post.id}]];
+        if (confirmed) {
+            window.location.href = `/thesis/delete?postId=${postId}`; // 삭제 요청 전송
+        }
+    }
+</script>
 </html>

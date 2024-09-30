@@ -1,252 +1,213 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>게시글 수정 <1> - 논문 게시판</title>
-        <link
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글 수정 <1> - 논문 게시판</title>
+    <link
             rel="stylesheet"
-            href="../../static/css/thesis/thesis-modification1.css"
-        />
-        <link
+            href="/css/thesis/thesis-modification1.css"
+    />
+    <link
             rel="shortcut icon"
             href="https://www.wishket.com/static/favicon.ico"
-        />
-    </head>
-    <body>
-        <div class="wrap">
-            <div>
-                <div class="container">
-                    <form>
-                        <div class="post-write-form-section">
-                            <div class="form-section-header">
-                                <p class="form-section-title subtitle-1">
-                                    논문 공고 수정 <1>
-                                </p>
-                                <div class="modify-title">
+    />
+</head>
+<body>
+<div class="wrap">
+    <div>
+        <div class="container">
+            <form action="/thesis/thesis-modification1" method="post">
+                <input type="hidden" name="id" th:value="${post.id}">
+                <div class="post-write-form-section">
+                    <div class="form-section-header">
+                        <p class="form-section-title subtitle-1">
+                            논문 공고 수정 <1>
+                        </p>
+                        <div class="modify-title">
                                     <span class="modification-ment"
-                                        >게시글의 수정할 부분을 지우고 다시
+                                    >게시글의 수정할 부분을 지우고 다시
                                         작성해주세요.</span
                                     >
-                                </div>
-                            </div>
-                            <div class="form-input-section">
-                                <div class="form-part">
-                                    <label class="form-title font-body-1-bold"
-                                        >학교 및 전공
-                                    </label>
-                                    <div class="mb8"></div>
-                                    <div class="form-content">
-                                        <div>
-                                            <div class="content-textarea">
-                                                <div class="textarea-border">
+                        </div>
+                    </div>
+                    <div class="form-input-section">
+                        <!-- 학교 및 전공 -->
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold"
+                            >학교 및 전공
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div>
+                                    <div class="content-textarea">
+                                        <div class="textarea-border">
                                                     <textarea
-                                                        class="moa-textarea font-body-2 text6"
-                                                        name="textarea"
-                                                        id="school-major-textarea"
-                                                        maxlength="70"
-                                                        rows="1"
-                                                        style="
-                                                            width: 100%;
-                                                            min-width: 100%;
-                                                            max-width: 100%;
-                                                            min-height: 30px;
-                                                        "
-                                                    >
-현재 소속된 학교와 교수님 본인의 전공을 입력해주세요. ex) 모아대학교, 천체물리학</textarea
-                                                    >
-                                                </div>
-                                            </div>
+                                                            class="moa-textarea font-body-2 text6"
+                                                            name="professorMajor"
+                                                            id="school-major-textarea"
+                                                            maxlength="70"
+                                                            rows="1"
+                                                            style="width: 100%; min-width: 100%; max-width: 100%; min-height: 30px;"
+                                                    >[[${post.professorMajor}]]</textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-part">
-                                    <label class="form-title font-body-1-bold"
-                                        >프로젝트 분야
-                                    </label>
-                                    <div class="mb8"></div>
-                                    <div class="form-content">
-                                        <div>
-                                            <div class="content-textarea">
-                                                <div class="textarea-border">
-                                                    <textarea
-                                                        class="moa-textarea font-body-2 text6"
-                                                        name="textarea"
-                                                        id="school-major-textarea"
-                                                        maxlength="70"
-                                                        rows="1"
-                                                        style="
-                                                            width: 100%;
-                                                            min-width: 100%;
-                                                            max-width: 100%;
-                                                            min-height: 30px;
-                                                        "
-                                                    >
-진행할 프로젝트 분야를 입력해 주세요. ex) IT / 네트워크</textarea
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-part">
-                                    <label class="form-title font-body-1-bold"
-                                        >프로젝트 제목
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="mb8"></div>
-                                    <div class="form-content">
-                                        <div>
-                                            <div class="content-textarea">
-                                                <div class="textarea-border">
-                                                    <textarea
-                                                        class="moa-textarea font-body-2 text6"
-                                                        name="textarea"
-                                                        id="title-textarea"
-                                                        maxlength="206"
-                                                        rows="3"
-                                                        style="
-                                                            width: 100%;
-                                                            min-width: 100%;
-                                                            max-width: 100%;
-                                                            min-height: 30px;
-                                                        "
-                                                    >
-프로젝트 제목을 입력해주세요. ex) 삼성 반도체 건설 안전 관리 회사 웹사이트 구축</textarea
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-part">
-                                    <label class="form-title font-body-1-bold"
-                                        >예상 금액
-                                    </label>
-                                    <div class="mb8"></div>
-                                    <div class="form-content">
-                                        <div>
-                                            <div class="content-textarea">
-                                                <div class="textarea-border">
-                                                    <textarea
-                                                        class="moa-textarea font-body-2 text6"
-                                                        name="textarea"
-                                                        id="school-major-textarea"
-                                                        maxlength="70"
-                                                        rows="1"
-                                                        style="
-                                                            width: 100%;
-                                                            min-width: 100%;
-                                                            max-width: 100%;
-                                                            min-height: 30px;
-                                                        "
-                                                    >
-예상금액을 입력해주세요. ex) 5,000,000원</textarea
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-part">
-                                    <label class="form-title font-body-1-bold"
-                                        >예상 기간
-                                    </label>
-                                    <div class="mb8"></div>
-                                    <div class="form-content">
-                                        <div>
-                                            <div class="content-textarea">
-                                                <div class="textarea-border">
-                                                    <textarea
-                                                        class="moa-textarea font-body-2 text6"
-                                                        name="textarea"
-                                                        id="school-major-textarea"
-                                                        maxlength="270"
-                                                        rows="1"
-                                                        style="
-                                                            width: 100%;
-                                                            min-width: 100%;
-                                                            max-width: 100%;
-                                                            min-height: 30px;
-                                                        "
-                                                    >
-예상기간을 입력해 주세요. ex) 30일</textarea
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-part">
-                                    <label class="form-title font-body-1-bold"
-                                        >모집 마감일
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="mb8"></div>
-                                    <div class="form-content">
-                                        <div>
-                                            <div class="content-textarea">
-                                                <div class="textarea-border">
-                                                    <textarea
-                                                        class="moa-textarea font-body-2 text6"
-                                                        name="textarea"
-                                                        id="title-textarea"
-                                                        maxlength="70"
-                                                        rows="1"
-                                                        style="
-                                                            width: 100%;
-                                                            min-width: 100%;
-                                                            max-width: 100%;
-                                                            min-height: 30px;
-                                                        "
-                                                    >
-모집 마감일을 입력해주세요. ex) 2024년 11월 11일</textarea
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-part">
-                                    <label class="form-title font-body-1-bold"
-                                        >예상 시작일
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="mb8"></div>
-                                    <div class="form-content">
-                                        <div>
-                                            <div class="content-textarea">
-                                                <div class="textarea-border">
-                                                    <textarea
-                                                        class="moa-textarea font-body-2 text6"
-                                                        name="textarea"
-                                                        id="title-textarea"
-                                                        maxlength="70"
-                                                        rows="1"
-                                                        style="
-                                                            width: 100%;
-                                                            min-width: 100%;
-                                                            max-width: 100%;
-                                                            min-height: 30px;
-                                                        "
-                                                    >
-모집 마감일을 입력해주세요. ex) 2024년 11월 11일</textarea
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="complete-save-button-divider">
-                                <div class="complete-button">수정완료</div>
-                                <div class="save-button">저장</div>
                             </div>
                         </div>
-                    </form>
+
+                        <!-- 프로젝트 분야 -->
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold"
+                            >프로젝트 분야
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div>
+                                    <div class="content-textarea">
+                                        <div class="textarea-border">
+                                                    <textarea
+                                                            class="moa-textarea font-body-2 text6"
+                                                            name="researchField"
+                                                            maxlength="70"
+                                                            rows="1"
+                                                            style="width: 100%; min-width: 100%; max-width: 100%; min-height: 30px;"
+                                                    >[[${post.researchField}]]</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 프로젝트 제목 -->
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold"
+                            >프로젝트 제목
+                                <span class="required">*</span>
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div>
+                                    <div class="content-textarea">
+                                        <div class="textarea-border">
+                                                    <textarea
+                                                            class="moa-textarea font-body-2 text6"
+                                                            name="postTitle"
+                                                            maxlength="206"
+                                                            rows="3"
+                                                            style="width: 100%; min-width: 100%; max-width: 100%; min-height: 30px;"
+                                                    >[[${post.postTitle}]]</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 예상 금액 -->
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold"
+                            >예상 금액
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div>
+                                    <div class="content-textarea">
+                                        <div class="textarea-border">
+                                                    <textarea
+                                                            class="moa-textarea font-body-2 text6"
+                                                            name="researchProfit"
+                                                            maxlength="70"
+                                                            rows="1"
+                                                            style="width: 100%; min-width: 100%; max-width: 100%; min-height: 30px;"
+                                                    >[[${post.researchProfit}]]</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 예상 기간 -->
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold"
+                            >예상 기간
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div>
+                                    <div class="content-textarea">
+                                        <div class="textarea-border">
+                                                    <textarea
+                                                            class="moa-textarea font-body-2 text6"
+                                                            name="researchPeriod"
+                                                            maxlength="70"
+                                                            rows="1"
+                                                            style="width: 100%; min-width: 100%; max-width: 100%; min-height: 30px;"
+                                                    >[[${post.researchPeriod}]]</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 모집 마감일 -->
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold"
+                            >모집 마감일
+                                <span class="required">*</span>
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div>
+                                    <div class="content-textarea">
+                                        <div class="textarea-border">
+                                                    <textarea
+                                                            class="moa-textarea font-body-2 text6"
+                                                            name="researchDeadline"
+                                                            maxlength="70"
+                                                            rows="1"
+                                                            style="width: 100%; min-width: 100%; max-width: 100%; min-height: 30px;"
+                                                    >[[${post.researchDeadline}]]</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 예상 시작일 -->
+                        <div class="form-part">
+                            <label class="form-title font-body-1-bold"
+                            >예상 시작일
+                                <span class="required">*</span>
+                            </label>
+                            <div class="mb8"></div>
+                            <div class="form-content">
+                                <div>
+                                    <div class="content-textarea">
+                                        <div class="textarea-border">
+                                                    <textarea
+                                                            class="moa-textarea font-body-2 text6"
+                                                            name="researchStartDate"
+                                                            maxlength="70"
+                                                            rows="1"
+                                                            style="width: 100%; min-width: 100%; max-width: 100%; min-height: 30px;"
+                                                    >[[${post.researchStartDate}]]</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 수정완료 및 저장 버튼 -->
+                    <div class="complete-save-button-divider">
+                        <button type="submit" class="complete-button">수정완료</button>
+                        <div class="save-button">저장</div>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
-    </body>
-    <script src="../../static/js/thesis/thesis-modification1.js"></script>
+    </div>
+</div>
+</body>
+<script src="/js/thesis/thesis-modification1.js"></script>
 </html>
