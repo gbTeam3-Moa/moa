@@ -11,6 +11,7 @@ import com.app.moa.service.report.ReportService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.filters.RemoteIpFilter;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,7 +54,7 @@ public class ReportController {
     }
 
     //  신고된 게시글 조회
-    @GetMapping("inquiry")
+    @GetMapping("Inquiry")
     public String getReportInquiry(@RequestParam("Id") Long Id, Model model) {
         Optional<ReportVO> report = reportService.getById(Id);
         if (report.isPresent()) {
@@ -64,7 +65,6 @@ public class ReportController {
         log.info(String.valueOf(report.get()));
         return "admin-page-html/admin-report/admin-report-Inquiry";
     }
-
 
 //    @GetMapping("Inquiry")
 //    public String () {
