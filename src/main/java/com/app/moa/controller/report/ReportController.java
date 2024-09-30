@@ -54,7 +54,7 @@ public class ReportController {
     }
 
     //  신고된 게시글 조회
-    @GetMapping("Inquiry")
+    @GetMapping("inquiry")
     public String getReportInquiry(@RequestParam("Id") Long Id, Model model) {
         Optional<ReportVO> report = reportService.getById(Id);
         if (report.isPresent()) {
