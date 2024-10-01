@@ -59,35 +59,6 @@ public class MemberController {
     @PostMapping("login")
     public RedirectView login(MemberDTO memberDTO, String save, HttpSession session, HttpServletResponse response){
 
-//        Optional<MemberVO> foundMember = memberService.login(memberDTO.toVO());
-//
-//        MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() +")로그인 실패");});
-//        session.setAttribute("member", memberVO);
-
-//        if(save != null){
-////            쿠키 생성, 저장
-//            Cookie saveCookie = new Cookie("save", save);
-//            Cookie memberEmailCookie = new Cookie("memberEmail", memberDTO.getMemberEmail());
-//
-////            -1: 쿠키 계속 유지
-//            saveCookie.setMaxAge(-1);
-//            memberEmailCookie.setMaxAge(-1);
-//
-//            response.addCookie(saveCookie);
-//            response.addCookie(memberEmailCookie);
-//
-//        }else{
-////            쿠키 삭제
-//            Cookie saveCookie = new Cookie("save", null);
-//            Cookie memberEmailCookie = new Cookie("memberEmail", null);
-//
-//            saveCookie.setMaxAge(0);
-//            memberEmailCookie.setMaxAge(0);
-//
-//            response.addCookie(saveCookie);
-//            response.addCookie(memberEmailCookie);
-//        }
-
         memberDTO.setMemberEmail(memberDTO.getMemberNickname());
         log.info("{}", memberDTO);
         memberService.login(memberDTO.toVO())
@@ -99,6 +70,36 @@ public class MemberController {
                         () -> {
                             log.info("로그인 실패");
                         });
+
+        Optional<MemberVO> foundMember = memberService.login(memberDTO.toVO());
+
+        MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() +")로그인 실패");});
+        session.setAttribute("member", memberVO);
+        log.info("{}", memberVO);
+
+        if(save != null){
+//            쿠키 생성, 저장
+            Cookie saveCookie = new Cookie("save", save);
+            Cookie memberEmailCookie = new Cookie("memberEmail", memberDTO.getMemberEmail());
+
+//            -1: 쿠키 계속 유지
+            saveCookie.setMaxAge(-1);
+            memberEmailCookie.setMaxAge(-1);
+
+            response.addCookie(saveCookie);
+            response.addCookie(memberEmailCookie);
+
+        }else{
+//            쿠키 삭제
+            Cookie saveCookie = new Cookie("save", null);
+            Cookie memberEmailCookie = new Cookie("memberEmail", null);
+
+            saveCookie.setMaxAge(0);
+            memberEmailCookie.setMaxAge(0);
+
+            response.addCookie(saveCookie);
+            response.addCookie(memberEmailCookie);
+        }
 
         return new RedirectView( "/main-login-page");
     }
