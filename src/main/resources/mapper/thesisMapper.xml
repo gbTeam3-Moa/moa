@@ -104,8 +104,6 @@
         WHERE ID = #{id}
     </update>
 
-
-
     <delete id="delete">
         DELETE FROM TBL_THESIS_POST
         WHERE ID = #{id}

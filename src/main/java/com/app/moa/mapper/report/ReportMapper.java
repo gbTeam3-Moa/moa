@@ -1,5 +1,6 @@
 package com.app.moa.mapper.report;
 
+import com.app.moa.domain.post.PostVO;
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
@@ -26,6 +27,13 @@ public interface ReportMapper {
 
     //    전체 개수
     public int selectCount();
+
+//  신고받은 게시글 수정
+    public void update(ReportVO reportVO);
+
+//  신고받은 게시글 삭제
+    public void delete(Long id);
+
 
 
 }

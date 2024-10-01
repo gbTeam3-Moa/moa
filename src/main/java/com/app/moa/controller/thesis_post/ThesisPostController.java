@@ -6,6 +6,7 @@ import com.app.moa.domain.post.Search;
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.service.thesis_post.ThesisPostService;
+
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
