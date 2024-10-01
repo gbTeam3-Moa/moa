@@ -1,321 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>관리자페이지 - 신고 관리</title>
-        <link
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>관리자페이지 - 신고 관리</title>
+    <link
             rel="shortcut icon"
             href="https://www.wishket.com/static/renewal/img/global/gnb_wishket.svg"
-        />
-        <link rel="stylesheet" href="/css/admin-page-css/admin-main/sub-main.css"/>
-        <link rel="stylesheet" href="/css/admin-page-css/admin-main/common-main.css"/>
-        <link rel="stylesheet" href="/css/admin-page-css/admin-report/admin-report-list.css"/>
-        <link rel="stylesheet" href="/css/admin-page-css/admin-service/main-service.css"/>
-    </head>
-    <body>
-        <noscript>#</noscript>
-        <div id="root">
-            <div id="AppLayot_Container" class="AppLayout_container">
-                <div class="AppGNBNavbar_container">
-                    <div class="AppGNBNavbar_flex">
-                        <div class="StudioLogo_container">
-                            <button
-                                class="StudioLogo_logo"
-                                type="button"
-                                aria-label="로고버튼"
-                            ></button>
-                            <div class="Admin_page_logo">관리자 페이지</div>
-                        </div>
-                        <!-- <div class="StudioStatus_stateBox">
-                            <span class="StudioStatus_state">작업 중</span>
-                        </div> -->
-                    </div>
-                    <div class="AppGNBNavbar_flex AppGNBNavbar_rightBox_1">
-                        <div class="ProjectInfo_container">
-                            <button
-                                class="ProjectInfo_infoButton"
-                                type="button"
-                                aria-controls="project-info-box"
-                                aria-expanded="true"
-                            >
-                                관리자 ID:
-                                <span class="ProjectInfo_emphasis">Yanawa</span>
-                            </button>
-                        </div>
-
-                        <div class="PreviewExitButtons_container">
-                            <button
-                                class="Button_button PreviewExitButtons_button"
-                                type="button"
-                            >
-                                <span
-                                    ><span class="Button_children"
-                                        >로그아웃</span
-                                    ></span
-                                >
-                            </button>
-                        </div>
-                    </div>
+    />
+    <link rel="stylesheet" href="/css/admin-page-css/admin-main/sub-main.css"/>
+    <link rel="stylesheet" href="/css/admin-page-css/admin-main/common-main.css"/>
+    <link rel="stylesheet" href="/css/admin-page-css/admin-report/admin-report-list.css"/>
+    <link rel="stylesheet" href="/css/admin-page-css/admin-service/main-service.css"/>
+</head>
+<body>
+<noscript>#</noscript>
+<div id="root">
+    <div id="AppLayot_Container" class="AppLayout_container">
+        <div class="AppGNBNavbar_container">
+            <div class="AppGNBNavbar_flex">
+                <div class="StudioLogo_container">
+                    <button
+                            class="StudioLogo_logo"
+                            type="button"
+                            aria-label="로고버튼"
+                    ></button>
+                    <div class="Admin_page_logo">관리자 페이지</div>
                 </div>
-                <!-- 메인컨텐츠 영역 -->
-                <div class="AppLayout_main_1">
-                    <div
-                        id="AppLayout_Contents"
-                        class="AppLayout_contents_mainContent"
-                        style="margin-left: 15.5%;"
+                <!-- <div class="StudioStatus_stateBox">
+                    <span class="StudioStatus_state">작업 중</span>
+                </div> -->
+            </div>
+            <div class="AppGNBNavbar_flex AppGNBNavbar_rightBox_1">
+                <div class="ProjectInfo_container">
+                    <button
+                            class="ProjectInfo_infoButton"
+                            type="button"
+                            aria-controls="project-info-box"
+                            aria-expanded="true"
                     >
-                        <div class="Service_wrapper">
-                            <!-- body_header -->
-                            <div class="ServiceHeader_container">
-                                <h2 class="ServiceHeader_title"
-                                style="margin-left: 35%;">신고 관리</h2>
-                                <p class="ServiceHeader_description"
-                                style="margin-left: 34.5%;">
-                                    신고 목록을 조회합니다.
-                                </p>
-                            </div>
-                            <hr
-                                class="Divider_divider Divider_horizontal Divider_lightBG Divider_spacing3 Divider_caption2 FriendsList_divider"
-                            />
-                            <!-- body_layout -->
-                            <div class="ServiceLayout_container">
-                                <div class="filter_wrap">
-                                    <div class="SortFilterOptions">
-                                        <span
-                                            class="sort-filter-option selected"
-                                            >작성일 순</span
-                                        >/
-                                        <span class="sort-filter-option"
-                                            >조회수 순</span
-                                        >/
-                                        <span class="sort-filter-option"
-                                            >댓글수 순</span
-                                        >
-                                        
-                                    </div>
-                                    <!-- Action Buttons -->
-                                    <div class="action-buttons">
-                                        <input
-                                            type="text"
-                                            class="Filter_searchInput"
-                                            placeholder="검색어 입력"
-                                        />
-                                        <button
-                                            id="addServiceBtn"
-                                            class="addServiceBtn"
-                                        >
-                                            보류
-                                        </button>
-                                        <button
-                                            id="deleteSelectedBtn"
-                                            class="deleteSelectedBtn"
-                                        >
-                                            처리
-                                        </button>
-                                    </div>
-                                </div>
-                                <hr
-                                    class="Divider_divider Divider_horizontal Divider_lightBG Divider_spacing3 Divider_caption2 FriendsList_divider"
-                                />
-                                <div class="ServiceTable_container">
-                                    <div class="header_wrapper">
-                                        <div
-                                            class="ServiceTable_row ServiceTable_header"
-                                        >
-                                            <div
-                                                class="ServiceTable_cell headerCell selectAllCell"
-                                            >
-                                                <input
-                                                    type="checkbox"
-                                                    id="selectAll"
-                                                />
-                                            </div>
-                                            <div
-                                                class="ServiceTable_cell headerCell pl50"
-                                                style=
-                                            >
-                                                ID
-                                            </div>
-                                            <div
-                                                class="ServiceTable_cell headerCell pl10"
-                                            >
-                                                신고자
-                                            </div>
-                                            <div
-                                                class="ServiceTable headerCell width180"
-                                            >
-                                                작성일
-                                            </div>
-                                            <div
-                                                class="ServiceTable headerCell  width200"
-                                            >
-                                                신고 게시글 제목
-                                            </div>
-                                            <div
-                                                class="ServiceTable_cell headerCell width200 pl120"
-                                            >
-                                                조회수
-                                            </div>
-                                            <div
-                                                class="ServiceTable_cell headerCell pl103"
-                                            >
-                                                댓글수
-                                            </div>
-                                            <div
-                                                class="ServiceTable_cell headerCell pl65"
-                                                
-                                            >
-                                                신고 사유
-                                            </div>
-                                            <div
-                                                class="ServiceTable_cell headerCell pl130"
-                                            >
-                                                상태
-                                            </div>
-                                        </div>
-                                    </div>
+                        관리자 ID:
+                        <span class="ProjectInfo_emphasis">Yanawa</span>
+                    </button>
+                </div>
 
-                                    <!-- 목록 리스트 -->
-                                    <div id = "listdiv" class="post-lists">
-                                    </div>
-                                    <div class="pagination-wrap">
-                                        <ul id="pagingdiv" class="pagination theme-moa"
-                                        style="list-style: none">
-                                        </ul>
-                                    </div>
-                                        <!-- 목록 리스트 -->
-                                    </div>
-                                </div>
-                            </div>
-<!--                            <nav class="pagination">-->
-<!--                                <ul class="pagination-list" style="margin-left: -37%;">-->
-<!--                                    &lt;!&ndash; 처음 페이지로 이동하는 버튼 &ndash;&gt;-->
-<!--                                    <li class="pagination-first">-->
-<!--                                        <a-->
-<!--                                            href="#"-->
-<!--                                            class="pagination-first-link"-->
-<!--                                            rel="nofollow"-->
-<!--                                        >-->
-<!--                                            <span-->
-<!--                                                class="pagination-first-icon"-->
-<!--                                                aria-hidden="true"-->
-<!--                                                >«</span-->
-<!--                                            >-->
-<!--                                        </a>-->
-<!--                                    </li>-->
-<!--                                    &lt;!&ndash; 이전 페이지로 이동하는 버튼 &ndash;&gt;-->
-<!--                                    <li class="pagination-prev">-->
-<!--                                        <a-->
-<!--                                            href="#"-->
-<!--                                            class="pagination-prev-link"-->
-<!--                                            rel="prev nofollow"-->
-<!--                                        >-->
-<!--                                            <span-->
-<!--                                                class="pagination-prev-icon"-->
-<!--                                                aria-hidden="true"-->
-<!--                                                >‹</span-->
-<!--                                            >-->
-<!--                                        </a>-->
-<!--                                    </li>-->
-<!--                                    &lt;!&ndash; 페이지 번호 버튼 &ndash;&gt;-->
-<!--                                    <li class="pagination-page active">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >1</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >2</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >3</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >4</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >5</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >6</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >7</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >8</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >9</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    <li class="pagination-page">-->
-<!--                                        <a href="#" class="pagination-page-link"-->
-<!--                                            >10</a-->
-<!--                                        >-->
-<!--                                    </li>-->
-<!--                                    &lt;!&ndash; 다음 페이지로 이동하는 버튼 &ndash;&gt;-->
-<!--                                    <li class="pagination-next">-->
-<!--                                        <a-->
-<!--                                            href="#"-->
-<!--                                            class="pagination-next-link"-->
-<!--                                            rel="next nofollow"-->
-<!--                                        >-->
-<!--                                            <span-->
-<!--                                                class="pagination-next-icon"-->
-<!--                                                aria-hidden="true"-->
-<!--                                                >›</span-->
-<!--                                            >-->
-<!--                                        </a>-->
-<!--                                    </li>-->
-<!--                                    &lt;!&ndash; 마지막 페이지로 이동하는 버튼 &ndash;&gt;-->
-<!--                                    <li class="pagination-last">-->
-<!--                                        <a-->
-<!--                                            href="#"-->
-<!--                                            class="pagination-last-link"-->
-<!--                                            rel="nofollow"-->
-<!--                                        >-->
-<!--                                            <span-->
-<!--                                                class="pagination-last-icon"-->
-<!--                                                aria-hidden="true"-->
-<!--                                                >»</span-->
-<!--                                            >-->
-<!--                                        </a>-->
-<!--                                    </li>-->
-<!--                                </ul>-->
-<!--                            </nav>-->
-                    </div>
+                <div class="PreviewExitButtons_container">
+                    <button
+                            class="Button_button PreviewExitButtons_button"
+                            type="button"
+                    >
+                                <span
+                                ><span class="Button_children"
+                                >로그아웃</span
+                                ></span
+                                >
+                    </button>
                 </div>
             </div>
         </div>
-    </body>
-    <script src="/js/admin-page-js/admin-page/admin.js"></script>
-    <script src="/js/admin-page-js/admin-post/post-list-filter.js"></script>
-    <script src="/js/admin-page-js/admin-report/admin-report-list.js"></script>
-    <script src="/js/admin-page-js/admin-report/report-list.js"></script>
-    <script th:inline="javascript">
-        const reports = [[${reports}]];
-        const pagination = [[${pagination}]];
-    </script>
-<!--    <script>-->
-<!--        function moveToModification() {-->
-<!--            const postId = [[${post.id}]];-->
-<!--            window.location.href = `/report/report-inquiry?postId=${postId}`; // report-inquiry 페이지로 이동-->
-<!--        }-->
-<!--    </script>-->
+        <!-- 메인컨텐츠 영역 -->
+        <div class="AppLayout_main_1">
+            <div
+                    id="AppLayout_Contents"
+                    class="AppLayout_contents_mainContent"
+                    style="margin-left: 15.5%;"
+            >
+                <div class="Service_wrapper">
+                    <!-- body_header -->
+                    <div class="ServiceHeader_container">
+                        <h2 class="ServiceHeader_title"
+                            style="margin-left: 35%;">신고 관리</h2>
+                        <p class="ServiceHeader_description"
+                           style="margin-left: 34.5%;">
+                            신고 목록을 조회합니다.
+                        </p>
+                    </div>
+                    <hr
+                            class="Divider_divider Divider_horizontal Divider_lightBG Divider_spacing3 Divider_caption2 FriendsList_divider"
+                    />
+                    <!-- body_layout -->
+                    <div class="ServiceLayout_container">
+                        <div class="filter_wrap">
+                            <div class="SortFilterOptions">
+                                        <span
+                                                class="sort-filter-option selected"
+                                        >작성일 순</span
+                                        >/
+                                <span class="sort-filter-option"
+                                >조회수 순</span
+                                >/
+                                <span class="sort-filter-option"
+                                >댓글수 순</span
+                                >
+
+                            </div>
+                            <!-- Action Buttons -->
+                            <div class="action-buttons">
+                                <input
+                                        type="text"
+                                        class="Filter_searchInput"
+                                        placeholder="검색어 입력"
+                                />
+                                <button
+                                        id="addServiceBtn"
+                                        class="addServiceBtn"
+                                >
+                                    보류
+                                </button>
+                                <button
+                                        id="deleteSelectedBtn"
+                                        class="deleteSelectedBtn"
+                                >
+                                    처리
+                                </button>
+                            </div>
+                        </div>
+                        <hr
+                                class="Divider_divider Divider_horizontal Divider_lightBG Divider_spacing3 Divider_caption2 FriendsList_divider"
+                        />
+                        <div class="ServiceTable_container">
+                            <div class="header_wrapper">
+                                <div
+                                        class="ServiceTable_row ServiceTable_header"
+                                >
+                                    <div
+                                            class="ServiceTable_cell headerCell selectAllCell"
+                                    >
+                                        <input
+                                                type="checkbox"
+                                                id="selectAll"
+                                        />
+                                    </div>
+                                    <div
+                                            class="ServiceTable_cell headerCell pl50"
+                                            style=
+                                    >
+                                        ID
+                                    </div>
+                                    <div
+                                            class="ServiceTable_cell headerCell pl10"
+                                    >
+                                        신고자
+                                    </div>
+                                    <div
+                                            class="ServiceTable headerCell width180"
+                                    >
+                                        작성일
+                                    </div>
+                                    <div
+                                            class="ServiceTable headerCell  width200"
+                                    >
+                                        신고 게시글 제목
+                                    </div>
+                                    <div
+                                            class="ServiceTable_cell headerCell width200 pl120"
+                                    >
+                                        조회수
+                                    </div>
+                                    <div
+                                            class="ServiceTable_cell headerCell pl103"
+                                    >
+                                        댓글수
+                                    </div>
+                                    <div
+                                            class="ServiceTable_cell headerCell pl65"
+
+                                    >
+                                        신고 사유
+                                    </div>
+                                    <div
+                                            class="ServiceTable_cell headerCell pl130"
+                                    >
+                                        상태
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 목록 리스트 -->
+                            <div id = "listdiv" class="post-lists">
+                            </div>
+                            <div class="pagination-wrap">
+                                <ul id="pagingdiv" class="pagination theme-moa"
+                                    style="list-style: none">
+                                </ul>
+                            </div>
+                            <!-- 목록 리스트 -->
+                        </div>
+                    </div>
+                </div>
+                <!--                            <nav class="pagination">-->
+                <!--                                <ul class="pagination-list" style="margin-left: -37%;">-->
+                <!--                                    &lt;!&ndash; 처음 페이지로 이동하는 버튼 &ndash;&gt;-->
+                <!--                                    <li class="pagination-first">-->
+                <!--                                        <a-->
+                <!--                                            href="#"-->
+                <!--                                            class="pagination-first-link"-->
+                <!--                                            rel="nofollow"-->
+                <!--                                        >-->
+                <!--                                            <span-->
+                <!--                                                class="pagination-first-icon"-->
+                <!--                                                aria-hidden="true"-->
+                <!--                                                >«</span-->
+                <!--                                            >-->
+                <!--                                        </a>-->
+                <!--                                    </li>-->
+                <!--                                    &lt;!&ndash; 이전 페이지로 이동하는 버튼 &ndash;&gt;-->
+                <!--                                    <li class="pagination-prev">-->
+                <!--                                        <a-->
+                <!--                                            href="#"-->
+                <!--                                            class="pagination-prev-link"-->
+                <!--                                            rel="prev nofollow"-->
+                <!--                                        >-->
+                <!--                                            <span-->
+                <!--                                                class="pagination-prev-icon"-->
+                <!--                                                aria-hidden="true"-->
+                <!--                                                >‹</span-->
+                <!--                                            >-->
+                <!--                                        </a>-->
+                <!--                                    </li>-->
+                <!--                                    &lt;!&ndash; 페이지 번호 버튼 &ndash;&gt;-->
+                <!--                                    <li class="pagination-page active">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >1</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >2</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >3</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >4</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >5</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >6</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >7</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >8</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >9</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    <li class="pagination-page">-->
+                <!--                                        <a href="#" class="pagination-page-link"-->
+                <!--                                            >10</a-->
+                <!--                                        >-->
+                <!--                                    </li>-->
+                <!--                                    &lt;!&ndash; 다음 페이지로 이동하는 버튼 &ndash;&gt;-->
+                <!--                                    <li class="pagination-next">-->
+                <!--                                        <a-->
+                <!--                                            href="#"-->
+                <!--                                            class="pagination-next-link"-->
+                <!--                                            rel="next nofollow"-->
+                <!--                                        >-->
+                <!--                                            <span-->
+                <!--                                                class="pagination-next-icon"-->
+                <!--                                                aria-hidden="true"-->
+                <!--                                                >›</span-->
+                <!--                                            >-->
+                <!--                                        </a>-->
+                <!--                                    </li>-->
+                <!--                                    &lt;!&ndash; 마지막 페이지로 이동하는 버튼 &ndash;&gt;-->
+                <!--                                    <li class="pagination-last">-->
+                <!--                                        <a-->
+                <!--                                            href="#"-->
+                <!--                                            class="pagination-last-link"-->
+                <!--                                            rel="nofollow"-->
+                <!--                                        >-->
+                <!--                                            <span-->
+                <!--                                                class="pagination-last-icon"-->
+                <!--                                                aria-hidden="true"-->
+                <!--                                                >»</span-->
+                <!--                                            >-->
+                <!--                                        </a>-->
+                <!--                                    </li>-->
+                <!--                                </ul>-->
+                <!--                            </nav>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/js/admin-page-js/admin-page/admin.js"></script>
+<script src="/js/admin-page-js/admin-post/post-list-filter.js"></script>
+<script src="/js/admin-page-js/admin-report/admin-report-list.js"></script>
+<script th:inline="javascript">
+    const reports = [[${reports}]];
+    const pagination = [[${pagination}]];
+</script>
+
+<script src="/js/admin-page-js/admin-report/report-list.js"></script>
+
 </html>

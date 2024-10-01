@@ -1,12 +1,15 @@
 package com.app.moa.controller.report;
 
 
+import com.app.moa.domain.post.PostVO;
 import com.app.moa.domain.report.Pagination;
 import com.app.moa.domain.report.ReportDTO;
 import com.app.moa.domain.report.ReportVO;
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
+import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.service.report.ReportService;
 
+import com.app.moa.service.thesis_post.ThesisPostServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -26,6 +29,7 @@ import java.util.Optional;
 public class ReportController {
     private final ReportService reportService;
     private final ReportDTO reportDTO;
+    private final ThesisPostServiceImpl thesisPostService;
 
     //    신고된 게시글 목록 조회
     @GetMapping("list")
@@ -51,14 +55,15 @@ public class ReportController {
 //  신고된 게시글 조회
     @GetMapping("inquiry")
     public String getReportInquiry(@RequestParam("postId") Long postId, Model model) {
-        Optional<ReportVO> report = reportService.getById(postId);
-        if (report.isPresent()) {
-            model.addAttribute("report", report.get());
+        Optional<ThesisPostVO> post = thesisPostService.getById(postId);
+        if (post.isPresent()) {
+            model.addAttribute("post", post.get());
         } else {
-            return "redirect:/admin-page-html/admin-report/admin-report-inquiry";
+            return "redirect:/thesis/thesis-list";
         }
-        log.info(String.valueOf(report.get()));
-        return "report/report-inquiry";
+
+        log.info(String.valueOf(post.get()));
+        return "thesis/thesis-inquiry";
     }
 
 //    @GetMapping("report-inquiry")
