@@ -5,6 +5,8 @@ import com.app.moa.domain.member.MemberVO;
 import com.app.moa.exception.LoginFailException;
 import com.app.moa.service.member.MemberService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.time.LocalTime;
@@ -36,33 +39,55 @@ public class MemberController {
     }
 
     @GetMapping("login")
-    public void goToLoginForm(MemberDTO memberDTO){;}
+    public void goToLoginForm(@RequestParam(required = false) Boolean status, MemberDTO memberDTO, HttpServletRequest request, Model model){
+
+        Cookie[] cookies = request.getCookies();
+
+        for(int i = 0; i < cookies.length; i++){
+            log.info(cookies[i].getName());
+
+            if(cookies[i].getName().equals("save")){
+                model.addAttribute("save", cookies[i].getValue());
+            }
+            if(cookies[i].getName().equals("memberEmail")){
+                memberDTO.setMemberEmail(cookies[i].getValue());
+            }
+
+        }
+    }
 
     @PostMapping("login")
-    public RedirectView login(MemberDTO memberDTO, boolean save, HttpSession session){
+    public RedirectView login(MemberDTO memberDTO, String save, HttpSession session, HttpServletResponse response){
 
-        if(save){
-//          쿠키 생성, 저장
-            Cookie saveCookie = new Cookie("saveCookie", memberDTO.toString());
-        } else{
-//          쿠키 삭제
-        }
-
-//        1. 안에서 할 게 많아서 람다로 쓰기에 제약이 있을 때 .isPresent() 사용
-//        if(memberService.login(memberDTO.toVO()).isPresent()){
+//        Optional<MemberVO> foundMember = memberService.login(memberDTO.toVO());
 //
+//        MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() +")로그인 실패");});
+//        session.setAttribute("member", memberVO);
+
+//        if(save != null){
+////            쿠키 생성, 저장
+//            Cookie saveCookie = new Cookie("save", save);
+//            Cookie memberEmailCookie = new Cookie("memberEmail", memberDTO.getMemberEmail());
+//
+////            -1: 쿠키 계속 유지
+//            saveCookie.setMaxAge(-1);
+//            memberEmailCookie.setMaxAge(-1);
+//
+//            response.addCookie(saveCookie);
+//            response.addCookie(memberEmailCookie);
+//
+//        }else{
+////            쿠키 삭제
+//            Cookie saveCookie = new Cookie("save", null);
+//            Cookie memberEmailCookie = new Cookie("memberEmail", null);
+//
+//            saveCookie.setMaxAge(0);
+//            memberEmailCookie.setMaxAge(0);
+//
+//            response.addCookie(saveCookie);
+//            response.addCookie(memberEmailCookie);
 //        }
 
-        Optional<MemberVO> foundMember = memberService.login(memberDTO.toVO());
-//        2. null일 때는 아무것도 하지 않고, null이 아닐 때만 무언가를 할 때 .ifPresent(람다식) 사용
-//        foundMember.ifPresent((member) -> {
-//            session.setAttribute("memberId", memberDTO.getId());
-//        });
-
-//        3. null일 때와 null이 아닐 때 모두 할 게 있을 때 .orElseThrow(람다식) 사용
-        MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() +")로그인 실패");});
-//        session.setAttribute("memberId", memberVO.getId());
-        session.setAttribute("member", memberVO);
         memberDTO.setMemberEmail(memberDTO.getMemberNickname());
         log.info("{}", memberDTO);
         memberService.login(memberDTO.toVO())
@@ -75,7 +100,7 @@ public class MemberController {
                             log.info("로그인 실패");
                         });
 
-        return new RedirectView( "/templates/main/main-login/main-login.html");
+        return new RedirectView( "/main-login-page");
     }
 
     //    로그 아웃
