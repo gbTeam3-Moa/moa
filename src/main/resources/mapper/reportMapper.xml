@@ -35,7 +35,7 @@
             RP.ID,
             P.POST_TITLE,
             P.POST_CONTENT
-        FROM TBL_REPORT RP JOIN TBL_POST P ON RP.ID = P.ID
+        FROM TBL_POST P JOIN TBL_REPORT RP ON P.ID = RP.ID
     </select>
 
     <update id="update">

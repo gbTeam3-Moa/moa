@@ -60,12 +60,17 @@ const showList = () => {
                                             >
                                                 ${report.reportReason || '사유 없음'}
                                             </div>
-                                            <button class="report-status"
+                                            <div
+                                                class="ServiceTable_cell editBtn"
+                                                id="report-status"
+                                            >
+                                                <button class="report-status"
                                                 id="report-status">
                                                 ${report.reportStatus || '상태 없음'}
-                                                <a href="/report/report-inquiry?reportId=${report.id}" class="post-title"></a> 
-                                            </button>
-                                    </div>
+                                                <a href="/report/report-inquiry"></a> 
+                                                </button>
+                                            </div>
+                                        </div>
             `;
         });
     }

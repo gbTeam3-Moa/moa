@@ -307,9 +307,15 @@
     <script src="/js/admin-page-js/admin-page/admin.js"></script>
     <script src="/js/admin-page-js/admin-post/post-list-filter.js"></script>
     <script src="/js/admin-page-js/admin-report/admin-report-list.js"></script>
+    <script src="/js/admin-page-js/admin-report/report-list.js"></script>
     <script th:inline="javascript">
         const reports = [[${reports}]];
         const pagination = [[${pagination}]];
     </script>
-    <script src="/js/admin-page-js/admin-report/report-list.js"></script>
+<!--    <script>-->
+<!--        function moveToModification() {-->
+<!--            const postId = [[${post.id}]];-->
+<!--            window.location.href = `/report/report-inquiry?postId=${postId}`; // report-inquiry 페이지로 이동-->
+<!--        }-->
+<!--    </script>-->
 </html>
