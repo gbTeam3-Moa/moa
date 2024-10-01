@@ -77,9 +77,6 @@ public class QaPostController {
         if (post.isPresent()) {
             model.addAttribute("post", post.get());
 
-            // 댓글 목록 조회
-            List<ReplyDTO> replies = replyService.getListByPostId(postId);
-            model.addAttribute("replies", replies);
         } else {
             return "redirect:/qa/qa-list"; // 게시글이 없을 경우 목록으로 리다이렉트
         }

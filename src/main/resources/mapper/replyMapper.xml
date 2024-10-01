@@ -2,17 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.moa.mapper.reply.ReplyMapper">
     <insert id="insert">
-            INSERT INTO TBL_REPLY(ID,POST_ID, MEMBER_ID, REPLY_CONTENT, GROUP_ID, REPLY_DEPTH)
-            VALUES (SEQ_REPLY.NEXTVAL, #{postId}, #{memberId}, #{replyContent},#{groupId}, #{replyDepth})
+            INSERT INTO TBL_REPLY(ID,POST_ID, MEMBER_ID, REPLY_CONTENT, CREATED_DATE,UPDATED_DATE,GROUP_ID, REPLY_DEPTH)
+            VALUES(SEQ_REPLY.NEXTVAL,#{postId},#{memberId}, #{replyContent}, SYSDATE,SYSDATE,SEQ_REPLY.CURRVAL, 1)
     </insert>
 
-    <select id="selectAllByPostId" resultType="replyDTO">
-        SELECT RE.ID, RE.MEMBER_ID,RE.POST_ID, M.MEMBER_NICKNAME, REPLY_CONTENT, RE.CREATED_DATE, RE.GROUP_ID
-        FROM TBL_REPLY RE JOIN TBL_MEMBER M
-        ON RE.MEMBER_ID = M.ID
-        ORDER BY RE.ID DESC
+    <select id="selectAll">
+        SELECT R2.ID, REPLY_CONTENT, MEMBER_ID, POST_ID, R2.CREATED_DATE, R2.UPDATED_DATE, MEMBER_NAME
+        FROM
+            (
+                SELECT ROWNUM R, R1.ID, REPLY_CONTENT, MEMBER_ID, POST_ID, R1.CREATED_DATE, R1.UPDATED_DATE, MEMBER_NAME
+                FROM (SELECT R.ID, REPLY_CONTENT, MEMBER_ID, POST_ID, R.CREATED_DATE, R.UPDATED_DATE, MEMBER_NAME
+                      FROM TBL_MEMBER M
+                               JOIN TBL_REPLY R
+                                    ON M.ID = R.MEMBER_ID AND POST_ID = #{postId}
+                      ORDER BY ID DESC) R1
+                <![CDATA[
+                WHERE ROWNUM <= #{pagination.endRow}
+                ]]>
+            ) R2
+        WHERE R2.R >= #{pagination.startRow}
     </select>
 
+    <select id="selectCount">
+        SELECT COUNT(*) FROM TBL_REPLY
+        WHERE POST_ID = #{postId}
+    </select>
 
     <update id="update">
         UPDATE TBL_REPLY

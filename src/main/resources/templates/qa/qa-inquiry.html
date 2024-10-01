@@ -65,34 +65,27 @@
 </div>
 <div class="comment-wrap">
     <p class="comment-count-wrap">
-        A. 답변 <span class="comment-count">3</span>
+        A. 답변 <span class="comment-count">0</span>
     </p>
     <div class="comment-container">
         <!-- 댓글 섹션은 필요에 따라 수정 -->
         <!-- 예시 댓글 -->
         <div class="replyComment">
-        <div class="comment-inner">
-            <div class="comment-writer">
-                <img src="https://cdn.wishket.com/profiles/2828_20191121_db85568715d9aacd.jpg" alt="" class="comment-writer-image" />
-                <a href="https://www.wishket.com/partners/p/Wishket/" class="comment-writer-username">[[${post.memberNickname}]]</a>
-            </div>
-            <p class="comment">
-                [[${reply.replyContent}]]
-            </p>
-            <div class="comment-created-date">
-                [[${post.createdDate}]]
-            </div>
+        <div class="comment-inner" id="replyList">
+
         </div>
         </div>
         <!-- 댓글 작성 폼 -->
-        <form class="comment-form" method="post">
+        <form th:action="@{/reply/reply-write}" class="comment-form" method="post">
+            <input type="hidden" name="postId" th:value="${post.id}"/>
+            <input type="hidden" name="memberId" th:value="${post.memberId}"/>
             <div class="comment-write-wrap">
                 <div class="comment-write-container">
                     <div class="comment-writer">
                         <img src="https://www.wishket.com/static/img/default_avatar_c.png" class="comment-writer-image" />
                         <p class="comment-writer-username">[[${post.memberId}]]</p>
                     </div>
-                    <textarea name="comment-description" class="comment-write-textarea" placeholder="댓글을 2,000자 이내로 작성해주세요." rows="4"></textarea>
+                    <textarea name="replyContent" class="comment-write-textarea" placeholder="댓글을 2,000자 이내로 작성해주세요." rows="4"></textarea>
                     <div class="comment-complete-button-wrap">
                         <button class="comment-complete-button">작성하기</button>
                     </div>
@@ -102,5 +95,13 @@
     </div>
 </div>
 </body>
+<script th:inline="javascript">
+    const replies = [[${replies}]];
+    const post  = [[${post}]];
+</script>
 <script src="/js/qa/qa-inquiry.js"></script>
+<script src="/js/qa/qa-inquiry-event.js"></script>
+<script src="/js/qa/qa-inquiry-layout.js"></script>
+<script src="/js/qa/qa-inquiry-service.js"></script>
+
 </html>

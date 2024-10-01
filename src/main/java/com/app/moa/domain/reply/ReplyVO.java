@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Getter
-@ToString
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ReplyVO {
+    @EqualsAndHashCode.Include
     private Long id;
     private Long postId;
     private Long memberId;
@@ -18,5 +18,5 @@ public class ReplyVO {
     private String createdDate;
     private String updatedDate;
     private Long groupId;
-    private int replyDepth;
+    private Long replyDepth;
 }
