@@ -2,6 +2,7 @@ package com.app.moa.controller.thesis_post;
 
 import com.app.moa.domain.member.MemberVO;
 import com.app.moa.domain.post.Pagination;
+import com.app.moa.domain.post.Search;
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.service.thesis_post.ThesisPostService;
@@ -32,11 +33,11 @@ public class ThesisPostController {
     private final HttpSession session;
 
     @GetMapping("thesis-list")
-    public String getList(Pagination pagination, Model model,@RequestParam(defaultValue = "recent") String view) {
+    public String getList(Pagination pagination, Model model, @RequestParam(defaultValue = "recent") String view, Search search) {
 
         pagination.setTotal(thesisPostService.getTotal());
         pagination.progress();
-        List<ThesisPostDTO> posts = thesisPostService.getList(pagination);
+        List<ThesisPostDTO> posts = thesisPostService.getList(pagination,search);
 
         if (posts.isEmpty()) {
             log.info("포스트 없음");

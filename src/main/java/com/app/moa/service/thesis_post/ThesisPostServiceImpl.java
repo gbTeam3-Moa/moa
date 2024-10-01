@@ -2,6 +2,7 @@ package com.app.moa.service.thesis_post;
 
 import com.app.moa.domain.post.Pagination;
 import com.app.moa.domain.post.PostVO;
+import com.app.moa.domain.post.Search;
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.mapper.post.PostMapper;
@@ -40,8 +41,8 @@ public class ThesisPostServiceImpl implements ThesisPostService {
     }
 
     @Override
-    public List<ThesisPostDTO> getList(Pagination pagination) {
-        return thesisPostDAO.findAll(pagination);
+    public List<ThesisPostDTO> getList(Pagination pagination, Search search) {
+        return thesisPostDAO.findAll(pagination, search);
     }
 
     @Override
@@ -87,6 +88,10 @@ public class ThesisPostServiceImpl implements ThesisPostService {
     @Override
     public void increasePostView(Long id) {
         thesisPostMapper.increasePostView(id);
+    }
+    @Override
+    public int getTotalWithSearch(Search search) {
+        return thesisPostDAO.getTotalWithSearch(search);
     }
 
 

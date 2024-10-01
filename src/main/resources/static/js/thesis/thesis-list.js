@@ -39,7 +39,7 @@ const showList = () => {
                                 ${post.professorMajor || '학과 정보 없음'} 
                             </div>
                             <div class="post-writer-name">
-                                ${member.memberNickName}
+                                ${post.memberNickName}
                             </div>
                             <div class="post-created-date">
                                 ${post.updatedDate || '날짜 정보 없음'} 
@@ -87,7 +87,7 @@ const showPaging = () => {
         }
     }
 
-    if (pagination.page && pagination.page < pagination.pageCount) {
+    if (pagination.page && pagination.page < pagination.endPage) {
         text += `
         <li class="page-item" id="page-next-button">
             <a href="/thesis/thesis-list?page=${pagination.page + 1}" class="page-link">다음</a>
