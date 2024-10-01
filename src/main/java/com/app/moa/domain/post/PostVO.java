@@ -19,5 +19,4 @@ public class PostVO {
     private int postView;
     private String createdDate;
     private String updatedDate;
-
 }

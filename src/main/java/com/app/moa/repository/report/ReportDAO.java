@@ -37,6 +37,10 @@ public class ReportDAO {
         return reportMapper.selectById(id);
     }
 
+//  신고된 게시물 수정
+    public void update(ReportVO reportVO) {reportMapper.update(reportVO);}
+//    신고된 게시물 삭제
+    public void delete(long id) {reportMapper.delete(id);}
 
 
 

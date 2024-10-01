@@ -21,6 +21,7 @@ public class ReportDTO {
     private Long reportStatus;
 
     private String postTitle;
+    private String postContent;
     private int postView;
     private String createdDate;
     private int replyCount;
@@ -28,5 +29,6 @@ public class ReportDTO {
 
 
     public ReportVO toVO(){return new ReportVO(id, postId, memberId, reportReason, reportStatus);}
+
 //    public ReportVO toReportVO(){return new ReportVO(id, memberId, postId, createdDate, postTitle,postView, reportReason, reportStatus);}
 }

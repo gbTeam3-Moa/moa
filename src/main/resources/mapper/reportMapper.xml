@@ -35,11 +35,35 @@
             RP.ID,
             P.POST_TITLE,
             P.POST_CONTENT
-        FROM TBL_REPORT RP JOIN TBL_POST P ON RP.ID = P.ID
-        LEFT JOIN TBL_ATTACHMENT AT ON P.ID = AT.POST_ID
-        WHERE
-            RP.ID = #{id}
+        FROM TBL_POST P JOIN TBL_REPORT RP ON P.ID = RP.ID
     </select>
-<!-- 첨부파일은 나중에 배우고 -->
+
+    <update id="update">
+        UPDATE TBL_POST P
+        SET
+            P.POST_TITLE = (SELECT #{postTitle} FROM TBL_REPORT RP WHERE RP.POST_ID = P.ID),
+            P.POST_CONTENT = (SELECT #{postContent} FROM TBL_REPORT RP WHERE RP.POST_ID = P.ID)
+        WHERE P.ID = #{id}
+    </update>
+
+
+    <delete id="delete">
+        DELETE FROM TBL_REPORT
+        WHERE ID = #{id}
+    </delete>
 
 </mapper>
+
+
+        <!-- 첨부파일은 나중에 배우고-->
+
+
+
+        <!--    SELECT-->
+        <!--    RP.ID,-->
+        <!--    P.POST_TITLE,-->
+        <!--    P.POST_CONTENT-->
+        <!--    FROM TBL_REPORT RP JOIN TBL_POST P ON RP.ID = P.ID-->
+        <!--    JOIN TBL_ATTACHMENT AT ON P.ID = AT.POST_ID-->
+        <!--    WHERE-->
+        <!--    RP.ID = #{id}-->
