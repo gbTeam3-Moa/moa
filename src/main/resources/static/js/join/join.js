@@ -329,12 +329,22 @@ repwCheck.addEventListener("input", function () {
 
 /******************************************************* */
 let enterPressed = false; // 엔터 키가 눌렸는지 추적하는 용
+let emailEntered = false;
+let idEntered = false;
+let pwEntered = false;
+let rePwEntered = false;
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        enterPressed = true; // 엔터 키가 눌렸음을 기록
+    }
+});
 
 const emailinputField = document.querySelector("input[name=memberEmail]");
-const idinputField = document.querySelector("input[name=memberId]");
+const idinputField = document.querySelector("input[name=memberNickname]");
 const pwinputField = document.querySelector("input[name=memberPassword]");
 const repwinputField = document.querySelector("input[name=repasswordinput]");
-const regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+const emailRegexp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 let isEmailValid = false;
 let isIdValid = false;
 let isPwValid = false;
@@ -342,20 +352,29 @@ let isRePwValid = false;
 
 // 이메일 입력 필드에 포커스가 들어올 때
 emailinputField.addEventListener("focus", (e) => {
-    // Enter 키가 눌린 상태라면 빨간색, 아니면 원본 색상 유지
-    isEmailValid =
-        e.target.value === regEmail ? true : false;
-    emailinputField.style.color =
-        isEmailValid ? "red" : "rgb(97, 97, 97)";
-    emailplaceholder.style.color =
-        enterPressed && idinputField.value === "" ? "red" : "rgb(51, 145, 186)";
     emailplaceholder.style.top = "-5px";
     emailplaceholder.style.fontSize = "12px";
     emailplaceholder.style.transform = "translateY(0)";
-    emailplaceholder.style.color =
-        emailMessage.style.color === "red" ? "red" : "rgb(51, 145, 186)";
-    emailinputBoxLabel.style.borderColor =
-        emailMessage.style.color === "red" ? "red" : "rgb(51, 145, 186)";
+
+    if(emailEntered) {
+        // Enter 키가 눌린 상태라면 빨간색, 아니면 원본 색상 유지
+        emailplaceholder.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailinputBoxLabel.style.borderColor =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+        emailinputField.style.color =
+            isEmailValid ? "rgb(97, 97, 97)" : "red";
+        emailMessage.textContent =
+            isEmailValid ? "" : "이메일을 입력해 주세요";
+        emailMessage.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
+    } else {
+        emailplaceholder.style.color = "rgb(51, 145, 186)";
+        emailinputBoxLabel.style.borderColor = "rgb(51, 145, 186)";
+        emailinputField.style.color = "rgb(97, 97, 97)";
+        emailMessage.textContent = "";
+        emailMessage.style.color = "rgb(51, 145, 186)";
+    }
 });
 
 // 아이디 입력 필드에 포커스가 들어올 때
@@ -364,7 +383,7 @@ idinputField.addEventListener("focus", () => {
     idinputField.style.color =
         idMessage.style.color === "red" ? "red" : "rgb(97, 97, 97)";
     idplaceholder.style.color =
-        enterPressed && idinputField.value === "" ? "red" : "rgb(51, 145, 186)";
+        enterPressed && isIdValid === "" ? "red" : "rgb(51, 145, 186)";
     idplaceholder.style.top = "-5px";
     idplaceholder.style.fontSize = "12px";
     idplaceholder.style.transform = "translateY(0)";
@@ -409,23 +428,27 @@ repwinputField.addEventListener("focus", () => {
 
 // 이메일 입력 필드에서 포커스가 나갈 때
 emailinputField.addEventListener("blur", () => {
-    if (emailinputField.value) {
-        emailinputBoxLabel.style.borderColor = "rgb(189, 189, 189)";
-        emailplaceholder.style.color = "rgb(189, 189, 189)";
-        emailinputField.style.color = "rgb(97, 97, 97)";
-    } else if (idMessage.style.color === "red") {
-        emailinputBoxLabel.style.borderColor = "red";
-        emailplaceholder.style.color = "red";
-        emailinputField.style.color = "red";
-        emailplaceholder.style.top = "6px";
-        emailplaceholder.style.fontSize = "16px";
-        emailplaceholder.style.transform = "translateY(0)";
+    emailplaceholder.style.top = "6px";
+    emailplaceholder.style.fontSize = "16px";
+    emailplaceholder.style.transform = "translateY(0)";
+
+    if (emailEntered) {
+        emailinputBoxLabel.style.borderColor =
+            isEmailValid ? "rgb(189, 189, 189)" : "red";
+        emailplaceholder.style.color =
+            isEmailValid ? "rgb(189, 189, 189)" : "red";
+        emailinputField.style.color =
+            isEmailValid ? "rgb(97, 97, 97)" : "red";
+        emailMessage.textContent =
+            isEmailValid ? "" : "이메일을 입력해 주세요";
+        emailMessage.style.color =
+            isEmailValid ? "rgb(51, 145, 186)" : "red";
     } else {
         emailinputBoxLabel.style.borderColor = "rgb(189, 189, 189)";
         emailplaceholder.style.color = "rgb(189, 189, 189)";
-        emailplaceholder.style.top = "6px";
-        emailplaceholder.style.fontSize = "16px";
-        emailplaceholder.style.transform = "translateY(0)";
+        emailinputField.style.color = "rgb(97, 97, 97)";
+        emailMessage.textContent = "";
+        emailMessage.style.color = "rgb(51, 145, 186)";
     }
 });
 
@@ -494,12 +517,33 @@ repwinputField.addEventListener("blur", () => {
     }
 });
 
-// 이메일 입력 필드에서 엔터키 누를 때
+// 이메일 입력 필드에서 키 누를 때
 emailinputField.addEventListener("keydown", (e) => {
-    emailinputField.style.color = "rgb(97, 97, 97)";
-    emailMessage.style.color = "rgb(97, 97, 97)";
+
+    emailEntered = true;
+    isEmailValid =
+        emailRegexp.test(e.target.value) ? true : false;
+
+    emailplaceholder.style.color =
+        isEmailValid ? "rgb(51, 145, 186)" : "red";
+    emailinputBoxLabel.style.borderColor =
+        isEmailValid ? "rgb(51, 145, 186)" : "red";
+    emailinputField.style.color =
+        isEmailValid ? "rgb(51, 145, 186)" : "red";
+    emailMessage.textContent =
+        isEmailValid ? "" : "이메일을 입력해 주세요";
+    emailMessage.style.color =
+        isEmailValid ? "rgb(51, 145, 186)" : "red";
+
+    if(/*isCheckboxValid && */isEmailValid/* && isIdValid && isPwValid*/) {
+        signButton.type = "submit";
+    } else {
+        signButton.type = "button";
+    }
+
+    // 이메일 입력 필드에서 엔터키 누를 때
     if (e.key === "Enter") {
-        if (emailinputField.value === regEmail) {
+        if (emailRegexp.test(e.target.value)) {
             emailplaceholder.style.color = "rgb(51, 145, 186)";
         } else {
             emailinputBoxLabel.style.borderColor = "red";
@@ -535,7 +579,7 @@ emailinputField.addEventListener("keydown", (e) => {
             repwinputBoxLabel.style.borderColor = "red";
             repwinputField.style.color = "red";
             repwplaceholder.style.color = "red";
-            repwMessage.textContent = "비밀번호를 재 입력해 주세요";
+            repwMessage.textContent = "비밀번호를 한 번 더 입력해 주세요";
             repwMessage.style.color = "red";
         }
 
@@ -559,6 +603,11 @@ emailinputField.addEventListener("keydown", (e) => {
 idinputField.addEventListener("keydown", (e) => {
     idinputField.style.color = "rgb(97, 97, 97)";
     idMessage.style.color = "rgb(97, 97, 97)";
+    // if(isCheckboxValid && isEmailValid && isIdValid && isPwValid) {
+    //     signButton.type = "submit";
+    // } else {
+    //     signButton.type = "button";
+    // }
     if (e.key === "Enter") {
         if (idinputField.value) {
             idplaceholder.style.color = "rgb(51, 145, 186)";
@@ -576,7 +625,7 @@ idinputField.addEventListener("keydown", (e) => {
             emailinputBoxLabel.style.borderColor = "red";
             emailinputField.style.color = "red";
             emailplaceholder.style.color = "red";
-            emailMessage.textContent = "이메일를 입력해 주세요";
+            emailMessage.textContent = "이메일을 입력해 주세요";
             emailMessage.style.color = "red";
         }
 
@@ -608,7 +657,7 @@ idinputField.addEventListener("keydown", (e) => {
         ) {
             checkMessage.style.display = "block";
             checkMessage.textContent =
-                "신분확인을 위해 한가지 체크해 주세요.";
+                "신분확인을 위해 한 가지 체크해 주세요.";
             checkMessage.style.color = "red";
         } else {
             checkMessage.style.display = "none"; // 메시지 숨기기
@@ -620,6 +669,11 @@ idinputField.addEventListener("keydown", (e) => {
 pwinputField.addEventListener("keydown", (e) => {
     pwinputField.style.color = "rgb(97, 97, 97)";
     pwMessage.style.color = "rgb(97, 97, 97)";
+    // if(isCheckboxValid && isEmailValid && isIdValid && isPwValid) {
+    //     signButton.type = "submit";
+    // } else {
+    //     signButton.type = "button";
+    // }
     if (e.key === "Enter") {
         if (pwinputField.value) {
             pwplaceholder.style.color = "rgb(51, 145, 186)";
@@ -681,6 +735,11 @@ pwinputField.addEventListener("keydown", (e) => {
 repwinputField.addEventListener("keydown", (e) => {
     repwinputField.style.color = "rgb(97, 97, 97)";
     repwMessage.style.color = "rgb(97, 97, 97)";
+    // if(isCheckboxValid && isEmailValid && isIdValid && isPwValid) {
+    //     signButton.type = "submit";
+    // } else {
+    //     signButton.type = "button";
+    // }
     if (e.key === "Enter") {
         if (repwinputField.value) {
             repwplaceholder.style.color = "rgb(51, 145, 186)";

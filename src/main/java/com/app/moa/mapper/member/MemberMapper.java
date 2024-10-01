@@ -18,6 +18,9 @@ public interface MemberMapper {
     //    Email로 회원 정보 조회
     public Optional<MemberVO> selectByMemberEmail(String memberEmail);
 
+    //    새 비밀번호 발급
+    public void updatePassword(MemberVO memberVO);
+
     //    회원 정보 수정
     public void update(MemberVO memberVO);
 
