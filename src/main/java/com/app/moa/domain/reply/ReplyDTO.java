@@ -6,12 +6,7 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter @ToString
 public class ReplyDTO {
     private Long id;
     private Long postId;
@@ -20,7 +15,7 @@ public class ReplyDTO {
     private String createdDate;
     private String updatedDate;
     private Long groupId;
-    private int replyDepth;
+    private Long replyDepth;
 
     public ReplyVO toVO(){return new ReplyVO(id, postId, memberId, replyContent, createdDate, updatedDate, groupId, replyDepth);}
 }
