@@ -2,6 +2,7 @@ package com.app.moa.repository.thesis_post;
 
 
 import com.app.moa.domain.post.Pagination;
+import com.app.moa.domain.post.Search;
 import com.app.moa.domain.thesis_post.ThesisPostDTO;
 import com.app.moa.domain.thesis_post.ThesisPostVO;
 import com.app.moa.mapper.thesis_post.ThesisPostMapper;
@@ -22,8 +23,8 @@ public class ThesisPostDAO {
     }
 
 //    전체 조회
-    public List<ThesisPostDTO> findAll(Pagination pagination) {
-        return thesisPostMapper.selectAll(pagination);
+    public List<ThesisPostDTO> findAll(Pagination pagination, Search search) {
+        return thesisPostMapper.selectAll(pagination, search);
     }
 
 //    전체 개수
@@ -39,6 +40,10 @@ public class ThesisPostDAO {
 
 //    게시글 삭제
     public void delete(long id) {thesisPostMapper.delete(id);}
+    //    검색 결과 개수 조회
+    public int getTotalWithSearch(Search search){
+        return thesisPostMapper.selectTotalWithSearch(search);
+    }
 
 
 }
