@@ -87,7 +87,7 @@ const showPaging = () => {
         }
     }
 
-    if (pagination.page && pagination.page < pagination.pageCount) {
+    if (pagination.page && pagination.page < pagination.endPage) {
         text += `
         <li class="page-item" id="page-next-button">
             <a href="/thesis/thesis-list?page=${pagination.page + 1}" class="page-link">다음</a>
