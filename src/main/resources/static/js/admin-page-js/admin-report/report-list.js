@@ -70,7 +70,7 @@ const showList = () => {
                                                 <a href="/report/report-inquiry"></a> 
                                                 </button>
                                             </div>
-                                        </div>
+                                    </div>
             `;
         });
     }
